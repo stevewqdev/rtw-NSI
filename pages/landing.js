@@ -1016,7 +1016,7 @@ Jewish Drive for Justice, Past and Present" by Dr. James Loeffler</h3>
 }
 
 // This gets called on every request
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const res = await fetch(`${process.env.ProjectUrl}/wp-json/acf/v3/pages/41`)
   const acfData = await res.json()
 
