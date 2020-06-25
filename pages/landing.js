@@ -47,6 +47,7 @@ const [count, setCount] = useState(0);
 const [countTwo, setCountTwo] = useState(0);
 
 useEffect(() => {
+
   var Element = document.getElementById("fellowship");
   window.addEventListener("scroll",function() {
     var top = (window.pageYOffset || document.scrollTop) - (document.clientTop || 0)
