@@ -1,0 +1,21 @@
+{
+  "name": "repair-stm",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "postbuild": "next-on-netlify"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.0",
+    "next": "9.4.4",
+    "next-on-netlify": "^2.1.0",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.0.1",
+    "react-countup": "^4.3.3",
+    "react-dom": "^16.13.1",
+    "reactstrap": "^8.4.1"
+  }
+}

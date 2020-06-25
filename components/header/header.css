@@ -1,0 +1,40 @@
+.header ul, .header li{
+    list-style-type: none;
+}
+.header p, .header a, .header ul {
+    color: white;
+    font-weight: 400;
+}
+.header ul{
+    margin: 0px!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+}
+.header{
+    position: relative;
+    z-index: 3;
+}
+.header.bottom{
+    background: #015D5D;
+    padding-bottom: 80px;
+    padding-top: 80px;
+}
+.nav__brand .top__logo{
+    width: 130px;
+    position: relative;
+    top: 20px;
+}
+.bottom.header ul {
+    margin: 0 0 0 auto!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    width: auto;
+}
+.bottom.header button{
+    margin-left: 50px;
+    color: #015D5D;
+    text-transform: unset;
+}

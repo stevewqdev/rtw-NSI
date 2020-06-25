@@ -1,0 +1,147 @@
+.container-fluid{
+    max-width: 1550px;
+    margin: auto;
+}
+h1{
+    font-size: 100px;
+    line-height: 90px;
+}
+h2{
+    font-size: 45px;
+}
+h3{
+    font-size: 35px;
+}
+p{
+    line-height: 25px;
+}
+.xxxl{
+    font-size: 70px;
+}
+.xxl{
+    font-size: 22px;
+}
+.xl{
+    font-size: 20px;
+}
+.sxl{
+    font-size: 20px;
+}
+.lg{
+    font-size: 17px;
+}
+.slg{
+    font-size: 16px;
+}
+.md{
+    font-size: 14px;
+}
+.sm{
+    font-size: 12px;
+}
+.xsm{
+    font-size: 10px;
+}
+.semibold{
+    font-weight: 600;
+}
+.bold{
+    font-weight: 700;
+}
+.regular{
+    font-weight: 400;
+}
+.medium{
+    font-weight: 500;
+}
+.light{
+    font-weight:300;
+}
+.gray{
+    color: #BCBCBC;
+}
+.underlined{
+    position: relative;
+    display: inline;
+}
+.underlined:after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    background: black;
+    height: 1px;
+    z-index: 2;
+    left: 0;
+    width: 100%;
+}
+.nav-link{
+    margin: 0 10px;
+    padding: 0px;
+}
+.karla-old{
+    font-family: 'Karla', sans-serif;
+}
+body, html{
+    overflow-x: hidden;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.poppins{
+    font-family: 'Poppins', sans-serif;
+}
+.btn.main-btn{
+    border: solid 2px white;
+    background: white;
+    color: black;
+    border-radius: 0px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    font-size: 14px;
+    transition: all ease-in-out 0.3s;
+}
+.btn.main-btn:hover{
+    background: #015D5D;
+    color: white!important;
+    border: solid 2px #ffffff!important;
+}
+.btn.main-btn.teal{
+    background: #015D5D;
+    color: white;
+    transition: all ease-in-out 0.3s;
+    border: solid 2px #015D5D;
+}
+.btn.main-btn.teal:hover{
+    background: #ffffff!important;
+    color: #015D5D!important;
+    border: solid 2px #015D5D!important;
+}
+.teal-text{
+    color: #015D5D;
+}
+.clear-teal{
+    color: #00A79A;
+}
+.navbar-brand{
+    margin-right: 50px;
+}
+.image img{
+    width: 100%;
+    object-fit: cover;
+}
+.no__padding{
+    padding: 0px!important;
+}
+a{
+    color: unset;
+    text-decoration: none;
+}
+a:hover{
+    color: unset;
+    text-decoration: none;
+}
+@media(max-width: 500px){
+    h2 {
+        font-size: 32px;
+    }
+}

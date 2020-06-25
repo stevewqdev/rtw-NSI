@@ -1,0 +1,13 @@
+.footer{
+    background: #015D5D;
+    padding: 40px 0;
+}
+footer{
+    background: #015D5D;
+}
+.bottom__logo{
+    width: 250px;
+}
+.header.bottom .navbar{
+    padding: 0px 50px;
+}
