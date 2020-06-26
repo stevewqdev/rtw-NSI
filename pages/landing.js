@@ -63,7 +63,6 @@ useEffect(() => {
      document.getElementById("r_one").classList.remove("active");
     }
 
-    console.log(props.acfData.acf);
 });
 
 return (
@@ -1016,7 +1015,7 @@ Jewish Drive for Justice, Past and Present" by Dr. James Loeffler</h3>
 }
 
 // This gets called on every request
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const res = await fetch(`${process.env.ProjectUrl}/wp-json/acf/v3/pages/41`)
   const acfData = await res.json()
 
