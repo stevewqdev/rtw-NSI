@@ -48,6 +48,12 @@ p{
 .bold{
     font-weight: 700;
 }
+.bold h2{ 
+    font-weight: 700;
+}
+.bold h3{ 
+    font-weight: 700;
+}
 .regular{
     font-weight: 400;
 }

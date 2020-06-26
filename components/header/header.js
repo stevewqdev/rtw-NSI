@@ -1,4 +1,6 @@
 import React, { useState, useEffect} from 'react';
+import { useRouter } from 'next/router'
+
 import {
   Collapse,
   Navbar,
@@ -18,6 +20,8 @@ const Header = (props) => {
 const [isOpen, setIsOpen] = useState(false);
 
 const toggle = () => setIsOpen(!isOpen);
+const router = useRouter()
+
 
 return (
   <div className={`header md ${props.customClass}`}>
@@ -34,13 +38,31 @@ return (
 
                       <Nav className="mr-auto main__nav" navbar>
                         {
-                          props.menuItems
+                          router.pathname === '/landing'
+                          ?
+                          <>
+                          {
+                            props.landingMenu
+                            ? props.landingMenu.items.map(menuItem => 
+                              <NavItem key={menuItem.ID}>
+                                <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
+                              </NavItem>
+                              )
+                            :""
+                          }
+                          </>
+                          :
+                          <>
+                          {
+                            props.menuItems
                             ? props.menuItems.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
                                 <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""
+                          }
+                          </>
                         }
                       </Nav>
                       <NavItem>

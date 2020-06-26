@@ -1,0 +1,16 @@
+.index__main{
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    color: white;
+    text-align: center;
+}
+.index__main{
+    text-align: center;
+
+}
+.index__main__div{
+    background: black;
+}

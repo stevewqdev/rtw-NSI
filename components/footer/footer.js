@@ -1,4 +1,6 @@
 import React, { useState, useEffect} from 'react';
+import { useRouter } from 'next/router'
+
 import {
   Collapse,
   Navbar,
@@ -18,6 +20,7 @@ const Footer = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   
   const toggle = () => setIsOpen(!isOpen);
+  const router = useRouter()
 
   return (
     <footer className={`header md ${props.customClass}`}>
@@ -34,13 +37,31 @@ const Footer = (props) => {
 
                         <Nav className="mr-auto main__nav" navbar>
                         {
-                          props.menuItems
+                          router.pathname === '/landing'
+                          ?
+                          <>
+                          {
+                            props.landingMenu
+                            ? props.landingMenu.items.map(menuItem => 
+                              <NavItem key={menuItem.ID}>
+                                <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
+                              </NavItem>
+                              )
+                            :""
+                          }
+                          </>
+                          :
+                          <>
+                          {
+                            props.menuItems
                             ? props.menuItems.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
                                 <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""
+                          }
+                          </>
                         }
                         </Nav>
 
@@ -61,15 +82,33 @@ const Footer = (props) => {
                 <div className="row">
                     <div className="col-lg-12">
                         <ul>
+                        {
+                          router.pathname === '/landing'
+                          ?
+                          <>
+                          {
+                            props.landingMenu
+                            ? props.landingMenu.items.map((menuItem, index) => 
+                              <a href={menuItem.url} key={index}>
+                               <li>{menuItem.title}</li>
+                              </a>
+                              )
+                            :""
+                          }
+                          </>
+                          :
+                          <>
                           {
                             props.menuItems
-                              ? props.menuItems.items.map((menuItem, index) => 
-                                <a href={menuItem.url} key={index}>
-                                      <li>{menuItem.title}</li>
-                                </a>
-                                )
-                              :""
+                            ? props.menuItems.items.map((menuItem, index) => 
+                              <a href={menuItem.url} key={index}>
+                              <li>{menuItem.title}</li>
+                              </a>
+                              )
+                            :""
                           }
+                          </>
+                        }
                         </ul>
                     </div>
                 </div>

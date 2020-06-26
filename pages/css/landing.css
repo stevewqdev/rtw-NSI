@@ -27,6 +27,9 @@
     width: 100px;
     margin-top: 40px;
 }
+#cause h2{
+    margin-bottom: 60px;
+}
 #cause__new{
     background: #EDEDED;
     min-height: 100vh;
@@ -36,14 +39,14 @@
     position: relative;
     padding: 220px 0 280px;
 }
+#cause__new h2{
+    margin-top: 20px;
+}
+
 #cause__new .right p:nth-child(1){
     margin-bottom: 15px;
     letter-spacing: 1.5px;
     color: #015D5D;
-}
-#cause__new .right p:nth-child(3){
-    padding-left: 90px;
-    margin-top: 60px;
 }
 #cause__new .left .black__box{
     position: relative;
@@ -164,11 +167,7 @@
     left: -5px;
     margin-bottom: 40px;
 }
-#main p:nth-child(1){
-    text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 1.5px;
-}
+
 #main p:nth-child(3){
     max-width: 650px;
     margin-top: 40px;
@@ -382,7 +381,7 @@
     max-width: 200px;
 }
 .logo__wrapper a:nth-child(28) img{
-    max-width: 100px;
+    max-width: 170px;
 }
 .logo__wrapper a:nth-child(29) img{
     max-width: 130px;
@@ -390,10 +389,7 @@
 .logo__wrapper a:nth-child(30) img{
     max-width: 100px;
 }
-#fellowship p:nth-child(1){
-    margin-bottom: 40px;
-    letter-spacing: 0.8px;
-}
+
 #fellowship p:nth-child(3){
     margin-top: 50px;
     max-width: 700px;
@@ -458,7 +454,7 @@
 }
 #cause .image img{
     position: absolute;
-    top: 205px;
+    top: 150px;
     z-index: 2;
 }
 @media(max-width: 1500px){
