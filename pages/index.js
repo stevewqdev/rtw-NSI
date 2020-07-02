@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-      <style>{customStyles}</style>
+        <style>{customStyles}</style>
       </Head>
       <main className="index__main__div">
         <div className="container index__main">

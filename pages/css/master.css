@@ -151,3 +151,7 @@ a:hover{
         font-size: 32px;
     }
 }
+
+.page__contain__search .input__wrapper{
+    width: 200px;
+}

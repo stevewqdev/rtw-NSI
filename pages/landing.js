@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CountUp from 'react-countup';
+import $ from 'jquery';
 
 export default function Landing(props) {
 
@@ -8,7 +9,7 @@ function toggleSections(event){
     document.querySelectorAll(".active.button__resources")[0].classList.remove("active");
     event.target.classList.add("active");
     let buttonsArray = [...document.querySelectorAll(".resources__item")];
-    buttonsArray.map((element, index) => {
+    buttonsArray.map((element) => {
       element.classList.remove("active");
       return false; 
     })
@@ -299,7 +300,7 @@ return (
               {
                 index === 0
                 ?
-                <div className="col-sm-12 col-md-12 col-lg-12 button__wrapper button__mobile">
+                <div className="col-sm-12 col-md-12 col-lg-12 button__wrapper button__mobile" key={index}>
                   <button className={`btn main-btn slg bold button__resources ${index === 0 ? "active" : ""}`} data-id={`r_one`} onClick={toggleSections}>
                     {element.button_text}
                   </button>
@@ -399,7 +400,7 @@ return (
               {
                 index === 1
                 ?
-                <div className="col-sm-12 col-md-12 col-lg-12 button__wrapper button__mobile">
+                <div className="col-sm-12 col-md-12 col-lg-12 button__wrapper button__mobile" key={index}>
                   <button className={`btn main-btn slg bold button__resources ${index === 0 ? "active" : ""}`} data-id={`r_two`} onClick={toggleSections}>
                     {element.button_text}
                   </button>
