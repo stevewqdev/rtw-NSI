@@ -8,6 +8,7 @@ import '../components/footer/footer.css'
 import "./css/master.css"
 import "./css/landing.css"
 import "./css/home.css"
+import "./css/impact.css"
 
 function MyApp({ Component, pageProps }) {
 

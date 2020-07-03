@@ -20,7 +20,6 @@ var wordpressLink = 'https://5efa3465bc5f8f0016c677a2.mockapi.io/avi/v1/campaign
 // We make the API call to pull the data
 var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
     console.log(data);
-
 }).done(function(data, theCards, datesLoop) {
     // We initialize the variables
     TimeRange = false;
@@ -34,7 +33,8 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
     var contextElemtents = new Array();
     var datetElemtents = new Array();
     var cityElements = new Array();
-    
+    var partnerElements = new Array();
+
     // We create an array for the dates we are going to loop
     var  datesLoop = new Array();
 
@@ -68,6 +68,9 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         }
         if(element.Issue_Area__c === '' || element.Issue_Area__c === null || element.Issue_Area__c === undefined){
             element.Issue_Area__c = 'Other interests';
+        }
+        if(element.Programming_Partner_Name__c === '' || element.Programming_Partner_Name__c === null || element.Programming_Partner_Name__c === undefined){
+            element.Programming_Partner_Name__c = 'Other';
         }
         if(element.Registration_Email__c === '' || element.Registration_Email__c === null || element.Registration_Email__c === undefined){
             element.Registration_Email__c = 'info@werepair.org';
@@ -153,6 +156,7 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
             registrationType : element.Registration_Type__c,
             city : element.Repair_City__c,
             partnerLink : element.Partner_Registration_Link__c, 
+            partner: element.Programming_Partner_Name__c,
             venue : element.Venue_Account_Name__c, 
             description : element.Description,
             isOngoing: element.Ongoing_Program__c,
@@ -176,22 +180,40 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         var filterCity = event.city.replace(/ /g,'')
                                     .replace(/,/g,'')
                                     .replace(/\//g,'')
+                                    .replace(/'/g,'')
+                                    .replace(/!/g,'')
+                                    .replace(/-/g,'')
                                     .replace(/\./g,'')
                                     .toLowerCase();
 
         // We create a variable that will get the issue field value, clean empty spaces and lowecase it
         var filterIssue = event.issue.replace(/ /g,'')
-                                        .replace(/,/g,'')
-                                        .replace(/\//g,'')
-                                        .replace(/\./g,'')
-                                        .toLowerCase();
+                                     .replace(/,/g,'')
+                                     .replace(/\//g,'')
+                                     .replace(/'/g,'')
+                                     .replace(/!/g,'')
+                                     .replace(/-/g,'')
+                                     .replace(/\./g,'')
+                                     .toLowerCase();
+
+        var filterPartner = event.partner.replace(/ /g,'')
+                                         .replace(/,/g,'')
+                                         .replace(/\//g,'')
+                                         .replace(/'/g,'')
+                                         .replace(/!/g,'')
+                                         .replace(/-/g,'')
+                                         .replace(/\//g,'')
+                                         .replace(/\./g,'')
+                                         .toLowerCase();
 
         // We update the event data with the curated fields data
         event.filterCity = filterCity;
         event.filterIssue = filterIssue;
         event.fullAddress = fullAddress;
+        event.filterPartner = filterPartner;
         event.filterContext = new Array();
         
+        console.log();
         // If the context field contains a ";" separator we will split the values and save them as each
         if(event.context.includes(";")){
             var explodedString = event.context.split(";");
@@ -202,10 +224,13 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
                         explodedString[i] = 'Families';
                     }
                     var filterContextInfo = explodedString[i].replace(/ /g,'')
-                                                                .replace(/,/g,'')
-                                                                .replace(/\//g,'')
-                                                                .replace(/\./g,'')
-                                                                .toLowerCase();
+                                                             .replace(/,/g,'')
+                                                             .replace(/\//g,'')
+                                                             .replace(/'/g,'')
+                                                             .replace(/!/g,'')
+                                                             .replace(/-/g,'')
+                                                             .replace(/\./g,'')
+                                                             .toLowerCase();
                     
                     event.filterContext.push(filterContextInfo);
                     contextElemtents.push(explodedString[i]);
@@ -222,10 +247,13 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
                 }
                 var contextFilter = event.context;
                 contextFilter = contextFilter.replace(/ /g,'')
-                                                .replace(/,/g,'')
-                                                .replace(/\//g,'')
-                                                .replace(/\./g,'')
-                                                .toLowerCase();
+                                              .replace(/,/g,'')
+                                              .replace(/\//g,'')
+                                              .replace(/'/g,'')
+                                              .replace(/!/g,'')
+                                              .replace(/-/g,'')
+                                              .replace(/\./g,'')
+                                              .toLowerCase();
 
                 event.filterContext.push(contextFilter);
                 contextElemtents.push(event.context);
@@ -238,6 +266,11 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         // If issue area its other we will include it
         if(!event.issue.includes('Other')){
             issueElements.push(event.issue);
+        }
+
+        // If partner area its other we will include it
+        if(!event.partner.includes('Other')){
+            partnerElements.push(event.partner);
         }
 
         // We set the current date Array
@@ -289,12 +322,14 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
     datetElemtents = [...new Set(datetElemtents)];
     contextElemtents = [...new Set(contextElemtents)];
     cityElements = [...new Set(cityElements)];  
+    partnerElements = [...new Set(partnerElements)];  
 
     // we sor the events alphabetically and the dates from older to newer
     issueElements.sort(); 
     datetElemtents.sort(); datetElemtents.reverse(); 
     cityElements.sort(); 
-    contextElemtents.sort(); 
+    contextElemtents.sort();
+    partnerElements.sort();  
 
     // We loop trought Issue options and add them to the DOM
     for (let index = 0; index < issueElements.length; index++) {
@@ -302,11 +337,24 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         // Save the info on a variable
         let finalOption = option;
         // Clean, remove spaces and lowercase the info
-        finalOption = finalOption.replace(/ /g, '');finalOption = finalOption.replace(/,/g, '');finalOption = finalOption.replace(/\//g, '');finalOption = finalOption.replace(/\./g, '').toLowerCase();
+        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
         // Create the option with JS
         let theOption = `<option value="${finalOption}" class="${finalOption}">${option}</option>`;
         // Insert the option into the html
         $( "#interest" ).append(theOption);
+    }
+
+    // We loop trought partner options and add them to the DOM
+    for (let index = 0; index < partnerElements.length; index++) {
+        var option = partnerElements[index];
+        // Save the info on a variable
+        let finalOption = option;
+        // Clean, remove spaces and lowercase the info
+        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+        // Create the option with JS
+        let theOption = `<option value="${finalOption}" class="${finalOption}">${option}</option>`;
+        // Insert the option into the html
+        $( "#partner" ).append(theOption);
     }
 
     // We loop trought City options and fix some of the values
@@ -337,14 +385,16 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         let finalOption = option;
         if( finalOption === 'New York'){
             // Clean, remove spaces and lowercase the info
-            finalOption = finalOption.replace(/ /g, '');finalOption = finalOption.replace(/,/g, '');finalOption = finalOption.replace(/\//g, '');finalOption = finalOption.replace(/\./g, '').toLowerCase();
+            finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+
             // Create the option with JS
             let theOption = `<option data-option-count="${index}" value="nyc" class="${finalOption} ${finalOption}-${index}">New York</option>`;
             // Insert the option into the html
             $( "#cities" ).append(theOption);
         }else{
             // Clean, remove spaces and lowercase the info
-            finalOption = finalOption.replace(/ /g, '');finalOption = finalOption.replace(/,/g, '');finalOption = finalOption.replace(/\//g, '');finalOption = finalOption.replace(/\./g, '').toLowerCase();
+            finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+
             // Create the option with JS
             let theOption = `<option data-option-count="${index}" value="${finalOption}" class="${finalOption} ${finalOption}-${index}">${option}</option>`;
             // Insert the option into the html
@@ -358,7 +408,8 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         // Save the info on a variable
         let finalOption = option;
         // Clean, remove spaces and lowercase the info
-        finalOption = finalOption.replace(/ /g, '');finalOption = finalOption.replace(/,/g, '');finalOption = finalOption.replace(/\//g, '');finalOption = finalOption.replace(/\./g, '').toLowerCase();
+        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+
         // Create the option with JS
         let theOption = `<label class="tag-checkbox ${finalOption}" for=""><input type="checkbox" class="${finalOption}" value="${finalOption}" data-info="${option}"> <span> ${option}</span></label>`;
         // Insert the option into the html
@@ -418,7 +469,10 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
 
     // Create array of cards for carousel
     var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
-    $('.get_info')[0].remove();
+
+    if($('.get_info')[0]){
+        $('.get_info')[0].remove();
+    }
 
     // Here we are going to create the pagination buttons and divide the events on pages.
     var pageList = new Array();
@@ -764,6 +818,7 @@ function changePage(number, cards){
         citySearch = null;
     }
     var interestSearch = $('#interest').val();
+    var partnerSearch = $('#partner').val();
     var dateSearch = JSON.parse(localStorage.getItem('finalInputsRange'));
     var typeEvent = $('.type__input .option.selected').attr('data-value');
     // Create the array for the search Dates
@@ -776,6 +831,7 @@ function changePage(number, cards){
     searchData.push(interestSearch);
     searchData.push(datesArray);
     searchData.push(typeEvent);
+    searchData.push(partnerSearch);
 
     localStorage.setItem('searchData', JSON.stringify(searchData));
     apiCallData =  JSON.parse(localStorage.getItem('cards'));
@@ -788,9 +844,7 @@ function changePage(number, cards){
     
     var apiCallData = JSON.parse(localStorage.getItem('cards'));
 
-
     list = cards;
-
 
     var numberOfPages = 0;
     var numberPage = number;
@@ -1015,7 +1069,7 @@ function load(number, list, numberPerPage) {
 // ====== formatDataEvents() - Here we format the cards to show them in the correct way ====== //
 function formatDataEvents(data, searchData = null, removedTag = null, TimeRange = false){
     var apiCallData = JSON.parse(localStorage.getItem('cards'));
-    
+
     // loop to get events to create each element and print them on screen
     if($('.date_get .start').length){
         datesLoop = new Array();
@@ -1073,7 +1127,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         if($('.city_get').length){
             var city = $('.city_get');
             city = $(city)[0].innerHTML; 
-            city = city.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').toLowerCase();
+            city = city.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
 
             var currentValue = $(`.city__input .nice-select .list [data-value="${city}"]`);
             if(currentValue.length){
@@ -1099,7 +1153,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             appropriate = $(appropriate)[0].innerHTML; 
             var explodedString = appropriate.split(";");
             explodedString.forEach(element => {
-                element = element.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').toLowerCase();
+                element = element.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
                 searchData[1].push(element);
             });
 
@@ -1118,7 +1172,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         if($('.interest_get').length){
             var interest = $('.interest_get');
             interest = $(interest)[0].innerHTML; 
-            interest = interest.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').toLowerCase();
+            interest = interest.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
             var currentValue = $(`.interest__input .nice-select .list [data-value="${interest}"]`);
             if(currentValue.length){
                 searchData[2] = interest;
@@ -1130,6 +1184,21 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
                 searchData = [];
             }
         }
+        if($('.partner_get').length){
+            var partner = $('.partner_get');
+            partner = $(partner)[0].innerHTML; 
+            partner = partner.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+            var currentValue = $(`.partner__input .nice-select .list [data-value="${partner}"]`);
+            if(currentValue.length){
+                searchData[5] = partner;
+                $(`.partner__input .nice-select .list li`).removeClass('selected');
+                $(`.partner__input .nice-select .list [data-value="${partner}"]`).addClass('selected');
+                currentValue = currentValue[0].innerHTML;
+                $(`.partner__input .nice-select .current`)[0].innerHTML = currentValue;
+            }else{
+                searchData = [];
+            }
+        }
         if($('.date_get .start').length){
             searchData[3] = new Array('');
             searchData[3][0] = datesLoop;
@@ -1137,7 +1206,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         if($('.type__event').length > 0){
             var type__event = $('.type__event');
             type__event = $(type__event)[0].innerHTML; 
-            type__event = type__event.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').toLowerCase();
+            type__event = type__event.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
 
             var currentValue = $(`.type__input .nice-select .list [data-value="${type__event}"]`);
             if(currentValue.length){
@@ -1232,11 +1301,13 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
 
                 
             }
-
             if(searchData[2]){
                 filter.filterIssue = searchData[2]
+            }  
 
-            }      
+            if(searchData[5]){
+                filter.filterPartner = searchData[5]
+            }  
 
             currentCards = currentCards.filter(function(item) {
                 for (var key in filter) {
@@ -1310,7 +1381,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         }
     }
     if(searchData && searchData.length > 0){
-        if(searchData[0] === '' && searchData[1] === '' && searchData[2] === '' && searchData[3] === '' && searchWasTrue){
+        if(searchData[0] === '' && searchData[1] === '' && searchData[2] === '' && searchData[3] === '' && searchData[5] === '' && searchWasTrue){
             const emptyUrlSearch = `<div id="emptyUrlSearch" style="display: none;">true</div>`;
             $('.page__section.opportunities').append(emptyUrlSearch);
         }
@@ -1357,6 +1428,7 @@ function curatedCards(data, searchData = null, removedTag = null){
         }
         var issueSearch = $('#issues').val();
         var interestSearch = $('#interest').val();
+        var partnerSearch = $('#partner').val();
         var typeEvent = $('.type__input .option.selected').attr('data-value');
         var dateSearch = JSON.parse(localStorage.getItem('finalInputsRange'));
         // Create the array for the search Dates
@@ -1369,10 +1441,11 @@ function curatedCards(data, searchData = null, removedTag = null){
         searchData.push(interestSearch);
         searchData.push(datesArray);   
         searchData.push(typeEvent);
+        searchData.push(partnerSearch);
     }
     var info = data;
 
-    if( searchData[0] === null &&  searchData[1] === undefined   && searchData[2] === null && searchData[3][0] === null  && searchData[4] === "-1"){
+    if( searchData[0] === null &&  searchData[1] === undefined   && searchData[2] === null && searchData[3][0] === null  && searchData[4] === "-1" && searchData[5] === null){
         theCards = new Array();
         onGoingCards = new Array();
         globalArray = Array();
@@ -1413,16 +1486,21 @@ function curatedCards(data, searchData = null, removedTag = null){
                 data.issue = 'display:none';
             }
             // Clean, remove spaces and lowercase the info
-            theIssue = theIssue.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+            theIssue = theIssue.replace(/ /g, '').replace(/,/g, '').replace(/'/g, '').replace(/-/g, '').replace(/\//g, '').replace(/\./g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
             
             let theCity = data.city;
             // Clean, remove spaces and lowercase the info
-            theCity = theCity.replace(/ /g, '');theCity = theCity.replace(/,/g, '');theCity = theCity.replace(/\//g, '');theCity = theCity.replace(/\./g, '').toLowerCase();               
+            theCity = theCity.replace(/ /g, '');theCity = theCity.replace(/,/g, '').replace(/'/g, '').replace(/-/g, '');theCity = theCity.replace(/\//g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '');theCity = theCity.replace(/\./g, '').toLowerCase();               
     
             let theContext = data.context;
             // Clean, remove spaces and lowercase the info
-            theContext = theContext.replace(/ /g, '');theContext = theContext.replace(/,/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
+            theContext = theContext.replace(/ /g, '').replace(/'/g, '').replace(/-/g, '');theContext = theContext.replace(/,/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
             
+
+            let thePartner = data.partner;
+            // Clean, remove spaces and lowercase the info
+            thePartner = thePartner.replace(/ /g, '').replace(/'/g, '').replace(/-/g, '');thePartner = thePartner.replace(/,/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '');thePartner = thePartner.replace(/\//g, '');thePartner = thePartner.replace(/\./g, '').toLowerCase();
+
             let theDate = new Date(data.date);
             theDate = new Date( theDate.getTime() + Math.abs(theDate.getTimezoneOffset()*60000) ) ;
             // Clean, remove spaces and lowercase the info
@@ -1454,7 +1532,7 @@ function curatedCards(data, searchData = null, removedTag = null){
             // Create the context array for the classes of the event
             var formatedContext = new Array();
             cardContext.forEach(element => {
-                element = element.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                element = element.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
                 formatedContext.push(element);
             });
 
@@ -1483,7 +1561,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                 theCity = "NYC";
             }
             // We create the final card we are going to print
-            let theCard = ` <div class="col-sm-4 card-${index} the-card ${theCity} ${theContext} ${theDate} ${theIssue}" data-event-id="${data.id}">
+            let theCard = ` <div class="col-sm-4 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
                 <!-- Card -->
                 <div class="card" 
                     data-event-venue="${data.venue}" 
@@ -1496,6 +1574,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                     data-event-time="${data.startAt}"
                     data-event-end="${data.endAt}" 
                     data-event-name="${data.name}" 
+                    data-event-partner="${data.partner}" 
                     data-event-id="${data.id}"
                     data-full-address="${data.fullAddress}"
                     data-event-community="${data.communityID}"
@@ -1518,11 +1597,14 @@ function curatedCards(data, searchData = null, removedTag = null){
                     </div>
                     <div class="card__date">
                         <div class="row">
-                            <div class="col-sm-6 col-xs-6" >
+                            <div class="col-sm-4 col-xs-4" >
                                 <span class="date">${cardDate}</span>
                             </div>
-                            <div class="col-sm-6 col-xs-6">
+                            <div class="col-sm-4 col-xs-4">
                                 <span class="location">${theCity}</span>
+                            </div>
+                            <div class="col-sm-4 col-xs-4">
+                                <span class="location">${data.partner}</span>
                             </div>
                         </div>
                     </div>
@@ -1646,17 +1728,21 @@ function curatedCards(data, searchData = null, removedTag = null){
                     data.issue = 'display:none';
                 }
                 // Clean, remove spaces and lowercase the info
-                theIssue = theIssue.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                theIssue = theIssue.replace(/ /g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
                 
                 let theCity = data.city;
                 
                 // Clean, remove spaces and lowercase the info
-                theCity = theCity.replace(/ /g, '');theCity = theCity.replace(/,/g, '');theCity = theCity.replace(/\//g, '');theCity = theCity.replace(/\./g, '').toLowerCase();    
+                theCity = theCity.replace(/ /g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');theCity = theCity.replace(/,/g, '');theCity = theCity.replace(/\//g, '');theCity = theCity.replace(/\./g, '').toLowerCase();    
 
                 let theContext = data.context;
                 // Clean, remove spaces and lowercase the info
-                theContext = theContext.replace(/ /g, '');theContext = theContext.replace(/,/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
+                theContext = theContext.replace(/ /g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');theContext = theContext.replace(/,/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
                 
+                let thePartner = data.partner;
+                // Clean, remove spaces and lowercase the info
+                thePartner = thePartner.replace(/ /g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');thePartner = thePartner.replace(/,/g, '');thePartner = thePartner.replace(/\//g, '');thePartner = thePartner.replace(/\./g, '').toLowerCase();
+
                 let theDate = new Date(data.date);
                 theDate = new Date( theDate.getTime() + Math.abs(theDate.getTimezoneOffset()*60000) ) ;
                 // Clean, remove spaces and lowercase the info
@@ -1688,7 +1774,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                 // Create the context array for the classes of the event
                 var formatedContext = new Array();
                 cardContext.forEach(element => {
-                    element = element.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                    element = element.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '').toLowerCase();
                     formatedContext.push(element);
                 });
 
@@ -1717,7 +1803,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                     theCity = "NYC";
                 }
                 // We create the final card we are going to print
-                let theCard = ` <div class="col-sm-4 card-${index} the-card ${theCity} ${theContext} ${theDate} ${theIssue}" data-event-id="${data.id}">
+                let theCard = ` <div class="col-sm-4 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
                     <!-- Card -->
                     <div class="card" 
                         data-event-venue="${data.venue}" 
@@ -1730,6 +1816,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                         data-event-time="${data.startAt}"
                         data-event-end="${data.endAt}"  
                         data-event-name="${data.name}" 
+                        data-event-partner="${data.partner}" 
                         data-event-id="${data.id}"
                         data-full-address="${data.fullAddress}"
                         data-event-community="${data.communityID}"
@@ -1752,11 +1839,14 @@ function curatedCards(data, searchData = null, removedTag = null){
                         </div>
                         <div class="card__date">
                             <div class="row">
-                                <div class="col-sm-6 col-xs-6">
+                                <div class="col-sm-4 col-xs-4">
                                     <span class="date">${cardDate}</span>
                                 </div>
-                                <div class="col-sm-6 col-xs-6">
+                                <div class="col-sm-4 col-xs-4">
                                     <span class="location">${theCity}</span>
+                                </div>
+                                <div class="col-sm-4 col-xs-4">
+                                    <span class="location">${data.partner}</span>
                                 </div>
                             </div>
                         </div>
@@ -2025,6 +2115,17 @@ function curatedCards(data, searchData = null, removedTag = null){
                         }
                     }
                 }
+                if(index === 5 ){
+                    var theClass =$(`.form [data-value="${tag}"`);
+                    if(theClass.length){
+                        theClass = theClass[0].innerHTML;
+                        if(theClass === "City" || theClass === "city"){
+                        }else{
+                            var tag = ` <li data-info=".${tag}" data-tag-type="type">${theClass} <span class="tag-close">x</span></li>`;
+                            tags.push(tag);
+                        }
+                    }
+                }
 
             }
             // We clean old data for the tags
@@ -2060,7 +2161,7 @@ function curatedCards(data, searchData = null, removedTag = null){
 // ============================================================================//
 
 // ====== Create the popup after one event its clicked ====== // 
-let city = '', context = '', eventID = '', communityID = '', name = '';
+var city = '', context = '', eventID = '', communityID = '', name = '';
 
 $(document).on("click", " .card" , function() {
     // we check that no other popup exist before printing a new one
@@ -2488,10 +2589,7 @@ $(document).on("click", ".close__popup" , function() {
     $('.popup__parent__contact').hide();
     $('body').css('overflow', 'unset');
 
-    var windowLink = window.location.href.substring(0, window.location.href.indexOf("?"));
-
-    history.pushState(null, '', `/${windowLink}`);    
-
+    history.pushState(null, '', `/make-an-impact`);    
 });
 
 $(document).on("click", ".close__background" , function(event) {
@@ -2500,9 +2598,7 @@ $(document).on("click", ".close__background" , function(event) {
     $('.popup__parent__contact').hide();
     $('body').css('overflow', 'unset');
 
-    var windowLink = window.location.href.substring(0, window.location.href.indexOf("?"));
-
-    history.pushState(null, '', `/${windowLink}`);       
+    history.pushState(null, '', `/make-an-impact`);    
 });
 // ====== END OF click event that handles the close popup ====== // 
 
@@ -2574,6 +2670,7 @@ $('#search-events').click(function(event){
     }
 
     var interestSearch = $('#interest').val();
+    var partnerSearch = $('#partner').val();
     var dateSearch = JSON.parse(localStorage.getItem('finalInputsRange'));
 
     var typeEvent = $('.type__input .option.selected').attr('data-value');
@@ -2586,6 +2683,8 @@ $('#search-events').click(function(event){
     searchData.push(interestSearch);
     searchData.push(datesArray);
     searchData.push(typeEvent);
+    searchData.push(partnerSearch);
+
     
     localStorage.setItem('searchData', JSON.stringify(searchData));
     
