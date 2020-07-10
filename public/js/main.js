@@ -480,9 +480,9 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
     
     // Based on the screensize we set the amount of events per page.
     if($(window).width() > 500) {
-        var numberPerPage = 9;
+        var numberPerPage = 8;
     }else{
-        var numberPerPage = 3;
+        var numberPerPage = 2;
     }
 
     var numberOfPages = 0;
@@ -792,9 +792,9 @@ function changePage(number, cards){
     var pageList = new Array();
     var currentPage = 1;
     if($(window).width() > 500) {
-        var numberPerPage = 9;
+        var numberPerPage = 8;
     }else{
-        var numberPerPage = 3;
+        var numberPerPage = 2;
     }
     // Array for the dates
     var searchData = new Array();
@@ -1473,8 +1473,8 @@ function curatedCards(data, searchData = null, removedTag = null){
                     cardContext.push(data.context);
                 }  
             }
-            var newDescription = data.promo.substring(0, 180);
-            if(newDescription.length >= 180){
+            var newDescription = data.promo.substring(0, 70);
+            if(newDescription.length >= 70){
                 newDescription = `${newDescription}...`;
             }
             var theIssue ='';
@@ -1532,7 +1532,15 @@ function curatedCards(data, searchData = null, removedTag = null){
             // Create the context array for the classes of the event
             var formatedContext = new Array();
             cardContext.forEach(element => {
-                element = element.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+                element = element.replace(/ /g, '')
+                                 .replace(/,/g, '')
+                                 .replace(/\//g, '')
+                                 .replace(/\./g, '')
+                                 .replace(/-/g, '')
+                                 .replace(/'/g, '')
+                                 .replace(/!/g, '')
+                                 .toLowerCase();
+                                 
                 formatedContext.push(element);
             });
 
@@ -1561,7 +1569,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                 theCity = "NYC";
             }
             // We create the final card we are going to print
-            let theCard = ` <div class="col-sm-4 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
+            let theCard = ` <div class="col-sm-6 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
                 <!-- Card -->
                 <div class="card" 
                     data-event-venue="${data.venue}" 
@@ -1582,42 +1590,42 @@ function curatedCards(data, searchData = null, removedTag = null){
                     data-ongoing="${data.isOngoing}"
                     data-isvirtual="${data.isVirtual}"
                     data-timezone="${data.timeZone}"
+                    data-issue="${theIssue}"
                 >
-                    <div class="card__header" style="background: url(https://werepair.org/wp-content/uploads/2017/08/logo1-1.png);background-size: 55%;background-repeat: no-repeat;background-position: center;" data-background-city="${theCity}">
+                    <div class="card__header col-sm-12 col-md-12 col-lg-4" style="background: gray;background-size: cover;background-repeat: no-repeat;background-position: center;" data-background-city="${theCity}">
                         ${theImage}
-                        <div class="card__header__button">
-                            <a  class="learn__more__btn">Learn more</a>
-                        </div>
                     </div>
-                    <div class="card__title">
-                        <h3>${data.name}</h3>
-                        <div class="registration__custom__link" style="display:none;">
-                            ${data.formURL}
-                        </div>
-                    </div>
-                    <div class="card__date">
-                        <div class="row">
-                            <div class="col-sm-4 col-xs-4" >
-                                <span class="date">${cardDate}</span>
+                    <div class="card__content__wrapper col-sm-12 col-md-12 col-lg-8">
+                        <div class="card__title">
+                            <h3>${data.name}</h3>
+                            <div class="card__tags" >
+                                ${cardContext.map((item, i) => `
+                                    <span class="teal__tag">${item}</span>
+                                `).join('')}
+                                
+                                <span class="gray__tag" style="${data.issue};">${data.issue}</span>
+                                <div class="data-page" style="display: none;">${data.length}</div>
                             </div>
-                            <div class="col-sm-4 col-xs-4">
-                                <span class="location">${theCity}</span>
-                            </div>
-                            <div class="col-sm-4 col-xs-4">
-                                <span class="location">${data.partner}</span>
+                            <div class="registration__custom__link" style="display:none;">
+                                ${data.formURL}
                             </div>
                         </div>
-                    </div>
-                    <div class="card__content">
-                        <p>${newDescription}</p>
-                    </div>
-                    <div class="card__tags" >
-                        ${cardContext.map((item, i) => `
-                            <span class="teal__tag">${item}</span>
-                        `).join('')}
-                        
-                        <span class="gray__tag" style="${data.issue};">${data.issue}</span>
-                        <div class="data-page" style="display: none;">${data.length}</div>
+                        <div class="card__date">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" >
+                                    <span class="date">${cardDate}</span>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-8" >
+                                    <span class="location">${theCity}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card__content">
+                            <p>${newDescription}</p>
+                        </div>
+                        <div class="card____button">
+                            <a  class="learn__more__btn">send</a>
+                        </div>
                     </div>
                 </div>
                 <!-- / Card -->
@@ -1715,8 +1723,8 @@ function curatedCards(data, searchData = null, removedTag = null){
                         cardContext.push(data.context);
                     }  
                 }
-                var newDescription = data.promo.substring(0, 180);
-                if(newDescription.length >= 180){
+                var newDescription = data.promo.substring(0, 70);
+                if(newDescription.length >= 70){
                     newDescription = `${newDescription}...`;
                 }
                 var theIssue = '';
@@ -1803,7 +1811,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                     theCity = "NYC";
                 }
                 // We create the final card we are going to print
-                let theCard = ` <div class="col-sm-4 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
+                let theCard = ` <div class="col-sm-6 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
                     <!-- Card -->
                     <div class="card" 
                         data-event-venue="${data.venue}" 
@@ -1824,42 +1832,42 @@ function curatedCards(data, searchData = null, removedTag = null){
                         data-ongoing="${data.isOngoing}"
                         data-isvirtual="${data.isVirtual}"
                         data-timezone="${data.timeZone}"
+                        data-issue="${theIssue}"
                     >
-                        <div class="card__header" style="background: url(https://werepair.org/wp-content/uploads/2017/08/logo1-1.png);background-size: 55%;background-repeat: no-repeat;background-position: center;" data-background-city="${theCity}">
-                            ${theImage}
-                            <div class="card__header__button">
-                                <a  class="learn__more__btn">Learn more</a>
-                            </div>
-                        </div>
+           
+                    <div class="card__header col-sm-12 col-md-12 col-lg-4" style="background: gray;background-size: cover;background-repeat: no-repeat;background-position: center;" data-background-city="${theCity}">
+                        ${theImage}
+                    </div>
+                    <div class="card__content__wrapper col-sm-12 col-md-12 col-lg-8">
                         <div class="card__title">
                             <h3>${data.name}</h3>
+                            <div class="card__tags" >
+                                ${cardContext.map((item, i) => `
+                                    <span class="teal__tag">${item}</span>
+                                `).join('')}
+                                
+                                <span class="gray__tag" style="${data.issue};">${data.issue}</span>
+                                <div class="data-page" style="display: none;">${data.length}</div>
+                            </div>
                             <div class="registration__custom__link" style="display:none;">
                                 ${data.formURL}
                             </div>
                         </div>
                         <div class="card__date">
                             <div class="row">
-                                <div class="col-sm-4 col-xs-4">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" >
                                     <span class="date">${cardDate}</span>
                                 </div>
-                                <div class="col-sm-4 col-xs-4">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-8" >
                                     <span class="location">${theCity}</span>
-                                </div>
-                                <div class="col-sm-4 col-xs-4">
-                                    <span class="location">${data.partner}</span>
                                 </div>
                             </div>
                         </div>
                         <div class="card__content">
                             <p>${newDescription}</p>
                         </div>
-                        <div class="card__tags" >
-                            ${cardContext.map((item, i) => `
-                                <span class="teal__tag">${item}</span>
-                            `).join('')}
-                        
-                            <span class="gray__tag" style="${data.issue};">${data.issue}</span>
-                            <div class="data-page" style="display: none;">${data.length}</div>
+                        <div class="card____button">
+                            <a  class="learn__more__btn">send</a>
                         </div>
                     </div>
                     <!-- / Card -->
@@ -2190,7 +2198,7 @@ $(document).on("click", " .card" , function() {
     let isOngoing = $(this).attr('data-ongoing'); 
     let isVirtual = $(this).attr('data-isvirtual'); 
     let timezone = $(this).attr('data-timezone'); 
-    
+    let issue = $(this).attr('data-issue'); 
 
     
     if(!partnerLink.includes('https')){
@@ -2374,7 +2382,7 @@ $(document).on("click", " .card" , function() {
             if(newTime[0] === '24'){finalEnd=`12:${newTime[1]}`;}
 
 
-            var finalTime = `Begins: ${finalTimeStart} ${stamp} (${timezone}) <br> Ends: ${finalEnd} ${stampEnd} (${timezone})`;
+            var finalTime = `Begins: ${finalTimeStart} ${stamp} (${timezone})  Ends: ${finalEnd} ${stampEnd} (${timezone})`;
         }else{
             var finalTime = `Begins: ${finalTimeStart} ${stamp} (${timezone})`;
         }
@@ -2386,7 +2394,13 @@ $(document).on("click", " .card" , function() {
     let hideVenue = "";
 
     if(isVirtual === "false" || isVirtual === false){
-        hideVenue = "hidden-column";
+        hideVenue = "";
+    }else{
+        hideVenue = 
+        `
+            <img src="https://werepair.org/wp-content/themes/evolux/images/icons/location.png" alt="logo">
+            VIRTUAL PROGRAM
+        `
     }
 
     if(isOngoing === "true"){
@@ -2426,66 +2440,50 @@ $(document).on("click", " .card" , function() {
         <div class="container">
             <div class="row row__title">
                 <div class="col-md-12 col__title">
-                    <div class="event__title">
-                        <h2>${name}</h2>
-                    </div>
                     <div class="close__popup">
                         <p>╳</p>
                     </div>
                 </div>
             </div>
             <div class="row three__col">
-                <div  class="col-xs-12 col-sm-${columnNumber} col-md-${columnNumber} centered-column date" >
-                    <div class="info__container">
-                        <img src="<?php echo get_template_directory_uri() . '/images/icons/calendar.png'; ?>" alt="logo">
+                <div class="col-sm-12 col-md-4 popup__image">
+                </div>
+                <div class="col-sm-12 col-md-8 popup__content">
+                    <div class="main__popup__data col-sm-12 col-md-12">   
+                        <div class="event__title">
+                            <h2>${name}</h2>
+                        </div>
+                        <div class="event__issue">
+                            <h2>${issue}</h2>
+                        </div>
+                        <div class="event__description">
+                            <p>${description[0].promo}</p>
+                        </div>
+                    </div>
+
+                    <div class="date col-sm-12 col-md-4">   
+                        <img src="https://werepair.org/wp-content/themes/evolux/images/icons/calendar.png" alt="logo">
                         ${dateInfo}
                     </div>
-                </div>
-                <div style="" class="${displayNone} col-xs-12 col-sm-${columnNumber} col-md-${columnNumber} centered-column time" ${columnHide}>
-                    <div class="info__container">
-                        <img src="<?php echo get_template_directory_uri() . '/images/icons/time.png'; ?>" alt="logo">
+                    <div class="date col-sm-12 col-md-8">   
+                        <img src="https://werepair.org/wp-content/themes/evolux/images/icons/time.png" alt="logo">
                         <p>${finalTime}</p>
                     </div>
-                </div>
-                <div style="" class=" ${hideVenue} col-xs-12 col-sm-${columnNumber} col-md-${columnNumber} centered-column address" >
-                    <div class="info__container">
-                        <img src="<?php echo get_template_directory_uri() . '/images/icons/location.png'; ?>" alt="logo">
+
+                    <div class="date col-sm-12 col-md-4">   
+                        <img src="https://werepair.org/wp-content/themes/evolux/images/icons/location.png" alt="logo">
                         <p>${address}</p>
                     </div>
-                </div>
-                <div style="" class="col-xs-12 col-sm-${columnNumber} col-md-${columnNumber} centered-column address" >
-                    <div class="info__container">
-                    <div class="share__icon" onclick="copyToClipboard('shareLink')">
-                        <img src="https://werepair.org/wp-content/uploads/2020/04/link-1.png"  style="width: 30px; cursor:pointer;" />
-                        <p >
-                            Share
-                        </p>
+                    <div class="date col-sm-12 col-md-8">   
+                        ${hideVenue}
                     </div>
+
+                    <div class="event__button col-lg-12">
+                        <button> Send </button>
                     </div>
                 </div>
             </div>
-            <div class="row bottom__col">
-                <div class="col-sm-12 col-md-6 event-pop-description">
-                    <p>${description[0].promo}</p>
-                    <p style="display:none" id="shareLink" > ${shareableLink} </p>
-                    <div class="col-sm-12">
-                        <div class="event-pop-thanks" id="sharePop">
-                        <div class="thanks-message" id="thanksShare" style="display:none">
-                            <p> Link copied to clipboard! </p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-6 event-pop-thanks">
-                    <div class="thanks-message" style="display:none">
-                        <p>Thank you for registering! Be sure to check your email for additional information about the upcoming program.</p>
-                    </div>
-                    ${registrationHtml}
-
-                </div>
-            </div>
-        </div>o
+        </div>
     </div>
     `;
     

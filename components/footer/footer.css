@@ -1,13 +1,81 @@
+
 .footer{
     background: #015D5D;
     padding: 40px 0;
-}
-footer{
-    background: #015D5D;
 }
 .bottom__logo{
     width: 250px;
 }
 .header.bottom .navbar{
     padding: 0px 50px;
+}
+.bottom.header ul {
+    margin: 0 0 0 auto!important;
+    display: flex!important;
+    justify-content: center!important;
+    align-items: center!important;
+    width: auto;
+}
+.bottom.header button{
+    margin-left: 50px;
+    color: #015D5D;
+    text-transform: unset;
+}
+.bottom__menu{
+    display: none;
+}
+.bottom .main__nav a{
+    color: white;
+}
+@media(max-width: 768px){
+    .bottom__menu .col-lg-12{
+        display: flex;
+    }
+    .bottom__menu .col-lg-12 ul{
+        margin-top: 20px!important;
+        width: 100%!important;
+        padding: 15px!important;
+        display: flex!important;
+        justify-content: space-around!important;
+        align-items: center!important;
+    }
+    .bottom.header .bottom__menu ul{
+        display: flex!important;
+    }
+}
+@media(max-width: 768px){
+    .bottom__menu .col-lg-12 ul {
+        flex-direction: column;
+    }
+    .bottom__menu .col-lg-12 ul li{
+        margin: 5px 0;
+    }
+    .bottom__menu .col-lg-12{
+        display: flex;
+    }
+    .bottom__menu .col-lg-12 ul{
+        margin-top: 20px;
+        width: 100%;
+        padding: 15px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
+@media (max-width: 900px) and (orientation: landscape) {
+    .header.bottom ul{
+        display: none!important;
+    }
+    .header.bottom .bottom__menu {
+        display: flex!important;
+    }
+    .header.bottom .bottom__menu ul{
+        display: flex!important;
+    }
+    .header.bottom .bottom__menu .width{
+        width: 100%;
+    }
+    .header.bottom .bottom__menu ul a{
+        margin: 0 5px;
+    }
 }

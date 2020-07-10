@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import styles from './search.module.css'
-
+import LoadingCard from "../loading-card/loading-card";
 export default class Search extends Component {
 
 componentDidMount(){
@@ -13,7 +12,7 @@ componentDidMount(){
 render() {
     return (
         <>
-            <div id="search__form">
+            <div id="search__form" >
                 {/* Get info div contains values in case the GET variables are used for different fields */}
                 <div className="get_info">
                     {/* <?php if($_GET['city']){ ?>
@@ -58,7 +57,7 @@ render() {
                 {/* This div will let us hold some invisble data we need to re-use */ }
                 <div id="hidden__block__popup" style={{"display":"none"}}></div>
 
-                <div className={`${styles.search__module} volunteer__header page__header`}>
+                <div className={`search__module volunteer__header page__header`}>
                     <div className="container">
                         <div className="header__container">
                             {/* Form Title */}
@@ -126,30 +125,15 @@ render() {
 
                     {/* Main opportunities are shownd here */}
                     <div className="container events__container" id="full_ops">
-                        <h2 className="section__title">Opportunities<br /></h2>
-                        <p className="sub-text" style={{"textAlign": "center" , "margin": "0"}}>
-                            <a href="#ongoing-carousel" style={{"text-decoration":"none" , "color":"#404040"}}>Scroll down to find ongoing opportunities</a>
-                         </p>
+
                         <div className="row" id="list">
                             {/* This initials divs are holding placeholder for the cards -- PLEASE CONVERT INTO CSS CARDS ON DEVELOPMENT */}
-                            <div className="col-sm-4 flash_loading animated flash infinite slower">
-                                <img src="https://werepair.org/wp-content/themes/evolux/images/event-placeholder.jpg" alt="" />
-                            </div>
-                            <div className="col-sm-4 flash_loading animated flash infinite slower">
-                                <img src="https://werepair.org/wp-content/themes/evolux/images/event-placeholder.jpg" alt="" />
-                            </div>
-                            <div className="col-sm-4 flash_loading animated flash infinite slower">
-                                <img src="https://werepair.org/wp-content/themes/evolux/images/event-placeholder.jpg" alt="" />
-                            </div>
-                            <div className="col-sm-4 flash_loading animated flash infinite slower">
-                                <img src="https://werepair.org/wp-content/themes/evolux/images/event-placeholder.jpg" alt="" />
-                            </div>
-                            <div className="col-sm-4 flash_loading animated flash infinite slower">
-                                <img src="https://werepair.org/wp-content/themes/evolux/images/event-placeholder.jpg" alt="" />
-                            </div>
-                            <div className="col-sm-4 flash_loading animated flash infinite slower">
-                                <img src="https://werepair.org/wp-content/themes/evolux/images/event-placeholder.jpg" alt="" />
-                            </div>
+                            <LoadingCard />
+                            <LoadingCard />
+                            <LoadingCard />
+                            <LoadingCard />
+                            <LoadingCard />
+                            <LoadingCard />
                         </div>
                         {/* This div contains the pagination of the search results */}
                         <div className="row">
@@ -162,7 +146,6 @@ render() {
 
                     {/* Ongoing events show up here in a carousel */}
                     <div className="container events__container" id="ongoing-carousel">
-                        <h2 className="section__title">Ongoing Opportunities<br /></h2>
                         <div className="row " id="carousel-list">
                             {/* This initials divs are holding placeholder for the cards -- PLEASE CONVERT INTO CSS CARDS ON DEVELOPMENT */}
                             <div className="col-sm-4 flash_loading animated flash infinite slower">

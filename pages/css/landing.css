@@ -15,9 +15,7 @@
 .button__mobile{
     display: none;
 }
-.bottom__menu{
-    display: none;
-}
+
 .white__box p a{
     text-decoration: underline;
 }
@@ -545,9 +543,7 @@
     #main{
         margin-top: -190px;
     }
-    .bottom__menu{
-        display: block;
-    }
+
     #cause__new .one__fluid .floating.col-lg-4{
         flex: 100%!important;
         max-width: 100%!important;
@@ -574,17 +570,7 @@
     .main__nav{
         display: none;
     }
-    .bottom__menu .col-lg-12{
-        display: flex;
-    }
-    .bottom__menu .col-lg-12 ul{
-        margin-top: 20px!important;
-        width: 100%!important;
-        padding: 15px!important;
-        display: flex!important;
-        justify-content: space-around!important;
-        align-items: center!important;
-    }
+
     #cause__new .right p:nth-child(3) {
         padding-left: 0px;
     }
@@ -623,9 +609,7 @@
     .bottom.header ul{
         display: none!important;
     }
-    .bottom.header .bottom__menu ul{
-        display: flex!important;
-    }
+
     #resources button {
         font-size: 14px;
     }
@@ -822,12 +806,7 @@
         max-width: 100%;
         padding: 0 8px;
     }
-    .bottom__menu .col-lg-12 ul {
-        flex-direction: column;
-    }
-    .bottom__menu .col-lg-12 ul li{
-        margin: 5px 0;
-    }
+    
     .navbar{
         padding: 0px;
     }
@@ -888,17 +867,7 @@
     .main__nav{
         display: none;
     }
-    .bottom__menu .col-lg-12{
-        display: flex;
-    }
-    .bottom__menu .col-lg-12 ul{
-        margin-top: 20px;
-        width: 100%;
-        padding: 15px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
+
     #cause__new .right p:nth-child(3) {
         padding-left: 0px;
     }
@@ -934,21 +903,7 @@
     #resources button {
         font-size: 14px;
     }
-    .header.bottom ul{
-        display: none!important;
-    }
-    .header.bottom .bottom__menu {
-        display: flex!important;
-    }
-    .header.bottom .bottom__menu ul{
-        display: flex!important;
-    }
-    .header.bottom .bottom__menu .width{
-        width: 100%;
-    }
-    .header.bottom .bottom__menu ul a{
-        margin: 0 5px;
-    }
+
     #fellowship {
         padding: 100px 0 60px;
     }

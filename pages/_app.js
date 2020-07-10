@@ -8,10 +8,9 @@ import '../components/footer/footer.css'
 import "./css/master.css"
 import "./css/landing.css"
 import "./css/home.css"
-import "./css/impact.css"
+import "./css/searchForm.css"
 
 function MyApp({ Component, pageProps }) {
-
     return (
         <div>
             <Head>

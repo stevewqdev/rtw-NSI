@@ -20,9 +20,6 @@ render() {
     return (
         <>
             <Head>
-                {/* Styles from original RWT form ***REMOVE LATER*** */}
-                <link rel="stylesheet" href="https://stm.raxo.dev/wp-content/themes/littlebot-wordpress-api-master/assets/css/styles.css" />
-                
                 {/* Dependency to add custom styles to select fields */}
                 <link rel="stylesheet" href="https://stm.raxo.dev/wp-content/themes/littlebot-wordpress-api-master/assets/css/nice-select.css" />
                 
