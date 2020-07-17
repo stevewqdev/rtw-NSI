@@ -1,6 +1,9 @@
 #__next{
     overflow: hidden;
 }
+.container{
+    padding: 0;
+}
 .container-fluid{
     max-width: 1550px;
     margin: auto;
@@ -10,16 +13,29 @@ h1{
     line-height: 90px;
 }
 h2{
-    font-size: 45px;
+    font-size: 50px;
+    line-height: 65px;
 }
 h3{
     font-size: 35px;
+}
+h4{
+    font-size: 24px;
 }
 p{
     line-height: 25px;
 }
 .xxxl{
     font-size: 70px;
+}
+
+.xxmd{
+    font-size: 60px;
+    line-height: 60px;
+}
+.xmd{
+    font-size: 30px;
+    line-height: 46px;
 }
 .xxl{
     font-size: 22px;
@@ -31,7 +47,8 @@ p{
     font-size: 20px;
 }
 .lg{
-    font-size: 17px;
+    font-size: 18px;
+    line-height: 27px;
 }
 .slg{
     font-size: 16px;
@@ -109,6 +126,9 @@ body{
     font-size: 14px;
     transition: all ease-in-out 0.3s;
 }
+.btn.full__btn{
+    width: 100%;
+}
 .btn.main-btn:hover{
     background: #015D5D;
     color: white!important;
@@ -125,11 +145,44 @@ body{
     color: #015D5D!important;
     border: solid 2px #015D5D!important;
 }
+.btn.main-btn.clear-teal{
+    background: #00A99D!important;
+    color: white;
+    transition: all ease-in-out 0.3s;
+    border: solid 2px #00A99D!important;
+}
+.btn.main-btn.clear-teal:hover{
+    background: #ffffff!important;
+    color: #00A99D!important;
+    transition: all ease-in-out 0.3s;
+    border: solid 2px #00A99D!important;
+}
+.btn.main-btn.white-btn{
+    background: #ffffff!important;
+    color: #015D5D;
+    transition: all ease-in-out 0.3s;
+    border: solid 2px #ffffff!important;
+}
+.btn.main-btn.white-btn:hover{
+    background: #00A99D!important;
+    color: #ffffff;
+    transition: all ease-in-out 0.3s;
+    border: solid 2px #00A99D!important;
+}
+.white-text{
+    color: #ffffff;
+}
+.black-text{
+    color: #000000;
+}
 .teal-text{
     color: #015D5D;
 }
+.gray-text{
+    color: #6C6C6C;
+}
 .clear-teal{
-    color: #00A79A;
+    color: #00A99D;
 }
 .navbar-brand{
     margin-right: 50px;
@@ -149,9 +202,19 @@ a:hover{
     color: unset;
     text-decoration: none;
 }
-@media(max-width: 500px){
+.fs__opened{
+    right: 0%;
+}
+.fs__closed{
+    right: -100%;
+}
+.floating__screen__selector{
+    transition: all ease-in-out 0.6s;
+}
+@media(max-width: 600px){
     h2 {
         font-size: 32px;
+        line-height: 40px;
     }
 }
 

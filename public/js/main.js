@@ -2446,9 +2446,7 @@ $(document).on("click", " .card" , function() {
                 </div>
             </div>
             <div class="row three__col">
-                <div class="col-sm-12 col-md-4 popup__image">
-                </div>
-                <div class="col-sm-12 col-md-8 popup__content">
+                <div class="col-sm-12 col-md-12 popup__content">
                     <div class="main__popup__data col-sm-12 col-md-12">   
                         <div class="event__title">
                             <h2>${name}</h2>

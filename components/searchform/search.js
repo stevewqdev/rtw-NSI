@@ -64,13 +64,15 @@ render() {
                             <div className="search__module">
                                 {/* This is the FORM and the FORM fields */}
                                 <form action="#" className="form">
-                                    <div className="row">
-                                        <div className=" input__wrapper arrow-down calendar-input">
-                                            <input type="text" name="daterange" value="Date" className="calendar__input" />
+                                    <div className="row center__row justify-content-evenly align-items-center">
+                                        <div className=" interest__input input__wrapper arrow-down">
+                                            <select  name="interest" id="interest" >
+                                                <option value="-1" id="interest_first" selected={true} disabled="disabled">Issue</option>
+                                            </select>
                                         </div>
                                         <div className=" city__input input__wrapper arrow-down" >
                                             <select  name="cities" id="cities">
-                                                <option value="-1" id="city_first" selected={true} disabled="disabled">City</option>
+                                                <option value="-1" id="city_first" selected={true} disabled="disabled">Location</option>
                                             </select>
                                         </div>
                                         <div className=" partner__input input__wrapper arrow-down">
@@ -78,19 +80,18 @@ render() {
                                                 <option value="-1" id="partner_first" selected={true} disabled="disabled">Partner</option>
                                             </select>
                                         </div>
-                                        <div className=" interest__input input__wrapper arrow-down">
-                                            <select  name="interest" id="interest" >
-                                                <option value="-1" id="interest_first" selected={true} disabled="disabled">Theme</option>
-                                            </select>
+                                        <div className=" input__wrapper arrow-down calendar-input">
+                                            <input type="text" name="daterange" value="Date" className="calendar__input" />
                                         </div>
-                                        <div className=" type__input input__wrapper arrow-down" >
+
+                                        {/* <div className=" type__input input__wrapper arrow-down" >
                                             <select name="types" id="types" >
                                                 <option value="-1" id="type_first" selected={true} disabled="disabled">Experiences</option>
                                                 <option data-option-count="1" value="inperson" className="inperson">In Person</option>
                                                 <option data-option-count="2" value="ongoing" className="ongoing">Ongoing</option>
                                                 <option data-option-count="3" value="virtual" className="virtual">Virtual</option>
                                             </select>
-                                        </div>
+                                        </div> */}
                                         {/* <div className=" appropriate__input input__wrapper arrow-down" >
                                             <div className="issues__wrapper">
                                                 <div className="select_simulator">
@@ -99,7 +100,7 @@ render() {
                                                 </div>
                                             </div>
                                         </div> */}
-                                        <div className="col-sm-12 col-md-2">
+                                        <div className="col-sm-12 col-md-2 searchFormButton">
                                             <button className="btn btn-primary" id="search-events">Search</button>
                                         </div>
                                     </div>

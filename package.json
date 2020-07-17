@@ -18,6 +18,8 @@
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
     "react-script-tag": "^1.1.2",
-    "reactstrap": "^8.4.1"
+    "react-slick": "^0.27.0",
+    "reactstrap": "^8.4.1",
+    "slick-carousel": "^1.8.1"
   }
 }

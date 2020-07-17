@@ -1,4 +1,7 @@
 
+.bottom.header .bottom__menu ul a{
+    font-weight: 600;
+}
 .footer{
     background: #015D5D;
     padding: 40px 0;
@@ -12,9 +15,9 @@
 .bottom.header ul {
     margin: 0 0 0 auto!important;
     display: flex!important;
-    justify-content: center!important;
-    align-items: center!important;
-    width: auto;
+    justify-content: flex-start!important;
+    align-items: flex-start;
+    width: 100%;
 }
 .bottom.header button{
     margin-left: 50px;
@@ -27,6 +30,37 @@
 .bottom .main__nav a{
     color: white;
 }
+.footer__partners{
+    margin-top: 40px;
+}
+.main__nav a {
+    padding: 0px 20px 0 5px!important;
+}
+.footer__partners h4{
+    text-align: left!important;
+    padding-left: 15px;
+    font-weight: bold;
+}
+.footer__partners p{
+    text-align: left!important;
+    padding-left: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+}
+.footer__menu .navbar{
+    padding: 0px!important;
+}
+@media(max-width: 1280px){
+    .header.bottom {
+        padding: 40px 20px;
+    }
+}
+@media(max-width: 1024px){
+    .main__nav a {
+        padding: 0px 2px!important;
+    }
+}
 @media(max-width: 768px){
     .bottom__menu .col-lg-12{
         display: flex;
@@ -34,7 +68,6 @@
     .bottom__menu .col-lg-12 ul{
         margin-top: 20px!important;
         width: 100%!important;
-        padding: 15px!important;
         display: flex!important;
         justify-content: space-around!important;
         align-items: center!important;
@@ -42,24 +75,20 @@
     .bottom.header .bottom__menu ul{
         display: flex!important;
     }
+    .bottom__menu {
+        display: block;
+    }
+    .bottom__menu ul{
+        flex-direction: row;
+        padding: 0px;
+    }
 }
-@media(max-width: 768px){
-    .bottom__menu .col-lg-12 ul {
+@media(max-width: 600px){
+    .bottom.header .bottom__menu ul {
         flex-direction: column;
     }
-    .bottom__menu .col-lg-12 ul li{
-        margin: 5px 0;
-    }
-    .bottom__menu .col-lg-12{
-        display: flex;
-    }
-    .bottom__menu .col-lg-12 ul{
-        margin-top: 20px;
-        width: 100%;
-        padding: 15px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+    .bottom.header .bottom__menu ul a{
+        margin: 10px 0;
     }
 }
 @media (max-width: 900px) and (orientation: landscape) {

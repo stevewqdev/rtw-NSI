@@ -26,12 +26,14 @@ const Footer = (props) => {
     <footer className={`header md ${props.customClass}`}>
       <div className="container-fluid">
         <div className="row">
-                  <div className="col-lg-12 no__padding">
-                    <Navbar  expand="lg" >
+                  <div className="col-lg-5 footer__logo ">
                         <a href="https://werepair.org/" target="_BLANK">
                           <img className="bottom__logo" src={props.masterElements.acf.footer_logo} alt="Powered by Repair The World"/>
                         </a>                
 
+                  </div>
+                  <div className="col-lg-7 footer__menu no__padding">
+                    <Navbar  expand="lg" >
                         <NavbarToggler onClick={toggle} />
 
 
@@ -64,14 +66,15 @@ const Footer = (props) => {
                           </>
                         }
                         </Nav>
-
-                        <NavItem>
-                          <NavLink href={props.masterElements.acf.header_button_link}>
-                              <button className={`btn main-btn bottom`}><strong>{props.masterElements.acf.header_button_text}</strong></button>
-                          </NavLink>
-                        </NavItem>
-
                     </Navbar>
+                      
+                    <div className="footer__partners">
+                      <div
+                        className={`poppins bold white-text text-center`}
+                        dangerouslySetInnerHTML={{ __html: props.masterElements.acf.footer_partners
+                        }}
+                      />
+                    </div>
                   </div>
               </div>
         {

@@ -1,6 +1,9 @@
 .header ul, .header li{
     list-style-type: none;
 }
+.header .main__nav{
+    font-weight: 600;
+}
 .header p, .header a, .header ul {
     color: white;
     font-weight: 400;
@@ -8,23 +11,46 @@
 .header ul{
     margin: 0px!important;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
-    width: 60%;
+    width: 100%;
 }
 .header{
     position: relative;
     z-index: 3;
+    background: #00A99D;
 }
 .header.bottom{
     background: #015D5D;
-    padding-bottom: 80px;
-    padding-top: 80px;
+    padding: 40px 80px;
+}
+.header .navbar{
+    padding: 0px;
+}
+.header .nav-item{
+    margin: 10px 0;
+    position: relative;
+}
+.header .main__nav .nav-item:after{
+    content: "";
+    height: 100%;
+    width: 1px;
+    background: white;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.header .nav-item:last-child:after{
+    display: none;
+}
+
+.header .btn.main-btn{
+    padding: 3px 25px;
 }
 .nav__brand .top__logo{
-    width: 130px;
-    position: relative;
-    top: 20px;
+    width: 208px;
+    position: absolute;
+    top: 0px;
 }
 .bottom.header ul {
     margin: 0 0 0 auto!important;
@@ -37,4 +63,13 @@
     margin-left: 50px;
     color: #015D5D;
     text-transform: unset;
+}
+@media(max-width: 600px){
+    .nav__brand .top__logo {
+        width: 158px;
+        top: -10px;
+    }
+    .header.bottom {
+        padding: 40px 15px;
+    }
 }
