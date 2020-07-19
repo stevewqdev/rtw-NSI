@@ -46,7 +46,7 @@ const Footer = (props) => {
                             props.landingMenu
                             ? props.landingMenu.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
-                                <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
+                                <NavLink href={`/`+menuItem.url.split("/")[3]}>{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""
@@ -58,7 +58,7 @@ const Footer = (props) => {
                             props.menuItems
                             ? props.menuItems.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
-                                <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
+                                <NavLink href={`/`+menuItem.url.split("/")[3]}>{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""
@@ -92,7 +92,7 @@ const Footer = (props) => {
                           {
                             props.landingMenu
                             ? props.landingMenu.items.map((menuItem, index) => 
-                              <a href={menuItem.url} key={index}>
+                              <a href={`/`+menuItem.url.split("/")[3]} key={index}>
                                <li>{menuItem.title}</li>
                               </a>
                               )
@@ -104,7 +104,7 @@ const Footer = (props) => {
                           {
                             props.menuItems
                             ? props.menuItems.items.map((menuItem, index) => 
-                              <a href={menuItem.url} key={index}>
+                              <a href={`/`+menuItem.url.split("/")[3]} key={index}>
                               <li>{menuItem.title}</li>
                               </a>
                               )

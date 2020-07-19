@@ -45,7 +45,7 @@ return (
                             props.landingMenu
                             ? props.landingMenu.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
-                                <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
+                                <NavLink href={`/`+menuItem.url.split("/")[3]}>{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""
@@ -57,7 +57,7 @@ return (
                             props.menuItems
                             ? props.menuItems.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
-                                <NavLink href={menuItem.url}>{menuItem.title}</NavLink>
+                                <NavLink href={`/`+menuItem.url.split("/")[3]}>{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""

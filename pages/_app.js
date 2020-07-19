@@ -12,6 +12,7 @@ import "./css/home.css"
 import "./css/experience.css"
 import "./css/heroComponent.css"
 import "./css/searchForm.css"
+import "./css/resources.css"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 

@@ -21,7 +21,7 @@ export default function TheExperience(props) {
         event.target.classList.add("open");
     }
   }
-  console.log(props)
+
   return (
     <main className="experience__page">
         <div className="hero__container">
