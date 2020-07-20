@@ -3,11 +3,31 @@
 /* =================== SEARCH WRAPPER STYLES =================== */
 /* ============================================================= */
 /* ============================================================= */
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #00A99D;
+}
+.daterangepicker td.end-date{
+    background-color: #00A99D!important;
+}
+.drp-buttons .btn-primary {
+    color: #fff!important;
+    background-color: #00a99c!important;
+    border-color: #00a99c!important;
+}
+.drp-selected{
+    display: none!important;
+}
+.daterangepicker td.in-range {
+    background-color: #015d5d1f;
+}
+#ongoing-carousel{
+    display: none;
+}
 .justify-content-evenly {
     justify-content: space-evenly;
 }
 .center__row{
-    max-width: 700px;
+    max-width: 900px;
     margin: auto;
 }
 .nice-select, input {
@@ -53,6 +73,7 @@
     -moz-user-select: none;    
     -ms-user-select: none;      
     user-select: none!important;
+    text-transform: uppercase;
 }
 .calendar-input:after{
     border-bottom: 2px solid white;
@@ -63,7 +84,7 @@
     margin-top: -4px;
     pointer-events: none;
     position: absolute;
-    right: 12px;
+    right: 8px;
     top: 50%;
     -webkit-transform-origin: 66% 66%;
         -ms-transform-origin: 66% 66%;
@@ -111,14 +132,15 @@
 .nice-select.open .list {
     opacity: 1;
     pointer-events: auto;
-    -webkit-transform: scale(1) translateY(0);
-        -ms-transform: scale(1) translateY(0);
-            transform: scale(1) translateY(0); 
-    background: black;
+    transform: scale(1) translateY(0);
+    background: white;
     border-radius: 0px;
     top: 38px;
+    left: 10px;
 }
-
+.nice-select .option.disabled{
+    background: lightgrey;
+}
 .nice-select.disabled {
     border-color: #ededed;
     color: #999;
@@ -166,7 +188,7 @@
     border-radius: 5px;
     box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
     box-sizing: border-box;
-    margin-top: 4px;
+    margin-top: 12px;
     opacity: 0;
     overflow: hidden;
     padding: 0;
@@ -196,16 +218,18 @@
     list-style: none;
     min-height: 40px;
     outline: none;
-    padding-left: 18px;
-    padding-right: 29px;
+    padding-left:10px;
+    padding-right: 10px;
     text-align: left;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; 
+    color: #00A99D;
+    font-weight: bold;
 }
 
 .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
-    background-color: #ffffff;
-    color: black;
+    background-color: #00A99D;
+    color: white;
 }
 
 .nice-select .option.selected {
@@ -213,11 +237,14 @@
 }
 
 .nice-select .option.disabled {
-    background-color: black!important;
-    color: #ffffff!important;
-    cursor: default;   
+    background-color: #d1d1d1!important;
+    color: #00a99c!important;
+    cursor: default; 
 }
-  
+.nice-select .option.selected{
+    background-color: #2f9d95;
+    color: white;
+}
 .no-csspointerevents .nice-select .list {
     display: none;
 }
@@ -260,16 +287,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 0 0 0;
 }
 
 #opportunities .search__sub__wrapper #searchTags{
     padding: 0;
     list-style-type: none;
     margin: 0;
+    display: flex;
 }
-.events__container{
-    padding: 80px 0;
+.events__container {
+    padding: 30px 0;
 }
 .the-card{
     padding-right: 0px;
@@ -337,6 +365,8 @@
     border-bottom:  solid 1px lightgray;
     border-radius: 0;
     padding: 35px 0 35px;
+    min-height: 280px;
+    cursor: pointer;
 }
 .card p{
     color: #b2b2b2;
@@ -351,9 +381,29 @@
     font-size: 21px;
     margin: 0 0 4px 0;
 }
+.card__header{
+    overflow: hidden;
+}
+.card__header{
+    min-height: 190px;
+}
+.card__header img{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 .card__title .gray__tag{
     font-weight: bold;
-    color: lightgray;
+    color: #6C6C6C;
+    text-transform: uppercase;
+    font-size: 13px;
+    margin: 0 0 4px 0;
+}
+.card__title .teal__tag{
+    font-weight: bold;
+    color: #00A99D;
     text-transform: uppercase;
     font-size: 13px;
     margin: 0 0 4px 0;
@@ -363,25 +413,43 @@
 }
 .card__date .date , .card__date .location{
     font-weight: bold;
-    color: black;
+    color: #00A99D;
     text-transform: uppercase;
     font-size: 13px;
 }
-
+.card__date .col-lg-4{
+    padding-right: 0px;
+}
+.card__date .col-lg-8{
+    padding-left: 0px;
+}
+.card__date .date{
+    position: relative;
+}
+.card__date .date:after{
+    content: "";
+    width: 1px;
+    height: 100%;
+    background: #00A99D;
+    right: -14px;
+    position: absolute;
+    top: 0px;
+}
 .card____button .learn__more__btn{
-    background: black;
+    background: #015D5D;
     color: white;
     text-transform: uppercase;
     font-size: 12px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    padding: 10px 20px;
+    padding: 6px 20px;
     min-width: 120px;
     text-align: center;
+    letter-spacing: 1px;
 }
 .search__sub__wrapper p{
-    background: black;
+    background: #00A99D;
     color: white;
     text-transform: uppercase;
     font-size: 12px;
@@ -393,24 +461,28 @@
     text-align: center;
 }
 #searchTags li{
-    background: black;
+    background: #00A99D;
     color: white;
     text-transform: uppercase;
     font-size: 11px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     padding: 9px;
     text-align: center;
     border-radius: 100px;
+    margin: 0 5px;
 }
 #searchTags li .tag-close{
     font-weight: bold;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-right: 5px;
 }
 .card__content__wrapper{
     padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .card____button{
     height: auto;
@@ -421,7 +493,7 @@
 }
 .event__pagination{
     width: 100%;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 .event__pagination #list_controller{
     width: 100%;
@@ -431,10 +503,12 @@
     align-items: center;
     list-style-type: none;
 }
+[data-page="-1"]{
+    display: none!important;
+}
 .event__pagination #list_controller .pagination-btn{
     margin: 0 5px;
-    background: black;
-    color: white;
+    color: #00A99D;
     height: 30px;
     width: 30px;
     border-radius: 100px;
@@ -442,11 +516,168 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    font-size: 13px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.pointer-none{
+    pointer-events: none!important;
+}
+#list_controller p{
+    margin: 0px;
+    color: #00A99D;
+    font-weight: bold;
+    font-size: 16px;
 }
 .event__pagination #list_controller .pagination-btn.next-controller-button{
     background: unset;
-    color: black;
+}
+
+/* ============================================================= */
+/* ============================================================= */
+/* =================== OPPORTUNITIES STYLES ==================== */
+/* ============================================================= */
+/* ============================================================= */
+
+/* ============================================================= */
+/* ============================================================= */
+/* =================== POPUP STYLES ============================ */
+/* ============================================================= */
+/* ============================================================= */
+.popup__parent{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #ffffff8c;
+    z-index: 999999;
+    top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+
+}
+.popup__wrapper{
+    border: solid 1px black;
+    width: 100%;
+    max-width: 600px;
+    overflow: hidden;
+    background: white;
+}
+.close__popup{
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    border: solid 1px #015D5D;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 999;
+}
+.close__popup p{
+    margin: 0;
+    font-size: 13px;
+    color: #015D5D;
+}
+.popup__image{
+    background: lightgrey;
+}
+.popup__content{
+    padding: 100px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.popup__content svg{
+    width: 20px;
+}
+.popup__content .event__issue h2{
+    text-transform: uppercase;
+    color: #6C6C6C;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: -40px;
+}
+.popup__content .event__description p{
+    color: #6C6C6C;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.popup__parent h2{
+    font-size: 25px;
+    font-weight: bold;
+    color: #015D5D;
+}
+.popup__content .date{
+    display: flex;
+    align-items: center;
+    border-top: solid 1px lightgrey;
+    padding: 0px;
+}
+.popup__content .date p{
+    margin: 0px 0 0 10px;
+    font-size: 11px;
+    color: #015D5D;
+    font-weight: bold;
+    padding: 15px 0;
+    text-transform: uppercase;
+    line-height: 16px;
+}
+.popup__content .date br{
+    display: none;
+}
+.main__popup__data{
+    padding: 0px;
+}
+.event__button{
+    padding: 0px;
+    margin-top: 25px;
+}
+.event__button button{
+    background: #015D5D;
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding: 10px 25px;
+    min-width: 120px;
+    text-align: center;
+    border: none;
+    letter-spacing: 1px;
+}
+.no-match-criteria{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    margin: auto;
+    position: relative;
+    top: 100px;
+}
+.popup__wrapper .container{
+    position: relative;
+    z-index: 999999;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.close__background {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 @media(max-width: 1024px){
     .card__title h3 {
@@ -454,6 +685,17 @@
     }
     .card__date .date, .card__date .location {
         font-size: 11px;
+    }
+}
+@media(max-width: 1024px){
+    .popup__wrapper {
+        width: 100%;
+        max-width: 700px;
+        overflow: hidden;
+    }
+    .close__popup {
+        top: 15px;
+        right: 30px;
     }
 }
 @media(max-width: 768px){
@@ -472,7 +714,7 @@
         padding-left: 0px;
     }
     .page__contain__search .input__wrapper {
-        width: calc(100% / 3);
+        width: calc(100% / 2);
     }
     .card__date .date, .card__date .location {
         font-size: 13px;
@@ -480,11 +722,20 @@
     .card__title .gray__tag {
         font-size: 13px;
     }
+    .center__row {
+        display: flex;
+        justify-content: flex-start;
+    }
+    .popup__wrapper {
+        max-width: 550px;
+    }
 }
+
 @media(max-width: 600px){
     .page__contain__search .input__wrapper {
-        width: calc(100% / 1);
+        width: 100%!important;
     }
+
     .nice-select, input{
         width: 100%;
         padding: 0 30px;
@@ -511,148 +762,6 @@
         box-shadow: 0 17px 36px rgba(0, 0, 0, 0), 0 3px 6px rgba(0,0,0,0.23);
     }
 }
-/* ============================================================= */
-/* ============================================================= */
-/* =================== OPPORTUNITIES STYLES ==================== */
-/* ============================================================= */
-/* ============================================================= */
-
-/* ============================================================= */
-/* ============================================================= */
-/* =================== POPUP STYLES ============================ */
-/* ============================================================= */
-/* ============================================================= */
-.popup__parent{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    z-index: 999999;
-    top: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-
-}
-.popup__wrapper{
-    border: solid 1px black;
-    width: 100%;
-    max-width: 600px;
-    overflow: hidden;
-}
-.close__popup{
-    position: absolute;
-    top: 15px;
-    right: 30px;
-    border: solid 1px lightgrey;
-    border-radius: 100px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 999;
-}
-.close__popup p{
-    margin: 0;
-    font-size: 13px;
-    color: lightgrey;
-}
-.popup__image{
-    background: lightgrey;
-}
-.popup__content{
-    padding: 100px;
-    display: flex;
-    flex-wrap: wrap;
-}
-.popup__content img{
-    width: 20px;
-}
-.popup__content .event__issue h2{
-    text-transform: uppercase;
-    color: lightgrey;
-    font-size: 14px;
-    font-weight: 500;
-}
-.popup__content .event__description p{
-    color: gray;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.popup__parent h2{
-    font-size: 25px;
-    font-weight: bold;
-}
-.popup__content .date{
-    display: flex;
-    align-items: center;
-    border-top: solid 1px lightgrey;
-    padding: 0px;
-}
-.popup__content .date p{
-    margin: 0px 0 0 10px;
-    font-size: 11px;
-    color: black;
-    font-weight: bold;
-    padding: 15px 0;
-}
-.popup__content .date br{
-    display: none;
-}
-.main__popup__data{
-    padding: 0px;
-}
-.event__button{
-    padding: 0px;
-    margin-top: 25px;
-}
-.event__button button{
-    background: black;
-    color: white;
-    text-transform: uppercase;
-    font-size: 12px;
-    cursor: pointer;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    padding: 10px 20px;
-    min-width: 120px;
-    text-align: center;
-    border: none;
-}
-.popup__wrapper .container{
-    position: relative;
-    z-index: 999999;
-    padding-right: 0px;
-    padding-left: 0px;
-}
-.close__background {
-    background: transparent;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 9;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-@media(max-width: 1024px){
-    .popup__wrapper {
-        width: 100%;
-        max-width: 700px;
-        overflow: hidden;
-    }
-    .close__popup {
-        top: 15px;
-        right: 30px;
-    }
-}
 @media(max-width: 600px){
     .popup__wrapper {
         width: 90%;
@@ -665,6 +774,15 @@
     }
     .card {
         margin: 0 20px;
+    }
+    .popup__content {
+        padding: 100px 40px;
+    }
+    .popup__parent h2 {
+        line-height: 28px;
+    }
+    .popup__content .event__issue h2 {
+        margin-top: -5px;
     }
 }
 @media(max-width: 900px) and (orientation: landscape ){

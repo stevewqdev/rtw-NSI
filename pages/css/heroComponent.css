@@ -40,6 +40,31 @@
     font-size: 65px;
     line-height: 70px;
 }
+.impact__page .hero__content h4{
+    max-width: 540px;
+}
+.impact__page .hero__content p{
+    max-width: 420px;
+    margin-bottom: 50px;
+}
+.impact__page .hero__content{
+    margin-top: 150px;
+}
+.impact__page .hero__container .container{
+    padding-bottom: 50px;
+}
+.impact__page .main-btn{
+    padding: 9px 15px;
+    max-width: 279px;
+    width: 100%;
+    text-align: left;
+}
+.impact__page .main-btn strong{
+    margin-left: 15px;
+}
+.impact__page .hero__content__button {
+    margin-top: 7px;
+}
 .hero__content h4{
     margin-top: 25px;
     color: #00A99D;
@@ -60,7 +85,17 @@
         padding-left: 4.5%;
     }
 }
+@media(max-width: 768px){
+    .impact__page .hero__content {
+        margin-top: 0px;
+    }
+
+
+}
 @media(max-width: 600px){
+    .impact__page .hero__container {
+        padding: 100px 20px 50px;
+    }
     .hero__container{
         height: auto;
         min-height: auto!important;

@@ -15,10 +15,11 @@ var currentPage = 0,
     apiCallData;
     
 // We set the API link to call 
-var wordpressLink = 'https://5efa3465bc5f8f0016c677a2.mockapi.io/avi/v1/campaign-one'; 
+var apiLink = 'https://raxo.dev/stm/api/'; 
+//var apiLink = 'https://5efa3465bc5f8f0016c677a2.mockapi.io/avi/v1/campaign-one'; 
 
 // We make the API call to pull the data
-var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
+var apiCall = $.getJSON(`${apiLink}`, function(data) {
     console.log(data);
 }).done(function(data, theCards, datesLoop) {
     // We initialize the variables
@@ -213,7 +214,6 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         event.filterPartner = filterPartner;
         event.filterContext = new Array();
         
-        console.log();
         // If the context field contains a ";" separator we will split the values and save them as each
         if(event.context.includes(";")){
             var explodedString = event.context.split(";");
@@ -339,9 +339,11 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         // Clean, remove spaces and lowercase the info
         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
         // Create the option with JS
-        let theOption = `<option value="${finalOption}" class="${finalOption}">${option}</option>`;
+        let theOption = `<option id="${finalOption}-${index}" value="${finalOption}" class="${finalOption}">${option}</option>`;
         // Insert the option into the html
-        $( "#interest" ).append(theOption);
+        if(!$(`#${finalOption}-${index}`).length){   
+            $( "#interest" ).append(theOption);
+        }
     }
 
     // We loop trought partner options and add them to the DOM
@@ -352,9 +354,12 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         // Clean, remove spaces and lowercase the info
         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
         // Create the option with JS
-        let theOption = `<option value="${finalOption}" class="${finalOption}">${option}</option>`;
+        let theOption = `<option value="${finalOption}" id="${finalOption}-${index}" class="${finalOption}">${option}</option>`;
         // Insert the option into the html
-        $( "#partner" ).append(theOption);
+        if(!$(`#${finalOption}-${index}`).length){
+            $( "#partner" ).append(theOption);
+        }
+        
     }
 
     // We loop trought City options and fix some of the values
@@ -379,6 +384,7 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
     cityElements.sort();
 
     // We loop trought Issue options and add them to the DOM
+
     for (let index = 0; index < cityElements.length; index++) {
         var option = cityElements[index];
         // Save the info on a variable
@@ -388,17 +394,21 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
             finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
             // Create the option with JS
-            let theOption = `<option data-option-count="${index}" value="nyc" class="${finalOption} ${finalOption}-${index}">New York</option>`;
+            let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="nyc" class="${finalOption} ${finalOption}-${index}">New York</option>`;
             // Insert the option into the html
-            $( "#cities" ).append(theOption);
+            if(!$(`#${finalOption}-${index}`).length){
+                $( "#cities" ).append(theOption);
+            }
         }else{
             // Clean, remove spaces and lowercase the info
             finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
             // Create the option with JS
-            let theOption = `<option data-option-count="${index}" value="${finalOption}" class="${finalOption} ${finalOption}-${index}">${option}</option>`;
+            let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="${finalOption}" class="${finalOption} ${finalOption}-${index}">${option}</option>`;
             // Insert the option into the html
-            $( "#cities" ).append(theOption);
+            if(!$(`#${finalOption}-${index}`).length){
+                $( "#cities" ).append(theOption);
+            }
         }
     }
 
@@ -411,9 +421,12 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
         // Create the option with JS
-        let theOption = `<label class="tag-checkbox ${finalOption}" for=""><input type="checkbox" class="${finalOption}" value="${finalOption}" data-info="${option}"> <span> ${option}</span></label>`;
+        let theOption = `<label class="tag-checkbox ${finalOption}" for=""><input type="checkbox" id="${finalOption}-${index}" class="${finalOption}" value="${finalOption}" data-info="${option}"> <span> ${option}</span></label>`;
         // Insert the option into the html
-        $( ".issues__wrapper .select_options" ).append(theOption);
+        if(!$(`#${finalOption}-${index}`).length){
+            $( ".issues__wrapper .select_options" ).append(theOption);
+        }
+        
     }
     
     // We convert the select elements with niceSelect library
@@ -505,7 +518,7 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         
     function drawList(pageList) {
         document.getElementById("list").innerHTML = "";
-        document.getElementById("carousel-list").innerHTML = "";
+        // document.getElementById("carousel-list").innerHTML = "";
         document.getElementById("list_controller").innerHTML = "";
 
         for (r = 0; r < pageList.length; r++) {
@@ -513,43 +526,43 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         }
         var cardExist = $('#full_ops .the-card');
 
-        var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
-        for (r = 0; r < carouselList.length; r++) {
-            if(carouselList[r].includes('data-event-city="global"')){
-                carouselList.push(carouselList.splice(r, 1)[0]);
-            }
-        }
-        for (r = 0; r < carouselList.length; r++) {
-            document.getElementById("carousel-list").innerHTML += carouselList[r] ;
-        }
+        // var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
+        // for (r = 0; r < carouselList.length; r++) {
+        //     if(carouselList[r].includes('data-event-city="global"')){
+        //         carouselList.push(carouselList.splice(r, 1)[0]);
+        //     }
+        // }
+        // for (r = 0; r < carouselList.length; r++) {
+        //     document.getElementById("carousel-list").innerHTML += carouselList[r] ;
+        // }
         
-        var ongoingCardExist = $('#carousel-list .the-card'); 
-        if(ongoingCardExist.length > 0){
-            var elem = document.querySelector('#carousel-list');
-            var flkty = new Flickity( elem, {
-                imagesLoaded: true,
-                resize: true,
-                adaptiveHeight: true,
-                cellAlign: 'left',
-                freeScroll: true,
-                wrapAround: true,
-                contain: true
-            });
-        }
+        // var ongoingCardExist = $('#carousel-list .the-card'); 
+        // if(ongoingCardExist.length > 0){
+        //     var elem = document.querySelector('#carousel-list');
+        //     var flkty = new Flickity( elem, {
+        //         imagesLoaded: true,
+        //         resize: true,
+        //         adaptiveHeight: true,
+        //         cellAlign: 'left',
+        //         freeScroll: true,
+        //         wrapAround: true,
+        //         contain: true
+        //     });
+        // }
 
-        if($(window).width() > 768) {
-            if($("#ongoing-carousel .the-card").length <= 3) {
-                    $("#carousel-list .flickity-prev-next-button.previous").addClass("disabled__arrow");
-            }else{
-                $("#carousel-list .flickity-prev-next-button.previous").removeClass("disabled__arrow");
-            }
+        // if($(window).width() > 768) {
+        //     if($("#ongoing-carousel .the-card").length <= 3) {
+        //             $("#carousel-list .flickity-prev-next-button.previous").addClass("disabled__arrow");
+        //     }else{
+        //         $("#carousel-list .flickity-prev-next-button.previous").removeClass("disabled__arrow");
+        //     }
 
-            if($("#ongoing-carousel .the-card").length <= 3) {
-                $("#carousel-list .flickity-prev-next-button.next").addClass("disabled__arrow");
-            }else{
-                $("#carousel-list .flickity-prev-next-button.next").removeClass("disabled__arrow");
-            }
-        }
+        //     if($("#ongoing-carousel .the-card").length <= 3) {
+        //         $("#carousel-list .flickity-prev-next-button.next").addClass("disabled__arrow");
+        //     }else{
+        //         $("#carousel-list .flickity-prev-next-button.next").removeClass("disabled__arrow");
+        //     }
+        // }
     }
 
     function createButtons() {
@@ -562,66 +575,43 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         var activeButton = '';
         var theButton = '';
         number = 0;
-        if(buttons > 4){
-            if(number + 1 === buttons){
-                theButton = `
-                <li class=" active pagination-btn btn-index" data-page="${number - 1 - 1}" data-total="${buttons}">${number - 1 - 1}</li>
-                <li class="  pagination-btn btn-index" data-page="${number - 1}" data-total="${buttons}">${number - 1}</li>
-                <li class=" active pagination-btn btn-index" data-page="${number }" data-total="${buttons}">${number + 1}</li>
-
-                `;
-            }else if(number >= 3 ) {
-                theButton = `
-                <li class=" pagination-btn btn-index" data-page="${number - 1}" data-total="${buttons}">${number}</li>
-                <li class=" active pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
-                <li class=" pagination-btn btn-index" data-page="${number+1}" data-total="${buttons}">${number+1+1}</li>
-                `;
-                
-            }
-            else{
-                theButton = `
-                <li class="active pagination-btn btn-index" data-page="0" data-total="${buttons}">1</li>
-                <li class=" pagination-btn btn-index" data-page="1" data-total="${buttons}">2</li>
-                <li class=" pagination-btn btn-index" data-page="2" data-total="${buttons}">3</li>
+        
+        if(buttons === 1){
+            theButton = 
+            `
+            <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
+            <p>OF</p>
+            <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
             `;
-            }
-
-            buttonArray.push(theButton);
         }else{
-            for (let index = 0; index < buttons; index++) {
-                const element = index;
-                if(index === 0){
-                    var activeButton = 'active';
-                }else{
-                    var activeButton = '';
-                }
-                theButton = `
-                <li class="${activeButton} pagination-btn btn-index" data-page="${element}" data-total="${buttons}">${element + 1}</li>`;
-                buttonArray.push(theButton);
-            }
-
+            theButton = 
+            `
+            <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
+            <p>OF</p>
+            <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons+1}</li>
+            `;
         }
+   
+
+        buttonArray.push(theButton);
+        
         var nn = parseInt(number) + 1;
-        var pp = parseInt(number) - 1;
-        if(number >= 3 ){
-            var prevButton =  `
-            <li class="active pagination-btn btn-index prev-controller-button" data-page="${pp}" data-total="${buttons}" style="display:none;"> <i class="fa fa-angle-left"></i> </li>`;
-            if(number === buttons ){
-                
-            }else if(number >= 3) {
-                var nextButton =  `<li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> <i class="fa fa-angle-right"></i> </li>`;
-            }
+
+        var nextButton =  `
+        <li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
+                <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#00a99d" fill-rule="evenodd"/>
+            </svg>
+        </li>`;
+            
+        $( "#list_controller" ).append(buttonArray);
+
+        if(buttons === 1){
 
         }else{
-            if(buttons > 2){
-                var nextButton =  `
-            <li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> <i class="fa fa-angle-right"></i> </li>`;
-            }
+            $( "#list_controller" ).append(nextButton);
         }
-            
-        $( "#list_controller" ).append(prevButton);
-        $( "#list_controller" ).append(buttonArray);
-        $( "#list_controller" ).append(nextButton);
+
     }
     function load() {
         makeList();
@@ -754,10 +744,12 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
 
     // Check if theres any event, if not we dislpay a message
     function sendMessageIfEvent(){
+        
         var cardExist = $('.the-card');
         
         if(cardExist.length === 0){
             $('#list').innerHTML = '';
+            
             if($('#emptyUrlSearch').length){
                 var emptyMessage = `<div class="col-sm-12 no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@RepairTheWorld</strong> on social media for the latest updates.</p></div>`;
                 $('#list').prepend(emptyMessage);
@@ -767,11 +759,11 @@ var apiCall = $.getJSON(`${wordpressLink}`, function(data) {
         }
         $('#emptyUrlSearch').remove();
 
-        if($('#carousel-list .the-card').length > 0){
-            $('#ongoing-carousel h2').show();
-        }else{
-            $('#ongoing-carousel h2').hide();
-        }
+        // if($('#carousel-list .the-card').length > 0){
+        //     $('#ongoing-carousel h2').show();
+        // }else{
+        //     $('#ongoing-carousel h2').hide();
+        // }
 
         if($('#full_ops .the-card').length > 0){
             $('#full_ops h2').show();
@@ -851,15 +843,15 @@ function changePage(number, cards){
     
     load(number, list, numberPerPage);
 
-    if($(window).width() > 500) {
-        $('html, body').animate({
-            scrollTop: $("#opportunities").offset().top
-        }, 1000);
-    }else{
-        $('html, body').animate({
-            scrollTop: $("#search-events").offset().top
-        }, 1000);
-    }
+    // if($(window).width() > 500) {
+    //     $('html, body').animate({
+    //         scrollTop: $("#opportunities").offset().top
+    //     }, 1000);
+    // }else{
+    //     $('html, body').animate({
+    //         scrollTop: $("#search-events").offset().top
+    //     }, 1000);
+    // }
 
 }
 function makeList(list, numberPerPage,  number) {
@@ -877,8 +869,7 @@ function loadList(number, list, numberPerPage) {
     var end = begin + numberPerPage;
 
     pageList = list.slice(begin, end);
-    var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
-    if(pageList.length || carouselList.length > 0){
+    if(pageList.length){
         drawList(number, pageList, list);
     }
     if($("[data-value='nyc']").length > 1){
@@ -892,52 +883,11 @@ function drawList(number, pageList, list) {
     for (r = 0; r < pageList.length; r++) {
         document.getElementById("list").innerHTML += pageList[r] ;
     }
-    var $carousel = $('#carousel-list').flickity()
-        $carousel.flickity('destroy')
-        document.getElementById("carousel-list").innerHTML = "";
 
     var cardExist = $('.the-card');
-    var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
-    if(carouselList.length){
-        for (r = 0; r < carouselList.length; r++) {
-            if(carouselList[r].includes('data-event-city="global"')){
-                carouselList.push(carouselList.splice(r, 1)[0]);
-            }
-        }
-        for (r = 0; r < carouselList.length; r++) {
-            document.getElementById("carousel-list").innerHTML += carouselList[r] ;     
-        }
-    }
-    var ongoingCardExist = $('#carousel-list .the-card'); 
-    if(ongoingCardExist.length > 0){
-        var elem = document.querySelector('#carousel-list');
-        var flkty = new Flickity( elem, {
-            imagesLoaded: true,
-            resize: true,
-            adaptiveHeight: true,
-            cellAlign: 'left',
-            freeScroll: true,
-            wrapAround: true,
-            contain: true
-        });
-    }
     
-    if($(window).width() > 768) {
-        if($("#ongoing-carousel .the-card").length <= 3) {
-            $("#carousel-list .flickity-prev-next-button.previous").addClass("disabled__arrow");
-        }else{
-            $("#carousel-list .flickity-prev-next-button.previous").removeClass("disabled__arrow");
-        }
-
-        if($("#ongoing-carousel .the-card").length <= 3) {
-            $("#carousel-list .flickity-prev-next-button.next").addClass("disabled__arrow");
-        }else{
-            $("#carousel-list .flickity-prev-next-button.next").removeClass("disabled__arrow");
-        }
-    }
-
-
     createButtons(number, list);
+
 }
 function createButtons(number, list) {
     if($(window).width() > 500) {
@@ -948,96 +898,85 @@ function createButtons(number, list) {
     var buttonArray =  new Array();
     var activeButton = '';
     
-    if(buttons > 4){
-        if(number + 1 === buttons){
-            theButton = `
-            <li class=" active pagination-btn btn-index" data-page="${number - 1 - 1}" data-total="${buttons}">${number - 1 - 1}</li>
-            <li class="  pagination-btn btn-index" data-page="${number - 1}" data-total="${buttons}">${number - 1}</li>
-            <li class=" active pagination-btn btn-index" data-page="${number }" data-total="${buttons}">${number + 1}</li>
 
-            `;
-        }else if(number >= 3 ) {
-            theButton = `
-            <li class=" pagination-btn btn-index" data-page="${number - 1}" data-total="${buttons}">${number}</li>
-            <li class=" active pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
-            <li class=" pagination-btn btn-index" data-page="${number+1}" data-total="${buttons}">${number+1+1}</li>
-            `;
-            
-        }
-        else{
-            theButton = `
-            <li class="active pagination-btn btn-index" data-page="0" data-total="${buttons}">1</li>
-            <li class=" pagination-btn btn-index" data-page="1" data-total="${buttons}">2</li>
-            <li class=" pagination-btn btn-index" data-page="2" data-total="${buttons}">3</li>
+    if(buttons === 1){
+        theButton = 
+        `
+        <li class="pointer-none  pagination-btn btn-index" data-page="${number }" data-total="${buttons}">${number + 1}</li>
+        <p>OF</p>
+        <li class="pointer-none pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
         `;
-        }
-
-        buttonArray.push(theButton);
     }else{
-        for (let index = 0; index < buttons; index++) {
-            const element = index;
-            theButton = `
-            <li class="pagination-btn btn-index" data-page="${element}" data-total="${buttons}">${element + 1}</li>`;
-            buttonArray.push(theButton);
-        }
-
+        theButton = 
+        `
+        <li class="pointer-none  pagination-btn btn-index" data-page="${number }" data-total="${buttons}">${number + 1}</li>
+        <p>OF</p>
+        <li class="pointer-none pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons+1}</li>
+        `;
     }
+
+
+    buttonArray.push(theButton);
+    
+
     var nn = parseInt(number) + 1;
     var pp = parseInt(number) - 1;
+    
 
-    if(number >= 3 ){
-        var prevButton =  `
-        <li class="active pagination-btn btn-index prev-controller-button" data-page="${pp}" data-total="${buttons}" style="display:none;"> <i class="fa fa-angle-left"></i> </li>`;
-        if(number === buttons ){
-            
-        }else if(number >= 3) {
-            var nextButton =  `<li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> <i class="fa fa-angle-right"></i> </li>`;
-        }
+    var prevButton =  `
+    <li class=" pagination-btn btn-index prev-controller-button" data-page="${pp}" data-total="${buttons}" style="display:none;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
+            <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(104.336 36.242) rotate(180)" fill="#00a99d" fill-rule="evenodd"/>
+        </svg>
+    </li>`;
+
+    var nextButton =  `
+    <li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> 
+        <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
+            <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#00a99d" fill-rule="evenodd"/>
+        </svg>
+    </li>`;
+
+
+    if(buttons === 1){
 
     }else{
-        if(buttons > 2){
-            var nextButton =  `
-        <li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> <i class="fa fa-angle-right"></i> </li>`;
-        }
-
+        $( "#list_controller" ).append(prevButton);
     }
 
-        
-    $( "#list_controller" ).append(prevButton);
     $( "#list_controller" ).append(buttonArray);
-    $( "#list_controller" ).append(nextButton);
 
-    if(number === 0 ){
-        $('.next-controller-button').attr('data-page', '1');
-        $('.prev-controller-button').attr('data-page', '-1');
-    }
-    if(number === 1 ){
-        $('.next-controller-button').attr('data-page', '2');
-        $('.prev-controller-button').attr('data-page', '1');
+    if(buttons === 1){
+
+    }else{
+        $( "#list_controller" ).append(nextButton);
     }
 
     $(`.pagination-btn`).removeClass('active');
     $(`[data-page='${number}']`).not('.more-button-controller').addClass('active');
     
-    if(pp < 3){
+
+    if(pp === 0){
         $('.prev-controller-button').hide().css('display', 'none!important');
         //$('.pagination-btn').not('.more-button-controller').show();
     }
-    if(pp < parseInt(buttons) && number  > 3){
+    if(pp > 0){
         $('.next-controller-button').show();
     }
-    if(nn > 3){
+    if(nn > 0){
         //$('.pagination-btn').not('.more-button-controller').hide();
         $('.prev-controller-button').show().css('display', 'block!important');
     }
-    if(nn === parseInt(buttons)){
+    if(nn > parseInt(buttons)){
         $('.next-controller-button').hide();
     }
 
 }
 function load(number, list, numberPerPage) {
+    
     makeList(list, numberPerPage, number);
     var cardExist = $('.the-card');
+
     if(cardExist.length){
         $('#list').innerHTML = '';
         if($('#emptyUrlSearch').length){
@@ -1050,11 +989,11 @@ function load(number, list, numberPerPage) {
     }
     $('#emptyUrlSearch').remove();
     
-    if($('#carousel-list .the-card').length > 0){
-        $('#ongoing-carousel h2').show();
-    }else{
-        $('#ongoing-carousel h2').hide();
-    }
+    // if($('#carousel-list .the-card').length > 0){
+    //     $('#ongoing-carousel h2').show();
+    // }else{
+    //     $('#ongoing-carousel h2').hide();
+    // }
 
     if($('#full_ops .the-card').length > 0){
         $('#full_ops h2').show();
@@ -1569,7 +1508,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                 theCity = "NYC";
             }
             // We create the final card we are going to print
-            let theCard = ` <div class="col-sm-6 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
+            let theCard = ` <div class="col-sm-6 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue === "card" ? "card__issue" : theIssue }" data-event-id="${data.id}">
                 <!-- Card -->
                 <div class="card" 
                     data-event-venue="${data.venue}" 
@@ -1598,13 +1537,8 @@ function curatedCards(data, searchData = null, removedTag = null){
                     <div class="card__content__wrapper col-sm-12 col-md-12 col-lg-8">
                         <div class="card__title">
                             <h3>${data.name}</h3>
-                            <div class="card__tags" >
-                                ${cardContext.map((item, i) => `
-                                    <span class="teal__tag">${item}</span>
-                                `).join('')}
-                                
-                                <span class="gray__tag" style="${data.issue};">${data.issue}</span>
-                                <div class="data-page" style="display: none;">${data.length}</div>
+                            <div class="card__tags" >                               
+                                <span class="gray__tag" style="${data.issue};">${data.partner}</span>
                             </div>
                             <div class="registration__custom__link" style="display:none;">
                                 ${data.formURL}
@@ -1616,7 +1550,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                                     <span class="date">${cardDate}</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-8" >
-                                    <span class="location">${theCity}</span>
+                                    <span class="location">${data.city}</span>
                                 </div>
                             </div>
                         </div>
@@ -1624,7 +1558,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                             <p>${newDescription}</p>
                         </div>
                         <div class="card____button">
-                            <a  class="learn__more__btn">send</a>
+                            <a  class="learn__more__btn">MORE INFO</a>
                         </div>
                     </div>
                 </div>
@@ -1811,7 +1745,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                     theCity = "NYC";
                 }
                 // We create the final card we are going to print
-                let theCard = ` <div class="col-sm-6 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue}" data-event-id="${data.id}">
+                let theCard = ` <div class="col-sm-6 card-${index} the-card ${theCity} ${theContext} ${thePartner} ${theDate} ${theIssue === "card" ? "card__issue" : theIssue }" data-event-id="${data.id}">
                     <!-- Card -->
                     <div class="card" 
                         data-event-venue="${data.venue}" 
@@ -1841,13 +1775,8 @@ function curatedCards(data, searchData = null, removedTag = null){
                     <div class="card__content__wrapper col-sm-12 col-md-12 col-lg-8">
                         <div class="card__title">
                             <h3>${data.name}</h3>
-                            <div class="card__tags" >
-                                ${cardContext.map((item, i) => `
-                                    <span class="teal__tag">${item}</span>
-                                `).join('')}
-                                
-                                <span class="gray__tag" style="${data.issue};">${data.issue}</span>
-                                <div class="data-page" style="display: none;">${data.length}</div>
+                            <div class="card__tags" >                               
+                                <span class="gray__tag" style="${data.issue};">${data.partner}</span>
                             </div>
                             <div class="registration__custom__link" style="display:none;">
                                 ${data.formURL}
@@ -1859,7 +1788,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                                     <span class="date">${cardDate}</span>
                                 </div>
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-8" >
-                                    <span class="location">${theCity}</span>
+                                    <span class="location">${data.city}</span>
                                 </div>
                             </div>
                         </div>
@@ -1867,7 +1796,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                             <p>${newDescription}</p>
                         </div>
                         <div class="card____button">
-                            <a  class="learn__more__btn">send</a>
+                            <a  class="learn__more__btn">MORE INFO</a>
                         </div>
                     </div>
                     <!-- / Card -->
@@ -2195,6 +2124,7 @@ $(document).on("click", " .card" , function() {
     let registrationInfo = $(this).attr('data-event-registration').replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();  
     let formID = $(this).find('.registration__custom__link a').attr('href'); 
     let partnerLink = $(this).attr('data-event-partner-link'); 
+    let partner = $(this).attr('data-event-partner'); 
     let isOngoing = $(this).attr('data-ongoing'); 
     let isVirtual = $(this).attr('data-isvirtual'); 
     let timezone = $(this).attr('data-timezone'); 
@@ -2398,6 +2328,12 @@ $(document).on("click", " .card" , function() {
     }else{
         hideVenue = 
         `
+            <svg xmlns="http://www.w3.org/2000/svg" width="37.275" height="32.618" viewBox="0 0 37.275 32.618">
+                <g id="Grupo_2087" data-name="Grupo 2087" transform="translate(-116.489 -639.673)">
+                <path id="Trazado_2049" data-name="Trazado 2049" d="M116.489,666.412V642.46c.026-.092.057-.184.079-.277a3.109,3.109,0,0,1,3.1-2.505q15.48-.008,30.96,0a3.085,3.085,0,0,1,2.99,2.27c.044.147.1.293.143.44v24.025a.7.7,0,0,0-.058.132,3.136,3.136,0,0,1-3.292,2.635H135.932v1.546H145.7a2.677,2.677,0,0,1,.4.014.772.772,0,0,1,.016,1.531,2.086,2.086,0,0,1-.362.02H124.5a2.1,2.1,0,0,1-.363-.02.773.773,0,0,1,.016-1.531,2.677,2.677,0,0,1,.4-.014h9.759V669.18h-.464q-7.077,0-14.155,0a3.117,3.117,0,0,1-3.082-2.35C116.574,666.689,116.531,666.551,116.489,666.412Zm35.7-5.028c.009-.117.022-.211.022-.306q0-9.027,0-18.055a1.729,1.729,0,0,0-1.815-1.815c-8.857.024-17.714.013-26.571.013-1.384,0-2.766,0-4.15,0a1.569,1.569,0,0,0-1.6,1.351,3.391,3.391,0,0,0-.045.578q0,8.919,0,17.837v.395ZM152.188,663H118.036c0,.922.023,1.818-.007,2.712a1.761,1.761,0,0,0,1.923,1.935c5.228-.035,10.455-.014,15.683-.014q7.407,0,14.813,0a1.547,1.547,0,0,0,1.723-1.454C152.243,665.13,152.188,664.074,152.188,663Z" transform="translate(0)" fill="#015d5d"/>
+                <path id="Trazado_2050" data-name="Trazado 2050" d="M135.12,663.1a1.546,1.546,0,1,1-1.549-1.544A1.546,1.546,0,0,1,135.12,663.1Z" transform="translate(1.552 2.185)" fill="#015d5d"/>
+                </g>
+            </svg>
             <img src="https://werepair.org/wp-content/themes/evolux/images/icons/location.png" alt="logo">
             VIRTUAL PROGRAM
         `
@@ -2452,7 +2388,7 @@ $(document).on("click", " .card" , function() {
                             <h2>${name}</h2>
                         </div>
                         <div class="event__issue">
-                            <h2>${issue}</h2>
+                            <h2>${partner}</h2>
                         </div>
                         <div class="event__description">
                             <p>${description[0].promo}</p>
@@ -2460,24 +2396,44 @@ $(document).on("click", " .card" , function() {
                     </div>
 
                     <div class="date col-sm-12 col-md-4">   
-                        <img src="https://werepair.org/wp-content/themes/evolux/images/icons/calendar.png" alt="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30.165" height="28.901" viewBox="0 0 30.165 28.901">
+                            <g id="Grupo_1600" data-name="Grupo 1600" transform="translate(-166.442 -925.862)">
+                            <path id="Trazado_2042" data-name="Trazado 2042" d="M170.182,928.376c.178-1.765.72-2.514,1.864-2.495a2.155,2.155,0,0,1,1.128.353,2.06,2.06,0,0,1,.689.916,5.11,5.11,0,0,1,.168,1.206h1.208c0-.2,0-.405,0-.608a1.884,1.884,0,0,1,3.767-.032c.006.206,0,.412,0,.639h5.028c0-.215,0-.431,0-.648a1.883,1.883,0,0,1,3.766.007c.005.206,0,.413,0,.64h1.256c0-.2,0-.4,0-.6a1.885,1.885,0,1,1,3.769-.007c0,.194,0,.389,0,.63.795,0,1.562,0,2.33,0a1.28,1.28,0,0,1,1.44,1.454q0,9.756.007,19.513a.872.872,0,0,1-.286.682c-1.507,1.492-3,3-4.509,4.486a.9.9,0,0,1-.57.242q-11.681.018-23.36.01a1.281,1.281,0,0,1-1.439-1.456q0-11.6,0-23.2c0-.131,0-.261,0-.392a1.252,1.252,0,0,1,1.324-1.333C168.565,928.37,169.362,928.376,170.182,928.376Zm25.143,6.31h-27.6v18.8h22.587c0-1.05.043-2.083-.01-3.11-.074-1.446.45-1.983,1.912-1.907,1.027.053,2.059.01,3.106.01Zm-27.606-1.311h27.593v-3.72H192.83c0,.411.006.8,0,1.191a1.251,1.251,0,0,1-1.281,1.3c-.392.007-.785.006-1.177,0a1.253,1.253,0,0,1-1.31-1.308c0-.389,0-.778,0-1.179H187.8c0,.427.009.831,0,1.234a1.246,1.246,0,0,1-1.246,1.252c-.406.011-.812.007-1.217,0a1.251,1.251,0,0,1-1.3-1.314c0-.388,0-.777,0-1.17h-5.026c0,.406,0,.784,0,1.162a1.256,1.256,0,0,1-1.336,1.323c-.353,0-.707,0-1.06,0a1.265,1.265,0,0,1-1.373-1.366c0-.375,0-.749,0-1.117h-1.256c0,.422.007.814,0,1.2a1.251,1.251,0,0,1-1.265,1.275c-.379.01-.759.005-1.138,0a1.264,1.264,0,0,1-1.365-1.373c0-.373,0-.747,0-1.121h-2.493ZM191.587,952.8l3.04-3.04h-3.04Zm-18.864-21.93c0-1.075.01-2.117-.005-3.159a.6.6,0,0,0-.613-.591.587.587,0,0,0-.62.535c-.02,1.066-.008,2.132-.008,3.215Zm3.776-.01h1.252c0-1.055.008-2.084,0-3.113a.622.622,0,0,0-1.244-.011C176.49,928.768,176.5,929.8,176.5,930.862Zm10.046.01c0-1.075.01-2.118-.005-3.16a.607.607,0,0,0-.613-.591.6.6,0,0,0-.626.574c-.017,1.053-.006,2.106-.006,3.177Zm5.029,0c0-1.05,0-2.054,0-3.059a.63.63,0,1,0-1.252.016c-.005.718,0,1.436,0,2.154v.889Z" fill="#015d5d"/>
+                            <path id="Trazado_2043" data-name="Trazado 2043" d="M185.293,944.711c0,1.4,0,2.742,0,4.088,0,.772-.168.939-.946.939H172.331c-.67,0-.861-.191-.861-.864q0-4.83,0-9.659c0-.561.224-.787.782-.787h18.533c.564,0,.789.218.79.778q0,2.376,0,4.751c0,.525-.238.754-.776.754q-2.435,0-4.869,0Zm-7.565-1.264v-3.734h-4.97v3.734Zm1.305-3.755v3.734H184v-3.734Zm6.288.008v3.735h4.974V939.7Zm-7.6,8.763v-3.722h-4.979v3.722Zm1.314-3.738v3.735h4.973v-3.735Z" fill="#015d5d"/>
+                            </g>
+                        </svg>
+                  
                         ${dateInfo}
                     </div>
                     <div class="date col-sm-12 col-md-8">   
-                        <img src="https://werepair.org/wp-content/themes/evolux/images/icons/time.png" alt="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="29.297" height="29.298" viewBox="0 0 29.297 29.298">
+                            <g id="Grupo_1601" data-name="Grupo 1601" transform="translate(-166.876 -1042.67)">
+                            <path id="Trazado_2044" data-name="Trazado 2044" d="M181.505,1071.536a14.218,14.218,0,1,1,14.237-14.2A14.236,14.236,0,0,1,181.505,1071.536Zm.015-25.845a11.628,11.628,0,1,0,11.633,11.623A11.627,11.627,0,0,0,181.52,1045.691Z" fill="#015d5d" stroke="#fff" stroke-miterlimit="10" stroke-width="0.862"/>
+                            <path id="Trazado_2045" data-name="Trazado 2045" d="M180.238,1053.433c0-1.292-.005-2.583,0-3.875a1.3,1.3,0,0,1,.992-1.254,1.266,1.266,0,0,1,1.451.721,1.717,1.717,0,0,1,.123.672q.014,3.391,0,6.782a.673.673,0,0,0,.226.525q1.614,1.6,3.212,3.209a1.285,1.285,0,0,1-.3,2.146,1.2,1.2,0,0,1-1.31-.137,3.978,3.978,0,0,1-.422-.389c-1.143-1.141-2.279-2.289-3.43-3.421a1.694,1.694,0,0,1-.551-1.316C180.254,1055.876,180.238,1054.654,180.238,1053.433Z" fill="#015d5d" stroke="#fff" stroke-miterlimit="10" stroke-width="0.862"/>
+                            </g>
+                        </svg>
+                  
                         <p>${finalTime}</p>
                     </div>
 
                     <div class="date col-sm-12 col-md-4">   
-                        <img src="https://werepair.org/wp-content/themes/evolux/images/icons/location.png" alt="logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24.942" height="33.245" viewBox="0 0 24.942 33.245">
+                            <g id="Grupo_1602" data-name="Grupo 1602" transform="translate(-169.05 -1130.555)">
+                            <path id="Trazado_2046" data-name="Trazado 2046" d="M182.365,1130.805c.73.126,1.469.211,2.187.385a12.307,12.307,0,0,1,9.047,9.752,11.051,11.051,0,0,1-1,6.587,46.21,46.21,0,0,1-4.532,7.654,99.3,99.3,0,0,1-6.205,7.876c-.1.111-.2.219-.326.364-.236-.269-.459-.519-.677-.774a91.235,91.235,0,0,1-7.574-10.027,34.652,34.652,0,0,1-3.3-6.332,10.231,10.231,0,0,1,.332-8.077,12.009,12.009,0,0,1,9.329-7.263c.353-.064.712-.1,1.068-.145Zm-.836,29.564c.127-.146.215-.238.293-.338,1.439-1.839,2.916-3.649,4.3-5.526a40.7,40.7,0,0,0,4.618-7.676,9.419,9.419,0,0,0,.881-5.317,10.2,10.2,0,0,0-19.421-2.562,8.488,8.488,0,0,0-.231,6.953,38.245,38.245,0,0,0,1.841,3.8,66.687,66.687,0,0,0,6.295,8.947C180.566,1159.22,181.038,1159.776,181.529,1160.369Z" fill="#015d5d" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            <path id="Trazado_2047" data-name="Trazado 2047" d="M175.421,1143.028a6.116,6.116,0,1,1,6.074,6.126A6.116,6.116,0,0,1,175.421,1143.028Zm2.038,0a4.078,4.078,0,1,0,4.115-4.064A4.083,4.083,0,0,0,177.459,1143.025Z" fill="#015d5d" stroke="#fff" stroke-miterlimit="10" stroke-width="0.5"/>
+                            </g>
+                        </svg>
+                    
                         <p>${address}</p>
                     </div>
                     <div class="date col-sm-12 col-md-8">   
+
+
                         ${hideVenue}
                     </div>
 
                     <div class="event__button col-lg-12">
-                        <button> Send </button>
+                        <button> REGISTER </button>
                     </div>
                 </div>
             </div>
@@ -2821,7 +2777,6 @@ $(document).on("click", ".searchTagsWrapper p" , function() {
     var TimeRange = false;
     var removeTag = null;
 
-    
 
     $('select').niceSelect('update');
     localStorage.removeItem('finalInputsRange');
@@ -2829,6 +2784,7 @@ $(document).on("click", ".searchTagsWrapper p" , function() {
     theCards = formatDataEvents(apiCallData, searchData, removeTag, TimeRange);
     $('.calendar__input').val('Calendar');
     changePage(0, theCards);
+
 })
 // ====== END OF this click event controls the removing of the .searchTagsWrapper p element on click ====== //
 
@@ -2899,65 +2855,16 @@ $(document).on("click", ".pagination-btn" , function() {
     }
 
     page = parseInt($(this).attr('data-page'));
-    var totalButtons = parseInt($(this).attr('data-total'));
-    if(page === 0 || page === 1){
-        $('.next-controller-button').attr('data-page', '2');
-        $('.prev-controller-button').attr('data-page', '-1');
-    }
-    if($(this).hasClass('prev-controller-button')){
-        $(`.pagination-btn`).not('.more-button-controller').removeClass('active');
-        $(`[data-page='${page}']`).not('.more-button-controller').addClass('active');
-        var prevPage = page - 1;
-        $('.next-controller-button').attr('data-page', page);
-        $(this).attr('data-page', prevPage);
-        if(prevPage < 2){
-            $(this).hide();
-            $('.pagination-btn').not('.more-button-controller').show();
-        }
-        if(prevPage <= totalButtons){
-            $('.next-controller-button').show();
-        }
-    }else if($(this).hasClass('next-controller-button')){
-        $(`.pagination-btn`).not('.more-button-controller').removeClass('active');
-        $(`[data-page='${page}']`).not('.more-button-controller').addClass('active');
-        var nextPage = page + 1;
-        $('.prev-controller-button').attr('data-page', page - 1);
-        $(this).attr('data-page', nextPage);
-        if(page > 2){
-            $('.pagination-btn').not('.more-button-controller').hide();
-            $('.prev-controller-button').show();
-        }
-        if(nextPage >= totalButtons){
-            $('.next-controller-button').hide();
-        }
-    }else{
-        $('.pagination-btn').not('.more-button-controller').removeClass('active');
-        if(page >= totalButtons){
-            $('.next-controller-button').hide();
-            $('.next-controller-button').attr('data-page', 0 );
-        }else{
-            $('.next-controller-button').show();
-            $('.next-controller-button').attr('data-page', page + 1);
-        }
-        if(page <= 1){
-            $('.prev-controller-button').hide();
-        }else{
-            $('.prev-controller-button').show();
-            $('.prev-controller-button').attr('data-page', page - 1);
-        }
 
-        $(this).addClass('active');
-    } 
-
-    if($(window).width() > 500) {
-        $('html, body').animate({
-            scrollTop: $("#opportunities").offset().top
-        }, 1000);
-    }else{
-        $('html, body').animate({
-            scrollTop: $("#search-events").offset().top
-        }, 1000);
-    }
+    // if($(window).width() > 500) {
+    //     $('html, body').animate({
+    //         scrollTop: $("#opportunities").offset().top
+    //     }, 1000);
+    // }else{
+    //     $('html, body').animate({
+    //         scrollTop: $("#search-events").offset().top
+    //     }, 1000);
+    // }
 
     apiCallData =  JSON.parse(localStorage.getItem('cards'));
     theCards = formatDataEvents(apiCallData, searchData, null, TimeRange);
