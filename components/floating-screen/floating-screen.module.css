@@ -158,6 +158,12 @@
     .floating__screen__opener{
         left: -30px;
     }
+    .campaig__content{
+        padding: 0px!important;
+    }
+    .floating__screen{
+        padding: 25px;
+    }
     .floating__screen__opener svg{
         width: 30px;
 
