@@ -17,7 +17,8 @@ export default class WhoWeAre extends Component {
         this.createCities();
     }
 
-=
+    componentDidMount(){
+    }
 
     createCities(){
         var perChunk = 10 // items per chunk    
