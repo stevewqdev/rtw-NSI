@@ -6,7 +6,6 @@ import Search from '../components/searchform/search'
 export default class form extends Component {
 
 componentDidMount(){
-    console.log(this.props);
 }
 
 render() {

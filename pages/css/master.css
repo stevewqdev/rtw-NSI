@@ -37,10 +37,21 @@ p{
     font-size: 30px;
     line-height: 46px;
 }
+.xsmd{
+    font-size: 25px;
+    line-height: 45px!important;
+}
+.xsmd p{
+    font-size: 25px;
+    line-height: 45px!important;
+}
 .xxl{
     font-size: 22px;
 }
 .xl{
+    font-size: 20px;
+}
+.xl p{
     font-size: 20px;
 }
 .sxl{
@@ -211,6 +222,12 @@ a:hover{
 .floating__screen__selector{
     transition: all ease-in-out 0.6s;
 }
+
+/* Donation page css */
+.donation__form img{
+    max-width: 257px;
+}
+
 @media(max-width: 600px){
     h2 {
         font-size: 32px;

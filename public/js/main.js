@@ -20,7 +20,6 @@ var apiLink = 'https://raxo.dev/stm/api/';
 
 // We make the API call to pull the data
 var apiCall = $.getJSON(`${apiLink}`, function(data) {
-    console.log(data);
 }).done(function(data, theCards, datesLoop) {
     // We initialize the variables
     TimeRange = false;

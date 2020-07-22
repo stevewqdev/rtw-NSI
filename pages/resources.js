@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 
 export default function TheExperience(props) {
-  console.log(props);
 
   return (
     <main className="resources__page">

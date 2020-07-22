@@ -1,0 +1,217 @@
+#jewish__sercive__alliance{
+    background: #015D5D;
+    padding: 80px 0;
+}
+#jewish__sercive__alliance p{
+    max-width: 1090px;
+    width: 100%;
+    margin: auto;
+    letter-spacing: 1px;
+    line-height: 38px;
+}
+#partners{
+    padding: 90px 0;
+}
+#partners .the__partner{
+    width: calc(100% / 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#partners .the__partner img{
+    width: 100%;
+    margin: 30px 0;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+    mix-blend-mode: multiply;
+    padding: 20px 35px;
+}
+#cities__background img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#cities .container{
+    background: #00A99D;
+    padding: 60px 0 0 0;
+}
+#cities .title p{
+    margin: 0px;
+    line-height: 33px;
+}
+.cities__slider {
+    padding: 50px 130px;
+
+}
+.city__cluster > div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.city__cluster .city__slider{
+    width: calc(100% / 5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 30px 0;
+}
+.city__cluster .city__slider h3{
+    margin-top: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.city__image img{
+    padding: 0 36px;
+    width: 100%;
+}
+#cities .slick-arrow.slick-next, #cities .slick-arrow.slick-prev {
+    border-right: 5px solid #ffffff;
+    border-bottom: 5px solid #ffffff;
+}
+#cities .slick-prev:before, #cities .slick-next:before{
+    opacity: 0;
+}
+#cities .slick-arrow.slick-prev {
+    left: -85px!important;
+    top: 205px;
+}
+#cities .slick-arrow.slick-next {
+    right: -85px!important;
+    top: 205px;
+}
+#cities{
+    margin-top: -150px;
+    position: relative;
+    z-index: 2;
+}
+#team{
+    padding: 80px 0;
+}
+#team .title h2{
+    padding-left: 60px;
+}
+.team__members{
+    margin-top: 35px;
+}
+.team__members h3{
+    margin: 40px 0 15px 0;
+}
+.team__member{
+    margin: 40px 0;
+}
+.team__members p {
+    line-height: 22px;
+}
+#team.board{
+    background: #015D5D;
+}
+#serve__the__moment{
+    padding: 80px 0 50px;
+}
+.serve__buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 20px auto;
+}
+.serve__button__element{
+    background: #00A99D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 13px;
+    width: calc(100% / 2.05);
+}
+.serve__button__element .serve__button__icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.serve__button__element p{
+    margin: 0px;
+    letter-spacing: 1px;
+}
+.hero__container.bottom__hero p{
+    margin: 30px 0!important;
+    width: 100%;
+    max-width: 434px;
+    line-height: 35px;
+}
+.hero__container.bottom__hero {
+    margin-bottom: 20px;
+}
+.hero__container.bottom__hero .hero__content__button svg {
+    margin-bottom: 5px;
+}
+.hero__container.bottom__hero .hero__content__button svg path{
+    transition: all ease-in-out 0.5s;
+}
+.hero__container.bottom__hero .hero__content__button button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 262px;
+    padding: 12px 30px 6px;
+}
+.hero__container.bottom__hero .hero__content__button button:hover svg path{
+    fill: #00A99D;
+}
+@media(max-width: 768px){
+    #partners .the__partner{
+        width: calc(100% / 3);
+    }
+    .city__cluster .city__slider{
+        width: calc(100% / 3);
+    }
+    #cities .title p {
+        max-width: 510px;
+        margin: auto;
+    }
+    .who__page .hero__content p br{
+       display: none;
+    }
+    #jewish__sercive__alliance p {
+        max-width: 520px;
+    }
+}
+@media(max-width: 600px){
+    .serve__button__element{
+       width: 100%;
+       margin: 20px;
+    }
+    #serve__the__moment h2{
+        padding: 20px;
+    }
+    .hero__container.bottom__hero {
+        padding: 10px 20px 40px;
+    }
+    .team__member {
+        padding: 0px 40px;
+    }
+    .bottom__hero .hero__content__title h2 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    #partners .the__partner {
+        width: calc(100% / 2);
+    }
+    .city__cluster .city__slider {
+        width: calc(100%);
+    }
+    #cities .title p {
+        line-height: 26px;
+        font-size: 16px;
+        padding: 0 25px;
+    }
+    .city__image img {
+        padding: 0 0px;
+    }
+    .cities__slider {
+        padding: 50px 130px 30px;
+    }
+}

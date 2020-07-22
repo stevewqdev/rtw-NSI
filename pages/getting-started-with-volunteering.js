@@ -70,13 +70,11 @@ export default class GettingStarted extends Component {
         if(selectedFiltersHolder.length > 0){
             selectedFiltersHolder.map((selected_filter) => {
                 this.state.resources.map((resource) => {
-                    resource.acf.category.map((category) =>{
-                        let categoryName = category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()
-    
-                        if(categoryName === selected_filter){
-                            newResources.push(resource);
-                        }
-                    })
+                    let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()
+
+                    if(categoryName === selected_filter){
+                        newResources.push(resource);
+                    }
                 })
             })
         }else{
@@ -111,14 +109,13 @@ export default class GettingStarted extends Component {
 
 
     componentWillMount(){
+
         // Create Filters
         let categoryFilters = [];
         this.props.resourceData.map((resource) => {
             let categoryObject = []; 
-
-            resource.acf.category.map((category) =>{
-                categoryFilters.push(category.name)
-            })
+            
+            categoryFilters.push(resource.acf.resource_category.label)
 
             return true
         })
@@ -132,7 +129,6 @@ export default class GettingStarted extends Component {
     }
 
     componentDidMount(){
-        console.log(this.state.resources);
         // Create first batch of resources
         var perChunk = 6 // items per chunk    
 
@@ -251,38 +247,39 @@ export default class GettingStarted extends Component {
                                                     {
                                                         this.state.filteredResources[this.state.currentPage].map((filtered, index) => (
                                                             <div 
-                                                              className={`filter__result__item ${filtered.acf.category.map((item, i) => `${item.name.replace(/,/g, '') 
+                                                              className={`filter__result__item ${filtered.acf.resource_category.label.replace(/ /g, '')
+                                                              .replace(/,/g, '') 
                                                               .replace(/-/g, '') 
                                                               .replace(/!/g, '')
-                                                              .replace(/'/g, '')
                                                               .replace(/ /g, '')
+                                                              .replace(/'/g, '')
+                                                              .replace(/\//g, '')
                                                               .replace(/\./g, '')
-                                                              .replace(/\./g, '')
-                                                              .toLowerCase()}`).join(' ')}`}
+                                                              .toLowerCase()}`}
                                                               key={index}
                                                               >
                                                                 <div className="category__icon">
                                                                     {
                                                                         
-                                                                        filtered.acf.category[0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "hungerandfoodaccess"
+                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "hungerandfoodaccess"
                                                                         ?
                                                                         <img src="/images/Grupo1991.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.category[0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "education"
+                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "education"
                                                                         ?
                                                                         <img src="/images/Grupo2044.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.category[0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "employment"
+                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "employment"
                                                                         ?
                                                                         <img src="/images/Grupo2045.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.category[0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthsocialisolation"
+                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthsocialisolation"
                                                                         ?
                                                                         <img src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
