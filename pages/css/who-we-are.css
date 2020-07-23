@@ -215,3 +215,62 @@
         padding: 50px 130px 30px;
     }
 }
+
+@media(max-width: 900px) and (orientation: landscape ){
+    #cities .title p {
+        line-height: 28px;
+        max-width: 420px;
+        margin: auto;
+    }
+    .city__cluster .city__slider {
+        width: calc(100% / 3);
+    }
+}
+@media(max-width: 667px) and (orientation: landscape ){
+    .who__page .hero__container .hero__content {
+        padding: 100px 70px 0 70px;
+    }
+    .city__cluster .city__slider {
+        width: calc(100% / 2);
+    }
+    .serve__button__element a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+    .serve__button__element {
+        min-height: 110px;
+    }
+}
+@media (max-width: 580px) and (orientation: landscape) {
+    .who__page .hero__container .hero__content {
+        padding: 0px 50px 20px 50px;
+    }
+    .who__page .hero__container .hero__content__image{
+        padding: 0px;
+    }
+    .who__page .hero__container {
+        padding: 100px 0px 0;
+    }
+    .who__page .hero__container .hero__content__image img {
+        padding-left: 0px;
+        margin: 50px 0 0px 0;
+    }
+    .who__page .hero__container.bottom__hero {
+        padding: 0px 0px 0;
+    }
+    #serve__the__moment {
+        padding: 80px 0 10px;
+    }
+    #cities {
+        margin-top: -40px;
+    }
+    #cities .container {
+        max-width: 85%;
+    }
+    .city__cluster .city__slider {
+        width: calc(100%);
+    }
+}

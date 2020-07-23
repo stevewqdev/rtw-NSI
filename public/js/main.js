@@ -431,6 +431,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
     // We convert the select elements with niceSelect library
     $('select').niceSelect();
 
+
     // We remove the repeated dates form our dates array and we sort them
     datesLoop  = [...new Set(datesLoop)];
     datesLoop.sort((a, b) => (a.unformat > b.unformat) ? 1 : -1)
@@ -438,238 +439,203 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
     // We save on the localStorage our dates and our original returned and curated events because we are going to use them later on the app. 
     localStorage.setItem('dateRange', JSON.stringify(datesLoop));            
     localStorage.setItem('cards', JSON.stringify(apiCallData));
-
-    // We create what its going to be our array of card we are going to display
-    var finalCardsArray =  new Array();
     
-    // We call the formatDataEvents() function and return the results 
-    finalCardsArray = formatDataEvents(apiCallData); 
+    setTimeout(function(){ 
 
-    // We create a new date today and date range to do the dates comparations
-    var todayDate = new Date();
-    var finalRange = new Array();
-    day = todayDate.getDate();
-    year = todayDate.getFullYear();
-    
-    // We create the tranformMonth() function and call it below
-    function tranformMonth(date){
-        month = date.getMonth();
-        month =  month +1;
-        return (month);
-    };
-
-    month = tranformMonth(todayDate);
-    if(month < 10){
-        month = '0'+month;
-    }
-    if(day < 10){
-        day = '0'+day;
-    }
-
-    // Because we are on the first loop the value of new date will be "no-date"
-    var newDate = 'no-date';
-
-    finalRange.push(newDate);
-
-    var datesLoop = JSON.parse(localStorage.getItem('dateRange'));
-    if(!datesLoop){
-        localStorage.setItem('dateRange', JSON.stringify(finalRange));
-    }
-
-    // Set the array for the cards
-    var list = finalCardsArray;
-
-    // Create array of cards for carousel
-    var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
-
-    if($('.get_info')[0]){
-        $('.get_info')[0].remove();
-    }
-
-    // Here we are going to create the pagination buttons and divide the events on pages.
-    var pageList = new Array();
-    var currentPage = 1;
-    
-    // Based on the screensize we set the amount of events per page.
-    if($(window).width() > 500) {
-        var numberPerPage = 8;
-    }else{
-        var numberPerPage = 2;
-    }
-
-    var numberOfPages = 0;
-
-    function makeList() {
-        numberOfPages = getNumberOfPages();
-    } 
-    function getNumberOfPages() {
-        return Math.floor(list.length / numberPerPage);
-    }
-    function loadList() {
-        var begin = ((currentPage - 1) * numberPerPage);
-        var end = begin + numberPerPage;
-        pageList = list.slice(begin, end);
-        drawList(pageList);
-        if($("[data-value='nyc']").length > 1){
-            $("[data-value='nyc']")[0].remove();
-        }
-    }
+        // We create what its going to be our array of card we are going to display
+        var finalCardsArray =  new Array();
         
-    function drawList(pageList) {
-        document.getElementById("list").innerHTML = "";
-        // document.getElementById("carousel-list").innerHTML = "";
-        document.getElementById("list_controller").innerHTML = "";
+        // We call the formatDataEvents() function and return the results 
+        finalCardsArray = formatDataEvents(apiCallData); 
 
-        for (r = 0; r < pageList.length; r++) {
-            document.getElementById("list").innerHTML += pageList[r] ;
-        }
-        var cardExist = $('#full_ops .the-card');
-
-        // var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
-        // for (r = 0; r < carouselList.length; r++) {
-        //     if(carouselList[r].includes('data-event-city="global"')){
-        //         carouselList.push(carouselList.splice(r, 1)[0]);
-        //     }
-        // }
-        // for (r = 0; r < carouselList.length; r++) {
-        //     document.getElementById("carousel-list").innerHTML += carouselList[r] ;
-        // }
+        // We create a new date today and date range to do the dates comparations
+        var todayDate = new Date();
+        var finalRange = new Array();
+        day = todayDate.getDate();
+        year = todayDate.getFullYear();
         
-        // var ongoingCardExist = $('#carousel-list .the-card'); 
-        // if(ongoingCardExist.length > 0){
-        //     var elem = document.querySelector('#carousel-list');
-        //     var flkty = new Flickity( elem, {
-        //         imagesLoaded: true,
-        //         resize: true,
-        //         adaptiveHeight: true,
-        //         cellAlign: 'left',
-        //         freeScroll: true,
-        //         wrapAround: true,
-        //         contain: true
-        //     });
-        // }
+        // We create the tranformMonth() function and call it below
+        function tranformMonth(date){
+            month = date.getMonth();
+            month =  month +1;
+            return (month);
+        };
 
-        // if($(window).width() > 768) {
-        //     if($("#ongoing-carousel .the-card").length <= 3) {
-        //             $("#carousel-list .flickity-prev-next-button.previous").addClass("disabled__arrow");
-        //     }else{
-        //         $("#carousel-list .flickity-prev-next-button.previous").removeClass("disabled__arrow");
-        //     }
+        month = tranformMonth(todayDate);
+        if(month < 10){
+            month = '0'+month;
+        }
+        if(day < 10){
+            day = '0'+day;
+        }
 
-        //     if($("#ongoing-carousel .the-card").length <= 3) {
-        //         $("#carousel-list .flickity-prev-next-button.next").addClass("disabled__arrow");
-        //     }else{
-        //         $("#carousel-list .flickity-prev-next-button.next").removeClass("disabled__arrow");
-        //     }
-        // }
-    }
+        // Because we are on the first loop the value of new date will be "no-date"
+        var newDate = 'no-date';
 
-    function createButtons() {
+        finalRange.push(newDate);
+
+        var datesLoop = JSON.parse(localStorage.getItem('dateRange'));
+        if(!datesLoop){
+            localStorage.setItem('dateRange', JSON.stringify(finalRange));
+        }
+
+        // Set the array for the cards
+        var list = finalCardsArray;
+
+        // Create array of cards for carousel
+        var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
+
+        if($('.get_info')[0]){
+            $('.get_info')[0].remove();
+        }
+
+        // Here we are going to create the pagination buttons and divide the events on pages.
+        var pageList = new Array();
+        var currentPage = 1;
+        
+        // Based on the screensize we set the amount of events per page.
         if($(window).width() > 500) {
-            var buttons = Math.ceil(list.length / 9);
+            var numberPerPage = 8;
         }else{
-            var buttons = Math.ceil(list.length / 3);
+            var numberPerPage = 2;
         }
-        var buttonArray =  new Array();
-        var activeButton = '';
-        var theButton = '';
-        number = 0;
-        
-        if(buttons === 1){
-            theButton = 
-            `
-            <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
-            <p>OF</p>
-            <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
-            `;
-        }else{
-            theButton = 
-            `
-            <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
-            <p>OF</p>
-            <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons+1}</li>
-            `;
+
+        var numberOfPages = 0;
+
+        function makeList() {
+            numberOfPages = getNumberOfPages();
+        } 
+        function getNumberOfPages() {
+            return Math.floor(list.length / numberPerPage);
         }
-   
-
-        buttonArray.push(theButton);
-        
-        var nn = parseInt(number) + 1;
-
-        var nextButton =  `
-        <li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> 
-            <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
-                <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#00a99d" fillRule="evenodd"/>
-            </svg>
-        </li>`;
+        function loadList() {
+            var begin = ((currentPage - 1) * numberPerPage);
+            var end = begin + numberPerPage;
+            pageList = list.slice(begin, end);
+            drawList(pageList);
+            if($("[data-value='nyc']").length > 1){
+                $("[data-value='nyc']")[0].remove();
+            }
+        }
             
-        $( "#list_controller" ).append(buttonArray);
+        function drawList(pageList) {
+            document.getElementById("list").innerHTML = "";
+            // document.getElementById("carousel-list").innerHTML = "";
+            document.getElementById("list_controller").innerHTML = "";
 
-        if(buttons === 1){
+            for (r = 0; r < pageList.length; r++) {
+                document.getElementById("list").innerHTML += pageList[r] ;
+            }
+            var cardExist = $('#full_ops .the-card');
 
-        }else{
-            $( "#list_controller" ).append(nextButton);
+            // var carouselList = JSON.parse(localStorage.getItem('onGoingCards'));
+            // for (r = 0; r < carouselList.length; r++) {
+            //     if(carouselList[r].includes('data-event-city="global"')){
+            //         carouselList.push(carouselList.splice(r, 1)[0]);
+            //     }
+            // }
+            // for (r = 0; r < carouselList.length; r++) {
+            //     document.getElementById("carousel-list").innerHTML += carouselList[r] ;
+            // }
+            
+            // var ongoingCardExist = $('#carousel-list .the-card'); 
+            // if(ongoingCardExist.length > 0){
+            //     var elem = document.querySelector('#carousel-list');
+            //     var flkty = new Flickity( elem, {
+            //         imagesLoaded: true,
+            //         resize: true,
+            //         adaptiveHeight: true,
+            //         cellAlign: 'left',
+            //         freeScroll: true,
+            //         wrapAround: true,
+            //         contain: true
+            //     });
+            // }
+
+            // if($(window).width() > 768) {
+            //     if($("#ongoing-carousel .the-card").length <= 3) {
+            //             $("#carousel-list .flickity-prev-next-button.previous").addClass("disabled__arrow");
+            //     }else{
+            //         $("#carousel-list .flickity-prev-next-button.previous").removeClass("disabled__arrow");
+            //     }
+
+            //     if($("#ongoing-carousel .the-card").length <= 3) {
+            //         $("#carousel-list .flickity-prev-next-button.next").addClass("disabled__arrow");
+            //     }else{
+            //         $("#carousel-list .flickity-prev-next-button.next").removeClass("disabled__arrow");
+            //     }
+            // }
         }
 
-    }
-    function load() {
-        makeList();
-        loadList();
-        createButtons(); 
-    }
+        function createButtons() {
+            if($(window).width() > 500) {
+                var buttons = Math.ceil(list.length / 9);
+            }else{
+                var buttons = Math.ceil(list.length / 3);
+            }
+            var buttonArray =  new Array();
+            var activeButton = '';
+            var theButton = '';
+            number = 0;
+            
+            if(buttons === 1){
+                theButton = 
+                `
+                <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
+                <p>OF</p>
+                <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
+                `;
+            }else{
+                theButton = 
+                `
+                <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
+                <p>OF</p>
+                <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons+1}</li>
+                `;
+            }
     
-    load();
 
-    function CreatePopupWithGet(){
-        // This peace of code
-        let popupId = window.location.href.split('popupId=')[1]; 
-        if(popupId){
-            if(popupId.length > 0){
-                if(popupId.substring(0, popupId.indexOf("#")).length > 0){
-                    // We get only the ID
-                    let trimmedId = popupId.substring(0, popupId.indexOf("#"));
+            buttonArray.push(theButton);
+            
+            var nn = parseInt(number) + 1;
 
-                    // We check if the element exist on the DOM already
-                    if($(`.the-card [data-event-id='${trimmedId}']`).length > 0) {
-                        $(`.the-card [data-event-id='${trimmedId}']`).click();
-                        let theCards = JSON.parse(localStorage.getItem('Cards'));
+            var nextButton =  `
+            <li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> 
+                <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
+                    <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#00a99d" fillRule="evenodd"/>
+                </svg>
+            </li>`;
+                
+            $( "#list_controller" ).append(buttonArray);
 
-                        choosenCard = ""
-                        theCards.forEach(element => {
-                            if(element.id === trimmedId){
-                                choosenCard = element;
-                                customSocialtags = `
-                                    <!-- Twitter Card data -->
-                                    <meta name="twitter:card" value="${choosenCard.description}">
+            if(buttons === 1){
 
-                                    <!-- Open Graph data -->
-                                    <meta property="og:title" content="${choosenCard.name}" />
-                                    <meta property="og:type" content="article" />
-                                    <meta property="og:url" content="${window.location.href }" />
-                                    <meta property="og:image" content="${choosenCard.imageUrl ? choosenCard.imageUrl : 'https://werepair.org/wp-content/uploads/2017/08/logo1-1.png'}" />
-                                    <meta property="og:description" content="${choosenCard.description}" />
-                                `
+            }else{
+                $( "#list_controller" ).append(nextButton);
+            }
 
-                                $("body").append(customSocialtags);
-                            }
+        }
+        function load() {
+            makeList();
+            loadList();
+            createButtons(); 
+        }
+        
+        load();
 
-                        })
-                    }else{
-                        // We get all the cards
-                        let allCards = JSON.parse(localStorage.getItem('allCards'));
-                        let theCards = JSON.parse(localStorage.getItem('Cards'));
-                        // We get the card that matches the id
-                        allCards.forEach(element => {
-                            if(element.includes(trimmedId)){
-                                $('#hidden__block__popup').append(element);
-                            }
-                        });
-                        
+        function CreatePopupWithGet(){
+            // This peace of code
+            let popupId = window.location.href.split('popupId=')[1]; 
+            if(popupId){
+                if(popupId.length > 0){
+                    if(popupId.substring(0, popupId.indexOf("#")).length > 0){
+                        // We get only the ID
+                        let trimmedId = popupId.substring(0, popupId.indexOf("#"));
 
-                        // we trigger the popup
-                        if($(`.the-card [data-event-id='${trimmedId}']`).length > 0){
+                        // We check if the element exist on the DOM already
+                        if($(`.the-card [data-event-id='${trimmedId}']`).length > 0) {
                             $(`.the-card [data-event-id='${trimmedId}']`).click();
-                            $('#hidden__block__popup').innerHTML = '';
+                            let theCards = JSON.parse(localStorage.getItem('Cards'));
 
                             choosenCard = ""
                             theCards.forEach(element => {
@@ -691,89 +657,130 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
                                 }
 
                             })
-                        }
-                    }
-                }else{
-                    // We check if the element exist on the DOM already
-                    if($(`.the-card [data-event-id='${popupId}']`).length > 0) {
-                        $(`.the-card [data-event-id='${popupId}']`).click();
-                    }else{
-                        // We get all the cards
-                        let allCards = JSON.parse(localStorage.getItem('allCards'));
-                        let theCards = JSON.parse(localStorage.getItem('Cards'));
-                        // We get the card that matches the id
-                        allCards.forEach(element => {
-                            if(element.includes(popupId)){
-                                $('#hidden__block__popup').append(element);
-                            }
-                        });
-                        
-                        // we trigger the popup
-                        if($(`.the-card [data-event-id='${popupId}']`).length > 0){
-                            $(`.the-card [data-event-id='${popupId}']`).click();
-
-                            choosenCard = ""
-                            theCards.forEach(element => {
-                                if(element.id === trimmedId){
-                                    choosenCard = element; 
-                                    customSocialtags = `
-                                        <!-- Twitter Card data -->
-                                        <meta name="twitter:card" value="${choosenCard.description}">
-
-                                        <!-- Open Graph data -->
-                                        <meta property="og:title" content="${choosenCard.name}" />
-                                        <meta property="og:type" content="article" />
-                                        <meta property="og:url" content="${window.location.href }" />
-                                        <meta property="og:image" content="${choosenCard.imageUrl ? choosenCard.imageUrl : 'https://werepair.org/wp-content/uploads/2017/08/logo1-1.png'}" />
-                                        <meta property="og:description" content="${choosenCard.description}" />
-                                    `
-                                    $("body").append(customSocialtags); 
+                        }else{
+                            // We get all the cards
+                            let allCards = JSON.parse(localStorage.getItem('allCards'));
+                            let theCards = JSON.parse(localStorage.getItem('Cards'));
+                            // We get the card that matches the id
+                            allCards.forEach(element => {
+                                if(element.includes(trimmedId)){
+                                    $('#hidden__block__popup').append(element);
                                 }
+                            });
+                            
 
-                            })
+                            // we trigger the popup
+                            if($(`.the-card [data-event-id='${trimmedId}']`).length > 0){
+                                $(`.the-card [data-event-id='${trimmedId}']`).click();
+                                $('#hidden__block__popup').innerHTML = '';
+
+                                choosenCard = ""
+                                theCards.forEach(element => {
+                                    if(element.id === trimmedId){
+                                        choosenCard = element;
+                                        customSocialtags = `
+                                            <!-- Twitter Card data -->
+                                            <meta name="twitter:card" value="${choosenCard.description}">
+
+                                            <!-- Open Graph data -->
+                                            <meta property="og:title" content="${choosenCard.name}" />
+                                            <meta property="og:type" content="article" />
+                                            <meta property="og:url" content="${window.location.href }" />
+                                            <meta property="og:image" content="${choosenCard.imageUrl ? choosenCard.imageUrl : 'https://werepair.org/wp-content/uploads/2017/08/logo1-1.png'}" />
+                                            <meta property="og:description" content="${choosenCard.description}" />
+                                        `
+
+                                        $("body").append(customSocialtags);
+                                    }
+
+                                })
                             }
+                        }
+                    }else{
+                        // We check if the element exist on the DOM already
+                        if($(`.the-card [data-event-id='${popupId}']`).length > 0) {
+                            $(`.the-card [data-event-id='${popupId}']`).click();
+                        }else{
+                            // We get all the cards
+                            let allCards = JSON.parse(localStorage.getItem('allCards'));
+                            let theCards = JSON.parse(localStorage.getItem('Cards'));
+                            // We get the card that matches the id
+                            allCards.forEach(element => {
+                                if(element.includes(popupId)){
+                                    $('#hidden__block__popup').append(element);
+                                }
+                            });
+                            
+                            // we trigger the popup
+                            if($(`.the-card [data-event-id='${popupId}']`).length > 0){
+                                $(`.the-card [data-event-id='${popupId}']`).click();
+
+                                choosenCard = ""
+                                theCards.forEach(element => {
+                                    if(element.id === trimmedId){
+                                        choosenCard = element; 
+                                        customSocialtags = `
+                                            <!-- Twitter Card data -->
+                                            <meta name="twitter:card" value="${choosenCard.description}">
+
+                                            <!-- Open Graph data -->
+                                            <meta property="og:title" content="${choosenCard.name}" />
+                                            <meta property="og:type" content="article" />
+                                            <meta property="og:url" content="${window.location.href }" />
+                                            <meta property="og:image" content="${choosenCard.imageUrl ? choosenCard.imageUrl : 'https://werepair.org/wp-content/uploads/2017/08/logo1-1.png'}" />
+                                            <meta property="og:description" content="${choosenCard.description}" />
+                                        `
+                                        $("body").append(customSocialtags); 
+                                    }
+
+                                })
+                                }
+                        }
                     }
                 }
             }
+
         }
 
-    }
+        CreatePopupWithGet();
 
-    CreatePopupWithGet();
-
-    // Check if theres any event, if not we dislpay a message
-    function sendMessageIfEvent(){
-        
-        var cardExist = $('.the-card');
-        
-        if(cardExist.length === 0){
-            $('#list').innerHTML = '';
+        // Check if theres any event, if not we dislpay a message
+        function sendMessageIfEvent(){
             
-            if($('#emptyUrlSearch').length){
+            var cardExist = $('.the-card');
+            
+            if(cardExist.length === 0){
+                $('#list').innerHTML = '';
+                
                 var emptyMessage = `<div class="col-sm-12 no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@RepairTheWorld</strong> on social media for the latest updates.</p></div>`;
                 $('#list').prepend(emptyMessage);
                 $('#full_ops h2').hide();
                 $('#full_ops .sub-text').hide();
+
+                $(".pagination-btn").remove();
+                $("#list_controller p").remove();
+            }
+
+            $('#emptyUrlSearch').remove();
+
+            // if($('#carousel-list .the-card').length > 0){
+            //     $('#ongoing-carousel h2').show();
+            // }else{
+            //     $('#ongoing-carousel h2').hide();
+            // }
+
+            if($('#full_ops .the-card').length > 0){
+                $('#full_ops h2').show();
+                $('#full_ops .sub-text').show();
+            }else{
+                $('#full_ops h2').hide();
+                $('#full_ops .sub-text').hide();
             }
         }
-        $('#emptyUrlSearch').remove();
+        
+        sendMessageIfEvent();
 
-        // if($('#carousel-list .the-card').length > 0){
-        //     $('#ongoing-carousel h2').show();
-        // }else{
-        //     $('#ongoing-carousel h2').hide();
-        // }
-
-        if($('#full_ops .the-card').length > 0){
-            $('#full_ops h2').show();
-            $('#full_ops .sub-text').show();
-        }else{
-            $('#full_ops h2').hide();
-            $('#full_ops .sub-text').hide();
-        }
-    }
-    
-    sendMessageIfEvent();
+    }, 2000)
 });
 // ===== END START OF THE FIRST CICLE OF THE CODE ===== // 
 
@@ -986,13 +993,8 @@ function load(number, list, numberPerPage) {
         var emptyMessage = `<div class="no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@RepairTheWorld</strong> on social media for the latest updates.</p></div>`;
         $('#list').prepend(emptyMessage);
     }
-    $('#emptyUrlSearch').remove();
     
-    // if($('#carousel-list .the-card').length > 0){
-    //     $('#ongoing-carousel h2').show();
-    // }else{
-    //     $('#ongoing-carousel h2').hide();
-    // }
+    $('#emptyUrlSearch').remove();
 
     if($('#full_ops .the-card').length > 0){
         $('#full_ops h2').show();
@@ -1059,21 +1061,24 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
     }
     var searchHit = false;
     
-    if($('.city_get').length || $('.interest_get').length || $('.appropriate_get').length || $('.date_get .start').length || $('.type__event').length ){
+    if($('.location_get').length || $('.issue_get').length || $('.partner_get').length || $('.date_get .start').length  ){
         searchHit = true;
-        searchData = new Array('', '', '', '', '');
-        if($('.city_get').length){
-            var city = $('.city_get');
+        searchData = new Array('', '', '', '', '', '');
+        if($('.location_get').length){
+            var city = $('.location_get');
             city = $(city)[0].innerHTML; 
+            
             city = city.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
 
             var currentValue = $(`.city__input .nice-select .list [data-value="${city}"]`);
+
             if(currentValue.length){
 
                 $(`.city__input .nice-select .list li`).removeClass('selected');
                 $(`.city__input .nice-select .list [data-value="${city}"]`).addClass('selected');
                 currentValue = currentValue[0].innerHTML;
                 $(`.city__input .nice-select .current`)[0].innerHTML = currentValue;
+
                 if(city === 'nyc'){
                     searchData[0] = ['harlem', 'brooklyn', 'ny'];
                 }else{
@@ -1083,32 +1088,13 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
                 searchData = [];
             }   
             
-                            
+                    
         }
-        if($('.appropriate_get').length){
-            searchData[1] = new Array();
-            var appropriate = $('.appropriate_get');
-            appropriate = $(appropriate)[0].innerHTML; 
-            var explodedString = appropriate.split(";");
-            explodedString.forEach(element => {
-                element = element.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
-                searchData[1].push(element);
-            });
 
-            searchData[1].forEach((element, index) => {   
-                if($(`.appropriate__input .select_simulator input.${element}`).length){
-                    $(`.appropriate__input .select_simulator input.${element}`).prop('checked', true).attr( "checked" ); 
-                }else{
-                    object.splice(index, 1);
-                }
-            });
+        searchData[1] = "";
 
-            if(!searchData[1].length){
-                searchData = [];
-            }
-        }
-        if($('.interest_get').length){
-            var interest = $('.interest_get');
+        if($('.issue_get').length){
+            var interest = $('.issue_get');
             interest = $(interest)[0].innerHTML; 
             interest = interest.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
             var currentValue = $(`.interest__input .nice-select .list [data-value="${interest}"]`);
@@ -1141,22 +1127,15 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             searchData[3] = new Array('');
             searchData[3][0] = datesLoop;
         }
-        if($('.type__event').length > 0){
-            var type__event = $('.type__event');
-            type__event = $(type__event)[0].innerHTML; 
-            type__event = type__event.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
 
-            var currentValue = $(`.type__input .nice-select .list [data-value="${type__event}"]`);
-            if(currentValue.length){
-                $(`.type__input .nice-select .list li`).removeClass('selected');
-                $(`.type__input .nice-select .list [data-value="${type__event}"]`).addClass('selected');
-                currentValue = currentValue[0].innerHTML;
-                $(`.type__input .nice-select .current`)[0].innerHTML = currentValue;
+        searchData[4] = "";
+    }   
 
-                searchData[4] = type__event;
-            }          
+    setTimeout(function(){
+        if(document.querySelectorAll(".info__wrapper").length > 0){
+            document.querySelectorAll(".info__wrapper")[0].remove();
         }
-    }
+    }, 1000)
 
     var finalData = new Array();
     var theCardsArray = new Array();
@@ -1335,11 +1314,10 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
     
     theCardsArray  = [...new Set(theCardsArray)];
     var theCards = curatedCards(theCardsArray, searchData, removedTag);
-
     
     return theCards;
 
-    
+
 
 }   
 // ====== END OF formatDataEvents() - Here we format the cards to show them in the correct way ====== //

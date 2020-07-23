@@ -211,3 +211,46 @@
         position: relative;
     }
 }
+@media (max-width: 900px) and (orientation: landscape){
+    .home__page #main {
+        padding: 40px 0;
+    }
+    .home__page #main .container {
+        padding: 0 1px;
+    }
+    .home__page #main .col-lg-12 {
+        padding: 100px 5px 20px;
+    }
+    .home__page #cause .image img {
+        top: 0px;
+        left: 0;
+        padding: 15px;
+    }
+    .home__page #extraordinary__moment {
+        margin-top: 471px;
+    }
+    .home__page #in__the__press .press__post {
+        min-height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        flex-direction: column;
+    }
+}
+@media (max-width: 700px) and (orientation: landscape) {
+    .home__page #extraordinary__moment {
+        margin-top: -80px;
+    }
+    .home__page #in__the__press .col-lg-6 {
+        flex: 0 0 100%!important;
+        max-width: 100%!important;
+    }
+}
+@media (max-width: 580px) and (orientation: landscape) {
+    .home__page #main {
+        padding: 40px 50px;
+    }
+    .home__page #extraordinary__moment {
+        margin-top: -50px;
+    }
+}

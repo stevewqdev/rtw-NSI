@@ -85,3 +85,10 @@
         margin-top: 60px;
     }
 }
+@media (max-width: 900px) and (orientation: landscape){
+    #act-now .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

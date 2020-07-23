@@ -225,3 +225,47 @@
         top: 25%;
     }
 }
+@media(max-width: 900px) and (orientation: landscape ){
+    .slick-arrow.slick-next {
+        right: 25px!important;
+    }
+    .slick-arrow.slick-prev {
+        left: 25px!important;
+    }
+    .experience__page .the__faq .arrow {
+        top: 85%;
+    }
+}
+
+@media(max-width: 667px) and (orientation: landscape ){
+    .experience__page .hero__container .hero__content {
+        padding: 120px 70px 40px;
+    }
+    .experience__ms__button button{
+        margin: 10px 0!important;
+    }
+
+}
+    
+@media (max-width: 580px) and (orientation: landscape) {
+    .experience__page .the__faq .arrow {
+        top: 85%;
+    }
+    .experience__page .experience__ms__wrapper {
+        margin-top: -50px;
+    }
+    .experience__page .hero__container .hero__content {
+        padding: 70px 50px 40px;
+    }
+    .experience__page .hero__container .hero__content__image{
+        padding: 0px;
+    }
+    .experience__page .hero__container {
+        height: auto;
+        min-height: auto!important;
+        padding: 100px 0px;
+    }
+    .experience__page .hero__container .hero__content {
+        padding: 0px 50px 10px;
+    }
+}

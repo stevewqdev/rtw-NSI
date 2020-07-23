@@ -169,3 +169,8 @@
 
     }
 }
+@media (max-width: 900px) and (orientation: landscape){
+    .floating__screen__opener{
+        display: none;
+    }
+}

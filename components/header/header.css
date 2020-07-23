@@ -73,3 +73,10 @@
         padding: 40px 15px;
     }
 }
+@media (max-width: 580px) and (orientation: landscape) {
+    .nav__brand .top__logo {
+        width: 158px;
+        top: 10px;
+        left: 30px;
+    }
+}

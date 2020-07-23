@@ -220,3 +220,21 @@
         width: 80%;
     }
 }
+@media(max-width: 900px) and (orientation: landscape ){
+    .resource__filter__tag{
+        margin: 5px 20px 20px 0;
+    }
+}
+@media(max-width: 667px) and (orientation: landscape ){
+    #main__hero .container, #resource__filter .container {
+        padding: 0 5px;
+    }
+    #main__hero {
+        padding: 130px 0 70px 0;
+    }
+}
+@media (max-width: 580px) and (orientation: landscape) {
+    #main__hero .container, #resource__filter .container {
+        padding: 0 40px;
+    }
+}

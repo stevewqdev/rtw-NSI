@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { useRouter } from 'next/router'
 
 export default class GettingStarted extends Component {
     constructor(props) {
@@ -41,15 +42,26 @@ export default class GettingStarted extends Component {
         });
     }
 
-    toggleTag(event){
+    toggleTag(event, prevalue){
         this.setState({
             selectedFilters: [],
         });
 
-        if(event.target.classList.contains("active")){
-            event.target.classList.remove("active");
+        if(prevalue.length > 0){
+            var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
+            
+            if(selectedElement[0].classList.contains("active")){
+                selectedElement[0].classList.remove("active");
+            }else{
+                selectedElement[0].classList.add("active");
+            }
+            
         }else{
-            event.target.classList.add("active");
+            if(event.target.classList.contains("active")){
+                event.target.classList.remove("active");
+            }else{
+                event.target.classList.add("active");
+            }
         }
 
         var activeTags = [...document.querySelectorAll(".filter__tags .active")];
@@ -70,7 +82,7 @@ export default class GettingStarted extends Component {
         if(selectedFiltersHolder.length > 0){
             selectedFiltersHolder.map((selected_filter) => {
                 this.state.resources.map((resource) => {
-                    let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()
+                    let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
 
                     if(categoryName === selected_filter){
                         newResources.push(resource);
@@ -150,6 +162,25 @@ export default class GettingStarted extends Component {
           filteredResources: result,
           totalPages: Math.ceil(this.props.resourceData.length / 6),
         });  
+
+        var queryString = window.location.search;
+
+        if(queryString.length > 0){           
+            
+            queryString = queryString.replace(/\?/g, '').split("&");
+            queryString =  queryString[0].split("=")[1].replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+
+            if(queryString === "hunger"){
+                queryString = "hungerandfoodaccess"; 
+            }
+            
+            if(queryString === "health"){
+                queryString = "mentalhealthsocialisolation"; 
+            }
+
+            this.toggleTag("0", queryString); 
+        }
+  
     }
 
     render() {

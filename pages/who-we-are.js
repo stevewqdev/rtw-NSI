@@ -18,6 +18,60 @@ export default class WhoWeAre extends Component {
     }
 
     componentDidMount(){
+        console.log(this.props)
+
+        var queryString = window.location.search;
+
+        if(queryString.length > 0){           
+            
+            queryString = queryString.replace(/\?/g, '').split("&");
+            queryString =  queryString[0].split("=")[1].replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+            
+            this.displayCityContent(queryString);
+        }
+    }
+
+    displayCityContent(city){
+
+        let partners = [...document.querySelectorAll(".the__partner")];
+        let teamMembers = [...document.querySelectorAll("#team  .team__member")];
+        let boardTeamMembers = [...document.querySelectorAll(".board .team__member")];
+
+        partners.map((partner) => {
+            if(partner.getAttribute("data-city") !== city){
+                partner.remove();
+            }
+
+            return true; 
+        })
+
+        if([...document.querySelectorAll(".the__partner")].length < 1){
+            document.getElementById("partners").remove();
+        }
+
+        teamMembers.map((teamMember) => {
+            if(teamMember.getAttribute("data-city") !== city){
+                teamMember.remove();
+            }
+
+            return true; 
+        })
+
+        if([...document.querySelectorAll("#team  .team__member")].length < 1){
+            document.getElementById("team").remove();
+        }
+
+        boardTeamMembers.map((boardTeamMember) => {
+            if(boardTeamMember.getAttribute("data-city") !== city){
+                boardTeamMember.remove();
+            }
+
+            return true; 
+        })
+
+        if([...document.querySelectorAll(".board .team__member")].length < 1){
+            document.querySelectorAll(".board")[0].remove();
+        }
     }
 
     createCities(){
@@ -146,7 +200,7 @@ export default class WhoWeAre extends Component {
                             <div className="col-lg-12 partners__wrapper d-flex justify-content-between align-items-center flex-wrap">
                                 {
                                     this.props.partnerData.map((partner, index) => (
-                                        <div className="the__partner" key={index}>
+                                        <div className="the__partner" key={index} data-city={`${partner.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}`}>
                                             <a href={partner.acf.partner_website}>
                                                 <img src={`${partner.better_featured_image.source_url}`} alt={ `${partner.title.rendered} logo`}/>
                                             </a>

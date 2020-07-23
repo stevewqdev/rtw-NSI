@@ -117,3 +117,43 @@
         background: #ffffff;
     }
 }
+@media(max-width: 900px) and (orientation: landscape ){
+    .resources__page .hero__container {
+        padding-top: 110px;
+        padding-bottom: 0px;
+    }
+    .resources__page .hero__container .container {
+        padding: 0 20px;
+    }
+    #resources__categories .container {
+        padding: 0 10px;
+    }
+    #resources__categories {
+        padding: 40px 0;
+    }
+    #resources__categories .resource__category__internal__meta {
+        bottom: -1px;
+        left: -1px;
+        width: 100%;
+    }
+}
+@media(max-width: 667px) and (orientation: landscape ){
+    .resources__page .hero__container .container {
+        padding: 0 40px;
+    }
+    #resources__categories .resource__category__internal__meta {
+        bottom: 0px;
+        left: 0px;
+    }
+    #resources__categories .resource__category {
+        margin: 20px 0;
+    }
+    #resources__categories {
+        padding: 40px 0 70px;
+    }
+}
+@media (max-width: 580px) and (orientation: landscape) {
+    #resources__categories {
+        padding: 40px;
+    }
+}

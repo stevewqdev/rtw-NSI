@@ -591,14 +591,14 @@
     flex-wrap: wrap;
 }
 .popup__content svg{
-    width: 20px;
+    width: 26px;
 }
 .popup__content .event__issue h2{
     text-transform: uppercase;
     color: #6C6C6C;
     font-size: 13px;
     font-weight: bold;
-    margin-top: -40px;
+    margin-top: -10px;
 }
 .popup__content .event__description p{
     color: #6C6C6C;
@@ -612,12 +612,13 @@
     font-size: 25px;
     font-weight: bold;
     color: #015D5D;
+    line-height: 30px;
 }
 .popup__content .date{
     display: flex;
     align-items: center;
     border-top: solid 1px lightgrey;
-    padding: 0px;
+    padding: 10px 15px;
 }
 .popup__content .date p{
     margin: 0px 0 0 10px;
@@ -660,7 +661,6 @@
     max-width: 700px;
     margin: auto;
     position: relative;
-    top: 100px;
 }
 .popup__wrapper .container{
     position: relative;
@@ -796,6 +796,31 @@
     }
     .event__button {
         margin-top: 10px;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        min-height: 500px;
+    }
+    .card__content__wrapper {
+        padding: 30px 0;
+    }
+    .additional__opportunity {
+        width: 100%;
+        min-height: 160px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width: 580px) and (orientation: landscape) {
+    .card {
+        min-height: auto;
+        padding: 0;
+        margin: 20px 20px;
+    }
+    #search__form .container {
+        padding: 20px 40px;
     }
 }
 /* ============================================================= */

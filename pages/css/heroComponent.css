@@ -126,3 +126,45 @@
     }
 
 }
+@media(max-width: 667px) and (orientation: landscape ){
+    .impact__page .hero__content {
+        margin-top: 120px;
+        padding: 0 80px 30px;
+    }
+    .hero__container .hero__content__image img {
+        width: 100%;
+        padding: 0;
+        margin-top: 50px;
+    }
+    .hero__container .container {
+        padding-left: 0%;
+    }
+    .impact__page .hero__container .container {
+        padding-bottom: 0px;
+    }
+    #act-now {
+        padding: 70px 0;
+    }
+    .bottom__hero .hero__content__title h2 {
+        font-size: 50px;
+        line-height: 65px;
+    }
+    .who__page .hero__container.bottom__hero .hero__content {
+        padding: 50px 70px 30px 70px;
+    }
+    .hero__container.bottom__hero {
+        margin-bottom: 0px;
+    }
+}
+@media (max-width: 580px) and (orientation: landscape) {
+    .impact__page .hero__content {
+        margin-top: 0px;
+        padding: 0 40px 30px;
+    }
+    .impact__page .hero__container {
+        padding: 100px 10px 50px;
+    }
+    .impact__page .hero__container .hero__content__image {
+        padding: 0px;
+    }
+}
