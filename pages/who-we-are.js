@@ -18,8 +18,6 @@ export default class WhoWeAre extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props)
-
         var queryString = window.location.search;
 
         if(queryString.length > 0){           
