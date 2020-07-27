@@ -131,6 +131,9 @@
     align-items: center;
     margin-bottom: 5px;
 }
+.serve__button__icon svg{
+    max-height: 30px;
+}
 .serve__button__element p{
     margin: 0px;
     letter-spacing: 1px;
@@ -146,6 +149,7 @@
 }
 .hero__container.bottom__hero .hero__content__button svg {
     margin-bottom: 5px;
+    max-height: 17px;
 }
 .hero__container.bottom__hero .hero__content__button svg path{
     transition: all ease-in-out 0.5s;

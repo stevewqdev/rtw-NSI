@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import DonationForm from '../components/donation-form/donation-form'
 
 export default class MakeDonation extends Component {
 
@@ -44,6 +45,10 @@ export default class MakeDonation extends Component {
                         </div>
                     </div>
                 </div>
+
+                <section className="donation__form__wrapper">
+                    <DonationForm />
+                </section>
            </main>
         )
     }

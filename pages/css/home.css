@@ -46,7 +46,7 @@
     max-width: 812px;
     width: 100%;
     background: #F7F7F7;
-    padding: 40px 0 60px 0;
+    padding: 55px 0 60px 0;
     margin: 40px 0;
     position: relative;
     z-index: 3;
@@ -71,8 +71,11 @@
     margin: auto;
 }
 .home__page .movement__step .icon {
-    max-width: 105px;
+    max-width: 100px;
     width: 100%;
+}
+#movement__steps .movement__step:nth-child(2) img{
+    width: 80px;
 }
 .home__page .movement__step .line__divider{
     height: 3px;
@@ -108,7 +111,7 @@
     width: 100%;
 }
 .home__page .reason__we__serve{
-    margin: 10px 0;
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -233,7 +236,7 @@
         min-height: 200px;
         display: flex;
         justify-content: center;
-        align-items: start;
+        align-items: flex-start;
         flex-direction: column;
     }
 }

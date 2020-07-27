@@ -63,8 +63,8 @@
     display: flex;
     padding: 10px 30px 10px 20px;
 }
-#resources__categories .resource__category__internal__meta img{
-    max-width: 50px;
+#resources__categories .resource__category__internal__meta img {
+    max-height: 30px;
 }
 #resources__categories .resource__category__internal__meta p{
     margin: 0px;

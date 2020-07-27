@@ -30,7 +30,7 @@
     max-width: 900px;
     margin: auto;
 }
-.nice-select, input {
+.nice-select, #search__form input {
     background: #015D5D!important;
     border: none!important;
     color: white!important;
