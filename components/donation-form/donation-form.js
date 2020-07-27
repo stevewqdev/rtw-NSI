@@ -11,6 +11,43 @@ export default class DonationForm extends Component {
         document.body.appendChild(script);
     }
 
+    togglePrice(event){
+        // var oneChoiceLabels = [...document.querySelectorAll[".oneChoice"]];
+
+        // oneChoiceLabels.map((element) => {
+        //     element.target.classList.remove("selected");
+        // })
+
+        // if(event.classList.contains("selected")){
+
+        // }else{
+
+        // }
+        // event.target.classList.add("selected");
+    }
+
+    toggleButton(event){
+        console.log("event");
+        
+        [...document.querySelectorAll("#tfa_16 .oneChoice")].map((element) => {
+            element.classList.remove("is__toggled");
+        });
+
+        if(event.target.parentElement.classList.contains("input__heart")){
+            if(event.target.parentElement.classList.contains("is__toggled")){
+                event.target.parentElement.classList.remove("is__toggled");
+            }else{
+                event.target.parentElement.classList.add("is__toggled");
+            }
+        }else{
+            if(event.target.parentElement.classList.contains("is__toggled")){
+                event.target.parentElement.classList.remove("is__toggled");
+            }else{
+                event.target.parentElement.classList.add("is__toggled");
+            }
+        }
+    }
+
     render() {
 
         const settings = {
@@ -20,7 +57,68 @@ export default class DonationForm extends Component {
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
-            adaptiveHeight: true,
+            swipeToSlide: true,
+            beforeChange: function(index){
+                setTimeout(function(){
+
+                    var currentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
+                    var currentSlideHeight = document.querySelectorAll(".slick-current")[0].offsetHeight;
+
+                    console.log(parseInt(currentIndex));
+                    if (window.innerWidth < 800) {
+                        if(parseInt(currentIndex) === 0){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                        }else{
+                            console.log("here2");
+                            document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
+                        }
+                        if(parseInt(currentIndex) === 1){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `1450px`;
+                        }
+                        if(parseInt(currentIndex) === 2){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `500px`;
+                        }
+                    }else if (window.innerWidth < 600) {
+                        if(parseInt(currentIndex) === 0){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                        }else{
+                            console.log("here2");
+                            document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
+                        }
+                        if(parseInt(currentIndex) === 1){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `1500px`;
+                        }
+                        if(parseInt(currentIndex) === 2){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `500px`;
+                        }
+                    }
+                    else{
+                        if(parseInt(currentIndex) === 0){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                        }else{
+                            console.log("here2");
+                            document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
+                        }
+                        if(parseInt(currentIndex) === 1){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `750px`;
+                        }
+                        if(parseInt(currentIndex) === 2){
+                            console.log("here");
+                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                        }
+
+                    }
+
+                }, 100)
+            }
         };
 
         return (
@@ -36,7 +134,7 @@ export default class DonationForm extends Component {
                         defer></script>
                 </Head>
                 <main id="donation__form">
-                    <div id="donation__form" className="wFormContainer">
+                    <div id="donation__form__inner" className="wFormContainer">
                         <div className="container">
                             <div className="row">
                                 <div className="col-lg-12">
@@ -57,14 +155,80 @@ export default class DonationForm extends Component {
                                                                 <table id="tfa_2" className="choices columns3 required">
                                                                     <tbody>
                                                                         <tr>
-                                                                            <td><span className="oneChoice maskControl"><input value="" type="radio" defaultValue="tfa_6" className="calc-amt calcval-36" id="tfa_6" name="tfa_2" aria-required="true" aria-labelledby="tfa_6-L" data-tfa-labelledby="tfa_2-L tfa_6-L" /><label className="label postField" id="tfa_6-L" htmlFor="tfa_6"><span className="input-radio-faux" /><img style={{maxWidth: '100%'}} alt="$36" src="//www.tfaforms.com/forms/get_image/208798/sSV9daau3KQ56wS2BfNovbgwjMxeCJFJRN8AHMDlJWkykyn4N6MkhdHrr9lxpZlW-button1.png" /></label></span></td>
-                                                                            <td><span className="oneChoice maskControl"><input value="" type="radio" defaultValue="tfa_7" className="calc-amt calcval-54" id="tfa_7" name="tfa_2" aria-required="true" aria-labelledby="tfa_7-L" data-tfa-labelledby="tfa_2-L tfa_7-L" /><label className="label postField" id="tfa_7-L" htmlFor="tfa_7"><span className="input-radio-faux" /><img style={{maxWidth: '100%'}} alt="$54" src="//www.tfaforms.com/forms/get_image/208798/6Wb2l5OhODaCG7BLkcFXyw9pQIJmJkK9JDSzlHEz2uMbxgaNZvqqJNAg9FnhBvbL-button2.png" /></label></span></td>
-                                                                            <td><span className="oneChoice maskControl"><input value="" type="radio" defaultValue="tfa_8" className="calc-amt calcval-98" id="tfa_8" name="tfa_2" aria-required="true" aria-labelledby="tfa_8-L" data-tfa-labelledby="tfa_2-L tfa_8-L" /><label className="label postField" id="tfa_8-L" htmlFor="tfa_8"><span className="input-radio-faux" /><img style={{maxWidth: '100%'}} alt="$98" src="//www.tfaforms.com/forms/get_image/208798/nvnq59CAnaB89sAnGmdnNxygXVu6UjENayF93xq3QQu2CF4ydbeKzNJPcblpIxUX-button3.png" /></label></span></td>
+                                                                            <td>
+                                                                                <span className="oneChoice maskControl" onClick={this.togglePrice}>
+                                                                                    <input value="" type="radio" defaultValue="tfa_6" className="calc-amt calcval-36" id="tfa_6" name="tfa_2" aria-required="true" aria-labelledby="tfa_6-L" data-tfa-labelledby="tfa_2-L tfa_6-L" />
+                                                                                    <label className="label postField" id="tfa_6-L" htmlFor="tfa_6">
+                                                                                        <span className="price__label">
+                                                                                            $36
+                                                                                        </span>
+                                                                                        <span className="input-radio-faux" />
+                                                                                        <img style={{maxWidth: '100%'}} alt="$36" src="//www.tfaforms.com/forms/get_image/208798/sSV9daau3KQ56wS2BfNovbgwjMxeCJFJRN8AHMDlJWkykyn4N6MkhdHrr9lxpZlW-button1.png" />
+                                                                                    </label>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span className="oneChoice maskControl" onClick={this.togglePrice}>
+                                                                                    <input value="" type="radio" defaultValue="tfa_7" className="calc-amt calcval-54" id="tfa_7" name="tfa_2" aria-required="true" aria-labelledby="tfa_7-L" data-tfa-labelledby="tfa_2-L tfa_7-L" />
+                                                                                    <label className="label postField" id="tfa_7-L" htmlFor="tfa_7">
+                                                                                        <span className="price__label">
+                                                                                            $54
+                                                                                        </span>
+                                                                                        <span className="input-radio-faux" />
+                                                                                        <img style={{maxWidth: '100%'}} alt="$54" src="//www.tfaforms.com/forms/get_image/208798/6Wb2l5OhODaCG7BLkcFXyw9pQIJmJkK9JDSzlHEz2uMbxgaNZvqqJNAg9FnhBvbL-button2.png" />
+                                                                                    </label>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span className="oneChoice maskControl" onClick={this.togglePrice}>
+                                                                                    <input value="" type="radio" defaultValue="tfa_8" className="calc-amt calcval-98" id="tfa_8" name="tfa_2" aria-required="true" aria-labelledby="tfa_8-L" data-tfa-labelledby="tfa_2-L tfa_8-L" />
+                                                                                    <label className="label postField" id="tfa_8-L" htmlFor="tfa_8">
+                                                                                        <span className="price__label">
+                                                                                            $98
+                                                                                        </span>
+                                                                                        <span className="input-radio-faux" />
+                                                                                        <img style={{maxWidth: '100%'}} alt="$98" src="//www.tfaforms.com/forms/get_image/208798/nvnq59CAnaB89sAnGmdnNxygXVu6UjENayF93xq3QQu2CF4ydbeKzNJPcblpIxUX-button3.png" />
+                                                                                    </label>
+                                                                                </span>
+                                                                            </td>
                                                                         </tr>
                                                                         <tr>
-                                                                            <td><span className="oneChoice maskControl"><input value="" type="radio" defaultValue="tfa_9" className="calc-amt calcval-180" id="tfa_9" name="tfa_2" aria-required="true" aria-labelledby="tfa_9-L" data-tfa-labelledby="tfa_2-L tfa_9-L" /><label className="label postField" id="tfa_9-L" htmlFor="tfa_9"><span className="input-radio-faux" /><img style={{maxWidth: '100%'}} alt="$180" src="//www.tfaforms.com/forms/get_image/208798/tTi7Ya1t0oL2PoKsyV5XzEZlis8pXFDQcqsp42yJzEc3nbFpRhbANQiUyBckZhmC-button9.png" /></label></span></td>
-                                                                            <td><span className="oneChoice maskControl"><input value="" type="radio" defaultValue="tfa_10" className="calc-amt calcval-360" id="tfa_10" name="tfa_2" aria-required="true" aria-labelledby="tfa_10-L" data-tfa-labelledby="tfa_2-L tfa_10-L" /><label className="label postField" id="tfa_10-L" htmlFor="tfa_10"><span className="input-radio-faux" /><img style={{maxWidth: '100%'}} alt="$360" src="//www.tfaforms.com/forms/get_image/208798/im3XbstYuRHxy1RMCrs8zNw3GpPcmTK4ySl9qdnSIwXfyZJhDXl1bNks8hQgm8sG-button10.png" /></label></span></td>
-                                                                            <td><span className="oneChoice maskControl"><input value="" type="radio" defaultValue="tfa_13" className="calc-amt calcval-0" id="tfa_13" name="tfa_2" aria-required="true" data-conditionals="#tfa_14" aria-labelledby="tfa_13-L" data-tfa-labelledby="tfa_2-L tfa_13-L" /><label className="label postField" id="tfa_13-L" htmlFor="tfa_13"><span className="input-radio-faux" /><img style={{maxWidth: '100%'}} alt="Other" src="//www.tfaforms.com/forms/get_image/208798/jeka8ZUaFG3vWvIraDjcVruaQH9V4yyAREJv6JQScGcZgLUiYiOqUxQIU0vDSniY-button_other1.png" /></label></span></td>
+                                                                            <td>
+                                                                                <span className="oneChoice maskControl" onClick={this.togglePrice}>
+                                                                                    <input value="" type="radio" defaultValue="tfa_9" className="calc-amt calcval-180" id="tfa_9" name="tfa_2" aria-required="true" aria-labelledby="tfa_9-L" data-tfa-labelledby="tfa_2-L tfa_9-L" />
+                                                                                    <label className="label postField" id="tfa_9-L" htmlFor="tfa_9">
+                                                                                        <span className="price__label">
+                                                                                            $180
+                                                                                        </span>
+                                                                                        <span className="input-radio-faux" />
+                                                                                        <img style={{maxWidth: '100%'}} alt="$180" src="//www.tfaforms.com/forms/get_image/208798/tTi7Ya1t0oL2PoKsyV5XzEZlis8pXFDQcqsp42yJzEc3nbFpRhbANQiUyBckZhmC-button9.png" />
+                                                                                    </label>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span className="oneChoice maskControl" onClick={this.togglePrice} >
+                                                                                    <input value="" type="radio" defaultValue="tfa_10" className="calc-amt calcval-360" id="tfa_10" name="tfa_2" aria-required="true" aria-labelledby="tfa_10-L" data-tfa-labelledby="tfa_2-L tfa_10-L" />
+                                                                                    <label className="label postField" id="tfa_10-L" htmlFor="tfa_10">
+                                                                                        <span className="price__label">
+                                                                                            $360
+                                                                                        </span>
+                                                                                        <span className="input-radio-faux" />
+                                                                                        <img style={{maxWidth: '100%'}} alt="$360" src="//www.tfaforms.com/forms/get_image/208798/im3XbstYuRHxy1RMCrs8zNw3GpPcmTK4ySl9qdnSIwXfyZJhDXl1bNks8hQgm8sG-button10.png" />
+                                                                                    </label>
+                                                                                </span>
+                                                                            </td>
+                                                                            <td>
+                                                                                <span className="oneChoice maskControl" onClick={this.togglePrice}>
+                                                                                    <input value="" type="radio" defaultValue="tfa_13" className="calc-amt calcval-0" id="tfa_13" name="tfa_2" aria-required="true" data-conditionals="#tfa_14" aria-labelledby="tfa_13-L" data-tfa-labelledby="tfa_2-L tfa_13-L" />
+                                                                                    <label className="label postField" id="tfa_13-L" htmlFor="tfa_13">
+                                                                                        <span className="price__label">
+                                                                                            OTHER
+                                                                                        </span>
+                                                                                        <span className="input-radio-faux" />
+                                                                                        <img style={{maxWidth: '100%'}} alt="Other" src="//www.tfaforms.com/forms/get_image/208798/jeka8ZUaFG3vWvIraDjcVruaQH9V4yyAREJv6JQScGcZgLUiYiOqUxQIU0vDSniY-button_other1.png" />
+                                                                                    </label>
+                                                                                </span>
+                                                                            </td>
                                                                         </tr>
                                                                     </tbody>
                                                                 </table>
@@ -84,13 +248,13 @@ export default class DonationForm extends Component {
                                                                 <div className="inputWrapper">
                                                                     <span id="tfa_16" className="choices horizontal required">
                                                                         <span className="oneChoice">
-                                                                            <input value="" type="radio" defaultValue="tfa_17" className="calc-payments calcval-1" defaultChecked data-default-value="true" id="tfa_17" name="tfa_16" aria-required="true" data-conditionals="#tfa_2720" aria-labelledby="tfa_17-L" data-tfa-labelledby="tfa_16-L tfa_17-L" />
+                                                                            <input onChange={this.toggleButton} value="" type="radio" defaultValue="tfa_17" className="calc-payments calcval-1"  data-default-value="true" id="tfa_17" name="tfa_16" aria-required="true" data-conditionals="#tfa_2720" aria-labelledby="tfa_17-L" data-tfa-labelledby="tfa_16-L tfa_17-L"  />
                                                                             <label className="label postField" id="tfa_17-L" htmlFor="tfa_17">
                                                                                 <span className="input-radio-faux" />One time
                                                                             </label>
                                                                         </span>
                                                                         <span className="oneChoice">
-                                                                            <input value="" type="radio" defaultValue="tfa_18" className="calc-payments calcval-9999" id="tfa_18" name="tfa_16" aria-required="true" data-conditionals="#tfa_2555" aria-labelledby="tfa_18-L" data-tfa-labelledby="tfa_16-L tfa_18-L" />
+                                                                            <input value="" type="radio" defaultValue="tfa_18" className="calc-payments calcval-9999" id="tfa_18" name="tfa_16" aria-required="true" data-conditionals="#tfa_2555" aria-labelledby="tfa_18-L" data-tfa-labelledby="tfa_16-L tfa_18-L" onChange={this.toggleButton} />
                                                                             <label className="label postField" id="tfa_18-L" htmlFor="tfa_18">
                                                                                 <span className="input-radio-faux" />Monthly
                                                                             </label>
@@ -152,7 +316,7 @@ export default class DonationForm extends Component {
                                                                 <span id="tfa_29" className="choices vertical ">
                                                                     <span className="oneChoice">
                                                                         <div className="input__heart">
-                                                                            <input value="" type="checkbox" defaultValue="tfa_30" classname id="tfa_30" name="tfa_30" data-conditionals="#tfa_31" aria-labelledby="tfa_30-L" data-tfa-labelledby="tfa_29-L tfa_30-L" />
+                                                                            <input value="" type="checkbox" defaultValue="tfa_30" classname id="tfa_30" name="tfa_30" data-conditionals="#tfa_31" aria-labelledby="tfa_30-L" data-tfa-labelledby="tfa_29-L tfa_30-L" onChange={this.toggleButton}/>
                                                                             <svg xmlns="http://www.w3.org/2000/svg" width="30.502" height="26.8" viewBox="0 0 30.502 26.8">
                                                                                 <path id="Trazado_2413" data-name="Trazado 2413" d="M911.834,506.176c-4.363-2.952-8.572-6-11.821-10.163a9.5,9.5,0,0,1-2.231-7.916,7.558,7.558,0,0,1,5.534-6.108,7.758,7.758,0,0,1,7.939,1.929c.189.175.374.353.611.576a8.386,8.386,0,0,1,4.715-2.737,8.052,8.052,0,0,1,9.3,9.608,13.37,13.37,0,0,1-3.306,5.97A55.119,55.119,0,0,1,911.834,506.176Z" transform="translate(-896.613 -480.581)" fill="none" stroke="#fff" stroke-width="2"/>
                                                                             </svg>
@@ -266,7 +430,7 @@ export default class DonationForm extends Component {
                                                             <option value="tfa_2632" id="tfa_2632" classname>Other</option></select></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2526-D">
-                                                        <label id="tfa_2526-L" className="label preField reqMark" htmlFor="tfa_2526">Card Number</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2526" name="tfa_2526" defaultValue aria-required="true" title="Card Number" className="validate-custom /^\d+$/g required" /></div>
+                                                        <label id="tfa_2526-L" className="label preField reqMark" htmlFor="tfa_2526">Card Number</label><br /><div className="inputWrapper"><input value="" type="text" placeholder="Number" id="tfa_2526" name="tfa_2526" defaultValue aria-required="true" title="Card Number" className="validate-custom /^\d+$/g required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2528-D">
                                                         <label id="tfa_2528-L" className="label preField reqMark" htmlFor="tfa_2528">MM</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2528" name="tfa_2528" defaultValue maxLength={2} aria-required="true" min={1} max={12} title="MM" className="validate-integer required" /></div>
@@ -279,18 +443,18 @@ export default class DonationForm extends Component {
                                                         </div>
                                                         <div id="tfa_2717" className="section inline group">
                                                         <div className="oneField field-container-D    " id="tfa_2525-D">
-                                                            <label id="tfa_2525-L" className="label preField reqMark" htmlFor="tfa_2525">First Name</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2525" name="tfa_2525" defaultValue aria-required="true" title="First Name" className="calc-cardfirstname required" /></div>
+                                                            <label id="tfa_2525-L" className="label preField reqMark" htmlFor="tfa_2525">First Name</label><br /><div className="inputWrapper"><input placeholder="First name" value="" type="text" id="tfa_2525" name="tfa_2525" defaultValue aria-required="true" title="First Name" className="calc-cardfirstname required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2532-D">
-                                                            <label id="tfa_2532-L" className="label preField reqMark" htmlFor="tfa_2532">Last Name</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2532" name="tfa_2532" defaultValue aria-required="true" title="Last Name" className="calc-cardlastname required" /></div>
+                                                            <label id="tfa_2532-L" className="label preField reqMark" htmlFor="tfa_2532">Last Name</label><br /><div className="inputWrapper"><input value="" type="text" placeholder="Last name" id="tfa_2532" name="tfa_2532" defaultValue aria-required="true" title="Last Name" className="calc-cardlastname required" /></div>
                                                         </div>
                                                         </div>
                                                         <div id="tfa_2513" className="section inline group">
                                                         <div className="oneField field-container-D    " id="tfa_2198-D">
-                                                            <label id="tfa_2198-L" className="label preField reqMark" htmlFor="tfa_2198">Street Address</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2198" name="tfa_2198" defaultValue aria-required="true" title="Street Address" className="required" /></div>
+                                                            <label id="tfa_2198-L" className="label preField reqMark" htmlFor="tfa_2198">Street Address</label><br /><div className="inputWrapper"><input value="" placeholder="Address" type="text" id="tfa_2198" name="tfa_2198" defaultValue aria-required="true" title="Street Address" className="required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2200-D">
-                                                            <label id="tfa_2200-L" className="label preField reqMark" htmlFor="tfa_2200">City</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2200" name="tfa_2200" defaultValue aria-required="true" title="City" className="required" /></div>
+                                                            <label id="tfa_2200-L" className="label preField reqMark" htmlFor="tfa_2200">City</label><br /><div className="inputWrapper"><input value="" placeholder="City" type="text" id="tfa_2200" name="tfa_2200" defaultValue aria-required="true" title="City" className="required" /></div>
                                                         </div>
                                                         </div>
                                                         <div id="tfa_2514" className="section inline group">
@@ -616,17 +780,17 @@ export default class DonationForm extends Component {
                                                             <label id="tfa_2511-L" className="label preField reqMark" htmlFor="tfa_2511">State/Province</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2511" name="tfa_2511" defaultValue aria-required="true" data-condition="NOT (`#tfa_2425`) AND NOT (`#tfa_2426`) AND NOT (`#tfa_2239`)" title="State/Province" className="required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2512-D">
-                                                            <label id="tfa_2512-L" className="label preField reqMark" htmlFor="tfa_2512">Postal Code</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2512" name="tfa_2512" defaultValue aria-required="true" title="Postal Code" className="validate-alphanum required" /></div>
+                                                            <label id="tfa_2512-L" className="label preField reqMark" htmlFor="tfa_2512">Postal Code</label><br /><div className="inputWrapper"><input value="" placeholder="Postal code" type="text" id="tfa_2512" name="tfa_2512" defaultValue aria-required="true" title="Postal Code" className="validate-alphanum required" /></div>
                                                         </div>
                                                         </div>
                                                         <div id="tfa_2718" className="section inline group">
                                                         <div className="oneField field-container-D    " id="tfa_2186-D">
                                                             <label id="tfa_2186-L" className="label preField reqMark" htmlFor="tfa_2186">Email</label><br /><div className="inputWrapper">
-                                                            <input value="" type="text" id="tfa_2186" name="tfa_2186" defaultValue aria-required="true" aria-describedby="tfa_2186-HH" title="Email" className="validate-email calc-cardemail required" /><span className="field-hint-inactive" id="tfa_2186-H"><span id="tfa_2186-HH" className="hint">You'll receive emails from Repair the World. You may unsubscribe at any time.</span></span>
+                                                            <input value="" placeholder="Email" type="text" id="tfa_2186" name="tfa_2186" defaultValue aria-required="true" aria-describedby="tfa_2186-HH" title="Email" className="validate-email calc-cardemail required" /><span className="field-hint-inactive" id="tfa_2186-H"><span id="tfa_2186-HH" className="hint">You'll receive emails from Repair the World. You may unsubscribe at any time.</span></span>
                                                             </div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2516-D">
-                                                            <label id="tfa_2516-L" className="label preField " htmlFor="tfa_2516">Phone Number</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2516" name="tfa_2516" defaultValue title="Phone Number" classname /></div>
+                                                            <label id="tfa_2516-L" className="label preField " htmlFor="tfa_2516">Phone Number</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2516" placeholder="Number" name="tfa_2516" defaultValue title="Phone Number" classname /></div>
                                                         </div>
                                                         </div>
                                                     </div>
@@ -646,7 +810,7 @@ export default class DonationForm extends Component {
                                                     </div>
                                                     <div id="tfa_2555" className="section group" data-condition="`#tfa_18`"><div className="htmlSection" id="tfa_2554"><div className="htmlContent" id="tfa_2554-HTML">donated monthly</div></div></div>
                                                     <div className="oneField field-container-D  labelsRemoved   wf-acl-hidden" id="tfa_2623-D" role="group" aria-labelledby="tfa_2623-L" data-tfa-labelledby="-L tfa_2623-L"><div className="inputWrapper"><span id="tfa_2623" className="choices vertical "><span className="oneChoice"><input value="" type="checkbox" defaultValue="tfa_2624" classname id="tfa_2624" name="tfa_2624" aria-labelledby="tfa_2624-L" data-tfa-labelledby="tfa_2623-L tfa_2624-L" /><label className="label postField" id="tfa_2624-L" htmlFor="tfa_2624"><span className="input-checkbox-faux" />I would like this donation to be listed as anonymous</label></span></span></div></div>
-                                                    <div className="oneField field-container-D  labelsRemoved  " id="tfa_2636-D" role="group" aria-labelledby="tfa_2636-L" data-tfa-labelledby="-L tfa_2636-L"><div className="inputWrapper"><span id="tfa_2636" className="choices vertical "><span className="oneChoice"><input value="" type="checkbox" defaultValue="tfa_2637" className="calc-ProcessingFee calcval-1" defaultChecked data-default-value="true" id="tfa_2637" name="tfa_2637" aria-labelledby="tfa_2637-L" data-tfa-labelledby="tfa_2636-L tfa_2637-L" /><label className="label postField" id="tfa_2637-L" htmlFor="tfa_2637"><span className="input-checkbox-faux" />I would like to maximize my impact by covering the 2.5% transaction fee on my donation.</label></span></span></div></div>
+                                                    <div className="oneField field-container-D  labelsRemoved  " id="tfa_2636-D" role="group" aria-labelledby="tfa_2636-L" data-tfa-labelledby="-L tfa_2636-L"><div className="inputWrapper"><span id="tfa_2636" className="choices vertical "><span className="oneChoice"><input value="" type="checkbox" defaultValue="tfa_2637" className="calc-ProcessingFee calcval-1" defaultChecked data-default-value="true" id="tfa_2637" name="tfa_2637" aria-labelledby="tfa_2637-L" data-tfa-labelledby="tfa_2636-L tfa_2637-L" /><span class="checkmark"><div class="line__one"></div><div class="line__two"></div></span><label className="label postField" id="tfa_2637-L" htmlFor="tfa_2637"><span className="input-checkbox-faux" />I would like to maximize my impact by covering the 2.5% transaction fee on my donation.</label></span></span></div></div>
                                                     </fieldset>
                                                     <input value="" type="hidden" id="tfa_2621" name="tfa_2621" defaultValue className="formula=gau" /><input value="" type="hidden" id="tfa_2622" name="tfa_2622" defaultValue className="formula=payments" /><div className="oneField field-container-D     wf-acl-hidden" id="tfa_2723-D">
                                                     <label id="tfa_2723-L" className="label preField " htmlFor="tfa_2723">PayPal Quantity</label><br /><div className="inputWrapper"><input value="" type="text" id="tfa_2723" name="tfa_2723" defaultValue readOnly title="PayPal Quantity" className="formula=if(method==2){payments}else{0} readonly" /></div>
@@ -677,7 +841,7 @@ export default class DonationForm extends Component {
                                                         <div id="disabled-explanation" className="captchaHelp" style={{display: 'none'}}>The submit button will be disabled until you complete the CAPTCHA.</div>
                                                         </div>
                                                     </div>
-                                                    <input value="" type="submit" data-label="Donate" className="primaryAction" id="submit_button" defaultValue="Donate" />
+                                                    <input value="DONATE"  type="submit" data-label="Donate"  className="primaryAction" id="submit_button" defaultValue="Donate" />
                                                     </div>
                                                     <div style={{clear: 'both'}} />
                                                     <input value="" type="hidden" defaultValue={4696781} name="tfa_dbFormId" id="tfa_dbFormId" /><input value="" type="hidden" defaultValue name="tfa_dbResponseId" id="tfa_dbResponseId" /><input value="" type="hidden" defaultValue="456681eb362897875a1b544075626721" name="tfa_dbControl" id="tfa_dbControl" /><input value="" type="hidden" defaultValue={132} name="tfa_dbVersionId" id="tfa_dbVersionId" /><input value="" type="hidden" defaultValue name="tfa_switchedoff" id="tfa_switchedoff" />

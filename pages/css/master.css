@@ -333,7 +333,7 @@ a:hover{
 }
 #tfa_2188-D select{
     width: 100% !important;
-    height: 50px;
+    height: 45px;
     background: transparent;
     border-radius: 0px;
     padding: 10px;
@@ -693,8 +693,28 @@ span i img {
     padding-right: 50px;
 
 }
-.wform .slick-dots{
+#donation__form .slick-dots{
     position: relative!important;
+}
+.wForm select{
+    width: 100% !important;
+    height: 45px;
+    background: transparent;
+    border-radius: 0px!important;
+    padding: 10px;
+    max-width: 250px;
+    color: white;
+    border: solid 1px white;
+
+}
+#tfa_2524-L{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 45px;
+    padding-top: 25px;
+    padding-bottom: 15px;
 }
 #tfa_2612-L {
     border-style: solid;
@@ -783,7 +803,16 @@ span.oneChoice.maskControl {
 }
 
 .donation__form__wrapper{
-    background: #EFEFEF;
+    background: linear-gradient(to bottom,       
+    white    20%,       
+    #EFEFEF  20%,       
+    #EFEFEF  40%,       
+    #EFEFEF  40%,       
+    #EFEFEF  60%,       
+    #EFEFEF  60%,       
+    #EFEFEF  80%,       
+    #EFEFEF  80%,      
+    #EFEFEF  100%  )
 }
 .wForm  h1 {
     /*18px via YUI Fonts CSS foundation*/
@@ -979,6 +1008,7 @@ span.oneChoice.maskControl {
 /* Column layout for choices */
 .wForm form table.choices td {
     min-width: 80px;
+    width: calc(100% / 3);
 }
 
 
@@ -1454,8 +1484,29 @@ span.oneChoice.maskControl {
 #wfTabNav               { font-size: smaller; border: 2px solid transparent; padding: 2px 6px; text-align: right; }
 .wfTab, .wfTabSep		{ display: inline-block; }
 
-
-
+.oneChoice img{
+    display: block!important;
+}
+.oneChoice{
+    /* height: 98px;
+    border: solid 1px white;
+    display: flex!important;
+    justify-content: center;
+    align-items: center; */
+}
+.oneChoice label{
+    text-align: center;
+    /* opacity: 1!important; */
+}
+.oneChoice label .price__label{
+    text-align: center;
+    color: white;
+    font-family: poppins;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: none;
+}
 /* Autosuggest feature styles: */
 .wForm div .typeahead,
 .wForm div .tt-query,
@@ -1595,7 +1646,13 @@ and (max-width: 355px) {
 .sensitive-value-omitted { padding: 5px 0 0 0!important; }
 
 /* response caching dialog */
-
+.input__heart.is__toggled svg path{
+    fill: white;
+}
+#tfa_16 .oneChoice.is__toggled label{
+    background: white;
+    color: #015D5D!important;
+}
 /* for modals */
 .wFormOverlay {
     position: fixed;
@@ -1647,7 +1704,7 @@ and (max-width: 355px) {
     padding-bottom: 15px;
 }
 .form__step{
-    padding: 0 200px;
+    padding: 10px 200px;
 }
 .oneField .inputWrapper{
     width: 100%;
@@ -1657,6 +1714,7 @@ and (max-width: 355px) {
 }
 .wForm form .oneChoice {
     width: 100%;
+    /* margin: 6px; */
 }
 .wForm input[type="text"], .wForm input[type="email"] {
     background: transparent;
@@ -1666,7 +1724,7 @@ and (max-width: 355px) {
     text-transform: uppercase;
     font-size: 15px;
     padding: 0 20px;
-    min-height: 40px;
+    min-height: 45px;
     border-radius: 0px;
     border: solid 1px white;
 }
@@ -1677,6 +1735,147 @@ and (max-width: 355px) {
 .wForm form .oneChoice.maskControl label, .wForm form .oneChoice.maskControl .label{
     width: 100%;
 
+}
+#tfa_2716{
+    display: flex;
+    flex-wrap: wrap;
+}
+#tfa_2627-D{
+    width: 30%!important;
+}
+#tfa_2526-D{
+    width: 30%!important;
+}
+#tfa_2528-D, #tfa_2529-D, #tfa_2530-D {
+    width: 13.3%!important;
+}
+#tfa_2718{
+    display: flex;
+    flex-wrap: wrap;
+}
+#tfa_2186-D{
+    width: 50%!important;
+}
+#tfa_2116-D{
+    width: 50%!important;
+}
+#tfa_2186-D .inputWrapper{
+    width: 100%;
+}
+#tfa_2186-D .inputWrapper input{
+    width: 100%!important;
+}
+#tfa_2186-HH{
+    opacity: 1;
+}
+#tfa_2526{
+    width: 100%!important;
+
+}
+#tfa_2553{
+    border: solid 1px white!important;
+}
+#tfa_2553-L{
+    margin: 0;
+    padding: 0px;
+}
+#tfa_2553-D{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 20px 0;
+        border-bottom: solid 1px white;
+}
+#tfa_2636-D{
+    padding-bottom: 10px;
+    border-bottom: solid 1px white;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-top: 0px!important;
+}
+#tfa_2636 .checkmark{
+    left: -5px;
+    top: 6px;
+}
+#tfa_2637-L {
+    margin-left: 0px;
+    text-align: left;
+    font-size: 12px;
+}
+#tfa_2636 .oneChoice {
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9px;
+}
+#tfa_2555{
+    margin-bottom: -20px!important;
+}
+#tfa_2636 input{
+    position: relative;
+    top: 8px;
+    right: -1px;
+    opacity: 0;
+}
+.actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#submit_button{
+    background: black;
+    border-radius: 0px;
+    border: solid 1px black;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-family: Poppins;
+    letter-spacing: 1px;
+    font-size: 13px;
+    min-width: 176px;
+    padding: 15px;
+    margin-top: 30px;
+}
+#tfa_2555{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family: Poppins;
+    letter-spacing: 1px;
+    font-size: 13px;
+    color: white!important;
+    padding: 0 20px!important;
+    margin-bottom: -20px!important;
+    margin-top: 10px!important;
+    text-decoration: underline;
+    display: none;
+}
+#tfa_2552-L{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 45px;
+    padding-top: 25px;
+    padding-bottom: 15px;
+}
+#tfa_2186-H{
+    left: 0px;
+    top:   60px!important;
+    position: absolute;
+    width: 620px;
+    font-size: 13px;
+    color: white;
+    opacity: 1;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+#tfa_2718{
+    width: 100%;
+}
+#tfa_2528-D input, #tfa_2529-D input, #tfa_2530-D input {
+    width: 100%!important;
 }
 .wForm form .oneChoice img{
     width: 100%!important;
@@ -1861,7 +2060,7 @@ html .wForm form .wfCurrentPage {
   }
   #tfa_2584{
     width: 100% !important;
-    height: 50px;
+    height: 45px;
     background: transparent;
     border-radius: 0px;
     padding: 10px;
@@ -1883,7 +2082,7 @@ html .wForm form .wfCurrentPage {
   }
   #tfa_35 {
     width: 100% !important;
-    height: 50px;
+    height: 45px;
     background: transparent;
     border-radius: 0px;
     padding: 10px;
@@ -2052,8 +2251,220 @@ color: white;
     position: relative;
     top: 7px;
 }
+#donation__form{
+    padding-bottom: 130px;
+}
 /* ============ Donation page css ============ */
+@media(max-width: 1024px){
+    .wFormContainer{
+        width: 90%;
+    }
+    .form__step {
+        padding: 10px 100px;
+    }
+}
+@media(max-width: 768px){
+    #tfa_43 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        max-width: 100%;
+        width: 100%;
+        flex-direction: column;
+    }
+    #tfa_44-D {
+        width: 100%!important;
+    }
+    #tfa_45 {
+        width: 100%!important;
 
+    }
+    #tfa_2627-D {
+        width: 100%!important;
+    }
+    #tfa_2526-D {
+        width: 100%!important;
+    }
+    #tfa_2528-D, #tfa_2529-D, #tfa_2530-D {
+        width: 33.3%!important;
+    }
+    #tfa_2717{
+        width: 100%;
+    }
+    #tfa_2186-H{
+        width: 100%;
+    }
+    .wForm .inline div.oneField {
+        width: 100%;
+    }
+    #tfa_2515{
+        width: 100%;
+
+    }
+    #tfa_2512{
+        width: 100%;
+    }
+    #tfa_2513{
+        width: 100%;
+    }
+    #tfa_2198-D{
+        width: 100%!important;
+    }
+    #tfa_2513 input{
+        width: 100%!important;
+    }
+    #tfa_2200-D{
+        width: 100%!important;
+    }
+    #tfa_2200-D input{
+        width: 100%!important;
+    }
+    #tfa_2525-D{
+        width: 50%!important;
+    }
+    #tfa_2525-D input{
+        width: 100%!important;
+    }
+    #tfa_2532-D{
+        width: 50%!important;
+    }
+    #tfa_2532-D input{
+        width:100%!important;
+    }
+    #tfa_36 {
+        flex-direction: column;
+    }
+    #tfa_35{
+        width:100%!important;
+    }
+}
+@media (max-width: 600px){
+    .form__step {
+        padding: 10px 24px;
+    }
+    #tfa_16-D {
+
+        flex-direction: column;
+    }
+    #tfa_16{
+        margin-top: 20px;
+    }
+    #tfa_2188-D{
+        flex-direction: column;
+        width: 100%!important;
+    }
+    #tfa_29-D {
+        padding-bottom: 85px;
+    }
+    #tfa_29 > span {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .input__heart svg {
+        width: 100%;
+    }
+    .input__heart {
+        width: 30px;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+    }
+    #tfa_32 {
+        display: flex;
+        flex-direction: column;
+    }
+    #tfa_32 .oneChoice {
+        margin-right: 20px;
+        position: relative;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+    }
+    #tfa_32 label {
+        position: relative;
+        top: 3px;
+    }
+    #tfa_37 label {
+        position: relative;
+        top: -4px;
+    }
+    #tfa_2604-L {
+        top: -23px;
+    }
+    #tfa_14-D {
+        display: flex;
+        flex-direction: column;
+    }
+    #tfa_14-L{
+        position: relative;
+        left: -10px;
+    }
+    #tfa_14{
+        max-width: 100%!important;
+        width: 100%!important;
+        margin-top: 10px;
+    }
+    #tfa_2633-D{
+        display: flex;
+        flex-direction: column;
+    }
+    #donation__form .slick-dots {
+        position: relative!important;
+        width: 100%;
+        left: -40px;
+    }
+    .wForm form .oneChoice {
+        white-space: unset; 
+    }
+    #tfa_2636 input {
+        position: relative;
+        top: 8px;
+        right: -1px;
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 40px;
+        max-width: 100%;
+    }
+    #tfa_2636 .checkmark {
+        left: 0;
+        top: 6px;
+        right: 0;
+        margin: auto;
+    }
+    #tfa_2553 {
+        width: 100%!important;
+    }
+    #tfa_2186-H {
+        left: 0px;
+        top: 170px!important;
+    }
+    #tfa_2186-D {
+        width: 100%!important;
+    }
+    #tfa_2516-D{
+        width: 100%!important;
+    }
+    #tfa_2516-D input{
+        width: 100%!important;
+    }
+    #tfa_2554-HTML{
+        text-align: center;
+    }
+    #tfa_2188-D select{
+        max-width: 100%!important;
+    }
+    #tfa_2188{
+        margin-top: 20px;
+    }
+}
 @media(max-width: 900px) and (orientation: landscape ){
 
 }
