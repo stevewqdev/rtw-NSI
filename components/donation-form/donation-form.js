@@ -248,7 +248,7 @@ export default class DonationForm extends Component {
                                                                 <div className="inputWrapper">
                                                                     <span id="tfa_16" className="choices horizontal required">
                                                                         <span className="oneChoice">
-                                                                            <input onChange={this.toggleButton} value="" type="radio" defaultValue="tfa_17" className="calc-payments calcval-1"  data-default-value="true" id="tfa_17" name="tfa_16" aria-required="true" data-conditionals="#tfa_2720" aria-labelledby="tfa_17-L" data-tfa-labelledby="tfa_16-L tfa_17-L"  />
+                                                                            <input onChange={this.toggleButton} value="" type="radio" defaultValue="tfa_17" className="calc-payments calcval-1" defaultChecked data-default-value="true" id="tfa_17" name="tfa_16" aria-required="true" data-conditionals="#tfa_2720" aria-labelledby="tfa_17-L" data-tfa-labelledby="tfa_16-L tfa_17-L"  />
                                                                             <label className="label postField" id="tfa_17-L" htmlFor="tfa_17">
                                                                                 <span className="input-radio-faux" />One time
                                                                             </label>
