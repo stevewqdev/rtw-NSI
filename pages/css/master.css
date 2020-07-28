@@ -293,8 +293,8 @@ a:hover{
     color: #00A99D;
     font-size: 90%;
     position: absolute;
-    top: 0px;
-    right: -4px;
+    top: 5px;
+    right: 5px;
 }
 #tfa_16-D{
     margin-top: 0px;
@@ -693,8 +693,13 @@ span i img {
     padding-right: 50px;
 
 }
+#donation__form .slick-list{
+    margin-bottom: 70px;
+}
 #donation__form .slick-dots{
     position: relative!important;
+    margin: 0px!important;
+    top: 20px;
 }
 .wForm select{
     width: 100% !important;
@@ -1520,7 +1525,92 @@ span.oneChoice.maskControl {
   border: 2px solid #ccc;
   outline: none;
 }
+#donation__form__inner .slick-prev.slick-disabled:before, #donation__form__inner .slick-next:before {
+    opacity: 0!important;
+}
+#donation__form .slick-arrow.slick-prev:after{
+    content: "BACK";
+}
+#donation__form .slider__controller{
+    display: flex;
+    justify-content: center;
+    color: #00A99D;
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    top: -20px;
+}
+#tfa_2-D.error{
+    border: solid 1px red;
+}
+#donation__form .slider__controller div{
+    margin: 0 7px;
+    position: relative;
+}
 
+#donation__form .slider__controller .separator{
+    width: 2px;
+    height: 11px;
+    background: #00A99D;
+    position: relative;
+    top: 6px;
+    pointer-events: none;
+}
+#donation__form .slider__controller .prev{
+    cursor: pointer;
+}
+#donation__form .slider__controller .next{
+    cursor: pointer;
+}
+#donation__form .slider__controller .prev > *{
+    pointer-events: none;
+}
+#donation__form .slider__controller .next > *{
+    pointer-events: none;
+}
+#donation__form .slider__controller .prev span{
+    position: relative;
+    right: 10px;
+    top: -1px;
+}
+#donation__form .slider__controller .next span{
+    position: relative;
+    left: 10px;
+    top: -1px;
+}
+#donation__form input.error{
+    border: solid 1px red;
+    position: relative;
+}
+#donation__form textarea.error{
+    border: solid 1px red!important;
+    position: relative;
+}
+#donation__form input.error:after{
+    content: "Please fill all the input fields";
+}
+#donation__form .slider__message{
+    font-family: poppins;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -40px;
+    text-decoration: underline;
+    pointer-events: none;
+    flex-direction: column;
+}
+#donation__form .slider__message p{
+    margin-bottom: 5px;
+}
+#donation__form textarea.error{
+    border: solid 1px red;
+    position: relative;
+}
 .wForm div .typeahead {
   background-color: #fff;
 }
@@ -1652,6 +1742,7 @@ and (max-width: 355px) {
 #tfa_16 .oneChoice.is__toggled label{
     background: white;
     color: #015D5D!important;
+    border: solid 1px white;
 }
 /* for modals */
 .wFormOverlay {
