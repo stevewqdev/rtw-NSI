@@ -2042,6 +2042,7 @@ and (max-width: 355px) {
 }
 #tfa_2529-D .label__with__message:after{
     content: "Add a valid year";
+    bottom: -35px;
 }
 #tfa_2530-D .label__with__message:after{
     content: "Add a 4 number code";
