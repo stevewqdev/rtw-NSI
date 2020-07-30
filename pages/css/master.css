@@ -1717,6 +1717,8 @@ span.oneChoice.maskControl {
     color: red;
     left: 0px;
     bottom: -20px; 
+    font-weight: bold;
+    text-transform: capitalize;
 }
 .wForm .tt-clear {
     position: absolute;
