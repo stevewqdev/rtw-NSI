@@ -12,6 +12,12 @@
 #partners{
     padding: 90px 0;
 }
+.serve__button__icon svg path{
+    fill: white;
+}
+.hero__content__button button svg path{
+    fill: white;
+}
 #partners .the__partner{
     width: calc(100% / 5);
     display: flex;
@@ -144,6 +150,7 @@
     max-width: 434px;
     line-height: 35px;
 }
+
 .hero__container.bottom__hero {
     margin-bottom: 20px;
 }

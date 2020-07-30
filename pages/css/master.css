@@ -1707,7 +1707,17 @@ span.oneChoice.maskControl {
     z-index: 5;
     cursor: pointer;
 }
-
+.label__with__message{
+    position: relative;
+}
+.label__with__message:after{
+    position: absolute;
+    content: "Please add a valid response";
+    font-size: 10px;
+    color: red;
+    left: 0px;
+    bottom: -20px; 
+}
 .wForm .tt-clear {
     position: absolute;
     top: 28%;
@@ -1795,7 +1805,7 @@ and (max-width: 355px) {
     padding-bottom: 15px;
 }
 .form__step{
-    padding: 10px 200px;
+    padding: 25px 200px;
 }
 .oneField .inputWrapper{
     width: 100%;
@@ -1961,6 +1971,7 @@ and (max-width: 355px) {
     opacity: 1;
     font-weight: 600;
     letter-spacing: 1px;
+    margin-top: 20px;
 }
 #tfa_2718{
     width: 100%;
@@ -1977,7 +1988,7 @@ and (max-width: 355px) {
     cursor: pointer;
 }
 #tfa_14-D{
-    padding-bottom: 13px;
+    padding-bottom: 25px;
     border-bottom: solid 1px white;
     display: flex;
     color: white;
@@ -1987,6 +1998,76 @@ and (max-width: 355px) {
     margin: 0 0 20px 0px;
     padding-left: 0px;
     padding-right: 0px;
+}
+#tfa_14-D .label__with__message:after{
+    content: "Add a valid amount";
+}
+#tfa_32 .label__with__message:after{
+    content: "Please add tribute details";
+    left: 180px;
+    bottom: -30px;
+}
+#tfa_2562.label__with__message:after {
+    position: absolute;
+    content: "Select a donation amount";
+    font-size: 10px;
+    color: red;
+    left: unset;
+    bottom: 160px;
+    right: 0;
+}
+#tfa_41-D .label__with__message:after{
+    content: "Please add the name ";
+}
+#tfa_2635-D .label__with__message:after{
+    content: "Please add the lastname ";
+}
+#tfa_42-D .label__with__message:after{
+    content: "Please add a type";
+}
+#tfa_44-D .label__with__message:after{
+    content: "Please add a message";
+}
+#tfa_2633-D .label__with__message:after{
+    content: "Please add the email ";
+}
+#tfa_2526-D .label__with__message:after{
+    content: "Add a valid card number ";
+}
+#tfa_2528-D .label__with__message:after{
+    content: "Add a valid month";
+    bottom: -35px;
+}
+#tfa_2529-D .label__with__message:after{
+    content: "Add a valid year";
+}
+#tfa_2530-D .label__with__message:after{
+    content: "Add a 4 number code";
+    bottom: -35px;
+}
+#tfa_2525-D .label__with__message:after{
+    content: "Add card's owner name";
+}
+#tfa_2532-D .label__with__message:after{
+    content: "Add card's owner lastname";
+}
+#tfa_2198-D .label__with__message:after{
+    content: "Add card's owner name";
+}
+#tfa_2198-D .label__with__message:after{
+    content: "Add a address";
+}
+#tfa_2200-D .label__with__message:after{
+    content: "Add a city";
+}
+#tfa_2512-D .label__with__message:after{
+    content: "Add a valid postal code";
+}
+#tfa_2186-D .label__with__message:after{
+    content: "Add a valid email address";
+}
+#tfa_2516-D .label__with__message:after{
+    content: "Add a valid phone number";
 }
 #tfa_29{
     position: relative;

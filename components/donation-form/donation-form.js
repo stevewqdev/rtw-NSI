@@ -19,24 +19,30 @@ export default class DonationForm extends Component {
                     if(document.getElementById("tfa_14").value > 1){
                         if(document.getElementById("tfa_14").classList.contains("error")){
                             document.getElementById("tfa_14").classList.remove("error"); 
+                            document.getElementById("tfa_14").parentNode.classList.remove("label__with__message");
                             document.getElementById("tfa_2553").value = document.getElementById("tfa_14").value;
                         }
                     }else{
                         document.getElementById("tfa_14").classList.add("error"); 
+                        document.getElementById("tfa_14").parentNode.classList.add("label__with__message");
                     }
                 }else{
                     document.getElementById("tfa_14").classList.remove("error"); 
+                    document.getElementById("tfa_14").parentNode.classList.remove("label__with__message");
                 }
 
                 if(document.getElementById("tfa_33").classList.contains("is_true") || document.getElementById("tfa_34").classList.contains("is_true")){
                     if(document.getElementById("tfa_35").value.length < 5){
+                        document.getElementById("tfa_33").parentNode.classList.add("label__with__message");
                         document.getElementById("tfa_35").classList.add("error"); 
                     }else{
                         if(document.getElementById("tfa_35").classList.contains("error")){
                             document.getElementById("tfa_35").classList.remove("error"); 
+                            document.getElementById("tfa_33").parentNode.classList.remove("label__with__message");
                         }
                     }
                 }else{
+                    document.getElementById("tfa_33").parentNode.classList.remove("label__with__message");
                     document.getElementById("tfa_35").classList.remove("error"); 
                 }
 
@@ -49,10 +55,12 @@ export default class DonationForm extends Component {
 
                     innerInputs.map((element) => {
                         if(element.value.length < 5){
+                            element.parentNode.classList.add("label__with__message");
                             element.classList.add("error"); 
                         }else{
                             if(element.classList.contains("error")){
                                 element.classList.remove("error"); 
+                                element.parentNode.classList.remove("label__with__message");
                             }
                         }
                     })
@@ -65,7 +73,7 @@ export default class DonationForm extends Component {
                     innerInputs = innerInputs.concat(innerText).concat(innerInputsTwo);
 
                     innerInputs.map((element) => {
-
+                        element.parentNode.classList.remove("label__with__message");
                         element.classList.remove("error"); 
 
                         return true;
@@ -74,12 +82,12 @@ export default class DonationForm extends Component {
 
                 if([...document.querySelectorAll("#tfa_2-D .is_true")].length <= 0){
                     document.querySelector("#tfa_2-D").classList.add("error");
-
+                    document.getElementById("tfa_2-D").parentNode.classList.add("label__with__message");
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "Please select a donation amount";
                 }else{
                     document.querySelector("#tfa_2-D").classList.remove("error");
-
+                    document.getElementById("tfa_2-D").parentNode.classList.remove("label__with__message");
                     var selectedPrice = document.querySelectorAll("#tfa_2-D .is_true")[0].getAttribute("id"); 
                     var priceElement = parseInt(document.querySelectorAll(`.${selectedPrice}`)[0].innerHTML.replace(/\$/g, ''));
 
@@ -115,54 +123,70 @@ export default class DonationForm extends Component {
 
                 textInputs.map((element) => {
                     if(document.getElementById(`${element}`).value.length >= 3){
+                        document.getElementById(`${element}`).parentNode.classList.remove("label__with__message");
                         document.getElementById(`${element}`).classList.remove("error");
                     }else{
+                        document.getElementById(`${element}`).parentNode.classList.add("label__with__message");
                         document.getElementById(`${element}`).classList.add("error");
                     }
                 })
 
                 if(document.getElementById("tfa_2526").value.length > 15 && document.getElementById("tfa_2526").value.length < 20 ){
                     document.getElementById("tfa_2526").classList.remove("error");
+                    document.getElementById("tfa_2526").parentNode.classList.remove("label__with__message");
                 }else{
                     document.getElementById("tfa_2526").classList.add("error");
+                    document.getElementById("tfa_2526").parentNode.classList.add("label__with__message");
                 }
 
                 if(document.getElementById("tfa_2528").value.length > 1 && document.getElementById("tfa_2528").value.length < 3 ){
                     document.getElementById("tfa_2528").classList.remove("error");
+                    document.getElementById("tfa_2528").parentNode.classList.remove("label__with__message");
                 }else{
                     document.getElementById("tfa_2528").classList.add("error");
+                    document.getElementById("tfa_2528").parentNode.classList.add("label__with__message");
                 }
 
                 if(document.getElementById("tfa_2529").value.length > 1 && document.getElementById("tfa_2529").value.length < 3 ){
                     document.getElementById("tfa_2529").classList.remove("error");
+                    document.getElementById("tfa_2529").parentNode.classList.remove("label__with__message");
                 }else{
                     document.getElementById("tfa_2529").classList.add("error");
+                    document.getElementById("tfa_2529").parentNode.classList.add("label__with__message");
                 }
 
                 if(document.getElementById("tfa_2530").value.length > 3 && document.getElementById("tfa_2530").value.length < 5 ){
                     document.getElementById("tfa_2530").classList.remove("error");
+                    document.getElementById("tfa_2530").parentNode.classList.remove("label__with__message");
                 }else{
                     document.getElementById("tfa_2530").classList.add("error");
+                    document.getElementById("tfa_2530").parentNode.classList.add("label__with__message");
                 }
 
                 if(document.getElementById("tfa_2512").value.length >= 5  ){
                     document.getElementById("tfa_2512").classList.remove("error");
+                    document.getElementById("tfa_2512").parentNode.classList.remove("label__with__message");
                 }else{
                     document.getElementById("tfa_2512").classList.add("error");
+                    document.getElementById("tfa_2512").parentNode.classList.add("label__with__message");
                 }
              
                 if(document.getElementById("tfa_2516").value.length >= 8  ){
                     document.getElementById("tfa_2516").classList.remove("error");
+                    document.getElementById("tfa_2516").parentNode.classList.remove("label__with__message");
                 }else{
                     document.getElementById("tfa_2516").classList.add("error");
+                    document.getElementById("tfa_2516").parentNode.classList.add("label__with__message");
                 }
 
                 var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
                 if (document.getElementById("tfa_2186").value.match(mailformat)) {
                     document.getElementById("tfa_2186").classList.remove("error");
+                    document.getElementById("tfa_2186").parentNode.classList.remove("label__with__message");
                 }else{
                     document.getElementById("tfa_2186").classList.add("error");
+                    document.getElementById("tfa_2186").parentNode.classList.add("label__with__message");
                 }
                 
                 var checkErrors = [...document.querySelectorAll(".form__step__two .error")];
@@ -397,7 +421,7 @@ export default class DonationForm extends Component {
                         }
                         if(parseInt(currentIndex) === 1){
                             console.log("here");
-                            document.querySelectorAll(".slick-track")[0].style.height = `750px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `790px`;
                         }
                         if(parseInt(currentIndex) === 2){
                             console.log("here");
@@ -1094,7 +1118,7 @@ export default class DonationForm extends Component {
                                                         <label id="tfa_2639-L" className="label preField " htmlFor="tfa_2639">Credit Card Processing Fee</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2639" name="tfa_2639" defaultValue readOnly title="Credit Card Processing Fee" className="formula=(ProcessingFee*0.025*(amt+otheramt)) readonly" /></div>
                                                     </div>
                                                     <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_2553-D">
-                                                        <label id="tfa_2553-L" className="label preField reqMark" htmlFor="tfa_2553">$</label><div className="inputWrapper"><input  type="text" id="tfa_2553" name="tfa_2553" defaultValue readOnly aria-required="true" title="$" className="validate-float formula=(((amt+otheramt)+(ProcessingFee*0.025*(amt+otheramt)))).toFixed(2) calc-total readonly required" /></div>
+                                                        <label id="tfa_2553-L" className="label preField reqMark" htmlFor="tfa_2553">$</label><div className="inputWrapper"><input  type="text" id="tfa_2553" name="tfa_2553" defaultValue readOnly aria-required="true" title="$" className="validate-float formula=(((amt+otheramt)+(ProcessingFee*0.025*(amt+otheramt)))).toFixed(2) calc-total readonly required" disabled /></div>
                                                     </div>
                                                     <div id="tfa_2555" className="section group" data-condition="`#tfa_18`"><div className="htmlSection" id="tfa_2554"><div className="htmlContent" id="tfa_2554-HTML">donated monthly</div></div></div>
                                                     <div className="oneField field-container-D  labelsRemoved   wf-acl-hidden" id="tfa_2623-D" role="group" aria-labelledby="tfa_2623-L" data-tfa-labelledby="-L tfa_2623-L"><div className="inputWrapper"><span id="tfa_2623" className="choices vertical "><span className="oneChoice"><input  type="checkbox" defaultValue="tfa_2624" className id="tfa_2624" name="tfa_2624" aria-labelledby="tfa_2624-L" data-tfa-labelledby="tfa_2623-L tfa_2624-L" /><label className="label postField" id="tfa_2624-L" htmlFor="tfa_2624"><span className="input-checkbox-faux" />I would like this donation to be listed as anonymous</label></span></span></div></div>
