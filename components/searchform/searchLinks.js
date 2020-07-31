@@ -30,7 +30,7 @@ render() {
                 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" />
 
                 {/* Jquery CDN code */}
-                <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossOrigin="anonymous"></script>
 
                 {/* Moment js library */}
                 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -39,7 +39,7 @@ render() {
                 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
                 {/* Fontawesome Kit */}
-                <script src="https://kit.fontawesome.com/841603387b.js" crossorigin="anonymous"></script>
+                <script src="https://kit.fontawesome.com/841603387b.js" crossOrigin="anonymous"></script>
 
                 {/* Flickity library javascript */}
                 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>

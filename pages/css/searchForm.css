@@ -473,6 +473,9 @@
     border-radius: 100px;
     margin: 0 5px;
 }
+.register__button__popup button{
+    pointer-events: none;
+}
 #searchTags li .tag-close{
     font-weight: bold;
     margin-left: 5px;
@@ -563,6 +566,35 @@
     overflow: hidden;
     background: white;
 }
+.popup__wrapper.popup__register__iframe{
+    max-width: 100%;
+    height: 100%;
+    background: #ffffffd9;
+}
+.register__button__popup{
+    cursor: pointer;
+}
+.popup__register{
+    background: transparent;
+}
+.popup__wrapper.popup__register__iframe .container {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+}
+.popup__wrapper.popup__register__iframe .popup__content{
+    padding: 50px 65px;
+    height: 100%;
+}
+.popup__wrapper.popup__register__iframe .three__col{
+    padding: 0px;
+    height: 100%;
+}
+.popup__wrapper.popup__register__iframe iframe{
+    width: 100%;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    border-radius: 5px;
+}
 .close__popup{
     position: absolute;
     top: 15px;
@@ -618,7 +650,7 @@
     display: flex;
     align-items: center;
     border-top: solid 1px lightgrey;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 0;
 }
 .popup__content .date p{
     margin: 0px 0 0 10px;
