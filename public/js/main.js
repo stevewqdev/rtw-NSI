@@ -1580,41 +1580,44 @@ function curatedCards(data, searchData = null, removedTag = null){
             if(data.description.includes("Canceled because")){
 
             }else{
-                if(comparedDate >= today && !data.isOngoing && theCity !== "global"){
+                // if(comparedDate >= today && !data.isOngoing && theCity !== "global"){
+                //     theCards.push(theCard);
+                // }
+                if(comparedDate >= today ){
                     theCards.push(theCard);
                 }
             }
 
-            if(data.isOngoing && theCity !== "global"){
-                onGoingCards.push(theCard);
-            }
+            // if(data.isOngoing && theCity !== "global"){
+            //     onGoingCards.push(theCard);
+            // }
 
-            if(comparedDate >= today && !data.isOngoing && theCity === "global"){
-                theCards.push(theCard);
-            }
-            if(data.isOngoing && theCity === "global"){
-                globalOngoing.push(theCard);
-            }
+            // if(comparedDate >= today && !data.isOngoing && theCity === "global"){
+            //     theCards.push(theCard);
+            // }
+            // if(data.isOngoing && theCity === "global"){
+            //     globalOngoing.push(theCard);
+            // }
 
         }
 
-        onGoingCards.sort(function(a, b){
-            let compareA = a.split('data-event-city="')[1];
-            compareA = compareA.substring(0, compareA.indexOf('"'));
+        // onGoingCards.sort(function(a, b){
+        //     let compareA = a.split('data-event-city="')[1];
+        //     compareA = compareA.substring(0, compareA.indexOf('"'));
 
-            let compareB = b.split('data-event-city="')[1];
-            compareB = compareB.substring(0, compareB.indexOf('"'));
+        //     let compareB = b.split('data-event-city="')[1];
+        //     compareB = compareB.substring(0, compareB.indexOf('"'));
 
-            if(compareA.toLowerCase() < compareB.toLowerCase()) { return -1; }
-            if(compareA.toLowerCase() > compareB.toLowerCase()) { return 1; }
-            return 0;
-        })
-        // globalArray.forEach(element => {
-        //     theCards.push(element);
+        //     if(compareA.toLowerCase() < compareB.toLowerCase()) { return -1; }
+        //     if(compareA.toLowerCase() > compareB.toLowerCase()) { return 1; }
+        //     return 0;
         // })
-        globalOngoing.forEach(element => {
-            onGoingCards.unshift(element);
-        })
+        // // globalArray.forEach(element => {
+        // //     theCards.push(element);
+        // // })
+        // globalOngoing.forEach(element => {
+        //     onGoingCards.unshift(element);
+        // })
         localStorage.setItem('onGoingCards', JSON.stringify(onGoingCards));
         localStorage.setItem('allCards', JSON.stringify(theCards));
 
@@ -1821,43 +1824,46 @@ function curatedCards(data, searchData = null, removedTag = null){
                 if(data.description.includes("Canceled because")){
 
                 }else{
-                    if(comparedDate >= today && !data.isOngoing && theCity !== "global"){
+                    // if(comparedDate >= today && !data.isOngoing && theCity !== "global"){
+                    //     theCards.push(theCard);
+                    // }
+                    if(comparedDate >= today ){
                         theCards.push(theCard);
                     }
                 }
 
-                if(data.isOngoing && theCity !== "global"){
-                    onGoingCards.push(theCard);
-                }
+                // if(data.isOngoing && theCity !== "global"){
+                //     onGoingCards.push(theCard);
+                // }
 
-                if(comparedDate >= today && !data.isOngoing && theCity === "global"){
-                    theCards.push(theCard);
-                }
-                if(data.isOngoing && theCity === "global"){
-                    globalOngoing.push(theCard);
-                }
+                // if(comparedDate >= today && !data.isOngoing && theCity === "global"){
+                //     theCards.push(theCard);
+                // }
+                // if(data.isOngoing && theCity === "global"){
+                //     globalOngoing.push(theCard);
+                // }
 
 
             }
             
-            onGoingCards.sort(function(a, b){
-                let compareA = a.split('data-event-city="')[1];
-                compareA = compareA.substring(0, compareA.indexOf('"'));
+            // onGoingCards.sort(function(a, b){
+            //     let compareA = a.split('data-event-city="')[1];
+            //     compareA = compareA.substring(0, compareA.indexOf('"'));
 
-                let compareB = b.split('data-event-city="')[1];
-                compareB = compareB.substring(0, compareB.indexOf('"'));
+            //     let compareB = b.split('data-event-city="')[1];
+            //     compareB = compareB.substring(0, compareB.indexOf('"'));
 
-                if(compareA.toLowerCase() < compareB.toLowerCase()) { return -1; }
-                if(compareA.toLowerCase() > compareB.toLowerCase()) { return 1; }
-                return 0;
-            })
-            
-            // globalArray.forEach(element => {
-            //     theCards.push(element);
+            //     if(compareA.toLowerCase() < compareB.toLowerCase()) { return -1; }
+            //     if(compareA.toLowerCase() > compareB.toLowerCase()) { return 1; }
+            //     return 0;
             // })
-            globalOngoing.forEach(element => {
-                onGoingCards.unshift(element);
-            })
+            
+            // // globalArray.forEach(element => {
+            // //     theCards.push(element);
+            // // })
+            // globalOngoing.forEach(element => {
+            //     onGoingCards.unshift(element);
+            // })
             
             localStorage.setItem('onGoingCards', JSON.stringify(onGoingCards));
             localStorage.setItem('allCards', JSON.stringify(theCards));
