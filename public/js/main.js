@@ -581,35 +581,27 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
 
         function createButtons() {
             if($(window).width() > 500) {
-                var buttons = Math.ceil(list.length / 9);
+                var buttons = Math.ceil(list.length / 8);
             }else{
                 var buttons = Math.ceil(list.length / 3);
             }
             var buttonArray =  new Array();
             var activeButton = '';
             var theButton = '';
-            number = 0;
+            number = 1;
             
-            if(buttons === 1){
-                theButton = 
-                `
-                <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
-                <p>OF</p>
-                <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
-                `;
-            }else{
-                theButton = 
-                `
-                <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number+1}</li>
-                <p>OF</p>
-                <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons+1}</li>
-                `;
-            }
+
+            theButton = 
+            `
+            <li class="pointer-none  pagination-btn btn-index" data-page="${number}" data-total="${buttons}">${number}</li>
+            <p>OF</p>
+            <li class="pointer-none  pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
+            `;
     
 
             buttonArray.push(theButton);
             
-            var nn = parseInt(number) + 1;
+            var nn = parseInt(number);
 
             var nextButton =  `
             <li class=" pagination-btn btn-index next-controller-button" data-page="${nn}" data-total="${buttons}"> 
@@ -909,30 +901,21 @@ function drawList(number, pageList, list) {
 }
 function createButtons(number, list) {
     if($(window).width() > 500) {
-        var buttons = Math.ceil(list.length / 9);
+        var buttons = Math.ceil(list.length / 8);
     }else{
         var buttons = Math.ceil(list.length / 3);
     }
     var buttonArray =  new Array();
     var activeButton = '';
     
+    var theButton = "";
 
-    if(buttons === 1){
-        theButton = 
-        `
-        <li class="pointer-none  pagination-btn btn-index" data-page="${number }" data-total="${buttons}">${number + 1}</li>
-        <p>OF</p>
-        <li class="pointer-none pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
-        `;
-    }else{
-        theButton = 
-        `
-        <li class="pointer-none  pagination-btn btn-index" data-page="${number }" data-total="${buttons}">${number + 1}</li>
-        <p>OF</p>
-        <li class="pointer-none pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons+1}</li>
-        `;
-    }
-
+    theButton = 
+    `
+    <li class="pointer-none  pagination-btn btn-index" data-page="${number }" data-total="${buttons}">${number + 1}</li>
+    <p>OF</p>
+    <li class="pointer-none pagination-btn btn-index" data-page="${buttons}" data-total="${buttons}">${buttons}</li>
+    `;
 
     buttonArray.push(theButton);
     
@@ -985,7 +968,7 @@ function createButtons(number, list) {
         //$('.pagination-btn').not('.more-button-controller').hide();
         $('.prev-controller-button').show().css('display', 'block!important');
     }
-    if(nn > parseInt(buttons)){
+    if(nn >= parseInt(buttons)){
         $('.next-controller-button').hide();
     }
 
@@ -2788,7 +2771,8 @@ $(document).on("click", ".register__button__popup" , function(e) {
                 </div>
                 <div class="row three__col">
                     <div class="col-sm-12 col-md-12 popup__content">
-                        <iframe src="${e.target.getAttribute("data-iframe")}" frameborder="0"></iframe>
+                        <iframe id="custom__frame" src="${e.target.getAttribute("data-iframe")}" frameborder="0"></iframe>
+                        <div class="lds-ring frame__loader"><div></div><div></div><div></div><div></div></div>
                     </div>
                 </div>
             </div>
@@ -2796,6 +2780,12 @@ $(document).on("click", ".register__button__popup" , function(e) {
         `;
         
         document.body.appendChild(popup);
+
+        setTimeout(function(){
+            $('.frame__loader').fadeOut(500);
+        },1500)
+
+
     }else{
         window.open(e.target.getAttribute("data-iframe"), '_blank');
     }
