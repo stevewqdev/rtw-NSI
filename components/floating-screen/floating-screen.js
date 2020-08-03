@@ -4,22 +4,51 @@ import Styles from "./floating-screen.module.css"
 export default class FloatingScreen extends Component {
 
     toggleMenu(event){
-        event.preventDefault()
-
+        event.preventDefault() 
         if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
             document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
             document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
+            document.querySelectorAll(".top__logo")[0].focus();
         }else{
             document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
             document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
+            document.querySelectorAll(".close__popup")[0].focus();
         }  
     }
+
+    keyOpen(e){
+        e.preventDefault() 
+        if (e.type === 'keypress'){
+            if(e.which === 32 || e.which === 13){
+                if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
+                    document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
+                    document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
+                    document.querySelectorAll(".top__logo")[0].focus();
+                }else{
+                    document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
+                    document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
+                    document.querySelectorAll(".close__popup")[0].focus();
+                }  
+            }
+        }else{
+            if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
+                document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
+                document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
+                document.querySelectorAll(".top__logo")[0].focus();
+            }else{
+                document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
+                document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
+                document.querySelectorAll(".close__popup")[0].focus();
+            }  
+        }
+    }
+
     render() {
  
         return (
             
             <div className={`${Styles.floating__screen} floating__screen__selector fs__closed`}>
-                <div className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu}>
+                <div className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu} aria-label="Show Active Campaign" tabIndex="8" role="button" onKeyPress={this.keyOpen} >
                     <svg id="Componente_3_1" data-name="Componente 3 – 1" xmlns="http://www.w3.org/2000/svg" width="69" height="328" viewBox="0 0 69 328">
                         <g id="Componente_2_1" data-name="Componente 2 – 1">
                             <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#029c91"/>
@@ -32,7 +61,7 @@ export default class FloatingScreen extends Component {
                     </svg>
                 </div>
                 <div className={`container ${Styles.floating__screen__container}`}>
-                    <div className={`${Styles.close_fs} close__popup`} onClick={this.toggleMenu}>
+                    <div className={`${Styles.close_fs} close__popup`} onKeyPress={this.keyOpen}  onClick={this.toggleMenu} tabIndex="0" role="button" aria-label="close popup">
                         <p>╳</p>
                     </div>
                     <div className={`row`}>

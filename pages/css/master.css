@@ -4,6 +4,9 @@
 .container{
     padding: 0;
 }
+.navbar a:focus img{
+    border: solid 2px #1343ce;
+}
 .container-fluid{
     max-width: 1550px;
     margin: auto;

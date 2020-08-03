@@ -30,8 +30,8 @@ return (
             <div className="row">
                 <div className="col-lg-12 no__padding">
                   <Navbar  expand="lg" >
-                      <NavbarBrand href="/" className="nav__brand">
-                        <img className="top__logo" src={props.masterElements.acf.header_logo} alt="Serve The Moment"/>
+                      <NavbarBrand href="/" className="nav__brand" tabIndex="1">
+                        <img tabIndex="0" className="top__logo" src={props.masterElements.acf.header_logo} alt="Serve The Moment"/>
                       </NavbarBrand>
 
                       <NavbarToggler onClick={toggle} />
@@ -45,7 +45,7 @@ return (
                             props.landingMenu
                             ? props.landingMenu.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
-                                <NavLink href={`/`+menuItem.url.split("/")[3]}>{menuItem.title}</NavLink>
+                                <NavLink href={`/`+menuItem.url.split("/")[3]} tabIndex="0">{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""
@@ -57,7 +57,7 @@ return (
                             props.menuItems
                             ? props.menuItems.items.map(menuItem => 
                               <NavItem key={menuItem.ID}>
-                                <NavLink href={`/`+menuItem.url.split("/")[3]}>{menuItem.title}</NavLink>
+                                <NavLink href={`/`+menuItem.url.split("/")[3]} tabIndex="0">{menuItem.title}</NavLink>
                               </NavItem>
                               )
                             :""
@@ -67,7 +67,7 @@ return (
                       </Nav>
                       <NavItem>
                           <NavLink href={props.masterElements.acf.header_button_link}>
-                              <button className={`btn main-btn teal`}><strong>{props.masterElements.acf.header_button_text}</strong></button>
+                              <button className={`btn main-btn teal`} tabIndex="0" ><strong>{props.masterElements.acf.header_button_text}</strong></button>
                           </NavLink>
                       </NavItem>
                   </Navbar>
