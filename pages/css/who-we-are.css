@@ -38,7 +38,7 @@
     object-fit: cover;
 }
 #cities .container{
-    background: #00A99D;
+    background: #029c91;
     padding: 60px 0 0 0;
 }
 #cities .title p{
@@ -124,7 +124,7 @@
     margin: 20px auto;
 }
 .serve__button__element{
-    background: #00A99D;
+    background: #029c91;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -170,7 +170,7 @@
     padding: 12px 30px 6px;
 }
 .hero__container.bottom__hero .hero__content__button button:hover svg path{
-    fill: #00A99D;
+    fill: #029c91;
 }
 @media(max-width: 768px){
     #partners .the__partner{

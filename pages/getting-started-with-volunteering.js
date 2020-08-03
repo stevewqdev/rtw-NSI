@@ -347,7 +347,7 @@ export default class GettingStarted extends Component {
                                             ?
                                             <p className={`filter__pagination__page__changer`} data-page={this.state.prevPage} data-total={this.state.totalPages} onClick={this.prevPage}><span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
-                                                    <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(104.336 36.242) rotate(180)" fill="#00a99d" fillRule="evenodd"/>
+                                                    <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(104.336 36.242) rotate(180)" fill="#029c91" fillRule="evenodd"/>
                                                 </svg>
 
                                                 </span>
@@ -369,7 +369,7 @@ export default class GettingStarted extends Component {
                                             <p className={`filter__pagination__page__changer`} data-page={this.state.nextPage} data-total={this.state.totalPages} onClick={this.nextPage}>
                                                 <span>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
-                                                        <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#00a99d" fillRule="evenodd"/>
+                                                        <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#029c91" fillRule="evenodd"/>
                                                     </svg>
                                                 </span>
                                             </p>

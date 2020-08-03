@@ -42,7 +42,7 @@
     width: calc(100% / 4.25);
 }
 #main__hero .main__hero__resources .resource:nth-child(odd){
-    background: #00A99D;
+    background: #029c91;
 }
 #main__hero .main__hero__resources .resource:nth-child(even){
     background: #015D5D;
@@ -64,9 +64,9 @@
     margin-right: 20px;
 }
 .resource__filter__tag.active{
-    background: #00A99D;
+    background: #029c91;
     color: white;
-    border: solid 1px #00A99D;
+    border: solid 1px #029c91;
 }
 .resource__filter__tag p{
     margin: 0px;
@@ -128,7 +128,7 @@
 }
 .filter__pagination .col-lg-12 p{
     margin: 0 5px;
-    color: #00A99D;
+    color: #029c91;
     height: 30px;
     width: 12px;
     border-radius: 100px;

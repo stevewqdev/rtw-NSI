@@ -26,7 +26,7 @@ export default function Home(props) {
                     className={`poppins bold`}
                     dangerouslySetInnerHTML={{ __html: props.acfData.acf.title }}
                   />
-                  <p
+                  <h2
                     className={` poppins  sub__p xxl semibold` }
                     dangerouslySetInnerHTML={{ __html: props.acfData.acf.subtitle }}
                   />
@@ -169,6 +169,7 @@ export default function Home(props) {
                     </p>
                     <div className="press__post__arrow">
                       <a href={post.acf.press_external_link}>
+                        <span className="absolute__name">{post.title.rendered}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="29.889" height="11.96" viewBox="0 0 29.889 11.96">
                           <path id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
                         </svg>

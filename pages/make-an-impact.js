@@ -43,7 +43,7 @@ render() {
                                         <a href={button.link}>
                                             <button className={`btn main-btn teal`}>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="10.393" height="18.188" viewBox="0 0 10.393 18.188">
-                                                    <path id="Hover" d="M104.432,32.715,97.446,39.49a1.3,1.3,0,0,0,1.837,1.837l7.795-7.795a1.3,1.3,0,0,0,0-1.835v0L99.291,23.9a1.3,1.3,0,0,0-1.845,1.837l6.986,6.975" transform="translate(-97.066 -23.52)" fill="#00a99d" fillRule="evenodd"/>
+                                                    <path id="Hover" d="M104.432,32.715,97.446,39.49a1.3,1.3,0,0,0,1.837,1.837l7.795-7.795a1.3,1.3,0,0,0,0-1.835v0L99.291,23.9a1.3,1.3,0,0,0-1.845,1.837l6.986,6.975" transform="translate(-97.066 -23.52)" fill="#029c91" fillRule="evenodd"/>
                                                 </svg>
                                                 <strong>
                                                     {button.button_text}

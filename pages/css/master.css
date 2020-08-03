@@ -157,16 +157,16 @@ body{
     border: solid 2px #015D5D!important;
 }
 .btn.main-btn.clear-teal{
-    background: #00A99D!important;
+    background: #029c91!important;
     color: white;
     transition: all ease-in-out 0.3s;
-    border: solid 2px #00A99D!important;
+    border: solid 2px #029c91!important;
 }
 .btn.main-btn.clear-teal:hover{
     background: #ffffff!important;
-    color: #00A99D!important;
+    color: #029c91!important;
     transition: all ease-in-out 0.3s;
-    border: solid 2px #00A99D!important;
+    border: solid 2px #029c91!important;
 }
 .btn.main-btn.white-btn{
     background: #ffffff!important;
@@ -175,10 +175,10 @@ body{
     border: solid 2px #ffffff!important;
 }
 .btn.main-btn.white-btn:hover{
-    background: #00A99D!important;
+    background: #029c91!important;
     color: #ffffff;
     transition: all ease-in-out 0.3s;
-    border: solid 2px #00A99D!important;
+    border: solid 2px #029c91!important;
 }
 .white-text{
     color: #ffffff;
@@ -193,7 +193,7 @@ body{
     color: #6C6C6C;
 }
 .clear-teal{
-    color: #00A99D;
+    color: #029c91;
 }
 .navbar-brand{
     margin-right: 50px;
@@ -290,7 +290,7 @@ a:hover{
 }
 #tfa_16-L:after {
     content: " *";
-    color: #00A99D;
+    color: #029c91;
     font-size: 90%;
     position: absolute;
     top: 5px;
@@ -1233,7 +1233,7 @@ span.oneChoice.maskControl {
 /* Asterisk on required fields - provide sensible default color and size */
 .wForm .reqMark:after { 
     content: " *";
-    color: #00A99D;
+    color: #029c91;
     font-size: 90%;
     position: absolute;
     top: 0px;
@@ -1534,7 +1534,7 @@ span.oneChoice.maskControl {
 #donation__form .slider__controller{
     display: flex;
     justify-content: center;
-    color: #00A99D;
+    color: #029c91;
     font-weight: bold;
     letter-spacing: 1px;
     position: relative;
@@ -1551,7 +1551,7 @@ span.oneChoice.maskControl {
 #donation__form .slider__controller .separator{
     width: 2px;
     height: 11px;
-    background: #00A99D;
+    background: #029c91;
     position: relative;
     top: 6px;
     pointer-events: none;

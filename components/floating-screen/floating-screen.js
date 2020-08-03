@@ -22,7 +22,7 @@ export default class FloatingScreen extends Component {
                 <div className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu}>
                     <svg id="Componente_3_1" data-name="Componente 3 – 1" xmlns="http://www.w3.org/2000/svg" width="69" height="328" viewBox="0 0 69 328">
                         <g id="Componente_2_1" data-name="Componente 2 – 1">
-                            <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#00a99d"/>
+                            <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#029c91"/>
                         </g>
                         <text id="Active_Campaigns" data-name="Active Campaigns" transform="translate(28.761 188.951) rotate(90)" fill="#fff" fontSize="20" fontFamily="Poppins-Medium, Poppins" fontWeight="500"><tspan x="-93.12" y="0">Active Campaigns</tspan></text>
                         <g id="Grupo_1820" data-name="Grupo 1820" transform="translate(12.145 43.916)">

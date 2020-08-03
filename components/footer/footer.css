@@ -2,6 +2,12 @@
 .bottom.header .bottom__menu ul a{
     font-weight: 600;
 }
+.fake-hfour{
+    text-align: left!important;
+    padding-left: 15px!important;
+    font-weight: 700!important;
+    font-size: 24px!important;
+}
 .footer{
     background: #015D5D;
     padding: 40px 0;

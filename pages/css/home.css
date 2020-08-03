@@ -7,6 +7,15 @@
 .home__page #main p{
     text-transform: capitalize;
 }
+.press__post__arrow .absolute__name{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+#main h2{
+    line-height: 30px;
+    text-transform: capitalize;
+}
 @media(max-width: 1500px){
     .home__page #main .col-lg-12 {
         padding: 100px 5px 100px;
@@ -24,7 +33,7 @@
     left: 90px;
 }
 .home__page #extraordinary__moment{
-    background: #00A99D;
+    background: #029c91;
     padding: 170px 50px 250px;
 }
 .home__page #extraordinary__moment h2{
@@ -80,7 +89,7 @@
 .home__page .movement__step .line__divider{
     height: 3px;
     width: 95px;
-    background-color: #00A99D;
+    background-color: #029c91;
     margin: 30px auto 20px;
 }
 .home__page #join__us{
@@ -121,7 +130,7 @@
     margin: 25px 0 10px!important;
 }
 .home__page #in__the__press{
-    background: #00A99D;
+    background: #029c91;
     padding: 50px 0;
 }
 .home__page #in__the__press p{
