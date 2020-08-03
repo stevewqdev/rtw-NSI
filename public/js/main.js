@@ -2308,7 +2308,6 @@ $(document).on("click", " .card" , function() {
                 <path id="Trazado_2050" data-name="Trazado 2050" d="M135.12,663.1a1.546,1.546,0,1,1-1.549-1.544A1.546,1.546,0,0,1,135.12,663.1Z" transform="translate(1.552 2.185)" fill="#015d5d"/>
                 </g>
             </svg>
-            <img src="https://werepair.org/wp-content/themes/evolux/images/icons/location.png" alt="logo">
             VIRTUAL PROGRAM
         `
     }
