@@ -24,8 +24,9 @@
     align-items: flex-end;
     padding-left: 40px!important;
 }
-.subtitle h4{
+.subtitle h3{
     max-width: 320px;
+    font-size: 24px;
 }
 .resources{
     background: #015D5D;
@@ -64,7 +65,7 @@
 .campaig__content .divider{
     width: 95px;
     height: 3px;
-    background: #029c91;
+    background: #00a99e;
     margin-bottom: 20px;
 }
 .campaign__title h3{

@@ -4,10 +4,13 @@
 /* ============================================================= */
 /* ============================================================= */
 .daterangepicker td.active, .daterangepicker td.active:hover {
-    background-color: #029c91;
+    background-color: #00a99e;
+}
+.nice-select:focus{
+    border: solid 2px blue!important;
 }
 .daterangepicker td.end-date{
-    background-color: #029c91!important;
+    background-color: #00a99e!important;
 }
 .drp-buttons .btn-primary {
     color: #fff!important;
@@ -223,12 +226,12 @@
     text-align: left;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; 
-    color: #029c91;
+    color: #00a99e;
     font-weight: bold;
 }
 
 .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
-    background-color: #029c91;
+    background-color: #00a99e;
     color: white;
 }
 
@@ -403,7 +406,7 @@
 }
 .card__title .teal__tag{
     font-weight: bold;
-    color: #029c91;
+    color: #00a99e;
     text-transform: uppercase;
     font-size: 13px;
     margin: 0 0 4px 0;
@@ -413,7 +416,7 @@
 }
 .card__date .date , .card__date .location{
     font-weight: bold;
-    color: #029c91;
+    color: #00a99e;
     text-transform: uppercase;
     font-size: 13px;
 }
@@ -430,7 +433,7 @@
     content: "";
     width: 1px;
     height: 100%;
-    background: #029c91;
+    background: #00a99e;
     right: -14px;
     position: absolute;
     top: 0px;
@@ -449,7 +452,7 @@
     letter-spacing: 1px;
 }
 .search__sub__wrapper p{
-    background: #029c91;
+    background: #00a99e;
     color: white;
     text-transform: uppercase;
     font-size: 12px;
@@ -461,7 +464,7 @@
     text-align: center;
 }
 #searchTags li{
-    background: #029c91;
+    background: #00a99e;
     color: white;
     text-transform: uppercase;
     font-size: 11px;
@@ -511,7 +514,7 @@
 }
 .event__pagination #list_controller .pagination-btn{
     margin: 0 5px;
-    color: #029c91;
+    color: #00a99e;
     height: 30px;
     width: 10px;
     border-radius: 100px;
@@ -527,7 +530,7 @@
 }
 #list_controller p{
     margin: 0px;
-    color: #029c91;
+    color: #00a99e;
     font-weight: bold;
     font-size: 16px;
 }
@@ -590,10 +593,10 @@
     width: 64px;
     height: 64px;
     margin: 8px;
-    border: 8px solid #029c91;
+    border: 8px solid #00a99e;
     border-radius: 50%;
     animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-    border-color: #029c91 transparent transparent transparent;
+    border-color: #00a99e transparent transparent transparent;
   }
   .lds-ring div:nth-child(1) {
     animation-delay: -0.45s;

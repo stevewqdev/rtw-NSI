@@ -9,10 +9,12 @@ export default class FloatingScreen extends Component {
             document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
             document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
             document.querySelectorAll(".top__logo")[0].focus();
+            document.getElementById("fsc").tabIndex = -1;
         }else{
             document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
             document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
             document.querySelectorAll(".close__popup")[0].focus();
+            document.getElementById("fsc").tabIndex = 0;
         }  
     }
 
@@ -24,10 +26,12 @@ export default class FloatingScreen extends Component {
                     document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
                     document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
                     document.querySelectorAll(".top__logo")[0].focus();
+                    document.getElementById("fsc").tabIndex = -1;
                 }else{
                     document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
                     document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
                     document.querySelectorAll(".close__popup")[0].focus();
+                    document.getElementById("fsc").tabIndex = 0;
                 }  
             }
         }else{
@@ -35,10 +39,12 @@ export default class FloatingScreen extends Component {
                 document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
                 document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
                 document.querySelectorAll(".top__logo")[0].focus();
+                document.getElementById("fsc").tabIndex = -1;
             }else{
                 document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
                 document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
                 document.querySelectorAll(".close__popup")[0].focus();
+                document.getElementById("fsc").tabIndex = 0;
             }  
         }
     }
@@ -51,7 +57,7 @@ export default class FloatingScreen extends Component {
                 <div className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu} aria-label="Show Active Campaign" tabIndex="0" role="button" onKeyPress={this.keyOpen} >
                     <svg id="Componente_3_1" data-name="Componente 3 – 1" xmlns="http://www.w3.org/2000/svg" width="69" height="328" viewBox="0 0 69 328">
                         <g id="Componente_2_1" data-name="Componente 2 – 1">
-                            <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#029c91"/>
+                            <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#00a99e"/>
                         </g>
                         <text id="Active_Campaigns" data-name="Active Campaigns" transform="translate(28.761 188.951) rotate(90)" fill="#fff" fontSize="20" fontFamily="Poppins-Medium, Poppins" fontWeight="500"><tspan x="-93.12" y="0">Active Campaigns</tspan></text>
                         <g id="Grupo_1820" data-name="Grupo 1820" transform="translate(12.145 43.916)">
@@ -60,7 +66,7 @@ export default class FloatingScreen extends Component {
                         </g>
                     </svg>
                 </div>
-                <div className={`container ${Styles.floating__screen__container}`}>
+                <div className={`container ${Styles.floating__screen__container}`} id="fsc" tabIndex="-1">
                     <div className={`${Styles.close_fs} close__popup`} onKeyPress={this.keyOpen}  onClick={this.toggleMenu} tabIndex="0" role="button" aria-label="close popup">
                         <p>╳</p>
                     </div>
@@ -71,9 +77,9 @@ export default class FloatingScreen extends Component {
                             </h2>
                         </div>
                         <div className={`col-sm-12 col-md-7 col-lg-7 ${Styles.subtitle}`}>
-                            <h4 className={` poppins semibold clear-teal`}>
+                            <h3 className={` poppins semibold clear-teal`}>
                                 {this.props.screenData.acf.window_description}
-                            </h4>
+                            </h3>
                         </div>
                         <div className={`col-sm-12 col-md-12 col-lg-9 ${Styles.campaign}`}>
                             <div className={`row`}>
