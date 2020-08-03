@@ -2318,6 +2318,10 @@ $(document).on("click", " .card" , function() {
     if(serveLink === "undefined" || serveLink === undefined){
 
     }else{
+        if(!serveLink.includes("https")){
+            serveLink = serveLink.replace(/\http/g, "https");
+        }
+
         registerButton = 
         `
         <div class="event__button col-lg-12 register__button__popup" data-iframe="${serveLink}">
@@ -2782,9 +2786,12 @@ $(document).on("click", ".register__button__popup" , function(e) {
         document.body.appendChild(popup);
 
         setTimeout(function(){
-            $('.frame__loader').fadeOut(500);
-        },1500)
+            $('.frame__loader').addClass("dont__disturbe")
+        }, 500);
 
+        $('#custom__frame').on('load', function() {
+            $('.frame__loader').fadeOut(500);
+        });
 
     }else{
         window.open(e.target.getAttribute("data-iframe"), '_blank');

@@ -10,9 +10,13 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
+    "image-trace-loader": "^1.0.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
     "jquery": "^3.5.1",
     "next": "9.4.4",
     "next-on-netlify": "^2.1.0",
+    "next-optimized-images": "^2.6.2",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-countup": "^4.3.3",
@@ -20,6 +24,7 @@
     "react-script-tag": "^1.1.2",
     "react-slick": "^0.27.0",
     "reactstrap": "^8.4.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "webp-loader": "^0.6.0"
   }
 }
