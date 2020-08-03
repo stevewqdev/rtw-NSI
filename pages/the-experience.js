@@ -61,7 +61,7 @@ export default function TheExperience(props) {
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
-                        <img src={props.acfData.acf.image} alt="The Experience Image"/>
+                        <img loading="lazy" src={props.acfData.acf.image} alt="The Experience Image"/>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@ export default function TheExperience(props) {
             <div className="container-fluid no__padding">
                 <div className="row">
                     <div className="col-lg-12 no__padding experience__background">
-                        <img src={props.acfData.acf.section_image} alt="Moment Corps Members"/>
+                        <img loading="lazy" src={props.acfData.acf.section_image} alt="Moment Corps Members"/>
                     </div>
                 </div>
             </div>
@@ -122,7 +122,7 @@ export default function TheExperience(props) {
                                     props.acfData.acf.slide_content.map((slide, index) => (
                                         <div className="the__slide" key={index}>
                                             <div className="slide__image">
-                                                <img src={slide.image} alt="person photo"/>
+                                                <img loading="lazy" src={slide.image} alt="person photo"/>
                                             </div>
                                             <div className="slide__content">
                                                 <div className="slide__quote__icon">

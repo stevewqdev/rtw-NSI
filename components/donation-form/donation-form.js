@@ -476,7 +476,7 @@ export default class DonationForm extends Component {
                                                                                             $36
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img style={{maxWidth: '100%'}} alt="$36" src="//www.tfaforms.com/forms/get_image/208798/sSV9daau3KQ56wS2BfNovbgwjMxeCJFJRN8AHMDlJWkykyn4N6MkhdHrr9lxpZlW-button1.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$36" src="//www.tfaforms.com/forms/get_image/208798/sSV9daau3KQ56wS2BfNovbgwjMxeCJFJRN8AHMDlJWkykyn4N6MkhdHrr9lxpZlW-button1.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -488,7 +488,7 @@ export default class DonationForm extends Component {
                                                                                             $54
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img style={{maxWidth: '100%'}} alt="$54" src="//www.tfaforms.com/forms/get_image/208798/6Wb2l5OhODaCG7BLkcFXyw9pQIJmJkK9JDSzlHEz2uMbxgaNZvqqJNAg9FnhBvbL-button2.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$54" src="//www.tfaforms.com/forms/get_image/208798/6Wb2l5OhODaCG7BLkcFXyw9pQIJmJkK9JDSzlHEz2uMbxgaNZvqqJNAg9FnhBvbL-button2.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -500,7 +500,7 @@ export default class DonationForm extends Component {
                                                                                             $98
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img style={{maxWidth: '100%'}} alt="$98" src="//www.tfaforms.com/forms/get_image/208798/nvnq59CAnaB89sAnGmdnNxygXVu6UjENayF93xq3QQu2CF4ydbeKzNJPcblpIxUX-button3.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$98" src="//www.tfaforms.com/forms/get_image/208798/nvnq59CAnaB89sAnGmdnNxygXVu6UjENayF93xq3QQu2CF4ydbeKzNJPcblpIxUX-button3.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -514,7 +514,7 @@ export default class DonationForm extends Component {
                                                                                             $180
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img style={{maxWidth: '100%'}} alt="$180" src="//www.tfaforms.com/forms/get_image/208798/tTi7Ya1t0oL2PoKsyV5XzEZlis8pXFDQcqsp42yJzEc3nbFpRhbANQiUyBckZhmC-button9.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$180" src="//www.tfaforms.com/forms/get_image/208798/tTi7Ya1t0oL2PoKsyV5XzEZlis8pXFDQcqsp42yJzEc3nbFpRhbANQiUyBckZhmC-button9.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -526,7 +526,7 @@ export default class DonationForm extends Component {
                                                                                             $360
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img style={{maxWidth: '100%'}} alt="$360" src="//www.tfaforms.com/forms/get_image/208798/im3XbstYuRHxy1RMCrs8zNw3GpPcmTK4ySl9qdnSIwXfyZJhDXl1bNks8hQgm8sG-button10.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$360" src="//www.tfaforms.com/forms/get_image/208798/im3XbstYuRHxy1RMCrs8zNw3GpPcmTK4ySl9qdnSIwXfyZJhDXl1bNks8hQgm8sG-button10.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -538,7 +538,7 @@ export default class DonationForm extends Component {
                                                                                             $0
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img style={{maxWidth: '100%'}} alt="Other" src="//www.tfaforms.com/forms/get_image/208798/jeka8ZUaFG3vWvIraDjcVruaQH9V4yyAREJv6JQScGcZgLUiYiOqUxQIU0vDSniY-button_other1.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="Other" src="//www.tfaforms.com/forms/get_image/208798/jeka8ZUaFG3vWvIraDjcVruaQH9V4yyAREJv6JQScGcZgLUiYiOqUxQIU0vDSniY-button_other1.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>

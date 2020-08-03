@@ -36,11 +36,11 @@ export default class MakeDonation extends Component {
                                     />
                                 </div>
                                 {/* <div className="donation__form">
-                                    <img src={this.props.acfData.acf.donation_image} alt="GIVE IN HONOUR OF SOMEONE"/>
+                                    <img loading="lazy" src={this.props.acfData.acf.donation_image} alt="GIVE IN HONOUR OF SOMEONE"/>
                                 </div> */}
                             </div>
                             <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
-                                <img src={this.props.pageData.better_featured_image.source_url} alt="The Experience Image"/>
+                                <img loading="lazy" src={this.props.pageData.better_featured_image.source_url} alt="The Experience Image"/>
                             </div>
                         </div>
                     </div>

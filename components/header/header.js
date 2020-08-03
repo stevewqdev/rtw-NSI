@@ -30,8 +30,8 @@ return (
             <div className="row">
                 <div className="col-lg-12 no__padding">
                   <Navbar  expand="lg" >
-                      <NavbarBrand href="/" className="nav__brand" tabIndex="1">
-                        <img tabIndex="0" className="top__logo" src={props.masterElements.acf.header_logo} alt="Serve The Moment"/>
+                      <NavbarBrand href="/" className="nav__brand" tabIndex="0">
+                        <img loading="lazy" tabIndex="0" className="top__logo" src={props.masterElements.acf.header_logo} alt="Serve The Moment"/>
                       </NavbarBrand>
 
                       <NavbarToggler onClick={toggle} />

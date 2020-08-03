@@ -1463,7 +1463,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                 
                 theImage = 
                 `
-                <img src="${data.imageUrl}" alt="Event: ${data.name}" onerror="this.style.opacity='0'">
+                <img loading="lazy" src="${data.imageUrl}" alt="Event: ${data.name}" onerror="this.style.opacity='0'">
                 `;
             }
             let onGoingTag = ""; 
@@ -1703,7 +1703,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                     
                     theImage = 
                     `
-                    <img src="${data.imageUrl}" alt="Event: ${data.name}" onerror="this.style.opacity='0'">
+                    <img loading="lazy" src="${data.imageUrl}" alt="Event: ${data.name}" onerror="this.style.opacity='0'">
                     `;
                 }
             

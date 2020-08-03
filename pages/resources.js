@@ -36,9 +36,9 @@ export default function TheExperience(props) {
                             <div className="col-sm-12 col-md-6 col-lg-6 resource__category">
                                 <a href={`/getting-started-with-volunteering?resource_cat=${category.category[0].slug}`} key={index}>
                                     <div className="resource__category__internal">
-                                        <img className={`category__image`} src={`${category.image}`} alt={`${category.category[0].name} image resource`}/>
+                                        <img loading="lazy" className={`category__image`} src={`${category.image}`} alt={`${category.category[0].name} image resource`}/>
                                         <div className="resource__category__internal__meta">
-                                            <img className={`category__icon`} src={category.category_icon} alt={`${category.category[0].name} icon`}/>
+                                            <img loading="lazy" className={`category__icon`} src={category.category_icon} alt={`${category.category[0].name} icon`}/>
                                             <p className={`lg poppins teal-text bold text-uppercase`}>{category.category[0].name}</p>
                                         </div>
                                     </div>

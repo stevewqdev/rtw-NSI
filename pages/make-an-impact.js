@@ -55,7 +55,7 @@ render() {
                             }
                         </div>
                         <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
-                            <img src={this.props.acfData.acf.image} alt="The Experience Image"/>
+                            <img loading="lazy" src={this.props.acfData.acf.image} alt="The Experience Image"/>
                         </div>
                     </div>
                 </div>

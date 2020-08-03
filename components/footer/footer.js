@@ -28,7 +28,7 @@ const Footer = (props) => {
         <div className="row">
                   <div className="col-lg-5 footer__logo ">
                         <a href="https://werepair.org/" target="_BLANK">
-                          <img className="bottom__logo" src={props.masterElements.acf.footer_logo} alt="Powered by Repair The World"/>
+                          <img loading="lazy" className="bottom__logo" src={props.masterElements.acf.footer_logo} alt="Powered by Repair The World"/>
                         </a>                
 
                   </div>

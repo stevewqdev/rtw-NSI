@@ -48,7 +48,7 @@ export default class FloatingScreen extends Component {
         return (
             
             <div className={`${Styles.floating__screen} floating__screen__selector fs__closed`}>
-                <div className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu} aria-label="Show Active Campaign" tabIndex="8" role="button" onKeyPress={this.keyOpen} >
+                <div className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu} aria-label="Show Active Campaign" tabIndex="0" role="button" onKeyPress={this.keyOpen} >
                     <svg id="Componente_3_1" data-name="Componente 3 – 1" xmlns="http://www.w3.org/2000/svg" width="69" height="328" viewBox="0 0 69 328">
                         <g id="Componente_2_1" data-name="Componente 2 – 1">
                             <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#029c91"/>
@@ -78,7 +78,7 @@ export default class FloatingScreen extends Component {
                         <div className={`col-sm-12 col-md-12 col-lg-9 ${Styles.campaign}`}>
                             <div className={`row`}>
                                 <div className={`col-sm-12 col-md-12 col-lg-7 ${Styles.campaign__image}`}>
-                                    <img src={this.props.screenData.acf.prioritized_campaign_image} alt="Active Campaign"/>
+                                    <img loading="lazy" src={this.props.screenData.acf.prioritized_campaign_image} alt="Active Campaign"/>
                                 </div>
                                 <div className={`col-sm-12 col-md-12 col-lg-5 ${Styles.campaig__content}`}>
                                     <div className={`${Styles.divider}`}></div>
@@ -110,7 +110,7 @@ export default class FloatingScreen extends Component {
                         </div>
                         <div className={`col-sm-12 col-md-12 col-lg-3 ${Styles.resources}`}>
                             <div className={`${Styles.resources__icon}`}>
-                                <img src={this.props.screenData.acf.resource_icon} alt="Resources icon"/>
+                                <img loading="lazy" src={this.props.screenData.acf.resource_icon} alt="Resources icon"/>
                             </div>
                             <div className={`${Styles.resources__title}`}>
                                 <h3>

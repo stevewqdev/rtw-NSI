@@ -70,7 +70,7 @@ return (
     <>  
       <section id="main" style={{"background" : `url(${props.pageData.better_featured_image.source_url})`}}>
         <div className="floating__svg">
-          <img src="/landing/images/scroll.svg" alt="Scroll"/>
+          <img loading="lazy" src="/landing/images/scroll.svg" alt="Scroll"/>
         </div>
         <div className="container">
           <div className="row">
@@ -107,7 +107,7 @@ return (
             </div>
             <div className="col-md-12 col-lg-1"></div>
             <div className="col-md-12 col-lg-5 image">
-              <img src={props.acfData.acf.stwo_image} alt=""/>  
+              <img loading="lazy" src={props.acfData.acf.stwo_image} alt=""/>  
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ return (
         <div className="container-fluid one__fluid">
           <div className="row">
             <div className="col-sm-12 col-md-12 col-lg-4 floating left d-flex align-items-end justify-content-center image ">
-              <img src={props.acfData.acf.sthree_image} alt=""/>  
+              <img loading="lazy" src={props.acfData.acf.sthree_image} alt=""/>  
             </ div>
             <div className="col-sm-12 col-md-12 col-lg-8 left d-flex align-items-end justify-content-center"></ div>
           </div>
@@ -151,7 +151,7 @@ return (
         <div className="container">
           <div className="row">
             <div className="col-lg-12 mobile__hidden image__top">
-              <img src="/landing/images/third@2x.jpg" alt=""/>  
+              <img loading="lazy" src="/landing/images/third@2x.jpg" alt=""/>  
             </div>
             <div className="col-lg-12 mobile__hidden box__text">
               <div className="black__box teal">
@@ -265,7 +265,7 @@ return (
                 props.acfData.acf.sfive_partners.map((partner, index) => 
                   <a href={partner.link} className="partner__repeater__element" key={index}>
                     <div className="logo">
-                      <img src={partner.logo} alt="Partner Logo"/>
+                      <img loading="lazy" src={partner.logo} alt="Partner Logo"/>
                     </div>
                   </a>
                 )

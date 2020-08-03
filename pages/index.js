@@ -17,7 +17,7 @@ export default function Home(props) {
       <main className="home__page">
         <section id="main" style={{"background" : `url(${props.pageData.better_featured_image.source_url})`}}>
           <div className="floating__svg">
-            <img src="/landing/images/scroll.svg" alt="Scroll"/>
+            <img loading="lazy" src="/landing/images/scroll.svg" alt="Scroll"/>
           </div>
           <div className="container">
             <div className="row">
@@ -53,7 +53,8 @@ export default function Home(props) {
             </div>
             <div className="col-md-12 col-lg-1"></div>
             <div className="col-md-12 col-lg-5 image">
-              <img src={props.acfData.acf.image_two} alt=""/>  
+              
+              <img loading="lazy" src={props.acfData.acf.image_two} alt=""/>  
             </div>
           </div>
         </div>
@@ -80,7 +81,7 @@ export default function Home(props) {
                   props.acfData.acf.work_steps.map((step, index ) => 
                     (
                       <div className="movement__step" key={index}>
-                        <img className={'icon'} src={step.icon} alt={`${step.title} icon`}/>
+                        <img loading="lazy" className={'icon'} src={step.icon} alt={`${step.title} icon`}/>
                         <div className="line__divider"></div>
                         <h3 className={`title poppins bold  xmd teal-text text-uppercase`}>{step.title}</h3>
                         <div
@@ -132,7 +133,7 @@ export default function Home(props) {
                 {
                   props.acfData.acf.we_serve_reasons.map((reason, index) => (
                     <div className="col-sm-12 col-md-6 col-lg-4 reason__we__serve" key={index}>
-                      <img src={reason.image} alt={reason.reason}/>
+                      <img loading="lazy" src={reason.image} alt={reason.reason}/>
                       <p
                         className={`xl poppins text-uppercase teal-text bold text-center`}
                         dangerouslySetInnerHTML={{ __html: reason.reason }}

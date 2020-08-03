@@ -188,7 +188,7 @@ export default class GettingStarted extends Component {
             <main className={'getting__started'}>
                 <section id="main__hero">
                     <div className="main__hero__background">
-                        <img src={this.props.pageData.better_featured_image.source_url} alt={`Getting Started Background`}/>
+                        <img loading="lazy" src={this.props.pageData.better_featured_image.source_url} alt={`Getting Started Background`}/>
                     </div>
                     <div className="container">
                         <div className="row">
@@ -294,25 +294,25 @@ export default class GettingStarted extends Component {
                                                                         
                                                                         filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "hungerandfoodaccess"
                                                                         ?
-                                                                        <img src="/images/Grupo1991.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        <img  loading="lazy" src="/images/Grupo1991.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
                                                                         filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "education"
                                                                         ?
-                                                                        <img src="/images/Grupo2044.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        <img loading="lazy" src="/images/Grupo2044.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
                                                                         filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "employment"
                                                                         ?
-                                                                        <img src="/images/Grupo2045.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        <img loading="lazy" src="/images/Grupo2045.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
                                                                         filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthsocialisolation"
                                                                         ?
-                                                                        <img src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                 </div>

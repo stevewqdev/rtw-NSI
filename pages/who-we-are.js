@@ -106,7 +106,7 @@ export default class WhoWeAre extends Component {
                 `
                     <div class="city__slider" data-city="${inner_city.title.rendered.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}">
                         <div class="city__image">
-                            <img src="${inner_city.better_featured_image.source_url}" alt="${inner_city.title.rendered} city photo"/>
+                            <img loading="lazy" src="${inner_city.better_featured_image.source_url}" alt="${inner_city.title.rendered} city photo"/>
                         </div>
                         <div class="city__name">
                             <h3 class="poppins bold slg white-text">
@@ -173,7 +173,7 @@ export default class WhoWeAre extends Component {
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
-                                <img src={this.props.acfData.acf.image} alt="The Experience Image"/>
+                                <img loading="lazy" src={this.props.acfData.acf.image} alt="The Experience Image"/>
                             </div>
                         </div>
                     </div>
@@ -200,7 +200,7 @@ export default class WhoWeAre extends Component {
                                     this.props.partnerData.map((partner, index) => (
                                         <div className="the__partner" key={index} data-city={`${partner.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}`}>
                                             <a href={partner.acf.partner_website}>
-                                                <img src={`${partner.better_featured_image.source_url}`} alt={ `${partner.title.rendered} logo`}/>
+                                                <img loading="lazy" src={`${partner.better_featured_image.source_url}`} alt={ `${partner.title.rendered} logo`}/>
                                             </a>
                                         </div>
                                     ))
@@ -215,7 +215,7 @@ export default class WhoWeAre extends Component {
                     <div className="container-fluid no__padding">
                         <div className="row">
                             <div className="col-lg-12 no__padding">
-                                <img src={this.props.acfData.acf.cities_section_background} alt="Cities Section Background"/>
+                                <img loading="lazy" src={this.props.acfData.acf.cities_section_background} alt="Cities Section Background"/>
                             </div>
                         </div>
                     </div>
@@ -267,7 +267,7 @@ export default class WhoWeAre extends Component {
                                 this.props.teamData.map((team_member, index) => (
                                     <div className="team__member col-sm-12 col-md-4 col-lg-3" data-city={team_member.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()} key={index}>
                                         <div className="team__avatar d-flex justify-content-center align-items-center">
-                                            <img src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
+                                            <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
                                         </div>
                                         <div className="team__title text-center">
                                             <h3 class="poppins bold slg teal-text text-uppercase">
@@ -302,7 +302,7 @@ export default class WhoWeAre extends Component {
                                 this.props.boardData.map((team_member, index) => (
                                     <div className="team__member col-sm-12 col-md-4 col-lg-3" data-city={team_member.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()} key={index}>
                                         <div className="team__avatar d-flex justify-content-center align-items-center">
-                                            <img src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
+                                            <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
                                         </div>
                                         <div className="team__title text-center">
                                             <h3 class="poppins bold slg white-text text-uppercase">
@@ -396,7 +396,7 @@ export default class WhoWeAre extends Component {
                                 </div>
                             </div>
                             <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
-                                <img src={this.props.acfData.acf.image_eight} alt="The Experience Image"/>
+                                <img loading="lazy" src={this.props.acfData.acf.image_eight} alt="The Experience Image"/>
                             </div>
                         </div>
                     </div>
