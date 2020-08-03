@@ -95,7 +95,7 @@ export default class FloatingScreen extends Component {
                                     </div>
                                     <div className={`${Styles.campaign__button}`}>
                                         <a href={this.props.screenData.acf.prioritized_campaign_cta_link}>
-                                            <button className={`btn full__btn main-btn clear-teal`}>
+                                            <button className={`btn full__btn main-btn teal`}>
                                                 <strong>
                                                     {this.props.screenData.acf.prioritized_campaign_cta_text}
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="10.392" height="18.188" viewBox="0 0 10.392 18.188">
