@@ -2908,6 +2908,74 @@ $(document).on("click", ".pagination-btn" , function() {
 
     changePage(page, theCards);
 })
+$(document).on("keydown", ".pagination-btn" , function(e) {
+    
+    if (e.type === 'keydown'){
+        if(parseInt(e.which) === 32 || parseInt(e.which) === 13){
+            var inputOptions = Array.from($( ".issues__wrapper .select_options input:checked" ));
+            
+            if(inputOptions.length){
+                var inputChecked = new Array();
+                inputOptions.forEach(element => {
+                    inputChecked.push($(element).val());
+                });
+            }else{
+                var inputChecked = null;
+            }
+        
+            var searchData = new Array();
+            var datesArray = new Array('06/30/2019', '05/17/2019', '01/22/2019');
+        
+            var citySearch = $('.city__input .option.selected').attr('data-value');
+            
+            if(citySearch === 'nyc'){
+                citySearch = ['harlem', 'brooklyn', 'ny'];
+            }
+            if(citySearch == '-1'){
+                citySearch = null;
+            }
+            var interestSearch = $('#interest').val();
+            if(interestSearch = -1){
+                interestSearch = null;
+            }
+            var dateSearch = JSON.parse(localStorage.getItem('finalInputsRange'));
+            var typeEvent = $('.type__input .option.selected').attr('data-value');
+            // Create the array for the search Dates
+            var datesArray = new Array();
+            datesArray.push(dateSearch);
+            datesArray.sort();
+            searchData.push(citySearch);
+            searchData.push(inputChecked);
+            searchData.push(interestSearch);
+            searchData.push(datesArray);
+            searchData.push(typeEvent);
+            
+        
+            if(searchData[3][0] === null || searchData[3][0] === undefined ){
+                TimeRange = false;
+            }else{
+                TimeRange = true;
+            }
+        
+            page = parseInt($(this).attr('data-page'));
+        
+            // if($(window).width() > 500) {
+            //     $('html, body').animate({
+            //         scrollTop: $("#opportunities").offset().top
+            //     }, 1000);
+            // }else{
+            //     $('html, body').animate({
+            //         scrollTop: $("#search-events").offset().top
+            //     }, 1000);
+            // }
+        
+            apiCallData =  JSON.parse(localStorage.getItem('cards'));
+            theCards = formatDataEvents(apiCallData, searchData, null, TimeRange);
+        
+            changePage(page, theCards);
+        }
+    }
+})
 // ======  END OF This click event controls the pagination  ====== //
 
 // ======  This click event controls the validation for the form popups ====== //

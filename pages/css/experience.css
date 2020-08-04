@@ -7,6 +7,9 @@
     margin-top: -200px;
     text-align: center;
 }
+.slick-arrow:focus, .slick-dots li button:focus{
+    border: solid 2px blue;
+}
 .experience__page .experience__ms__wrapper h3{
     font-size: 25px;
     max-width: 805px;

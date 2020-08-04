@@ -377,8 +377,8 @@ export default class WhoWeAre extends Component {
                                     />
                                 </div>
                                 <div className="hero__content__button">
-                                    <a href={this.props.acfData.acf.button_link}>
-                                        <button className={`btn main-btn clear-teal`}>
+                                    <a href={this.props.acfData.acf.button_link} tabIndex="0">
+                                        <button className={`btn main-btn clear-teal`} tabIndex="-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="107.66" height="71.77" viewBox="0 0 107.66 71.77">
                                                 <g id="Grupo_5" data-name="Grupo 5" transform="translate(-2140.12 -542.688)">
                                                 <g id="Grupo_4" data-name="Grupo 4">

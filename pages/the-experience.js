@@ -51,8 +51,8 @@ export default function TheExperience(props) {
                             />
                         </div>
                         <div className="hero__content__button">
-                            <a href={props.acfData.acf.button_link}>
-                                <button className={`btn main-btn clear-teal`}>
+                            <a href={props.acfData.acf.button_link} tabIndex="0">
+                                <button className={`btn main-btn clear-teal`} tabIndex="-1">
                                     <strong>
                                         {props.acfData.acf.button_text}
                                     </strong>
@@ -89,8 +89,8 @@ export default function TheExperience(props) {
                             <div className="experience__ms__button">
                                 {
                                     props.acfData.acf.section_buttons.map((button, index)=> (
-                                        <a href={button.button_link} key={index}>
-                                            <button className={`btn main-btn white-btn`}>
+                                        <a href={button.button_link} key={index} tabIndex="0">
+                                            <button className={`btn main-btn white-btn`} tabIndex="-1">
                                                 <strong>
                                                     {button.button_text}
                                                 </strong>

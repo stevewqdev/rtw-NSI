@@ -31,7 +31,7 @@ return (
                 <div className="col-lg-12 no__padding">
                   <Navbar  expand="lg" >
                       <NavbarBrand href="/" className="nav__brand" tabIndex="0">
-                        <img loading="lazy" tabIndex="0" className="top__logo" src={props.masterElements.acf.header_logo} alt="Serve The Moment"/>
+                        <img loading="lazy" tabIndex="-1" className="top__logo" src={props.masterElements.acf.header_logo} alt="Serve The Moment"/>
                       </NavbarBrand>
 
                       <NavbarToggler onClick={toggle} />
@@ -66,8 +66,8 @@ return (
                         }
                       </Nav>
                       <NavItem>
-                          <NavLink href={props.masterElements.acf.header_button_link}>
-                              <button className={`btn main-btn teal`} tabIndex="0" ><strong>{props.masterElements.acf.header_button_text}</strong></button>
+                          <NavLink href={props.masterElements.acf.header_button_link} tabIndex="0">
+                              <button className={`btn main-btn teal`} tabIndex="-1" ><strong>{props.masterElements.acf.header_button_text}</strong></button>
                           </NavLink>
                       </NavItem>
                   </Navbar>

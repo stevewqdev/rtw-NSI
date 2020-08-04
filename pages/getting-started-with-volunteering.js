@@ -42,80 +42,158 @@ export default class GettingStarted extends Component {
         });
     }
 
-    toggleTag(event, prevalue){
+    toggleTag(event, prevalue = 0){
+
+
         this.setState({
             selectedFilters: [],
         });
 
-        if(prevalue.length > 0){
-            var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
-            
-            if(selectedElement[0].classList.contains("active")){
-                selectedElement[0].classList.remove("active");
-            }else{
-                selectedElement[0].classList.add("active");
-            }
-            
-        }else{
-            if(event.target.classList.contains("active")){
-                event.target.classList.remove("active");
-            }else{
-                event.target.classList.add("active");
-            }
-        }
+        if(event.type === "keydown"){
+            if(event.which === 32 || event.which === 13){
 
-        var activeTags = [...document.querySelectorAll(".filter__tags .active")];
-        var selectedFiltersHolder = [];
-
-        activeTags.map((activeTag) => {
-            selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
-            return true; 
-        })
-        
-        this.setState({
-            selectedFilters: selectedFiltersHolder,
-        });
-
-        // We create the new array of resources based on the selected filters
-        let newResources = []; 
-
-        if(selectedFiltersHolder.length > 0){
-            selectedFiltersHolder.map((selected_filter) => {
-                this.state.resources.map((resource) => {
-                    let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-
-                    if(categoryName === selected_filter){
-                        newResources.push(resource);
+                if(prevalue.length > 0){
+                    var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
+                    
+                    if(selectedElement[0].classList.contains("active")){
+                        selectedElement[0].classList.remove("active");
+                    }else{
+                        selectedElement[0].classList.add("active");
                     }
+                    
+                }else{
+                    if(event.target.classList.contains("active")){
+                        event.target.classList.remove("active");
+                    }else{
+                        event.target.classList.add("active");
+                    }
+                }
+        
+                var activeTags = [...document.querySelectorAll(".filter__tags .active")];
+                var selectedFiltersHolder = [];
+        
+                activeTags.map((activeTag) => {
+                    selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
+                    return true; 
                 })
+                
+                this.setState({
+                    selectedFilters: selectedFiltersHolder,
+                });
+        
+                // We create the new array of resources based on the selected filters
+                let newResources = []; 
+        
+                if(selectedFiltersHolder.length > 0){
+                    selectedFiltersHolder.map((selected_filter) => {
+                        this.state.resources.map((resource) => {
+                            let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+        
+                            if(categoryName === selected_filter){
+                                newResources.push(resource);
+                            }
+                        })
+                    })
+                }else{
+                    newResources = this.props.resourceData;
+                }
+        
+                newResources = [...new Set(newResources)];
+        
+                // Create first batch of resources
+                var perChunk = 6 // items per chunk    
+        
+                var inputArray = newResources;
+                
+                var result = inputArray.reduce((resultArray, item, index) => { 
+                  const chunkIndex = Math.floor(index/perChunk)
+                
+                  if(!resultArray[chunkIndex]) {
+                    resultArray[chunkIndex] = [] // start a new chunk
+                  }
+                
+                  resultArray[chunkIndex].push(item)
+                
+                  return resultArray
+                }, [])
+        
+                this.setState({
+                    filteredResources: result,
+                    totalPages: Math.ceil(newResources.length / 6),
+                });  
+            }
+        }else if(event.type === "click"){
+            if(prevalue.length > 0){
+                var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
+                
+                if(selectedElement[0].classList.contains("active")){
+                    selectedElement[0].classList.remove("active");
+                }else{
+                    selectedElement[0].classList.add("active");
+                }
+                
+            }else{
+                if(event.target.classList.contains("active")){
+                    event.target.classList.remove("active");
+                }else{
+                    event.target.classList.add("active");
+                }
+            }
+    
+            var activeTags = [...document.querySelectorAll(".filter__tags .active")];
+            var selectedFiltersHolder = [];
+    
+            activeTags.map((activeTag) => {
+                selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
+                return true; 
             })
-        }else{
-            newResources = this.props.resourceData;
+            
+            this.setState({
+                selectedFilters: selectedFiltersHolder,
+            });
+    
+            // We create the new array of resources based on the selected filters
+            let newResources = []; 
+    
+            if(selectedFiltersHolder.length > 0){
+                selectedFiltersHolder.map((selected_filter) => {
+                    this.state.resources.map((resource) => {
+                        let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+    
+                        if(categoryName === selected_filter){
+                            newResources.push(resource);
+                        }
+                    })
+                })
+            }else{
+                newResources = this.props.resourceData;
+            }
+    
+            newResources = [...new Set(newResources)];
+    
+            // Create first batch of resources
+            var perChunk = 6 // items per chunk    
+    
+            var inputArray = newResources;
+            
+            var result = inputArray.reduce((resultArray, item, index) => { 
+              const chunkIndex = Math.floor(index/perChunk)
+            
+              if(!resultArray[chunkIndex]) {
+                resultArray[chunkIndex] = [] // start a new chunk
+              }
+            
+              resultArray[chunkIndex].push(item)
+            
+              return resultArray
+            }, [])
+    
+            this.setState({
+                filteredResources: result,
+                totalPages: Math.ceil(newResources.length / 6),
+            });  
         }
 
-        newResources = [...new Set(newResources)];
-
-        // Create first batch of resources
-        var perChunk = 6 // items per chunk    
-
-        var inputArray = newResources;
-        
-        var result = inputArray.reduce((resultArray, item, index) => { 
-          const chunkIndex = Math.floor(index/perChunk)
-        
-          if(!resultArray[chunkIndex]) {
-            resultArray[chunkIndex] = [] // start a new chunk
-          }
-        
-          resultArray[chunkIndex].push(item)
-        
-          return resultArray
-        }, [])
-
-        this.setState({
-            filteredResources: result,
-            totalPages: Math.ceil(newResources.length / 6),
-        });  
     }
 
 
@@ -243,6 +321,7 @@ export default class GettingStarted extends Component {
                                     {
                                         this.state.resourceFilters.map((resource, index) => (
                                             <div 
+                                                tabIndex="0"
                                                 className={`resource__filter__tag`} 
                                                 data-category={`${resource.replace(/ /g, '')
                                                     .replace(/,/g, '') 
@@ -255,7 +334,7 @@ export default class GettingStarted extends Component {
                                                     .toLowerCase()}`
                                                 }
                                                 key={index}
-                                                onClick={this.toggleTag} key={index}
+                                                onClick={this.toggleTag} onKeyDown={this.toggleTag} key={index}
                                                 >
                                                 <p className={`poppins bold md text-uppercase`}>
                                                     {resource}
@@ -322,6 +401,7 @@ export default class GettingStarted extends Component {
                                                                 </div>
                                                                 <div className="filtered__resource__link">
                                                                     <a href={filtered.acf.external_link}>
+                                                                        <span className="absolute__name">{filtered.title.rendered}</span>
                                                                         <svg xmlns="http://www.w3.org/2000/svg" width="29.889" height="11.96" viewBox="0 0 29.889 11.96">
                                                                         <path id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
                                                                         </svg>
@@ -345,7 +425,7 @@ export default class GettingStarted extends Component {
                                         {
                                             this.state.prevPage >= 0
                                             ?
-                                            <p className={`filter__pagination__page__changer`} data-page={this.state.prevPage} data-total={this.state.totalPages} onClick={this.prevPage}><span>
+                                            <p className={`filter__pagination__page__changer`} data-page={this.state.prevPage} data-total={this.state.totalPages} onKeyDown={this.prevPage} onClick={this.prevPage}><span>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
                                                     <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(104.336 36.242) rotate(180)" fill="#00a99e" fillRule="evenodd"/>
                                                 </svg>
@@ -366,7 +446,8 @@ export default class GettingStarted extends Component {
                                         {
                                             this.state.nextPage != this.state.totalPages 
                                             ?
-                                            <p className={`filter__pagination__page__changer`} data-page={this.state.nextPage} data-total={this.state.totalPages} onClick={this.nextPage}>
+                                            <p className={`filter__pagination__page__changer`} data-page={this.state.nextPage} data-total={this.state.totalPages} onKeyDown={this.nextPage} onClick={this.nextPage}>
+
                                                 <span>
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
                                                         <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#00a99e" fillRule="evenodd"/>

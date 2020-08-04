@@ -3,18 +3,53 @@ import Styles from "./floating-screen.module.css"
 
 export default class FloatingScreen extends Component {
 
+
     toggleMenu(event){
         event.preventDefault() 
         if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
             document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
             document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
-            document.querySelectorAll(".top__logo")[0].focus();
-            document.getElementById("fsc").tabIndex = -1;
+            document.getElementById("fsc_open").focus();
+            document.getElementById("fsc_b1").tabIndex = -1;
+            document.getElementById("fsc_b2").tabIndex = -1;
+            document.getElementById("fsc_close").tabIndex = -1;
+
+            
         }else{
             document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
             document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
             document.querySelectorAll(".close__popup")[0].focus();
-            document.getElementById("fsc").tabIndex = 0;
+            document.getElementById("fsc_b1").tabIndex = 0;
+            document.getElementById("fsc_b2").tabIndex = 0;
+            document.getElementById("fsc_close").tabIndex = 0;
+
+            var element = document.getElementById("fsc")
+            var focusableEls = document.querySelectorAll('#fsc #fsc_close, #fsc a');
+    
+            var firstFocusableEl = focusableEls[0],  
+                lastFocusableEl = focusableEls[focusableEls.length - 1],
+                KEYCODE_TAB = 9;
+                
+            element.addEventListener('keydown', function(e) {
+                  var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+                  if (!isTabPressed) { 
+                      return; 
+                  }
+    
+                  if ( e.shiftKey ) /* shift + tab */ {
+                      if (document.activeElement === firstFocusableEl) {
+                          lastFocusableEl.focus();
+                          e.preventDefault();
+                      }
+                  } else /* tab */ {
+                      if (document.activeElement === lastFocusableEl) {
+                          firstFocusableEl.focus();
+                          e.preventDefault();
+                      }
+                  }
+            });
+
+
         }  
     }
 
@@ -25,26 +60,86 @@ export default class FloatingScreen extends Component {
                 if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
                     document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
                     document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
-                    document.querySelectorAll(".top__logo")[0].focus();
-                    document.getElementById("fsc").tabIndex = -1;
+                    document.getElementById("fsc_open").focus();
+                    document.getElementById("fsc_b1").tabIndex = -1;
+                    document.getElementById("fsc_b2").tabIndex = -1;
+                    document.getElementById("fsc_close").tabIndex = -1;
                 }else{
                     document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
                     document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
                     document.querySelectorAll(".close__popup")[0].focus();
-                    document.getElementById("fsc").tabIndex = 0;
+                    document.getElementById("fsc_b1").tabIndex = 0;
+                    document.getElementById("fsc_b2").tabIndex = 0;
+                    document.getElementById("fsc_close").tabIndex = 0;
+
+                    var element = document.getElementById("fsc")
+                    var focusableEls = document.querySelectorAll('#fsc #fsc_close, #fsc a');
+            
+                    var firstFocusableEl = focusableEls[0],  
+                        lastFocusableEl = focusableEls[focusableEls.length - 1],
+                        KEYCODE_TAB = 9;
+                        
+                    element.addEventListener('keydown', function(e) {
+                          var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+                          if (!isTabPressed) { 
+                              return; 
+                          }
+            
+                          if ( e.shiftKey ) /* shift + tab */ {
+                              if (document.activeElement === firstFocusableEl) {
+                                  lastFocusableEl.focus();
+                                  e.preventDefault();
+                              }
+                          } else /* tab */ {
+                              if (document.activeElement === lastFocusableEl) {
+                                  firstFocusableEl.focus();
+                                  e.preventDefault();
+                              }
+                          }
+                    });
                 }  
             }
         }else{
             if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
                 document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
                 document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
-                document.querySelectorAll(".top__logo")[0].focus();
-                document.getElementById("fsc").tabIndex = -1;
+                document.getElementById("fsc_open").focus();
+                document.getElementById("fsc_b1").tabIndex = -1;
+                document.getElementById("fsc_b2").tabIndex = -1;
+                document.getElementById("fsc_close").tabIndex = -1;
             }else{
                 document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
                 document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
                 document.querySelectorAll(".close__popup")[0].focus();
-                document.getElementById("fsc").tabIndex = 0;
+                document.getElementById("fsc_b1").tabIndex = 0;
+                document.getElementById("fsc_b2").tabIndex = 0;
+                document.getElementById("fsc_close").tabIndex = 0;
+
+                var element = document.getElementById("fsc")
+                var focusableEls = document.querySelectorAll('#fsc #fsc_close, #fsc a');
+        
+                var firstFocusableEl = focusableEls[0],  
+                    lastFocusableEl = focusableEls[focusableEls.length - 1],
+                    KEYCODE_TAB = 9;
+                    
+                element.addEventListener('keydown', function(e) {
+                      var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+                      if (!isTabPressed) { 
+                          return; 
+                      }
+        
+                      if ( e.shiftKey ) /* shift + tab */ {
+                          if (document.activeElement === firstFocusableEl) {
+                              lastFocusableEl.focus();
+                              e.preventDefault();
+                          }
+                      } else /* tab */ {
+                          if (document.activeElement === lastFocusableEl) {
+                              firstFocusableEl.focus();
+                              e.preventDefault();
+                          }
+                      }
+                });
             }  
         }
     }
@@ -54,7 +149,7 @@ export default class FloatingScreen extends Component {
         return (
             
             <div className={`${Styles.floating__screen} floating__screen__selector fs__closed`}>
-                <div className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu} aria-label="Show Active Campaign" tabIndex="0" role="button" onKeyPress={this.keyOpen} >
+                <div id="fsc_open" className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu} aria-label="Show Active Campaign" tabIndex="0" role="button" onKeyPress={this.keyOpen} >
                     <svg id="Componente_3_1" data-name="Componente 3 – 1" xmlns="http://www.w3.org/2000/svg" width="69" height="328" viewBox="0 0 69 328">
                         <g id="Componente_2_1" data-name="Componente 2 – 1">
                             <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#00a99e"/>
@@ -67,7 +162,7 @@ export default class FloatingScreen extends Component {
                     </svg>
                 </div>
                 <div className={`container ${Styles.floating__screen__container}`} id="fsc" tabIndex="-1">
-                    <div className={`${Styles.close_fs} close__popup`} onKeyPress={this.keyOpen}  onClick={this.toggleMenu} tabIndex="0" role="button" aria-label="close popup">
+                    <div  id="fsc_close" className={`${Styles.close_fs} close__popup`} onKeyPress={this.keyOpen}  onClick={this.toggleMenu} tabIndex="-1" role="button" aria-label="close popup">
                         <p>╳</p>
                     </div>
                     <div className={`row`}>
@@ -100,8 +195,8 @@ export default class FloatingScreen extends Component {
                                         />
                                     </div>
                                     <div className={`${Styles.campaign__button}`}>
-                                        <a href={this.props.screenData.acf.prioritized_campaign_cta_link}>
-                                            <button className={`btn full__btn main-btn teal`}>
+                                        <a id="fsc_b1" href={this.props.screenData.acf.prioritized_campaign_cta_link} tabIndex="-1">
+                                            <button className={`btn full__btn main-btn teal`} tabIndex="-1" >
                                                 <strong>
                                                     {this.props.screenData.acf.prioritized_campaign_cta_text}
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="10.392" height="18.188" viewBox="0 0 10.392 18.188">
@@ -129,8 +224,8 @@ export default class FloatingScreen extends Component {
                                 </p>
                             </div>
                             <div className={`${Styles.resources__button}`}>
-                                <a href={this.props.screenData.acf.resource_cta_link}>
-                                    <button className={`btn main-btn white-btn full__btn`}>
+                                <a id="fsc_b2" href={this.props.screenData.acf.resource_cta_link} tabIndex="-1">
+                                    <button className={`btn main-btn white-btn full__btn`} tabIndex="-1">
                                         <strong>
                                             {this.props.screenData.acf.resource_cta_text}
                                         </strong>
