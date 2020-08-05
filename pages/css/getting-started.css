@@ -5,6 +5,20 @@
     align-items: center;
     padding: 180px 0 70px 0;
 }
+.filter__tags .row{
+    position: relative;
+}
+.resource__filter__tag.clear__search{
+    position: absolute;
+    right: 0px;
+    color: #ffffff;
+    background: #00a99e;
+    border: solid 1px #00a99e;
+    cursor: pointer;
+    padding: 5px 20px;
+    transition: all ease-in-out 0.4s;
+    margin-right: 20px;
+}
 #main__hero *{
     border: none;
 }

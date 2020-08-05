@@ -81,7 +81,7 @@ export default function Home(props) {
                   props.acfData.acf.work_steps.map((step, index ) => 
                     (
                       <div className="movement__step" key={index}>
-                        <img loading="lazy" className={'icon'} src={step.icon} alt={`${step.title} icon`}/>
+                        <img loading="lazy" className={'icon'} src={step.icon} alt={`${step.title}`}/>
                         <div className="line__divider"></div>
                         <h3 className={`title poppins bold  xmd teal-text text-uppercase`}>{step.title}</h3>
                         <div
@@ -169,10 +169,10 @@ export default function Home(props) {
                       }
                     </p>
                     <div className="press__post__arrow">
-                      <a href={post.acf.press_external_link}>
+                      <a href={post.acf.press_external_link} aria-label={post.title.rendered}>
                         <span className="absolute__name">{post.title.rendered}</span>
                         <svg xmlns="http://www.w3.org/2000/svg" width="29.889" height="11.96" viewBox="0 0 29.889 11.96">
-                          <path id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
+                          <path title={post.title.rendered} id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
                         </svg>
                       </a>
                     </div>

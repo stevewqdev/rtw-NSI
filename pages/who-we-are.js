@@ -332,7 +332,8 @@ export default class WhoWeAre extends Component {
                                     <div className="serve__button__element" key={index}>
                                         <a href={button.button_file} target="_BLANK">
                                             <div className="serve__button__icon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="137.656" height="158.2" viewBox="0 0 137.656 158.2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="137.656" height="158.2" viewBox="0 0 137.656 158.2" title={button.button_text}>
+                                                
                                                 <g id="Grupo_9" data-name="Grupo 9" transform="translate(-2354.607 -503.002)">
                                                     <path id="Trazado_8" data-name="Trazado 8" d="M2492.263,503V641.2a5,5,0,0,1-5,5h0a5,5,0,0,1-5-5V513H2389.6a5,5,0,0,1-5-5h0a5,5,0,0,1,5-5Z" fill="#005f5e"/>
                                                     <g id="Grupo_6" data-name="Grupo 6">
@@ -379,7 +380,7 @@ export default class WhoWeAre extends Component {
                                 <div className="hero__content__button">
                                     <a href={this.props.acfData.acf.button_link} tabIndex="0">
                                         <button className={`btn main-btn clear-teal`} tabIndex="-1">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="107.66" height="71.77" viewBox="0 0 107.66 71.77">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="107.66" height="71.77" viewBox="0 0 107.66 71.77" title={this.props.acfData.acf.button_text}>
                                                 <g id="Grupo_5" data-name="Grupo 5" transform="translate(-2140.12 -542.688)">
                                                 <g id="Grupo_4" data-name="Grupo 4">
                                                 <path id="Trazado_7" data-name="Trazado 7" d="M2140.12,552.688v61.77h107.66v-61.77a10,10,0,0,0-10-10h-87.66A10,10,0,0,0,2140.12,552.688Zm102.56,5.23L2193.95,580l-48.73-22.08v-5.63l48.73,22.08,48.73-22.08Z" fill="#005f5e"/>

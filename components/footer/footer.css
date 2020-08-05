@@ -40,7 +40,8 @@
     margin-top: 40px;
 }
 .main__nav a {
-    padding: 0px 20px 0 5px!important;
+    padding: 0!important;
+    margin: 0px 20px;
 }
 .footer__partners h4{
     text-align: left!important;
