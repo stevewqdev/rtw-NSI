@@ -198,7 +198,8 @@ export default class WhoWeAre extends Component {
                             <div className="col-lg-12 partners__wrapper d-flex justify-content-between align-items-center flex-wrap">
                                 {
                                     this.props.partnerData.map((partner, index) => (
-                                        <div className="the__partner" key={index} data-city={`${partner.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}`}>
+                                        <div className="the__partner" key={index} 
+                                        data-city={`${partner.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}`}>
                                             <a href={partner.acf.partner_website}>
                                                 <img loading="lazy" src={`${partner.better_featured_image.source_url}`} alt={ `${partner.title.rendered} logo`}/>
                                             </a>
@@ -377,7 +378,7 @@ export default class WhoWeAre extends Component {
                                         dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.description_eight }}
                                     />
                                 </div>
-                                <div className="hero__content__button">
+                                {/* <div className="hero__content__button">
                                     <a href={this.props.acfData.acf.button_link} tabIndex="0">
                                         <button className={`btn main-btn clear-teal`} tabIndex="-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="107.66" height="71.77" viewBox="0 0 107.66 71.77" title={this.props.acfData.acf.button_text}>
@@ -394,7 +395,7 @@ export default class WhoWeAre extends Component {
                                             </strong>
                                         </button>
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
                             <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
                                 <img loading="lazy" src={this.props.acfData.acf.image_eight} alt="The Experience Image"/>
