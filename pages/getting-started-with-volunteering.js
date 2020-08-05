@@ -468,7 +468,7 @@ export default class GettingStarted extends Component {
                                             onClick={this.cleanSearch} onKeyDown={this.cleanSearch}
                                             >
                                             <p className={`poppins bold md text-uppercase `}>
-                                                CLEAR SEARCH
+                                             ╳
                                             </p>
                                         </div>
                                         :""

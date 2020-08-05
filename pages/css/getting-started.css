@@ -18,6 +18,18 @@
     padding: 5px 20px;
     transition: all ease-in-out 0.4s;
     margin-right: 20px;
+    border-radius: 100%;
+    width: 30px;
+    height: 40px;
+    top: -50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.resource__filter__tag.clear__search p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 #main__hero *{
     border: none;
