@@ -100,7 +100,7 @@
         display: flex;
     }
     .header__nav.main__nav{
-        padding: 20px 15px;
+        padding: 90px 35px;
     }
     .header__nav.main__nav{
         display: none;
@@ -126,7 +126,7 @@
     }
     .toggle__menu__button{
         position: absolute;
-        right: 20px;
+        right: 40px;
         display: flex;
         flex-direction: column;
         height: 20px;
