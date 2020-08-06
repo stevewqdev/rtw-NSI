@@ -22,6 +22,13 @@ const [isOpen, setIsOpen] = useState(false);
 const toggle = () => setIsOpen(!isOpen);
 const router = useRouter()
 
+function openMenu(){
+  if(document.querySelectorAll(".header__nav")[0].classList.contains("open")){
+    document.querySelectorAll(".header__nav")[0].classList.remove("open");
+  }else{
+    document.querySelectorAll(".header__nav")[0].classList.add("open");
+  }
+}
 
 return (
   <div className={`header md ${props.customClass}`}>
@@ -36,7 +43,7 @@ return (
 
                       <NavbarToggler onClick={toggle} />
 
-                      <Nav className="mr-auto main__nav" navbar>
+                      <Nav className="mr-auto main__nav header__nav" navbar>
                         {
                           router.pathname === '/landing'
                           ?
@@ -65,11 +72,20 @@ return (
                           </>
                         }
                       </Nav>
-                      <NavItem>
-                          <NavLink href={props.masterElements.acf.header_button_link} tabIndex="0">
-                              <button className={`btn main-btn teal`} tabIndex="-1" ><strong>{props.masterElements.acf.header_button_text}</strong></button>
-                          </NavLink>
-                      </NavItem>
+                      <div className="donate__button">
+                        <div className="toggle__menu__button" onClick={openMenu}>
+                          <div className="menu__burguer menu__burguer__one"></div>
+                          <div className="menu__burguer menu__burguer__two"></div>
+                          <div className="menu__burguer menu__burguer__three"></div>
+                        </div>
+                        <div className="donate__internal__button">
+                          <NavItem>
+                              <NavLink href={props.masterElements.acf.header_button_link} tabIndex="0">
+                                  <button className={`btn main-btn teal`} tabIndex="-1" ><strong>{props.masterElements.acf.header_button_text}</strong></button>
+                              </NavLink>
+                          </NavItem>
+                        </div>
+                      </div>
                   </Navbar>
                 </div>
             </div>

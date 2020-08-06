@@ -368,7 +368,7 @@ export default class WhoWeAre extends Component {
                     </div>
                 </section>
 
-                <section className="hero__container bottom__hero">
+                {/* <section className="hero__container bottom__hero">
                     <div className="container">
                         <div className="row">
                             <div className="col-sm-12 col-md-6 col-lg-6 hero__content">
@@ -384,7 +384,7 @@ export default class WhoWeAre extends Component {
                                         dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.description_eight }}
                                     />
                                 </div>
-                                {/* <div className="hero__content__button">
+                                <div className="hero__content__button">
                                     <a href={this.props.acfData.acf.button_link} tabIndex="0">
                                         <button className={`btn main-btn clear-teal`} tabIndex="-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="107.66" height="71.77" viewBox="0 0 107.66 71.77" title={this.props.acfData.acf.button_text}>
@@ -401,14 +401,14 @@ export default class WhoWeAre extends Component {
                                             </strong>
                                         </button>
                                     </a>
-                                </div> */}
+                                </div> 
                             </div>
                             <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
                                 <img loading="lazy" src={this.props.acfData.acf.image_eight} alt="The Experience Image"/>
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> */}
 
 
             </main>

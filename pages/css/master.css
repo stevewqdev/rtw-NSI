@@ -2728,11 +2728,20 @@ color: white;
     }
 }
 @media(max-width: 900px) and (orientation: landscape ){
-
+    h1 {
+        font-size: 50px;
+        line-height: 50px;
+    }
 }
+
 @media(max-width: 667px) and (orientation: landscape ){
     .donation__page .hero__container .hero__content {
         padding: 100px 70px 0 70px;
+    }
+}
+@media (max-width: 600px) and (orientation: landscape){
+    .nav__brand .top__logo {
+        width: 108px;
     }
 }
 @media (max-width: 580px) and (orientation: landscape) {
@@ -2760,10 +2769,13 @@ color: white;
 
 @media (max-width: 580px) and (orientation: landscape) {
     h1 {
-        font-size: 60px;
-        line-height: 60px;
+        font-size: 45px;
+        line-height: 45px;
     }
     .container {
         padding: 0 40px;
+    }
+    .home__page #main .col-lg-12 {
+        padding: 20px 5px 20px;
     }
 }
