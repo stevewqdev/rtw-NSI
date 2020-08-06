@@ -44,47 +44,6 @@ export default class GettingStarted extends Component {
         });
     }
 
-    setInitialResources(){
-        // Create first batch of resources
-        var perChunk = 6 // items per chunk    
-
-        var inputArray = this.props.resourceData;
-        
-        var result = inputArray.reduce((resultArray, item, index) => { 
-            const chunkIndex = Math.floor(index/perChunk)
-        
-            if(!resultArray[chunkIndex]) {
-            resultArray[chunkIndex] = [] // start a new chunk
-            }
-        
-            resultArray[chunkIndex].push(item)
-        
-            return resultArray
-        }, [])
-        
-        this.setState({
-            filteredResources: result,
-            totalPages: Math.ceil(this.props.resourceData.length / 6),
-        });  
-
-        var queryString = window.location.search;
-
-        if(queryString.length > 0){           
-            
-            queryString = queryString.replace(/\?/g, '').split("&");
-            queryString =  queryString[0].split("=")[1].replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-
-            if(queryString === "hunger"){
-                queryString = "hungerandfoodaccess"; 
-            }
-            
-            if(queryString === "health"){
-                queryString = "mentalhealthsocialisolation"; 
-            }
-
-            this.toggleTag("0", queryString); 
-        }
-    }
 
     cleanSearch(event){
         var activeTags = [...document.querySelectorAll(".filter__tags .active")];
@@ -112,14 +71,22 @@ export default class GettingStarted extends Component {
             resultArray[chunkIndex] = [] // start a new chunk
             }
         
-            resultArray[chunkIndex].push(item)
+            if(item.acf.resource_category.value === "miscellaneous"){
+                resultArray[chunkIndex].push(item);
+            }
         
             return resultArray
         }, [])
         
+        var theTotalPages = Math.round(this.props.resourceData.length / 6); 
+
+        if(theTotalPages  === 0){
+            theTotalPages = 1;
+        }
+
         this.setState({
             filteredResources: result,
-            totalPages: Math.ceil(this.props.resourceData.length / 6),
+            totalPages: theTotalPages,
         });  
 
 
@@ -202,10 +169,14 @@ export default class GettingStarted extends Component {
                 
                   return resultArray
                 }, [])
+                var theTotalPages = Math.round(newResources.length / 6); 
+                if(theTotalPages  === 0){
+                    theTotalPages = 1;
+                }
         
                 this.setState({
                     filteredResources: result,
-                    totalPages: Math.ceil(newResources.length / 6),
+                    totalPages: theTotalPages,
                 });  
             }
         }else if(event.type === "click"){
@@ -273,10 +244,13 @@ export default class GettingStarted extends Component {
             
               return resultArray
             }, [])
-    
+            var theTotalPages = Math.round(newResources.length / 6); 
+            if(theTotalPages  === 0){
+                theTotalPages = 1;
+            }
             this.setState({
                 filteredResources: result,
-                totalPages: Math.ceil(newResources.length / 6),
+                totalPages: theTotalPages,
             });  
         }else{
             if(prevalue.length > 0){
@@ -343,10 +317,13 @@ export default class GettingStarted extends Component {
             
               return resultArray
             }, [])
-    
+            var theTotalPages = Math.round(newResources.length / 6); 
+            if(theTotalPages  === 0){
+                theTotalPages = 1;
+            }
             this.setState({
                 filteredResources: result,
-                totalPages: Math.ceil(newResources.length / 6),
+                totalPages: theTotalPages,
             });  
         }
 
@@ -382,7 +359,53 @@ export default class GettingStarted extends Component {
     }
 
     componentDidMount(){
-        this.setInitialResources();
+        // Create first batch of resources
+        var perChunk = 6 // items per chunk    
+
+        var inputArray = this.props.resourceData;
+        
+        var result = inputArray.reduce((resultArray, item, index) => { 
+            
+            const chunkIndex = Math.floor(index/perChunk)
+        
+            if(!resultArray[chunkIndex]) {
+            resultArray[chunkIndex] = [] // start a new chunk
+            }
+            if(item.acf.resource_category.value === "miscellaneous"){
+                resultArray[chunkIndex].push(item);
+            }
+            return resultArray;
+            
+        }, [])
+        
+        var theTotalPages = Math.round(this.props.resourceData.length / 6); 
+
+        if(theTotalPages  === 0){
+            theTotalPages = 1;
+        }
+
+        this.setState({
+            filteredResources: result,
+            totalPages: theTotalPages,
+        });  
+
+        var queryString = window.location.search;
+
+
+        if(queryString.length > 0){           
+            queryString = queryString.replace(/\?/g, '').split("&");
+            queryString =  queryString[0].split("=")[1].replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+
+            if(queryString === "hunger"){
+                queryString = "hungerandfoodaccess"; 
+            }
+            
+            if(queryString === "health"){
+                queryString = "mentalhealthsocialisolation"; 
+            }
+
+            this.toggleTag("0", queryString); 
+        }
     }
 
     render() {
@@ -446,7 +469,15 @@ export default class GettingStarted extends Component {
                                         this.state.resourceFilters.map((resource, index) => (
                                             <div 
                                                 tabIndex="0"
-                                                className={`resource__filter__tag`} 
+                                                className={`resource__filter__tag ${resource.replace(/ /g, '')
+                                                .replace(/,/g, '') 
+                                                .replace(/-/g, '') 
+                                                .replace(/!/g, '')
+                                                .replace(/ /g, '')
+                                                .replace(/'/g, '')
+                                                .replace(/\//g, '')
+                                                .replace(/\./g, '')
+                                                .toLowerCase()}`} 
                                                 data-category={`${resource.replace(/ /g, '')
                                                     .replace(/,/g, '') 
                                                     .replace(/-/g, '') 

@@ -8,6 +8,9 @@
 .filter__tags .row{
     position: relative;
 }
+.resource__filter__tag.miscellaneous{
+    display: none;
+}
 .resource__filter__tag.clear__search{
     position: absolute;
     right: 0px;
