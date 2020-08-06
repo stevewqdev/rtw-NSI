@@ -367,6 +367,13 @@ export default class GettingStarted extends Component {
         })
 
         categoryFilters = [...new Set(categoryFilters)];
+        categoryFilters = categoryFilters.sort();
+
+        categoryFilters.map((element, index) => {
+            if(element === "Miscellaneous"){
+                categoryFilters.push(categoryFilters.splice(index, 1)[0]);
+            }
+        })
 
         this.setState({
           resourceFilters: categoryFilters,

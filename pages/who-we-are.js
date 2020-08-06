@@ -201,7 +201,13 @@ export default class WhoWeAre extends Component {
                                         <div className="the__partner" key={index} 
                                         data-city={`${partner.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}`}>
                                             <a href={partner.acf.partner_website}>
-                                                <img loading="lazy" src={`${partner.better_featured_image.source_url}`} alt={ `${partner.title.rendered} logo`}/>
+                                                {
+                                                    partner.better_featured_image
+                                                    ?
+                                                    <img loading="lazy" src={`${partner.better_featured_image.source_url}`} alt={ `${partner.title.rendered} logo`}/>
+                                                    : <span>{partner.title.rendered}</span>
+                                                }
+                                                
                                             </a>
                                         </div>
                                     ))
