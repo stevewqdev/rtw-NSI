@@ -879,7 +879,16 @@
     .card {
         display: flex;
         flex-direction: column;
-        min-height: 500px;
+        min-height: 520px;
+    }
+    .card__title h3 {
+        min-height: 45px;
+    }
+    .card__tags{
+        min-height: 20px;
+    }
+    .card__content{
+        min-height: 60px;
     }
     .card__content__wrapper {
         padding: 30px 0;

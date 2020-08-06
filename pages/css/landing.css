@@ -825,7 +825,8 @@
     }
     #main {
         margin-top: -112px;
-        padding: 180px 10px 120px;
+        padding: 120px 10px 100px;
+        min-height: 500px;
     }
     #resources .col-lg-4{
         margin-bottom: 20px;

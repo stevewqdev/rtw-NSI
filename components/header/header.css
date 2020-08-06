@@ -152,6 +152,9 @@
 
 }
 @media(max-width: 600px){
+    .nav__brand .top__logo {
+        left: 12px;
+    }
     .donate__internal__button{
         display: none;
     }
@@ -189,7 +192,7 @@
 
 @media (max-width: 900px) and (orientation: landscape) {
     .nav__brand .top__logo {
-        width: 158px;
+        width: 115px;
         top: 10px;
         left: 30px;
     }

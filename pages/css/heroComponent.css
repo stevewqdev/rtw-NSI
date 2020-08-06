@@ -168,3 +168,31 @@
         padding: 0px;
     }
 }
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .hero__content__title h2 {
+        font-size: 45px;
+        line-height: 45px;
+    }
+    .hero__container .hero__content{
+        margin-top: 100px;
+        padding-left: 6px;
+    }
+    .hero__container .hero__content__image img {
+        top: -100px;
+        position: relative;
+    }
+    .who__page .hero__container .hero__content {
+        margin-top: -100px;
+    }
+    .experience__page .hero__container .hero__content {
+        margin-top: -70px;
+    }
+    .experience__page .hero__container .hero__content__image img {
+        top: -90px;
+        position: relative;
+    }
+    .hero__content p br {
+        display: none;
+    }
+}

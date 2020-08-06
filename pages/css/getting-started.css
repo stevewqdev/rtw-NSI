@@ -266,6 +266,13 @@
     .resource__filter__tag{
         margin: 5px 20px 20px 0;
     }
+    #main__hero {
+        padding: 110px 0 70px 0;
+    }
+    #main__hero .main__hero__title h2 {
+        line-height: 50px;
+        font-size: 40px;
+    }
 }
 @media(max-width: 667px) and (orientation: landscape ){
     #main__hero .container, #resource__filter .container {

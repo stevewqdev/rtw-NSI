@@ -283,3 +283,8 @@
         width: calc(100%);
     }
 }
+@media(max-width: 900px) and (orientation: landscape ){
+    #partners .the__partner {
+        width: calc(100% / 3);
+    }
+}
