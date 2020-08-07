@@ -158,7 +158,7 @@ export default function Home(props) {
               {
                 props.postData.map((post, index) => (
                   <div className="press__post col-sm-12 col-md-6 col-lg-6" key={index}>
-                    <p className="title poppins teal-text bold xxl">
+                    <p className="press__title title poppins teal-text bold xxl">
                       {post.title.rendered}
                     </p>
                     <p className="title poppins gray-text bold text-uppercase sm">

@@ -7,6 +7,9 @@
 .home__page #main p{
     text-transform: capitalize;
 }
+.press__title{
+    max-width: 90%;
+}
 .absolute__name{
     position: absolute;
     opacity: 0;
@@ -142,9 +145,13 @@
 .home__page #in__the__press .press__post{
     background: white;
     width: 90%;
-    padding: 35px 40px 30px 40px ;
+    padding: 35px 40px 30px 40px;
     position: relative;
     margin: 15px 0;
+    min-height: 185px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .home__page #in__the__press .row{
     display: flex;
@@ -196,7 +203,6 @@
         max-width: 600px;
     }
     .home__page #in__the__press .press__post {
-        min-height: 200px;
         display: flex;
         flex-direction: column;
         justify-content: center;
