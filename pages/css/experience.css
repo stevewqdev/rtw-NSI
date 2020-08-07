@@ -10,6 +10,9 @@
 .slick-arrow:focus, .slick-dots li button:focus{
     border: solid 2px blue;
 }
+.experience__ms__button .btn.main-btn.white-btn:hover{
+    border: solid 2px white!important;
+}
 .experience__page .experience__ms__wrapper h3{
     font-size: 25px;
     max-width: 805px;
@@ -45,13 +48,22 @@
     cursor: pointer;
 }
 .experience__page .the__faq .description{
-    height: 0;
     overflow: hidden;
     transition: all ease-in-out 0.4s;
+    margin-top: 20px;
+    height: 0;
 }
 .experience__page .the__faq.open .description{
-    height: 90px;
-    margin-top: 20px;
+    height: auto;
+}
+.more__faqs{
+    display: block;
+}
+.more__faqs.hidden__faq{
+    display: none;
+}
+.view__resources{
+    cursor: pointer;
 }
 .experience__page .the__faq .arrow{
     position: absolute;

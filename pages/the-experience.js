@@ -22,6 +22,34 @@ export default function TheExperience(props) {
     }
   }
 
+  function showFaqs(event){
+    var moreFaqs = [...document.querySelectorAll(".more__faqs")];
+
+    if(event.target.classList.contains("open__resource")){
+        event.target.classList.remove("open__resource"); 
+
+        moreFaqs.map((element) => {
+            element.classList.add("hidden__faq");
+
+            return true; 
+        })
+
+        document.querySelectorAll(".view__resources p")[0].innerHTML = "VIEW ALL FAQS";
+    }else{
+        event.target.classList.add("open__resource"); 
+
+        moreFaqs.map((element) => {
+            element.classList.remove("hidden__faq");
+
+            return true; 
+        })
+
+        document.querySelectorAll(".view__resources p")[0].innerHTML = "HIDE FAQS";
+    }
+    
+  }
+
+
   return (
     <main className="experience__page">
         <div className="hero__container">
@@ -158,7 +186,8 @@ export default function TheExperience(props) {
                         <div className="faqs__wrapper">
                             {
                                 props.faqsData.map((faq, index) => (
-                                    <div className="the__faq" key={index} onClick={openFaq}>
+                                    <div className={`the__faq ${index > 2 ? "more__faqs hidden__faq": ""}
+                                    `} key={index} onClick={openFaq}>
                                         <div className="title">
                                             <h4 className={` bold teal-text`}>{faq.title.rendered}</h4>
 
@@ -180,9 +209,7 @@ export default function TheExperience(props) {
                         </div>
                     
                         <div className="view__resources">
-                            <a href={`/`+props.acfData.acf.resource_button_link.split("/")[3]}>
-                                <p className={`poppins bold teal-text lg text-uppercase`}>{props.acfData.acf.resource_button_text}</p>
-                            </a>
+                            <p onClick={showFaqs} className={`poppins bold teal-text lg text-uppercase`}>{props.acfData.acf.resource_button_text}</p>
                         </div>
                     </div>
                 </div>
