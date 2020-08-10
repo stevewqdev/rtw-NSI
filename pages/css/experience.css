@@ -141,6 +141,13 @@
     justify-content: center;
     align-items: center;
 }
+#experience__slider .slide__image img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 100%;
+    object-position: center;
+}
 #experience__slider .slide__quote{
     max-width: 560px;
 }
