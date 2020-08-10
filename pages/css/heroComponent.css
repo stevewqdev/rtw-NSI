@@ -21,6 +21,9 @@
     padding-right: 40px;
     margin-bottom: 25px;
 }
+.who__page .hero__content{
+    margin-top: 30px;
+}
 .who__page .hero__content p{
     margin: 0;
 }
