@@ -174,7 +174,53 @@
     left: unset;
     margin-top: -10px;
 }
-
+.form__home{
+    margin-top: 30px;
+}
+.form__home button{
+    min-width: 200px;
+}
+.form__home form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form__home label{
+    width: 60px;
+    font-weight: bold;
+    color: #015D5D;
+    text-transform: uppercase;
+}
+.form__messages{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #015D5D;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.form__home .form__input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+.form__home input{
+    border: none;
+    border-bottom: 1px solid #6C6C6C;
+    max-width: 550px;
+    width: 100%;
+    position: relative;
+    top: -7px;
+}
+.form__home .name__wrapper{
+    width: 100%;
+}
+.form__home .email__wrapper{
+    width: 100%;
+}
 @media(max-width: 1024px){
     .home__page #cause .image img {
         top: 0px;
@@ -209,6 +255,9 @@
     }
 }
 @media(max-width: 600px){
+    .form__home input {
+        max-width: 190px;
+    }
     .home__page #extraordinary__moment {
         padding: 110px 15px 250px;
     }
@@ -225,6 +274,10 @@
     .home__page #in__the__press .col-lg-6 {
         flex: 0 0 80%;
         max-width: 80%;
+    }
+    .home__page #we__serve__because p{
+        max-width: 90%;
+        margin: 8px auto;
     }
     .home__page #in__the__press .press__post__arrow {
         right: unset;

@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React, { useState, useEffect } from 'react';
+import axios from "axios"
 
 export default function Home(props) {
   const customStyles = 
@@ -8,6 +9,98 @@ export default function Home(props) {
     background: black;
   }
   `;
+
+  const [email, setEmail] = useState("")
+  const [name, setName] = useState("")
+  const [status, setStatus] = useState("")
+  const [message, setMessage] = useState("")
+  const [nameStatus, setNameStatus] = useState("")
+  const [nameMessage, setNameMessage] = useState("")
+
+  function submitForm(e) {
+    handleSubmit(e)
+  }
+
+  function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+        	c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+	}
+    return "";
+  }
+
+  function handleSubmit(e) {
+    var SharpSpringTracking = getCookie('__ss_tk')
+
+    e.preventDefault()
+    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    
+    if (email.length === 0) {
+      setStatus("invalid")
+      setMessage("Please, add a valid email address")
+    }else{
+      setStatus("invalid")
+      setMessage("")
+    }
+
+    if (name.length === 0 && name.length < 4) {
+      setNameStatus("invalid")
+      setNameMessage("Please, add a your name and lastname")
+    }else{
+      setNameStatus("invalid")
+      setNameMessage("")
+    }
+    if (email && email.length > 0 && name && name.length) {
+      
+      if (email.match(mailformat)) {
+        const form = new FormData()
+
+        form.set('your-name', name)
+        form.set('your-email', email)
+
+        var sharpName = name.split(" ")[0];
+        var sharpLastName = name.split(" ")[1];
+
+        // Add Lead to SharpSpring
+        var xhr = new XMLHttpRequest()
+        xhr.open('POST', `https://app-3QNMWRHCZE.marketingautomation.services/webforms/receivePostback/MzawMLEwMjM1BQA/2634af05-920a-4055-9b6a-e4592ec85d29/jsonp/?firstName=${sharpName}&LastName=${sharpLastName}&email=${email}&trackingid__sb=${SharpSpringTracking}`);
+        xhr.send()
+
+        axios.post('https://stm.raxo.dev/wp-json/contact-form-7/v1/contact-forms/7/feedback', form, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }).then(response => {
+            setStatus("success")
+            setMessage("Thanks for subscribing") 
+            setName("");
+            setEmail("");
+        }).catch(err => {
+          setStatus("error")
+          setMessage("We could not subscribed you at the moment, please try again later")
+        })
+
+      } else {
+          setStatus("invalid")
+          setMessage("Please, add a valid email address")
+
+          setNameStatus("invalid")
+          setNameMessage("Please, add a your name and lastname")
+      }
+    }
+  }
+  function handleEmailChange(e) {
+    setEmail(e.currentTarget.value)
+  }
+  function handleNameChange(e) {
+    setName(e.currentTarget.value)
+  }
 
   return (
     <>
@@ -109,6 +202,89 @@ export default function Home(props) {
                   className={`description poppins medium teal-text slg text-center`}
                   dangerouslySetInnerHTML={{ __html: props.acfData.acf.description_four }}
                 />
+              </div>
+            </div>
+            <div className="row form__home">
+              <div className="col-md-12">
+                <form onSubmit={handleSubmit}>
+                  <label htmlFor="email" style={{ display: "none" }}></label>
+                  <div className="name__wrapper">
+                    <div className="form__input">
+                      <label htmlFor="name">Name</label>
+                      <input
+                        type="text"
+                        className="ab__font dark__font bold__font name__input"
+                        name="name"
+                        onChange={handleNameChange}
+                        value={name}
+                      />
+                    </div>
+                    <div className="form__messages">
+
+                      {nameStatus === "error" ? (
+                        <div
+                          className={`form__${status} form__message sm__font bold__font`}
+                          dangerouslySetInnerHTML={{ __html: nameMessage }}
+                        />
+                      ) : (
+                        ""
+                      )}
+                      {nameStatus === "invalid" ? (
+                        <div
+                          className={`form__email__wrong form__message sm__font bold__font`}
+                        >
+                          {nameMessage}
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                  <div className="email__wrapper">
+                    <div className="form__input">
+                      <label htmlFor="email">Email</label>
+                      <input
+                        type="email"
+                        className="ab__font dark__font bold__font email__input"
+                        name="email"
+                        onChange={handleEmailChange}
+                        value={email}
+                      />
+                    </div>
+
+                    <div className="form__messages">
+                      {status === "success" ? (
+                        <div
+                          className={`form__${status} form__message sm__font bold__font form__is__sent`}
+                          dangerouslySetInnerHTML={{ __html: message }}
+                        />
+                      ) : (
+                        ""
+                      )}
+                      {status === "error" ? (
+                        <div
+                          className={`form__${status} form__message sm__font bold__font`}
+                          dangerouslySetInnerHTML={{ __html: message }}
+                        />
+                      ) : (
+                        ""
+                      )}
+                      {status === "invalid" ? (
+                        <div
+                          className={`form__email__wrong form__message sm__font bold__font`}
+                        >
+                          {message}
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                  
+
+                  <button onClick={submitForm} class="btn main-btn teal" tabindex="-1"><strong>SEND</strong></button>
+                  
+                </form>
               </div>
             </div>
           </div>
