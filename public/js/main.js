@@ -2568,7 +2568,7 @@ $(document).on("click", ".close__popup" , function() {
     $('.popup__parent__contact').hide();
     $('body').css('overflow', 'unset');
 
-    history.pushState(null, '', `/make-an-impact`);    
+    history.pushState(null, '', `/volunteer`);    
 });
 
 $(document).on("click", ".close__background" , function(event) {
@@ -2577,7 +2577,7 @@ $(document).on("click", ".close__background" , function(event) {
     $('.popup__parent__contact').hide();
     $('body').css('overflow', 'unset');
 
-    history.pushState(null, '', `/make-an-impact`);    
+    history.pushState(null, '', `/volunteer`);    
 });
 // ====== END OF click event that handles the close popup ====== // 
 
@@ -2795,7 +2795,7 @@ $(document).on("click", ".register__button__popup" , function(e) {
         $('.popup__parent__contact').hide();
         $('body').css('overflow', 'unset');
     
-        history.pushState(null, '', `/make-an-impact`); 
+        history.pushState(null, '', `/volunteer`); 
         
         var popup = document.createElement("div");
             popup.setAttribute('class', 'popup__parent popup__register');
