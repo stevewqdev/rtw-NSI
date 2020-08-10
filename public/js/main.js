@@ -135,12 +135,12 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
             element.Context__c = element.Context__c+";"+"Ongoing"
         }
 
-        if(element.Serve_the_Moment_Registration_Link__c){
-            if(element.Serve_the_Moment_Registration_Link__c.length <= 0){
-                element.Serve_the_Moment_Registration_Link__c = '';
+        if(element.External_Site_URL__c){
+            if(element.External_Site_URL__c.length <= 0){
+                element.External_Site_URL__c = '';
             }else{
-                if(element.Serve_the_Moment_Registration_Link__c.includes("</a>")){
-                    element.Serve_the_Moment_Registration_Link__c = element.Serve_the_Moment_Registration_Link__c.split('"')[1];
+                if(element.External_Site_URL__c.includes("</a>")){
+                    element.External_Site_URL__c = element.External_Site_URL__c.split('"')[1];
                 }
             }
         }
