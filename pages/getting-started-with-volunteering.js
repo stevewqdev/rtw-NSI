@@ -71,7 +71,7 @@ export default class GettingStarted extends Component {
             resultArray[chunkIndex] = [] // start a new chunk
             }
         
-            if(item.acf.resource_category.value === "miscellaneous"){
+            if(item.acf.resource_category.slug === "miscellaneous"){
                 resultArray[chunkIndex].push(item);
             }
         
@@ -140,7 +140,7 @@ export default class GettingStarted extends Component {
                 if(selectedFiltersHolder.length > 0){
                     selectedFiltersHolder.map((selected_filter) => {
                         this.state.resources.map((resource) => {
-                            let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                            let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
         
                             if(categoryName === selected_filter){
                                 newResources.push(resource);
@@ -215,7 +215,7 @@ export default class GettingStarted extends Component {
             if(selectedFiltersHolder.length > 0){
                 selectedFiltersHolder.map((selected_filter) => {
                     this.state.resources.map((resource) => {
-                        let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                        let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
     
                         if(categoryName === selected_filter){
                             newResources.push(resource);
@@ -288,7 +288,7 @@ export default class GettingStarted extends Component {
             if(selectedFiltersHolder.length > 0){
                 selectedFiltersHolder.map((selected_filter) => {
                     this.state.resources.map((resource) => {
-                        let categoryName = resource.acf.resource_category.label.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                        let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
     
                         if(categoryName === selected_filter){
                             newResources.push(resource);
@@ -338,7 +338,7 @@ export default class GettingStarted extends Component {
         this.props.resourceData.map((resource) => {
             let categoryObject = []; 
             
-            categoryFilters.push(resource.acf.resource_category.label)
+            categoryFilters.push(resource.acf.resource_category.name)
 
             return true
         })
@@ -359,6 +359,7 @@ export default class GettingStarted extends Component {
     }
 
     componentDidMount(){
+        console.log(this.props.resourceData);
         // Create first batch of resources
         var perChunk = 6 // items per chunk    
 
@@ -371,7 +372,7 @@ export default class GettingStarted extends Component {
             if(!resultArray[chunkIndex]) {
             resultArray[chunkIndex] = [] // start a new chunk
             }
-            if(item.acf.resource_category.value === "miscellaneous"){
+            if(item.acf.resource_category.slug === "miscellaneous"){
                 resultArray[chunkIndex].push(item);
             }
             return resultArray;
@@ -410,6 +411,7 @@ export default class GettingStarted extends Component {
 
     render() {
         return (
+
             <main className={'getting__started'}>
                 <section id="main__hero">
                     <div className="main__hero__background">
@@ -527,7 +529,7 @@ export default class GettingStarted extends Component {
                                                     {
                                                         this.state.filteredResources[this.state.currentPage].map((filtered, index) => (
                                                             <div 
-                                                              className={`filter__result__item ${filtered.acf.resource_category.label.replace(/ /g, '')
+                                                              className={`filter__result__item ${filtered.acf.resource_category.name.replace(/ /g, '')
                                                               .replace(/,/g, '') 
                                                               .replace(/-/g, '') 
                                                               .replace(/!/g, '')
@@ -541,25 +543,25 @@ export default class GettingStarted extends Component {
                                                                 <div className="category__icon">
                                                                     {
                                                                         
-                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "hungerandfoodaccess"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "hungerandfoodaccess"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo1991.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "education"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "education"
                                                                         ?
                                                                         <img loading="lazy" src="/images/Grupo2044.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "employment"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "employment"
                                                                         ?
                                                                         <img loading="lazy" src="/images/Grupo2045.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.label.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthsocialisolation"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthsocialisolation"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
