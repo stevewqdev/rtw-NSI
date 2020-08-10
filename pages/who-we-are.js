@@ -274,7 +274,12 @@ export default class WhoWeAre extends Component {
                                 this.props.teamData.map((team_member, index) => (
                                     <div className="team__member col-sm-12 col-md-4 col-lg-3" data-city={team_member.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()} key={index}>
                                         <div className="team__avatar d-flex justify-content-center align-items-center">
-                                            <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
+                                            {
+                                                team_member.better_featured_image
+                                                ? <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
+                                                : ""
+                                            }
+                                            
                                         </div>
                                         <div className="team__title text-center">
                                             <h3 class="poppins bold slg teal-text text-uppercase">
@@ -309,7 +314,11 @@ export default class WhoWeAre extends Component {
                                 this.props.boardData.map((team_member, index) => (
                                     <div className="team__member col-sm-12 col-md-4 col-lg-3" data-city={team_member.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()} key={index}>
                                         <div className="team__avatar d-flex justify-content-center align-items-center">
-                                            <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
+                                            {
+                                                team_member.better_featured_image
+                                                ? <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
+                                                : ""
+                                            }
                                         </div>
                                         <div className="team__title text-center">
                                             <h3 class="poppins bold slg white-text text-uppercase">

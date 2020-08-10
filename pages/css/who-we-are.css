@@ -99,6 +99,13 @@
 .team__members{
     margin-top: 35px;
 }
+.team__members img{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 100%;
+    object-position: center;
+}
 .team__members h3{
     margin: 40px 0 15px 0;
 }
