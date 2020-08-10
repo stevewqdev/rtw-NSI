@@ -1056,7 +1056,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
     }
     var searchHit = false;
     
-    if($('.location_get').length || $('.issue_get').length || $('.partner_get').length || $('.date_get .start').length  ){
+    if($('.location_get').length || $('.issue_get').length || $('.partner_get').length || $('.date_get .start').length || $('.type_get').length ){
         searchHit = true;
         searchData = new Array('', '', '', '', '', '');
         if($('.location_get').length){
@@ -1123,7 +1123,17 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             searchData[3][0] = datesLoop;
         }
 
-        searchData[4] = "";
+        if($('.type_get').length){
+            
+            type = $('.type_get')[0].innerHTML; 
+            type = type.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+
+            if(type.length){
+                searchData[4] = type;
+            }else{
+                searchData[4] = type;
+            }
+        }
     }   
 
     setTimeout(function(){

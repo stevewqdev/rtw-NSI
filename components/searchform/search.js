@@ -15,6 +15,7 @@ export default class Search extends Component {
         var issueParam = "";
         var partnerParam = "";
         var startDate = "";
+        var type = "";
         var endDate = "";
 
         paramsArray.map((theParam) => {
@@ -26,7 +27,14 @@ export default class Search extends Component {
                     </div>
                 `;
             }
-            
+            if(theParam[0] === "type" && theParam[1].length > 0 ){
+                type = 
+                `
+                    <div class="type_get">
+                        ${theParam[1]}
+                    </div>
+                `;
+            }
             if(theParam[0] === "issue" && theParam[1].length > 0 ){
                 issueParam = 
                 `
@@ -79,6 +87,7 @@ export default class Search extends Component {
                 ${issueParam}
                 ${partnerParam}
                 ${dateElement}
+                ${type}
             </div>
             `;
 

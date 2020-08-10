@@ -133,8 +133,8 @@ export default function Home(props) {
                 {
                   props.acfData.acf.we_serve_reasons.map((reason, index) => (
                     <div className="col-sm-12 col-md-6 col-lg-4 reason__we__serve" key={index}>
-                      <img loading="lazy" src={reason.image} alt={reason.reason}/>
                       <a href={reason.link}>
+                        <img loading="lazy" src={reason.image} alt={reason.reason}/>
                         <p
                           className={`xl poppins text-uppercase teal-text bold text-center`}
                           dangerouslySetInnerHTML={{ __html: reason.reason }}
