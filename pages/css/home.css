@@ -1,3 +1,6 @@
+*{
+    outline: none!important;
+}
 .home__page #cause {
     padding: 70px 0;
 }

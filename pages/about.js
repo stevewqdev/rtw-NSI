@@ -72,6 +72,20 @@ export default class WhoWeAre extends Component {
         }
     }
 
+    showBio(event){
+
+        var targetEl = document.getElementById(event.target.getAttribute("data-member")); 
+
+        if(targetEl.classList.contains("closed")){
+            targetEl.classList.remove("closed")
+        }else{
+            targetEl.classList.add("closed")
+        }
+        
+
+        
+    }
+
     createCities(){
         var perChunk = 10 // items per chunk    
 
@@ -286,11 +300,14 @@ export default class WhoWeAre extends Component {
                                                 {team_member.title.rendered}
                                             </h3>
                                         </div>
-                                        <div className="team__description">
+                                        <div className="team__description closed" id={`member-1${index}`}>
                                             <div
                                                 className={`poppins medium sm gray-text text-center`}
                                                 dangerouslySetInnerHTML={{ __html: team_member.content.rendered }}
                                             />
+                                            <div className={`read__more__button `} data-member={`member-1${index}`} onClick={this.showBio}>
+                                                +
+                                            </div>
                                         </div>
                                     </div>
                                 ))

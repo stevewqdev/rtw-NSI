@@ -115,6 +115,33 @@
 .team__members p {
     line-height: 22px;
 }
+.read__more__button{
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: #00a99e;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.team__description{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.team__members .closed p{
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
 #team.board{
     background: #015D5D;
 }
