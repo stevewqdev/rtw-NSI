@@ -408,7 +408,7 @@ label[id^="tfa_2584["] {
 
 #tfa_2526,
 *[id^="tfa_2526["] {
-    width: 190px !important;
+    width: auto !important;
 }
 #tfa_2526-D,
 *[id^="tfa_2526["][class~="field-container-D"] {
@@ -417,13 +417,13 @@ label[id^="tfa_2584["] {
 
 #tfa_2526-L,
 label[id^="tfa_2526["] {
-    width: 150px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2528,
 *[id^="tfa_2528["] {
-    width: 30px !important;
+    width: auto !important;
 }
 #tfa_2528-D,
 *[id^="tfa_2528["][class~="field-container-D"] {
@@ -432,13 +432,13 @@ label[id^="tfa_2526["] {
 
 #tfa_2528-L,
 label[id^="tfa_2528["] {
-    width: 56px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2529,
 *[id^="tfa_2529["] {
-    width: 26px !important;
+    width: auto !important;
 }
 #tfa_2529-D,
 *[id^="tfa_2529["][class~="field-container-D"] {
@@ -447,13 +447,13 @@ label[id^="tfa_2528["] {
 
 #tfa_2529-L,
 label[id^="tfa_2529["] {
-    width: 37px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2530,
 *[id^="tfa_2530["] {
-    width: 60px !important;
+    width: auto !important;
 }
 #tfa_2530-D,
 *[id^="tfa_2530["][class~="field-container-D"] {
@@ -462,13 +462,13 @@ label[id^="tfa_2529["] {
 
 #tfa_2530-L,
 label[id^="tfa_2530["] {
-    width: 72px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2525,
 *[id^="tfa_2525["] {
-    width: 198px !important;
+    width: auto !important;
 }
 #tfa_2525-D,
 *[id^="tfa_2525["][class~="field-container-D"] {
@@ -486,13 +486,13 @@ label[id^="tfa_2530["] {
 
 #tfa_2532-L,
 label[id^="tfa_2532["] {
-    width: 99px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2198,
 *[id^="tfa_2198["] {
-    width: 358px !important;
+    width: auto !important;
 }
 #tfa_2198-D,
 *[id^="tfa_2198["][class~="field-container-D"] {
@@ -501,7 +501,7 @@ label[id^="tfa_2532["] {
 
 #tfa_2200,
 *[id^="tfa_2200["] {
-    width: 179px !important;
+    width: auto !important;
 }
 #tfa_2200-D,
 *[id^="tfa_2200["][class~="field-container-D"] {
@@ -510,7 +510,10 @@ label[id^="tfa_2532["] {
 
 #tfa_2186,
 *[id^="tfa_2186["] {
-    width: 298px !important;
+    width: auto !important;
+}
+#tfa_2553-D{
+    display: none!important;
 }
 #tfa_2186-D,
 *[id^="tfa_2186["][class~="field-container-D"] {
@@ -525,7 +528,7 @@ label[id^="tfa_2186["] {
 
 #tfa_2516,
 *[id^="tfa_2516["] {
-    width: 196px !important;
+    width: auto !important;
 }
 #tfa_2516-D,
 *[id^="tfa_2516["][class~="field-container-D"] {
@@ -534,13 +537,13 @@ label[id^="tfa_2186["] {
 
 #tfa_2516-L,
 label[id^="tfa_2516["] {
-    width: 155px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2548,
 *[id^="tfa_2548["] {
-    width: 156px !important;
+    width: auto !important;
 }
 #tfa_2548-D,
 *[id^="tfa_2548["][class~="field-container-D"] {
@@ -549,13 +552,13 @@ label[id^="tfa_2516["] {
 
 #tfa_2548-L,
 label[id^="tfa_2548["] {
-    width: 173px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2549,
 *[id^="tfa_2549["] {
-    width: 156px !important;
+    width: auto !important;
 }
 #tfa_2549-D,
 *[id^="tfa_2549["][class~="field-container-D"] {
@@ -564,13 +567,13 @@ label[id^="tfa_2548["] {
 
 #tfa_2549-L,
 label[id^="tfa_2549["] {
-    width: 155px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2564,
 *[id^="tfa_2564["] {
-    width: 156px !important;
+    width: auto !important;
 }
 #tfa_2564-D,
 *[id^="tfa_2564["][class~="field-container-D"] {
@@ -579,22 +582,29 @@ label[id^="tfa_2549["] {
 
 #tfa_2564-L,
 label[id^="tfa_2564["] {
-    width: 173px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
 #tfa_2553,
 *[id^="tfa_2553["] {
-    width: 164px !important;
+    width: auto !important;
 }
 #tfa_2553-D,
 *[id^="tfa_2553["][class~="field-container-D"] {
     width: auto !important;
 }
+#tfa_2633-L:after {
 
+    right: 7px;
+}
+#tfa_2188-L:after {
+
+    right: 31px;
+}
 #tfa_2553-L,
 label[id^="tfa_2553["] {
-    width: 26px !important;
+    width: auto !important;
     min-width: 0px;
 }
 

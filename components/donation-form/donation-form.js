@@ -231,10 +231,36 @@ export default class DonationForm extends Component {
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "Please complete all the fields in red";
                 }
             }
+
+            setTimeout(function(){
+                var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
+                if(parseInt(newCurrentIndex) === 2){
+                    document.querySelectorAll(".slider__controller .next")[0].classList.add("hidden-element");
+                    document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
+                }else{
+                    document.querySelectorAll(".slider__controller .next")[0].classList.remove("hidden-element");
+                    document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
+                    
+                }
+            }, 100)
+
         }.bind(this), 100)
     }
     previous() {
         this.slider.slickPrev();
+
+        setTimeout(function(){
+            var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
+            console.log(newCurrentIndex);
+            if(parseInt(newCurrentIndex) === 2){
+                document.querySelectorAll(".slider__controller .next")[0].classList.add("hidden-element");
+                document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
+            }else{
+                document.querySelectorAll(".slider__controller .next")[0].classList.remove("hidden-element");
+                document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
+                
+            }
+        }, 100)
     }
     componentDidMount(){
         const script = document.createElement("script");
@@ -272,9 +298,25 @@ export default class DonationForm extends Component {
 
         // }
         // event.target.classList.add("selected");
+        setTimeout(function(){
+            if([...document.querySelectorAll("#tfa_2-D .is_true")].length > 0){
+                document.querySelector("#tfa_2-D").classList.remove("error");
+                document.getElementById("tfa_2-D").parentNode.classList.remove("label__with__message");
+                var selectedPrice = document.querySelectorAll("#tfa_2-D .is_true")[0].getAttribute("id"); 
+                var priceElement = parseInt(document.querySelectorAll(`.${selectedPrice}`)[0].innerHTML.replace(/\$/g, ''));
+    
+                if(priceElement !== 0){
+                    document.getElementById("tfa_2553").value = priceElement
+                }
+    
+                document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
+            }
+
+        }, 100)
     }
     
     toggleSelectPrice(event){
+        
         [...document.querySelectorAll("#tfa_2-D .oneChoice")].map((element) => {
             element.classList.remove("is__toggled");
         });
@@ -430,54 +472,41 @@ export default class DonationForm extends Component {
 
                     if (window.innerWidth < 800) {
                         if(parseInt(currentIndex) === 0){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `auto`;
                         }else{
-                            console.log("here2");
                             document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
                         }
                         if(parseInt(currentIndex) === 1){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `1450px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `500px`;
                         }
                     }else if (window.innerWidth < 600) {
                         if(parseInt(currentIndex) === 0){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `auto`;
                         }else{
-                            console.log("here2");
                             document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
                         }
                         if(parseInt(currentIndex) === 1){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `1500px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `500px`;
                         }
                     }
                     else{
                         if(parseInt(currentIndex) === 0){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `auto`;
                         }else{
-                            console.log("here2");
-                            document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `600px`;
                         }
                         if(parseInt(currentIndex) === 1){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `790px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            console.log("here");
                             document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
-
                     }
 
                 }, 100)
