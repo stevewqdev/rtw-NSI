@@ -34,7 +34,7 @@ export default function TheExperience(props) {
                     {
                         props.acfData.acf.resource_category.map((category, index) => (
                             <div className="col-sm-12 col-md-6 col-lg-6 resource__category">
-                                <a href={`/join-the-corps?resource_cat=${category.category[0].slug}`} key={index}>
+                                <a href={`/all-resources?resource_cat=${category.category[0].slug}`} key={index}>
                                     <div className="resource__category__internal">
                                         <img loading="lazy" className={`category__image`} src={`${category.image}`} alt={`${category.category[0].name} image resource`}/>
                                         <div className="resource__category__internal__meta">

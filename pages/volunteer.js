@@ -113,8 +113,8 @@ render() {
                                 <div className="col-sm-12 col-md-6 col-lg-6  text-center">
                                     <div className="additional__opportunity">
                                         <a href={oppotunity.link} target="_BLANK" key={index}>
-                                            <h4 className={`poppins teal-text bold`}>{oppotunity.partner}</h4>
-                                            <p className={`poppins bold sm gray-text text-uppercase`}>{oppotunity.description}</p>
+                                            <h4 className={`poppins teal-text bold`}>{oppotunity.description}</h4>
+                                            <p className={`poppins bold sm gray-text text-uppercase`}>{oppotunity.partner}</p>
                                         </a>
                                     </div>
                                 </div>

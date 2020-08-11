@@ -1,673 +1,259 @@
-import React, { Component } from 'react'
-import { useRouter } from 'next/router'
-
-export default class GettingStarted extends Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-          resources: this.props.resourceData,
-          filteredResources: [], 
-          resourceFilters: [],
-          totalPages: [],
-          currentPage: 0,
-          prevPage: -1, 
-          nextPage: 1, 
-          selectedFilters: [],
-          search: false, 
-      };
+import Head from 'next/head'
+import React, { useState, useEffect } from 'react';
+import Slider from "react-slick";
 
 
-      this.nextPage = this.nextPage.bind(this);
-      this.prevPage = this.prevPage.bind(this);
-      this.cleanSearch = this.cleanSearch.bind(this);
-      this.toggleTag = this.toggleTag.bind(this);
-      
+export default function TheExperience(props) {
+
+  const settings = {
+    dots: true,
+    arrows: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
+  function openFaq(event){
+    if(event.target.classList.contains("open")){
+        event.target.classList.remove("open");
+    }else{
+        event.target.classList.add("open");
     }
+  }
 
-    nextPage(event){
-        let nextPageNumber = event.target.getAttribute("data-page");
+  function showFaqs(event){
+    var moreFaqs = [...document.querySelectorAll(".more__faqs")];
 
-        this.setState({
-            currentPage: parseInt(nextPageNumber),
-            prevPage: parseInt(nextPageNumber) - 1, 
-            nextPage: parseInt(nextPageNumber) + 1, 
-        });
-    }
+    if(event.target.classList.contains("open__resource")){
+        event.target.classList.remove("open__resource"); 
 
-    prevPage(event){
-        let prevPage = event.target.getAttribute("data-page");
+        moreFaqs.map((element) => {
+            element.classList.add("hidden__faq");
 
-        this.setState({
-            currentPage: parseInt(prevPage),
-            prevPage: parseInt(prevPage) - 1, 
-            nextPage: parseInt(prevPage) + 1, 
-        });
-    }
-
-
-    cleanSearch(event){
-        var activeTags = [...document.querySelectorAll(".filter__tags .active")];
-        var selectedFiltersHolder = [];
-
-        activeTags.map((activeTag) => {
-            activeTag.classList.remove("active");
             return true; 
         })
-        
-        this.setState({
-            selectedFilters: [],
-            search: false, 
-        });
 
-        // Create first batch of resources
-        var perChunk = 6 // items per chunk    
+        document.querySelectorAll(".view__resources p")[0].innerHTML = "VIEW ALL FAQS";
+    }else{
+        event.target.classList.add("open__resource"); 
 
-        var inputArray = this.props.resourceData;
-        
-        var result = inputArray.reduce((resultArray, item, index) => { 
-            const chunkIndex = Math.floor(index/perChunk)
-        
-            if(!resultArray[chunkIndex]) {
-            resultArray[chunkIndex] = [] // start a new chunk
-            }
-        
-            //if(item.acf.resource_category.slug === "miscellaneous"){
-                resultArray[chunkIndex].push(item);
-            //}
-        
-            return resultArray
-        }, [])
-        
-        var theTotalPages = Math.round(this.props.resourceData.length / 6); 
+        moreFaqs.map((element) => {
+            element.classList.remove("hidden__faq");
 
-        if(theTotalPages  === 0){
-            theTotalPages = 1;
-        }
-
-        this.setState({
-            filteredResources: result,
-            totalPages: theTotalPages,
-        });  
-
-
-    }
-
-    toggleTag(event, prevalue = 0){
-
-
-        this.setState({
-            search: true, 
-        });
-
-        this.setState({
-            selectedFilters: [],
-        });
-
-        if(event.type === "keydown"){
-            if(event.which === 32 || event.which === 13){
-
-                if(prevalue.length > 0){
-                    var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
-                    
-                    if(selectedElement[0].classList.contains("active")){
-                        selectedElement[0].classList.remove("active");
-                    }else{
-                        selectedElement[0].classList.add("active");
-                    }
-                    
-                }else{
-                    if(event.target.classList.contains("active")){
-                        event.target.classList.remove("active");
-                    }else{
-                        event.target.classList.add("active");
-                    }
-                }
-        
-                var activeTags = [...document.querySelectorAll(".filter__tags .active")];
-                var selectedFiltersHolder = [];
-        
-                activeTags.map((activeTag) => {
-                    selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
-                    return true; 
-                })
-                
-                this.setState({
-                    selectedFilters: selectedFiltersHolder,
-                });
-        
-                // We create the new array of resources based on the selected filters
-                let newResources = []; 
-        
-                if(selectedFiltersHolder.length > 0){
-                    selectedFiltersHolder.map((selected_filter) => {
-                        this.state.resources.map((resource) => {
-                            let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-        
-                            if(prevalue === "all"){
-                                newResources.push(resource);
-                            }else{
-                                if(categoryName === selected_filter){
-                                    newResources.push(resource);
-                                }
-                            }
-                        })
-                    })
-                }else{
-                    newResources = this.props.resourceData;
-                }
-        
-                newResources = [...new Set(newResources)];
-        
-                // Create first batch of resources
-                var perChunk = 6 // items per chunk    
-        
-                var inputArray = newResources;
-                
-                var result = inputArray.reduce((resultArray, item, index) => { 
-                  const chunkIndex = Math.floor(index/perChunk)
-                
-                  if(!resultArray[chunkIndex]) {
-                    resultArray[chunkIndex] = [] // start a new chunk
-                  }
-                
-                  resultArray[chunkIndex].push(item)
-                
-                  return resultArray
-                }, [])
-                var theTotalPages = Math.round(newResources.length / 6); 
-                if(theTotalPages  === 0){
-                    theTotalPages = 1;
-                }
-        
-                this.setState({
-                    filteredResources: result,
-                    totalPages: theTotalPages,
-                });  
-            }
-        }else if(event.type === "click"){
-            if(prevalue.length > 0){
-                var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
-                
-                if(selectedElement[0].classList.contains("active")){
-                    selectedElement[0].classList.remove("active");
-                }else{
-                    selectedElement[0].classList.add("active");
-                }
-                
-            }else{
-                if(event.target.classList.contains("active")){
-                    event.target.classList.remove("active");
-                }else{
-                    event.target.classList.add("active");
-                }
-            }
-    
-            var activeTags = [...document.querySelectorAll(".filter__tags .active")];
-            var selectedFiltersHolder = [];
-    
-            activeTags.map((activeTag) => {
-                selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
-                return true; 
-            })
-            
-            this.setState({
-                selectedFilters: selectedFiltersHolder,
-            });
-    
-            // We create the new array of resources based on the selected filters
-            let newResources = []; 
-    
-            if(selectedFiltersHolder.length > 0){
-                selectedFiltersHolder.map((selected_filter) => {
-                    this.state.resources.map((resource) => {
-                        let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-    
-                        if(prevalue === "all"){
-                            newResources.push(resource);
-                        }else{
-                            if(categoryName === selected_filter){
-                                newResources.push(resource);
-                            }
-                        }
-                    })
-                })
-            }else{
-                newResources = this.props.resourceData;
-            }
-    
-            newResources = [...new Set(newResources)];
-    
-            // Create first batch of resources
-            var perChunk = 6 // items per chunk    
-    
-            var inputArray = newResources;
-            
-            var result = inputArray.reduce((resultArray, item, index) => { 
-              const chunkIndex = Math.floor(index/perChunk)
-            
-              if(!resultArray[chunkIndex]) {
-                resultArray[chunkIndex] = [] // start a new chunk
-              }
-            
-              resultArray[chunkIndex].push(item)
-            
-              return resultArray
-            }, [])
-            var theTotalPages = Math.round(newResources.length / 6); 
-            if(theTotalPages  === 0){
-                theTotalPages = 1;
-            }
-            this.setState({
-                filteredResources: result,
-                totalPages: theTotalPages,
-            });  
-        }else{
-            if(prevalue.length > 0){
-                var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
-                if(selectedElement.length > 0){
-                    if(selectedElement[0].classList.contains("active")){
-                        selectedElement[0].classList.remove("active");
-                    }else{
-                        selectedElement[0].classList.add("active");
-                    }
-                }
-                
-            }else{
-                if(event.target.classList.contains("active")){
-                    event.target.classList.remove("active");
-                }else{
-                    event.target.classList.add("active");
-                }
-            }
-    
-            var activeTags = [...document.querySelectorAll(".filter__tags .active")];
-            var selectedFiltersHolder = [];
-    
-            activeTags.map((activeTag) => {
-                selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
-                return true; 
-            })
-            
-            this.setState({
-                selectedFilters: selectedFiltersHolder,
-            });
-    
-            // We create the new array of resources based on the selected filters
-            let newResources = []; 
-    
-            if(selectedFiltersHolder.length > 0){
-                selectedFiltersHolder.map((selected_filter) => {
-                    this.state.resources.map((resource) => {
-                        let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-    
-                        if(categoryName === selected_filter){
-                            newResources.push(resource);
-                        }
-                    })
-                })
-            }else{
-                newResources = this.props.resourceData;
-            }
-    
-            newResources = [...new Set(newResources)];
-    
-            // Create first batch of resources
-            var perChunk = 6 // items per chunk    
-    
-            var inputArray = newResources;
-            
-            var result = inputArray.reduce((resultArray, item, index) => { 
-              const chunkIndex = Math.floor(index/perChunk)
-            
-              if(!resultArray[chunkIndex]) {
-                resultArray[chunkIndex] = [] // start a new chunk
-              }
-            
-              resultArray[chunkIndex].push(item)
-            
-              return resultArray
-            }, [])
-            var theTotalPages = Math.round(newResources.length / 6); 
-            if(theTotalPages  === 0){
-                theTotalPages = 1;
-            }
-            this.setState({
-                filteredResources: result,
-                totalPages: theTotalPages,
-            });  
-        }
-
-    }
-
-
-
-    componentWillMount(){
-
-        // Create Filters
-        let categoryFilters = [];
-        this.props.resourceData.map((resource) => {
-            let categoryObject = []; 
-            
-            categoryFilters.push(resource.acf.resource_category.name)
-
-            return true
+            return true; 
         })
 
-        categoryFilters = [...new Set(categoryFilters)];
-        categoryFilters = categoryFilters.sort();
-
-        categoryFilters.map((element, index) => {
-            if(element === "Miscellaneous"){
-                categoryFilters.push(categoryFilters.splice(index, 1)[0]);
-            }
-        })
-
-        this.setState({
-          resourceFilters: categoryFilters,
-        });
-
+        document.querySelectorAll(".view__resources p")[0].innerHTML = "HIDE FAQS";
     }
-
-    componentDidMount(){
-        
-        // Create first batch of resources
-        var perChunk = 6 // items per chunk    
-
-        var inputArray = this.props.resourceData;
-        
-        var result = inputArray.reduce((resultArray, item, index) => { 
-            
-            const chunkIndex = Math.floor(index/perChunk)
-        
-            if(!resultArray[chunkIndex]) {
-            resultArray[chunkIndex] = [] // start a new chunk
-            }
-            //if(item.acf.resource_category.slug === "miscellaneous"){
-                resultArray[chunkIndex].push(item);
-            //}
-            return resultArray;
-            
-        }, [])
-        
-        var theTotalPages = Math.round(this.props.resourceData.length / 6); 
-
-        if(theTotalPages  === 0){
-            theTotalPages = 1;
-        }
-
-        this.setState({
-            filteredResources: result,
-            totalPages: theTotalPages,
-        });  
-
-        var queryString = window.location.search;
+    
+  }
 
 
-        if(queryString.length > 0){           
-            queryString = queryString.replace(/\?/g, '').split("&");
-            queryString =  queryString[0].split("=")[1].replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-
-            if(queryString === "hunger"){
-                queryString = "hungerandfoodaccess"; 
-            }
-            
-            if(queryString === "health"){
-                queryString = "mentalhealthsocialisolation"; 
-            }
-
-            this.toggleTag("0", queryString); 
-        }
-
-    }
-
-    render() {
-        return (
-
-            <main className={'getting__started'}>
-                <section id="main__hero">
-                    <div className="main__hero__background">
-                        <img loading="lazy" src={this.props.pageData.better_featured_image.source_url} alt={`Getting Started Background`}/>
+  return (
+    <main className="experience__page">
+        <div className="hero__container">
+            <div className="stm__background">
+                <svg xmlns="http://www.w3.org/2000/svg" width="768" height="561.153" viewBox="0 0 768 561.153">
+                    <g id="Grupo_1933" data-name="Grupo 1933" transform="translate(-1034.838 -263.064)">
+                        <g id="Grupo_1934" data-name="Grupo 1934" transform="translate(1034.838 263.064)">
+                        <path id="Trazado_2304" data-name="Trazado 2304" d="M1134.227,645.159l-125.69-125.513-86.07,86.3a8.808,8.808,0,0,1-12.455.033l-.032-.033-55.332-55.129a8.833,8.833,0,0,1,0-12.488l93.074-92.821L807.248,305.152q-3.132-3.354-6.491-6.486l-.782-.781-.126-.064A132.538,132.538,0,0,0,620.7,493.193q20.263,21.662,42.574,41.277L947.75,818.948a17.918,17.918,0,0,0,25.342.04l.04-.04,22.718-22.59L899.22,699.7l19.645-19.366,89.851,90.08a8.959,8.959,0,0,0,12.67.02l.021-.02,16.32-16.347a8.934,8.934,0,0,0,.056-12.635l-.056-.056L947.648,651.5l19.391-19.417,89.927,90.105a8.934,8.934,0,0,0,12.635.056l.056-.056L1085.928,706a8.961,8.961,0,0,0,.02-12.671l-.02-.02-90-90,19.088-19.7,90.511,90.333a8.934,8.934,0,0,0,12.635.056l.056-.056,16.015-16.092a8.935,8.935,0,0,0,.056-12.635Z" transform="translate(-577.838 -263.064)" fill="#f7f7f7"/>
+                        <path id="Trazado_2305" data-name="Trazado 2305" d="M1317.328,478.3a132.539,132.539,0,0,0-205.044-167.964L897.694,538.76a8.96,8.96,0,0,0-.021,12.671l.021.02,16.117,16.143a8.96,8.96,0,0,0,12.671.02l.02-.02,85.969-86.3,138.912,138.636a17.9,17.9,0,0,0,25.306.076c.025-.026.051-.051.076-.076l127.709-127.71q3.035-2.85,5.886-5.887l7.551-7.551Z" transform="translate(-578.291 -263.064)" fill="#f7f7f7"/>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-sm-12 col-md-6 col-lg-6 hero__content">
+                        <div className="hero__content__title">
+                            <h2
+                                className={`poppins bold xxmd teal-text`}
+                                dangerouslySetInnerHTML={{ __html: props.acfData.acf.title }}
+                            />
+                        </div>
+                        <div className="hero__content__description">
+                            <div
+                                className={`md poppins medium teal-text`}
+                                dangerouslySetInnerHTML={{ __html: props.acfData.acf.description }}
+                            />
+                        </div>
+                        <div className="hero__content__button">
+                            <a href={props.acfData.acf.button_link} tabIndex="0">
+                                <button className={`btn main-btn clear-teal`} tabIndex="-1">
+                                    <strong>
+                                        {props.acfData.acf.button_text}
+                                    </strong>
+                                </button>
+                            </a>
+                        </div>
                     </div>
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12 no__padding">
-                                <div className="main__hero__title">
-                                    <h2
-                                        className={`poppins bold xxmd white-text`}
-                                        dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.title }}
-                                    />
-                                </div>
+                    <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
+                        <img loading="lazy" src={props.acfData.acf.image} alt="The Experience Image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="experience__members">
+            <div className="container-fluid no__padding">
+                <div className="row">
+                    <div className="col-lg-12 no__padding experience__background">
+                        <img loading="lazy" src={props.acfData.acf.section_image} alt="Moment Corps Members"/>
+                    </div>
+                </div>
+            </div>
+
+            <div className="container experience__member__square">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="experience__ms__wrapper">
+                            <div className="experience__ms__description">
+                                <div
+                                    className={`md poppins medium white-text`}
+                                    dangerouslySetInnerHTML={{ __html: props.acfData.acf.description_two }}
+                                />
+                            </div>
+                            <div className="experience__ms__button">
+                                {
+                                    props.acfData.acf.section_buttons.map((button, index)=> (
+                                        <a href={button.button_link} target="_BLANK" key={index} tabIndex="0">
+                                            <button className={`btn main-btn white-btn`} tabIndex="-1">
+                                                <strong>
+                                                    {button.button_text}
+                                                </strong>
+                                            </button>
+                                        </a>
+                                    ))
+                                }
                             </div>
                         </div>
-                        <div className="main__hero__resources row">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience__slider">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12 slides__title">
+                        <h2
+                            className={`poppins bold teal-text text-center faqs__title`}
+                            dangerouslySetInnerHTML={{ __html: props.acfData.acf.slide_title }}
+                        />
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="col-lg-12 slides">
+                        <Slider {...settings}>
+                                {
+                                    props.acfData.acf.slide_content.map((slide, index) => (
+                                        <div className="the__slide" key={index}>
+                                            <div className="slide__image">
+                                                <img loading="lazy" src={slide.image} alt="person photo"/>
+                                            </div>
+                                            <div className="slide__content">
+                                                <div className="slide__quote__icon">
+                                                    <p className={`poppins`}>"</p>
+                                                </div>
+                                                <div className="slide__quote">
+                                                    <div
+                                                        className={`md poppins medium teal-text`}
+                                                        dangerouslySetInnerHTML={{ __html: slide.quote }}
+                                                    />
+                                                </div>
+                                                <div className="slide__quote__icon">
+                                                    <p className={`poppins`}>"</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                        </Slider>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faqs">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12 ">
+                        <h2
+                            className={`poppins bold teal-text text-center faqs__title`}
+                            dangerouslySetInnerHTML={{ __html: props.acfData.acf.title_three }}
+                        />
+                        <div className="faqs__wrapper">
                             {
-                                this.props.acfData.acf.featured_resources.map((resource, index) => (
-                                    <div className="resource" key={index}>
-                                        <a href={resource.acf.external_link} target="_BLANKK">
-                                            <div className="resource__title">
-                                                <h2
-                                                    className={`poppins bold lg white-text`}
-                                                    dangerouslySetInnerHTML={{ __html: resource.post_title }}
-                                                />
+                                props.faqsData.map((faq, index) => (
+                                    <div className={`the__faq ${index > 2 ? "more__faqs hidden__faq": ""}
+                                    `} key={index} onClick={openFaq}>
+                                        <div className="title">
+                                            <h4 className={` bold teal-text`}>{faq.title.rendered}</h4>
+
+                                            <div className="arrow">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="18.188" height="10.393" viewBox="0 0 18.188 10.393">
+                                                    <path id="Hover" d="M104.432,32.715,97.446,39.49a1.3,1.3,0,0,0,1.837,1.837l7.795-7.795a1.3,1.3,0,0,0,0-1.835v0L99.291,23.9a1.3,1.3,0,0,0-1.845,1.837l6.986,6.975" transform="translate(-23.52 107.459) rotate(-90)" fill="#015d5d" fillRule="evenodd"/>
+                                                </svg>
                                             </div>
-                                            <div className="resource__subtitle">
-                                                <p
-                                                    className={`poppins bold sm white-text text-uppercase`}
-                                                    dangerouslySetInnerHTML={{ __html: resource.acf.subtitle }}
-                                                />
-                                            </div>
-                                        </a>
+                                        </div>
+                                        
+                                        <div
+                                            className={`description md poppins medium teal-text`}
+                                            dangerouslySetInnerHTML={{ __html: faq.content.rendered }}
+                                        />
+                                        
                                     </div>
                                 ))
                             }
                         </div>
-                    </div>
-                </section>
-
-                <section id="resource__filter">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-12 resource__filter__title text-left no__padding">
-                                <h2
-                                    className={`poppins  bold teal-text `}
-                                    dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.resources_filter_title
-                                    }}
-                                />
-                            </div>
-                        </div>
-                        <div className="row filter__tags">
-                            <div className="container">
-                                <div className="row">
-                                    {
-                                        this.state.resourceFilters.map((resource, index) => (
-                                            <div 
-                                                tabIndex="0"
-                                                className={`resource__filter__tag ${resource.replace(/ /g, '')
-                                                .replace(/,/g, '') 
-                                                .replace(/-/g, '') 
-                                                .replace(/!/g, '')
-                                                .replace(/ /g, '')
-                                                .replace(/'/g, '')
-                                                .replace(/\//g, '')
-                                                .replace(/\./g, '')
-                                                .toLowerCase()}`} 
-                                                data-category={`${resource.replace(/ /g, '')
-                                                    .replace(/,/g, '') 
-                                                    .replace(/-/g, '') 
-                                                    .replace(/!/g, '')
-                                                    .replace(/ /g, '')
-                                                    .replace(/'/g, '')
-                                                    .replace(/\//g, '')
-                                                    .replace(/\./g, '')
-                                                    .toLowerCase()}`
-                                                }
-                                                key={index}
-                                                onClick={this.toggleTag} onKeyDown={this.toggleTag} key={index}
-                                                >
-                                                <p className={`poppins bold md text-uppercase`}>
-                                                    {resource}
-                                                </p>
-                                            </div>
-                                        ))
-                                    }
-                                    {
-                                        this.state.search
-                                        ?
-                                        <div 
-                                            tabIndex="0"
-                                            className={`resource__filter__tag clear__search`} 
-                                            onClick={this.cleanSearch} onKeyDown={this.cleanSearch}
-                                            >
-                                            <p className={`poppins bold md text-uppercase `}>
-                                             ╳
-                                            </p>
-                                        </div>
-                                        :""
-                                    }
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row filter__results">
-                            <div className="container">
-                                <div className="row">
-                                    {
-                                        <>
-                                            {
-                                                this.state.filteredResources.length
-                                                ?
-                                                <>
-                                                    {
-                                                        this.state.filteredResources[this.state.currentPage].map((filtered, index) => (
-                                                            <div 
-                                                              className={`filter__result__item ${filtered.acf.resource_category.name.replace(/ /g, '')
-                                                              .replace(/,/g, '') 
-                                                              .replace(/-/g, '') 
-                                                              .replace(/!/g, '')
-                                                              .replace(/ /g, '')
-                                                              .replace(/'/g, '')
-                                                              .replace(/\//g, '')
-                                                              .replace(/\./g, '')
-                                                              .toLowerCase()}`}
-                                                              key={index}
-                                                              >
-                                                                <div className="category__icon">
-                                                                    {
-                                                                        
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "hungerandfoodaccess"
-                                                                        ?
-                                                                        <img  loading="lazy" src="/images/Grupo1991.svg" alt={`${filtered.title.rendered} icon`}/>
-                                                                        : ""
-                                                                    }
-                                                                    {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "education"
-                                                                        ?
-                                                                        <img loading="lazy" src="/images/Grupo2044.svg" alt={`${filtered.title.rendered} icon`}/>
-                                                                        : ""
-                                                                    }
-                                                                    {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "employment"
-                                                                        ?
-                                                                        <img loading="lazy" src="/images/Grupo2045.svg" alt={`${filtered.title.rendered} icon`}/>
-                                                                        : ""
-                                                                    }
-                                                                    {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthsocialisolation"
-                                                                        ?
-                                                                        <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
-                                                                        : ""
-                                                                    }
-                                                                </div>
-                                                                <a href={filtered.acf.external_link} target="_BLANK" aria-label={filtered.title.rendered} >
-                                                                    <div className="filtered__resource__item" >
-                                                                        <h2 className={`title poppins teal-text bold xxl`}>{filtered.title.rendered}</h2>
-                                                                        <p className={`title poppins gray-text bold text-uppercase sm`}>{filtered.acf.subtitle}</p>
-                                                                    </div>
-                                                                    <div className="filtered__resource__link">
-                                                                            <span className="absolute__name">{filtered.title.rendered}</span>
-                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="29.889" height="11.96" viewBox="0 0 29.889 11.96">
-                                                                            <path id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
-                                                                            </svg>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        )) 
-                                                    }
-                                                </>
-                                                : ""
-                                            }
-                                        </>
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                        <div className="row filter__pagination">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-lg-12">
-                                        {
-                                            this.state.prevPage >= 0
-                                            ?
-                                            <p className={`filter__pagination__page__changer`} data-page={this.state.prevPage} aria-label="previous page" data-total={this.state.totalPages} onKeyDown={this.prevPage} onClick={this.prevPage}><span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
-                                                    <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(104.336 36.242) rotate(180)" fill="#00a99e" fillRule="evenodd"/>
-                                                </svg>
-
-                                                </span>
-                                            </p>
-                                            : ""
-                                        }
-                                        <div className="filter__pagination__current">
-                                            <p>{this.state.currentPage+1}</p>
-                                        </div>
-                                        <div className="filter__pagination__current">
-                                            <p>OF</p>
-                                        </div>
-                                        <div className="filter__pagination__current">
-                                            <p>{this.state.totalPages}</p>
-                                        </div>
-                                        {
-                                            this.state.nextPage != this.state.totalPages 
-                                            ?
-                                            <p className={`filter__pagination__page__changer`} data-page={this.state.nextPage} aria-label="next page" data-total={this.state.totalPages} onKeyDown={this.nextPage} onClick={this.nextPage}>
-
-                                                <span>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="7.27" height="12.722" viewBox="0 0 7.27 12.722">
-                                                        <path id="Hover" d="M102.219,29.952l-4.887,4.739a.909.909,0,1,0,1.285,1.285l5.453-5.453a.907.907,0,0,0,0-1.284h0l-5.447-5.45a.91.91,0,0,0-1.29,1.285l4.887,4.879" transform="translate(-97.066 -23.52)" fill="#00a99e" fillRule="evenodd"/>
-                                                    </svg>
-                                                </span>
-                                            </p>
-                                            : ""
-                                        }
-                                    </div>
-                                </div>
-                            </div>
+                    
+                        <div className="view__resources">
+                            <p onClick={showFaqs} className={`poppins bold teal-text lg text-uppercase`}>{props.acfData.acf.resource_button_text}</p>
                         </div>
                     </div>
-                </section>
-            </main>
-        )
-    }
+                </div>
+            </div>
+        </section>
+
+        <section id="apply__today">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12 d-flex justify-content-center align-items-center">
+                        <a href={props.acfData.acf.link} target="_BLANK">
+                            <h2
+                                className={`poppins bold teal-text text-center faqs__title`}
+                                dangerouslySetInnerHTML={{ __html: props.acfData.acf.title_four }}
+                            />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+  )
 }
 
 // This gets called on every request
 export async function getServerSideProps() {
-    const res = await fetch(`${process.env.ProjectUrl}/wp-json/acf/v3/pages/194`)
+    const res = await fetch(`${process.env.ProjectUrl}/wp-json/acf/v3/pages/190`)
     const acfData = await res.json()
   
-    const resData = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/pages/194`)
+    const resData = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/pages/190`)
     const pageData = await resData.json()
-
-    const resDataResource = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/resource?per_page=100`)
-    const resourceData = await resDataResource.json()
+  
+    const resDataFaqs = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/faqs`)
+    const faqsData = await resDataFaqs.json()
 
     return {
         props: {
           acfData,
           pageData,
-          resourceData
+          faqsData,
         },
     }
   }
+  
   
   

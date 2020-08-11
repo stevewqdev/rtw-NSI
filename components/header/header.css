@@ -50,7 +50,7 @@
     top: 0;
     right: 0;
 }
-.header .nav-item:nth-child(5):after{
+.header .nav-item:nth-child(4):after{
     display: none;
 }
 

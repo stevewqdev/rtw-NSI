@@ -37,6 +37,10 @@
     padding: 25px;
     transition: all ease-in-out 0.5s;
     width: 90%;
+    min-height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .additional__opportunity p{
     margin: 0;

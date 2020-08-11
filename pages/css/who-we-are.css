@@ -109,6 +109,12 @@
 .team__members h3{
     margin: 40px 0 2px 0;
 }
+.city__slider a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .team__member{
     margin: 40px 0;
 }

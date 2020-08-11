@@ -2005,7 +2005,7 @@ and (max-width: 355px) {
     padding-right: 0px;
 }
 #tfa_14-D .label__with__message:after{
-    content: "Add a valid amount";
+    content: "we can only accept donations over $1";
 }
 #tfa_32 .label__with__message:after{
     content: "Please add tribute details";
@@ -2047,8 +2047,11 @@ and (max-width: 355px) {
     content: "Add a valid year";
     bottom: -35px;
 }
+#tfa_2530, #tfa_2529, #tfa_2528{
+    padding: 0 0 0 10px!important;
+}
 #tfa_2530-D .label__with__message:after{
-    content: "Add a 4 number code";
+    content: "Add a valid code number";
     bottom: -35px;
 }
 #tfa_2525-D .label__with__message:after{
