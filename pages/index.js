@@ -12,10 +12,13 @@ export default function Home(props) {
 
   const [email, setEmail] = useState("")
   const [name, setName] = useState("")
+  const [lname, setlName] = useState("")
   const [status, setStatus] = useState("")
   const [message, setMessage] = useState("")
   const [nameStatus, setNameStatus] = useState("")
   const [nameMessage, setNameMessage] = useState("")
+  const [lnameStatus, setlNameStatus] = useState("")
+  const [lnameMessage, setlNameMessage] = useState("")
 
   function submitForm(e) {
     handleSubmit(e)
@@ -53,21 +56,32 @@ export default function Home(props) {
 
     if (name.length === 0 && name.length < 4) {
       setNameStatus("invalid")
-      setNameMessage("Please, add a your name and lastname")
+      setNameMessage("Please, add a your name")
     }else{
       setNameStatus("invalid")
       setNameMessage("")
     }
+
+    if (lname.length === 0 && lname.length < 4) {
+      setlNameStatus("invalid")
+      setlNameMessage("Please, add a your lastname")
+    }else{
+      setlNameStatus("invalid")
+      setlNameMessage("")
+    }
+
     if (email && email.length > 0 && name && name.length) {
       
       if (email.match(mailformat)) {
         const form = new FormData()
 
-        form.set('your-name', name)
+        var fullName = `${name} ${lname}`
+
+        form.set('your-name', fullName)
         form.set('your-email', email)
 
-        var sharpName = name.split(" ")[0];
-        var sharpLastName = name.split(" ")[1];
+        var sharpName = name;
+        var sharpLastName = lname;
 
         // Add Lead to SharpSpring
         var xhr = new XMLHttpRequest()
@@ -80,6 +94,7 @@ export default function Home(props) {
             setStatus("success")
             setMessage("Thanks for subscribing") 
             setName("");
+            setlName("");
             setEmail("");
         }).catch(err => {
           setStatus("error")
@@ -89,11 +104,15 @@ export default function Home(props) {
       } else {
           setStatus("invalid")
           setMessage("Please, add a valid email address")
-
           setNameStatus("invalid")
-          setNameMessage("Please, add a your name and lastname")
+          setNameMessage("Please, add a your name")
+          setlNameStatus("invalid")
+          setlNameMessage("Please, add a your lastname")
       }
     }
+  }
+  function handlelnameChange(e){
+    setlName(e.currentTarget.value)
   }
   function handleEmailChange(e) {
     setEmail(e.currentTarget.value)
@@ -269,6 +288,38 @@ export default function Home(props) {
                           className={`form__email__wrong form__message sm__font bold__font`}
                         >
                           {nameMessage}
+                        </div>
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  </div>
+                  <div className="name__wrapper">
+                    <div className="form__input">
+                      <label htmlFor="lastname">Lastname</label>
+                      <input
+                        type="text"
+                        className="ab__font dark__font bold__font name__input"
+                        name="lastname"
+                        onChange={handlelnameChange}
+                        value={lname}
+                      />
+                    </div>
+                    <div className="form__messages">
+
+                      {lnameStatus === "error" ? (
+                        <div
+                          className={`form__${status} form__message sm__font bold__font`}
+                          dangerouslySetInnerHTML={{ __html: lnameMessage }}
+                        />
+                      ) : (
+                        ""
+                      )}
+                      {lnameStatus === "invalid" ? (
+                        <div
+                          className={`form__email__wrong form__message sm__font bold__font`}
+                        >
+                          {lnameMessage}
                         </div>
                       ) : (
                         ""

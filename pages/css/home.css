@@ -189,10 +189,12 @@
     justify-content: center;
 }
 .form__home label{
-    width: 60px;
+    width: 110px;
     font-weight: bold;
     color: #015D5D;
     text-transform: uppercase;
+    text-align: right;
+    margin-right: 10px;
 }
 .form__messages{
     display: flex;
@@ -258,7 +260,20 @@
 }
 @media(max-width: 600px){
     .form__home input {
-        max-width: 190px;
+        max-width: 80%;
+    }
+    .form__home label {
+        width: 80%;
+        text-align: left;
+        margin-right: 0px;
+        margin-bottom: 20px;
+    }
+    .form__home .form__input {
+        flex-direction: column;
+    }
+    #join__us input {
+        width: 100%;
+        padding: 0 0px;
     }
     .home__page #extraordinary__moment {
         padding: 110px 15px 250px;
