@@ -49,6 +49,7 @@
 }
 .home__page #movement__steps{
     margin-top: -190px;
+    padding-bottom: 80px;
 }
 .home__page #movement__steps .col-lg-12{
     display: flex;
@@ -102,7 +103,7 @@
     letter-spacing: 1.5px;
 }
 .home__page #join__us{
-    margin: 30px 0 70px;
+    margin: 70px 0 70px;
 }
 .home__page #we__serve__because{
     background: #F7F7F7;

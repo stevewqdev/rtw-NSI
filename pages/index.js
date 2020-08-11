@@ -190,6 +190,41 @@ export default function Home(props) {
           </div>
         </section>
 
+
+
+        <section id="we__serve__because">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12 d-flex title justify-content-center align-items-center flex-column">
+                <h2
+                  className={`poppins bold teal-text text-center`}
+                  dangerouslySetInnerHTML={{ __html: props.acfData.acf.title_five }}
+                />
+                <div
+                  className={`description poppins medium teal-text slg text-center`}
+                  dangerouslySetInnerHTML={{ __html: props.acfData.acf.description }}
+                />
+                <div className="divider__line"></div>
+              </div>
+            </div>
+            <div className="row reasons__we__serve d-flex justify-content-center align-items-center">
+                {
+                  props.acfData.acf.we_serve_reasons.map((reason, index) => (
+                    <div className="col-sm-12 col-md-6 col-lg-4 reason__we__serve" key={index}>
+                      <a href={reason.link} target="_BLANK">
+                        <img loading="lazy" src={reason.image} alt={reason.reason}/>
+                        <p
+                          className={`xl poppins text-uppercase teal-text bold text-center`}
+                          dangerouslySetInnerHTML={{ __html: reason.reason }}
+                        />
+                      </a>
+                    </div>
+                  ))
+                }
+            </div>
+          </div>
+        </section>
+
         <section id="join__us">
           <div className="container">
             <div className="row">
@@ -286,39 +321,6 @@ export default function Home(props) {
                   
                 </form>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="we__serve__because">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12 d-flex title justify-content-center align-items-center flex-column">
-                <h2
-                  className={`poppins bold teal-text text-center`}
-                  dangerouslySetInnerHTML={{ __html: props.acfData.acf.title_five }}
-                />
-                <div
-                  className={`description poppins medium teal-text slg text-center`}
-                  dangerouslySetInnerHTML={{ __html: props.acfData.acf.description }}
-                />
-                <div className="divider__line"></div>
-              </div>
-            </div>
-            <div className="row reasons__we__serve d-flex justify-content-center align-items-center">
-                {
-                  props.acfData.acf.we_serve_reasons.map((reason, index) => (
-                    <div className="col-sm-12 col-md-6 col-lg-4 reason__we__serve" key={index}>
-                      <a href={reason.link}>
-                        <img loading="lazy" src={reason.image} alt={reason.reason}/>
-                        <p
-                          className={`xl poppins text-uppercase teal-text bold text-center`}
-                          dangerouslySetInnerHTML={{ __html: reason.reason }}
-                        />
-                      </a>
-                    </div>
-                  ))
-                }
             </div>
           </div>
         </section>
