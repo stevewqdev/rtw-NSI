@@ -1822,7 +1822,7 @@ and (max-width: 355px) {
     width: 100%;
     /* margin: 6px; */
 }
-.wForm input[type="text"], .wForm input[type="email"] {
+.wForm input[type="text"], .wForm input[type="email"],  .wForm input[type="number"] {
     background: transparent;
     color: white!important;
     font-family: poppins;
@@ -2201,6 +2201,9 @@ html .wForm form .wfCurrentPage {
     top: 11px;
     border:  solid 1px white;
     transform: rotate(45deg);
+}
+div.wForm{
+    border: none;
 }
 .form__step input:checked ~ .checkmark > .line__two{
     opacity: 1;

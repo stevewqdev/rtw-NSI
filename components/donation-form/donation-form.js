@@ -744,13 +744,13 @@ export default class DonationForm extends Component {
                                                         <label id="tfa_2526-L" className="label preField reqMark" htmlFor="tfa_2526">Card Number</label><br /><div className="inputWrapper"><input  type="text" placeholder="Number" id="tfa_2526" name="tfa_2526" defaultValue aria-required="true" title="Card Number" className="validate-custom /^\d+$/g required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2528-D">
-                                                        <label id="tfa_2528-L" className="label preField reqMark" htmlFor="tfa_2528">MM</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2528" name="tfa_2528" defaultValue maxLength={2} aria-required="true" min={1} max={12} title="MM" className="validate-integer required" /></div>
+                                                        <label id="tfa_2528-L" className="label preField reqMark" htmlFor="tfa_2528">MM</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2528" name="tfa_2528" defaultValue maxLength={2} aria-required="true" min={1} max={2} title="MM" className="validate-integer required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2529-D">
-                                                        <label id="tfa_2529-L" className="label preField reqMark" htmlFor="tfa_2529">YY</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2529" name="tfa_2529" defaultValue maxLength={2} aria-required="true" max={9999} title="YY" className="validate-integer required" /></div>
+                                                        <label id="tfa_2529-L" className="label preField reqMark" htmlFor="tfa_2529">YY</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2529" name="tfa_2529" defaultValue maxLength={2} aria-required="true" max={9999} title="YY" className="validate-integer required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2530-D">
-                                                        <label id="tfa_2530-L" className="label preField reqMark" htmlFor="tfa_2530">Code</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2530" name="tfa_2530" defaultValue aria-required="true" title="Code" className="required" /></div>
+                                                        <label id="tfa_2530-L" className="label preField reqMark" htmlFor="tfa_2530">Code</label><br /><div className="inputWrapper"><input maxLength={4}  type="number" id="tfa_2530" name="tfa_2530" defaultValue aria-required="true" title="Code" className="required" /></div>
                                                         </div>
                                                         <div id="tfa_2717" className="section inline group">
                                                         <div className="oneField field-container-D    " id="tfa_2525-D">

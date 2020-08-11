@@ -4,6 +4,12 @@ import DonationForm from '../components/donation-form/donation-form'
 export default class MakeDonation extends Component {
 
     componentDidMount(){
+        var allInputs = [...document.querySelectorAll("input")];
+        
+        allInputs.map((input) => {
+            input.value = "";
+            return true; 
+        })
     }
 
     render() {

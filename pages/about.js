@@ -27,6 +27,8 @@ export default class WhoWeAre extends Component {
             
             this.displayCityContent(queryString);
         }
+
+        console.log(this.props.teamData)
     }
 
     displayCityContent(city){
@@ -299,6 +301,7 @@ export default class WhoWeAre extends Component {
                                             <h3 class="poppins bold slg teal-text text-uppercase">
                                                 {team_member.title.rendered}
                                             </h3>
+                                            <p class="poppins bold sm teal-text text-uppercase">{team_member.acf.positioncharge}</p>
                                         </div>
                                         <div className="team__description closed" id={`member-1${index}`}>
                                             <div
@@ -316,7 +319,7 @@ export default class WhoWeAre extends Component {
                     </div>
                 </section>
 
-                <section id="team" className="board">
+                {/* <section id="team" className="board">
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-12 title">
@@ -347,7 +350,7 @@ export default class WhoWeAre extends Component {
                             }
                         </div>
                     </div>
-                </section>
+                </section> */}
 
                 <section id="serve__the__moment">
                     <div className="container">

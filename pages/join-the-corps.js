@@ -71,9 +71,9 @@ export default class GettingStarted extends Component {
             resultArray[chunkIndex] = [] // start a new chunk
             }
         
-            if(item.acf.resource_category.slug === "miscellaneous"){
+            //if(item.acf.resource_category.slug === "miscellaneous"){
                 resultArray[chunkIndex].push(item);
-            }
+            //}
         
             return resultArray
         }, [])
@@ -93,6 +93,7 @@ export default class GettingStarted extends Component {
     }
 
     toggleTag(event, prevalue = 0){
+
 
         this.setState({
             search: true, 
@@ -142,8 +143,12 @@ export default class GettingStarted extends Component {
                         this.state.resources.map((resource) => {
                             let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
         
-                            if(categoryName === selected_filter){
+                            if(prevalue === "all"){
                                 newResources.push(resource);
+                            }else{
+                                if(categoryName === selected_filter){
+                                    newResources.push(resource);
+                                }
                             }
                         })
                     })
@@ -217,8 +222,12 @@ export default class GettingStarted extends Component {
                     this.state.resources.map((resource) => {
                         let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
     
-                        if(categoryName === selected_filter){
+                        if(prevalue === "all"){
                             newResources.push(resource);
+                        }else{
+                            if(categoryName === selected_filter){
+                                newResources.push(resource);
+                            }
                         }
                     })
                 })
@@ -255,11 +264,12 @@ export default class GettingStarted extends Component {
         }else{
             if(prevalue.length > 0){
                 var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
-                
-                if(selectedElement[0].classList.contains("active")){
-                    selectedElement[0].classList.remove("active");
-                }else{
-                    selectedElement[0].classList.add("active");
+                if(selectedElement.length > 0){
+                    if(selectedElement[0].classList.contains("active")){
+                        selectedElement[0].classList.remove("active");
+                    }else{
+                        selectedElement[0].classList.add("active");
+                    }
                 }
                 
             }else{
@@ -359,7 +369,7 @@ export default class GettingStarted extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props.resourceData);
+        
         // Create first batch of resources
         var perChunk = 6 // items per chunk    
 
@@ -372,9 +382,9 @@ export default class GettingStarted extends Component {
             if(!resultArray[chunkIndex]) {
             resultArray[chunkIndex] = [] // start a new chunk
             }
-            if(item.acf.resource_category.slug === "miscellaneous"){
+            //if(item.acf.resource_category.slug === "miscellaneous"){
                 resultArray[chunkIndex].push(item);
-            }
+            //}
             return resultArray;
             
         }, [])
@@ -407,6 +417,7 @@ export default class GettingStarted extends Component {
 
             this.toggleTag("0", queryString); 
         }
+
     }
 
     render() {
@@ -567,18 +578,18 @@ export default class GettingStarted extends Component {
                                                                         : ""
                                                                     }
                                                                 </div>
-                                                                <div className="filtered__resource__item">
-                                                                    <h2 className={`title poppins teal-text bold xxl`}>{filtered.title.rendered}</h2>
-                                                                    <p className={`title poppins gray-text bold text-uppercase sm`}>{filtered.acf.subtitle}</p>
-                                                                </div>
-                                                                <div className="filtered__resource__link">
-                                                                    <a href={filtered.acf.external_link} aria-label={filtered.title.rendered}>
-                                                                        <span className="absolute__name">{filtered.title.rendered}</span>
-                                                                        <svg xmlns="http://www.w3.org/2000/svg" width="29.889" height="11.96" viewBox="0 0 29.889 11.96">
-                                                                        <path id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
-                                                                        </svg>
-                                                                    </a>
-                                                                </div>
+                                                                <a href={filtered.acf.external_link} target="_BLANK" aria-label={filtered.title.rendered} >
+                                                                    <div className="filtered__resource__item" >
+                                                                        <h2 className={`title poppins teal-text bold xxl`}>{filtered.title.rendered}</h2>
+                                                                        <p className={`title poppins gray-text bold text-uppercase sm`}>{filtered.acf.subtitle}</p>
+                                                                    </div>
+                                                                    <div className="filtered__resource__link">
+                                                                            <span className="absolute__name">{filtered.title.rendered}</span>
+                                                                            <svg xmlns="http://www.w3.org/2000/svg" width="29.889" height="11.96" viewBox="0 0 29.889 11.96">
+                                                                            <path id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
+                                                                            </svg>
+                                                                    </div>
+                                                                </a>
                                                             </div>
                                                         )) 
                                                     }
