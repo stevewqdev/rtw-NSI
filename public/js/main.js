@@ -173,7 +173,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
             isOngoing: element.Ongoing_Program__c,
             isVirtual: element.Virtual_Program__c,
             timeZone: element.Program_Time_Zone__c, 
-            serveLink : element.Serve_the_Moment_Registration_Link__c,
+            serveLink : element.External_Site_URL__c,
         }
 
         // We check if the event contains the virtual field and based on that we change the full address
