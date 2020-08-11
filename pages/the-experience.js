@@ -117,7 +117,7 @@ export default function TheExperience(props) {
                             <div className="experience__ms__button">
                                 {
                                     props.acfData.acf.section_buttons.map((button, index)=> (
-                                        <a href={button.button_link} key={index} tabIndex="0">
+                                        <a href={button.button_link} target="_BLANK" key={index} tabIndex="0">
                                             <button className={`btn main-btn white-btn`} tabIndex="-1">
                                                 <strong>
                                                     {button.button_text}
