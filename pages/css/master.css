@@ -2061,7 +2061,7 @@ and (max-width: 355px) {
     padding: 0 0 0 10px!important;
 }
 #tfa_2530-D .label__with__message:after{
-    content: "Add  code ";
+    content: "Add code ";
     bottom: -35px;
 }
 #tfa_2525-D .label__with__message:after{
@@ -2077,16 +2077,16 @@ and (max-width: 355px) {
     content: "Add address";
 }
 #tfa_2200-D .label__with__message:after{
-    content: "Add a city";
+    content: "Add city";
 }
 #tfa_2512-D .label__with__message:after{
     content: "Add postal code";
 }
 #tfa_2186-D .label__with__message:after{
-    content: "Add  email address";
+    content: "Add email address";
 }
 #tfa_2516-D .label__with__message:after{
-    content: "Add  phone number";
+    content: "Add phone number";
 }
 #tfa_29{
     position: relative;
