@@ -756,7 +756,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
             if(cardExist.length === 0){
                 $('#list').innerHTML = '';
                 
-                var emptyMessage = `<div class="col-sm-12 no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@RepairTheWorld</strong> on social media for the latest updates.</p></div>`;
+                var emptyMessage = `<div class="col-sm-12 no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@servethemoment</strong> on social media for the latest updates.</p></div>`;
                 $('#list').prepend(emptyMessage);
                 $('#full_ops h2').hide();
                 $('#full_ops .sub-text').hide();
@@ -981,11 +981,11 @@ function load(number, list, numberPerPage) {
     if(cardExist.length){
         $('#list').innerHTML = '';
         if($('#emptyUrlSearch').length){
-            var emptyMessage = `<div class="col-sm-12 no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@RepairTheWorld</strong> on social media for the latest updates.</p></div>`;
+            var emptyMessage = `<div class="col-sm-12 no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@servethemoment</strong> on social media for the latest updates.</p></div>`;
             $('#list').prepend(emptyMessage);
         }
     }else{
-        var emptyMessage = `<div class="no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@RepairTheWorld</strong> on social media for the latest updates.</p></div>`;
+        var emptyMessage = `<div class="no-match-criteria"><p>Thanks for your interest. Right now, we don't have any upcoming opportunities that meet the criteria you searched for. Try adjusting your criteria, or check back soon to see our latest postings. We add new opportunities often, so definitely stay tuned or follow us at <strong>@servethemoment</strong> on social media for the latest updates.</p></div>`;
         $('#list').prepend(emptyMessage);
     }
     
