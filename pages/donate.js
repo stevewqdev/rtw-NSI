@@ -19,7 +19,13 @@ export default class MakeDonation extends Component {
     render() {
         return (
            <main className="donation__page">
-                <div className="hero__container">
+    
+
+                <section className="donation__form__wrapper">
+                    <DonationForm />
+                </section>
+
+                <div className="hero__container hero__donation">
                     <div className="stm__background">
                         <svg xmlns="http://www.w3.org/2000/svg" width="768" height="561.153" viewBox="0 0 768 561.153">
                             <g id="Grupo_1933" data-name="Grupo 1933" transform="translate(-1034.838 -263.064)">
@@ -55,10 +61,6 @@ export default class MakeDonation extends Component {
                         </div>
                     </div>
                 </div>
-
-                <section className="donation__form__wrapper">
-                    <DonationForm />
-                </section>
            </main>
         )
     }

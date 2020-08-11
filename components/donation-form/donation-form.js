@@ -104,6 +104,14 @@ export default class DonationForm extends Component {
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
                 }
 
+                if(document.getElementById("input__heart").classList.contains("input__heart") && !document.getElementById("input__heart").classList.contains("is__toggled")){
+                    console.log(document.querySelectorAll("#tfa_31 .error"));
+
+                    [...document.querySelectorAll("#tfa_31 .error")].map((element) => {
+                        element.classList.remove("error");
+                    })
+                }
+
                 var checkErrors = [...document.querySelectorAll(".form__step__one .error")];
 
                 if(checkErrors.length <= 0){
@@ -126,6 +134,8 @@ export default class DonationForm extends Component {
                     "tfa_2200",
                     "tfa_2511",
                 ]
+
+
 
                 textInputs.map((element) => {
                     if(document.getElementById(`${element}`).value.length >= 3){
@@ -195,6 +205,22 @@ export default class DonationForm extends Component {
                     document.getElementById("tfa_2186").parentNode.classList.add("label__with__message");
                 }
                 
+                if(document.getElementById("tfa_2201").value === "tfa_2425" || document.getElementById("tfa_2201").value === "tfa_2426") {    
+                    console.log(document.getElementById("tfa_2201").value);
+                    document.getElementById("tfa_2511-D").classList.add("offstate");
+                    document.getElementById("tfa_2512-D").classList.remove("offstate");
+                    document.getElementById("tfa_2439-D").classList.remove("offstate");
+                    document.getElementById("tfa_2511").classList.remove("error");
+                    document.getElementById("tfa_2512").classList.remove("error");
+                     
+                }else{
+                    document.getElementById("tfa_2511-D").classList.add("offstate");
+                    document.getElementById("tfa_2511").classList.remove("error");
+        
+                    document.getElementById("tfa_2512-D").classList.add("offstate");
+                    document.getElementById("tfa_2512").classList.remove("error");
+                }
+
                 var checkErrors = [...document.querySelectorAll(".form__step__two .error")];
 
                 if(checkErrors.length <= 0){
@@ -216,7 +242,23 @@ export default class DonationForm extends Component {
         script.async = true;
         document.body.appendChild(script);
     }
+    checkCountry(e){
+        console.log(e.target.value);
+        if(e.target.value === "tfa_2425" || e.target.value === "tfa_2426"){    
+            document.getElementById("tfa_2511-D").classList.add("offstate");
+            document.getElementById("tfa_2512-D").classList.remove("offstate");
+            document.getElementById("tfa_2439-D").classList.remove("offstate");
+            
+        }else{
+            document.getElementById("tfa_2511-D").classList.add("offstate");
+            document.getElementById("tfa_2511").classList.remove("error");
 
+            document.getElementById("tfa_2512-D").classList.add("offstate");
+            document.getElementById("tfa_2512").classList.remove("error");
+        }
+
+        
+    }
     togglePrice(event){
         // var oneChoiceLabels = [...document.querySelectorAll[".oneChoice"]];
 
@@ -365,6 +407,8 @@ export default class DonationForm extends Component {
                 document.getElementById("tfa_34").classList.add("is_true");
             }
         }
+
+
     }
 
     render() {
@@ -482,7 +526,7 @@ export default class DonationForm extends Component {
                                                                                             $36
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$36" src="//www.tfaforms.com/forms/get_image/208798/sSV9daau3KQ56wS2BfNovbgwjMxeCJFJRN8AHMDlJWkykyn4N6MkhdHrr9lxpZlW-button1.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$36" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-01.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -494,7 +538,7 @@ export default class DonationForm extends Component {
                                                                                             $54
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$54" src="//www.tfaforms.com/forms/get_image/208798/6Wb2l5OhODaCG7BLkcFXyw9pQIJmJkK9JDSzlHEz2uMbxgaNZvqqJNAg9FnhBvbL-button2.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$54" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-02.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -506,7 +550,7 @@ export default class DonationForm extends Component {
                                                                                             $98
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$98" src="//www.tfaforms.com/forms/get_image/208798/nvnq59CAnaB89sAnGmdnNxygXVu6UjENayF93xq3QQu2CF4ydbeKzNJPcblpIxUX-button3.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$98" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-03.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -520,7 +564,7 @@ export default class DonationForm extends Component {
                                                                                             $180
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$180" src="//www.tfaforms.com/forms/get_image/208798/tTi7Ya1t0oL2PoKsyV5XzEZlis8pXFDQcqsp42yJzEc3nbFpRhbANQiUyBckZhmC-button9.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$180" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-04.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -532,7 +576,7 @@ export default class DonationForm extends Component {
                                                                                             $360
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$360" src="//www.tfaforms.com/forms/get_image/208798/im3XbstYuRHxy1RMCrs8zNw3GpPcmTK4ySl9qdnSIwXfyZJhDXl1bNks8hQgm8sG-button10.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="$360" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-05.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -544,7 +588,7 @@ export default class DonationForm extends Component {
                                                                                             $0
                                                                                         </span>
                                                                                         <span className="input-radio-faux" />
-                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="Other" src="//www.tfaforms.com/forms/get_image/208798/jeka8ZUaFG3vWvIraDjcVruaQH9V4yyAREJv6JQScGcZgLUiYiOqUxQIU0vDSniY-button_other1.png" />
+                                                                                        <img loading="lazy" style={{maxWidth: '100%'}} alt="Other" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-06.png" />
                                                                                     </label>
                                                                                 </span>
                                                                             </td>
@@ -632,7 +676,7 @@ export default class DonationForm extends Component {
                                                             <div className="inputWrapper">
                                                                 <span id="tfa_29" className="choices vertical ">
                                                                     <span className="oneChoice">
-                                                                        <div className="input__heart">
+                                                                        <div className="input__heart" id="input__heart">
                                                                             <input  type="checkbox" defaultValue="tfa_30" className id="tfa_30" name="tfa_30" data-conditionals="#tfa_31" aria-labelledby="tfa_30-L" data-tfa-labelledby="tfa_29-L tfa_30-L" onChange={this.toggleSelectTrue}/>
                                                                             <svg xmlns="http://www.w3.org/2000/svg" width="30.502" height="26.8" viewBox="0 0 30.502 26.8">
                                                                                 <path id="Trazado_2413" data-name="Trazado 2413" d="M911.834,506.176c-4.363-2.952-8.572-6-11.821-10.163a9.5,9.5,0,0,1-2.231-7.916,7.558,7.558,0,0,1,5.534-6.108,7.758,7.758,0,0,1,7.939,1.929c.189.175.374.353.611.576a8.386,8.386,0,0,1,4.715-2.737,8.052,8.052,0,0,1,9.3,9.608,13.37,13.37,0,0,1-3.306,5.97A55.119,55.119,0,0,1,911.834,506.176Z" transform="translate(-896.613 -480.581)" fill="none" stroke="#fff" stroke-width="2"/>
@@ -776,7 +820,7 @@ export default class DonationForm extends Component {
                                                         </div>
                                                         <div id="tfa_2514" className="section inline group">
                                                         <div className="oneField field-container-D    " id="tfa_2201-D">
-                                                            <label id="tfa_2201-L" className="label preField reqMark" htmlFor="tfa_2201">Country</label><br /><div className="inputWrapper"><select id="tfa_2201" name="tfa_2201" title="Country" aria-required="true" className="required"><option value>Please select...</option>
+                                                            <label id="tfa_2201-L" className="label preField reqMark" htmlFor="tfa_2201">Country</label><br /><div className="inputWrapper"><select id="tfa_2201" name="tfa_2201" onChange={this.checkCountry} title="Country" aria-required="true" className="required"><option value>Please select...</option>
                                                                 <option value="tfa_2202" id="tfa_2202" className>Afghanistan</option>
                                                                 <option value="tfa_2203" id="tfa_2203" className>Albania</option>
                                                                 <option value="tfa_2204" id="tfa_2204" className>Algeria</option>

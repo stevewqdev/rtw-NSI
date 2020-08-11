@@ -519,7 +519,7 @@ label[id^="tfa_2532["] {
 
 #tfa_2186-L,
 label[id^="tfa_2186["] {
-    width: 155px !important;
+    width: auto !important;
     min-width: 0px;
 }
 
@@ -811,16 +811,7 @@ span.oneChoice.maskControl {
 }
 
 .donation__form__wrapper{
-    background: linear-gradient(to bottom,       
-    white    20%,       
-    #EFEFEF  20%,       
-    #EFEFEF  40%,       
-    #EFEFEF  40%,       
-    #EFEFEF  60%,       
-    #EFEFEF  60%,       
-    #EFEFEF  80%,       
-    #EFEFEF  80%,      
-    #EFEFEF  100%  )
+    background: #EFEFEF
 }
 .wForm  h1 {
     /*18px via YUI Fonts CSS foundation*/
@@ -900,8 +891,11 @@ span.oneChoice.maskControl {
 @media only screen and (max-width: 500px) {
     .wForm { padding: 5px;  }
 }
+.hero__donation{
+    padding: 100px 0;
+}
 .donation__form__wrapper{
-    margin-top: 200px;
+    padding-top: 350px;
 }
 .wFormContainer 		{ max-width: 1140px;;     /* default, overriden using an inline style */
                           margin: auto;
@@ -1312,7 +1306,12 @@ span.oneChoice.maskControl {
     padding: 3px 0px 0px 2px;
     white-space: nowrap;
 }
-
+.hidden-element{
+    display: none!important;
+}
+.reqMark{
+    position: relative;
+}
 .wForm .autoformatprompt-control{
     background-color: transparent;
     position: relative;
@@ -2594,12 +2593,13 @@ color: white;
     #tfa_2636 .oneChoice{
         flex-direction: column;
     }
+ 
     .donation__page .hero__content__image  {
         height: auto;
         padding: 0px!important;
     }
     .donation__page .hero__container {
-        padding: 100px 0px;
+        padding: 100px 0px 0;
     }
     .donation__page .hero__content{
         padding: 0 35px;
