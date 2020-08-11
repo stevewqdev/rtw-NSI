@@ -153,7 +153,7 @@ export default class DonationForm extends Component {
                     document.getElementById("tfa_2528").parentNode.classList.add("label__with__message");
                 }
 
-                if(document.getElementById("tfa_2529").value.length > 1 && document.getElementById("tfa_2529").value.length < 3 ){
+                if(document.getElementById("tfa_2529").value.length > 1 && document.getElementById("tfa_2529").value.length < 5 ){
                     document.getElementById("tfa_2529").classList.remove("error");
                     document.getElementById("tfa_2529").parentNode.classList.remove("label__with__message");
                 }else{
@@ -753,7 +753,7 @@ export default class DonationForm extends Component {
                                                         <label id="tfa_2528-L" className="label preField reqMark" htmlFor="tfa_2528">MM</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2528" name="tfa_2528" defaultValue  aria-required="true" min={1} max={12} maxLength="2" onInput={this.maxLengthCheck} title="MM" className="validate-integer required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2529-D">
-                                                        <label id="tfa_2529-L" className="label preField reqMark" htmlFor="tfa_2529">YY</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2529" name="tfa_2529" defaultValue maxLength="2" onInput={this.maxLengthCheck}  aria-required="true" max={2099} title="YY" className="validate-integer required" /></div>
+                                                        <label id="tfa_2529-L" className="label preField reqMark" htmlFor="tfa_2529">YY</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2529" name="tfa_2529" defaultValue maxLength="4" onInput={this.maxLengthCheck}  aria-required="true" max={2099} title="YY" className="validate-integer required" /></div>
                                                         </div>
                                                         <div className="oneField field-container-D    " id="tfa_2530-D">
                                                         <label id="tfa_2530-L" className="label preField reqMark" htmlFor="tfa_2530">Code</label><br /><div className="inputWrapper"><input maxLength="10" onInput={this.maxLengthCheck}   type="number" id="tfa_2530" name="tfa_2530" defaultValue aria-required="true" title="Code" className="required" /></div>

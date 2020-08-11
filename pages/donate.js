@@ -10,6 +10,10 @@ export default class MakeDonation extends Component {
             input.value = "";
             return true; 
         })
+
+        setTimeout(function(){
+            document.getElementById("submit_button").value = "DONATE";
+        }, 1000)
     }
 
     render() {
