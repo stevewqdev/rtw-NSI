@@ -194,7 +194,7 @@ export default function Home(props) {
 
         <section id="we__serve__because">
           <div className="container">
-            <div className="row">
+            {/* <div className="row">
               <div className="col-lg-12 d-flex title justify-content-center align-items-center flex-column">
                 <h2
                   className={`poppins bold teal-text text-center`}
@@ -206,7 +206,7 @@ export default function Home(props) {
                 />
                 <div className="divider__line"></div>
               </div>
-            </div>
+            </div> */}
             <div className="row reasons__we__serve d-flex justify-content-center align-items-center">
                 {
                   props.acfData.acf.we_serve_reasons.map((reason, index) => (
