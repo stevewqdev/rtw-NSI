@@ -64,7 +64,7 @@ export default function Home(props) {
 
     if (lname.length === 0 && lname.length < 4) {
       setlNameStatus("invalid")
-      setlNameMessage("Please, add a your lastname")
+      setlNameMessage("Please, add a your last name")
     }else{
       setlNameStatus("invalid")
       setlNameMessage("")
@@ -107,7 +107,7 @@ export default function Home(props) {
           setNameStatus("invalid")
           setNameMessage("Please, add a your name")
           setlNameStatus("invalid")
-          setlNameMessage("Please, add a your lastname")
+          setlNameMessage("Please, add a your last name")
       }
     }
   }
