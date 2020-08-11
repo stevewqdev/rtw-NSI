@@ -220,7 +220,7 @@ export default function TheExperience(props) {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 d-flex justify-content-center align-items-center">
-                        <a href={`/`+props.acfData.acf.link.split("/")[3]}>
+                        <a href={props.acfData.acf.link}>
                             <h2
                                 className={`poppins bold teal-text text-center faqs__title`}
                                 dangerouslySetInnerHTML={{ __html: props.acfData.acf.title_four }}
