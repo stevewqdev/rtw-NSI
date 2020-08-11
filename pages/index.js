@@ -56,7 +56,7 @@ export default function Home(props) {
 
     if (name.length === 0 && name.length < 4) {
       setNameStatus("invalid")
-      setNameMessage("Please, add a your name")
+      setNameMessage("Please, add your first name")
     }else{
       setNameStatus("invalid")
       setNameMessage("")
@@ -64,7 +64,7 @@ export default function Home(props) {
 
     if (lname.length === 0 && lname.length < 4) {
       setlNameStatus("invalid")
-      setlNameMessage("Please, add a your last name")
+      setlNameMessage("Please, add your last name")
     }else{
       setlNameStatus("invalid")
       setlNameMessage("")
@@ -105,9 +105,9 @@ export default function Home(props) {
           setStatus("invalid")
           setMessage("Please, add a valid email address")
           setNameStatus("invalid")
-          setNameMessage("Please, add a your name")
+          setNameMessage("Please, add your first name")
           setlNameStatus("invalid")
-          setlNameMessage("Please, add a your last name")
+          setlNameMessage("Please, add your last name")
       }
     }
   }
@@ -264,7 +264,7 @@ export default function Home(props) {
                   <label htmlFor="email" style={{ display: "none" }}></label>
                   <div className="name__wrapper">
                     <div className="form__input">
-                      <label htmlFor="name">Name</label>
+                      <label htmlFor="name">First Name</label>
                       <input
                         type="text"
                         className="ab__font dark__font bold__font name__input"

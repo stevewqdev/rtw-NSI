@@ -1858,6 +1858,7 @@ and (max-width: 355px) {
 #tfa_2718{
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 #tfa_2186-D{
     width: 50%!important;
