@@ -296,7 +296,7 @@ export default function Home(props) {
                   </div>
                   <div className="name__wrapper">
                     <div className="form__input">
-                      <label htmlFor="lastname">Lastname</label>
+                      <label htmlFor="lastname">Last name</label>
                       <input
                         type="text"
                         className="ab__font dark__font bold__font name__input"
