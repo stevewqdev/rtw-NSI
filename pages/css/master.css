@@ -2032,36 +2032,36 @@ and (max-width: 355px) {
     right: 0;
 }
 #tfa_41-D .label__with__message:after{
-    content: "Please add the name ";
+    content: "Please add  name ";
 }
 #tfa_2635-D .label__with__message:after{
-    content: "Please add the lastname ";
+    content: "Please add  lastname ";
 }
 #tfa_42-D .label__with__message:after{
-    content: "Please add a type";
+    content: "Please add type";
 }
 #tfa_44-D .label__with__message:after{
-    content: "Please add a message";
+    content: "Please add message";
 }
 #tfa_2633-D .label__with__message:after{
     content: "Please add the email ";
 }
 #tfa_2526-D .label__with__message:after{
-    content: "Add a valid card number ";
+    content: "Add valid card number ";
 }
 #tfa_2528-D .label__with__message:after{
-    content: "Add a valid month";
+    content: "Add valid month";
     bottom: -35px;
 }
 #tfa_2529-D .label__with__message:after{
-    content: "Add a valid year";
+    content: "Add valid year";
     bottom: -35px;
 }
 #tfa_2530, #tfa_2529, #tfa_2528{
     padding: 0 0 0 10px!important;
 }
 #tfa_2530-D .label__with__message:after{
-    content: "Add a valid code number";
+    content: "Add  code ";
     bottom: -35px;
 }
 #tfa_2525-D .label__with__message:after{
@@ -2074,19 +2074,19 @@ and (max-width: 355px) {
     content: "Add card's owner name";
 }
 #tfa_2198-D .label__with__message:after{
-    content: "Add a address";
+    content: "Add address";
 }
 #tfa_2200-D .label__with__message:after{
     content: "Add a city";
 }
 #tfa_2512-D .label__with__message:after{
-    content: "Add a valid postal code";
+    content: "Add postal code";
 }
 #tfa_2186-D .label__with__message:after{
-    content: "Add a valid email address";
+    content: "Add  email address";
 }
 #tfa_2516-D .label__with__message:after{
-    content: "Add a valid phone number";
+    content: "Add  phone number";
 }
 #tfa_29{
     position: relative;
