@@ -6,6 +6,9 @@
 .daterangepicker td.active, .daterangepicker td.active:hover {
     background-color: #00a99e;
 }
+[data-info=".-1"]{
+    display: none!important;
+}
 .option.disabled{
     display: none!important;
 }

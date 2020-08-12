@@ -2840,6 +2840,7 @@ $(document).on("click", ".searchTagsWrapper p" , function() {
     $('.searchTagsWrapper').hide();
     var searchData = new Array();
     $('#cities').prop('selectedIndex',0);
+    $('#partner').prop('selectedIndex',0);
     $('#interest').prop('selectedIndex',0);
     $('#issues').prop('selectedIndex',0);
     $('#types').prop('selectedIndex',0);
