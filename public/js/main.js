@@ -2328,8 +2328,8 @@ $(document).on("click", " .card" , function() {
         if(!serveLink.includes("https")){
             serveLink = serveLink.replace(/\http/g, "https");
             serveLink = serveLink.replace(/\https/g, "https");
-            serveLink = serveLink.replace(/\www/g, "");
         }
+        serveLink = serveLink.replace(/\www./g, "");
 
         registerButton = 
         `
