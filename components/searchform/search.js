@@ -162,18 +162,20 @@ export default class Search extends Component {
                                                     <option value="-1" id="partner_first" selected={true} disabled="disabled">Partner</option>
                                                 </select>
                                             </div>
-                                            <div className=" input__wrapper text-uppercase arrow-down calendar-input">
-                                                <input type="text" name="daterange" value="Date" className="calendar__input" />
-                                            </div>
+                                           
 
-                                            {/* <div className=" type__input input__wrapper text-uppercase arrow-down" >
+                                            <div className=" type__input input__wrapper text-uppercase arrow-down" >
                                                 <select name="types" id="types" >
                                                     <option value="-1" id="type_first" selected={true} disabled="disabled">Experiences</option>
                                                     <option data-option-count="1" value="inperson" className="inperson">In Person</option>
                                                     <option data-option-count="2" value="ongoing" className="ongoing">Ongoing</option>
                                                     <option data-option-count="3" value="virtual" className="virtual">Virtual</option>
                                                 </select>
-                                            </div> */}
+                                            </div>
+
+                                            <div className=" input__wrapper text-uppercase arrow-down calendar-input">
+                                                <input type="text" name="daterange" value="Date" className="calendar__input" />
+                                            </div>
                                             {/* <div className=" appropriate__input input__wrapper text-uppercase arrow-down" >
                                                 <div className="issues__wrapper">
                                                     <div className="select_simulator">
@@ -182,7 +184,7 @@ export default class Search extends Component {
                                                     </div>
                                                 </div>
                                             </div> */}
-                                            <div className="col-sm-12 col-md-2 searchFormButton">
+                                            <div className="searchFormButton">
                                                 <button className="btn btn-primary" id="search-events">Search</button>
                                             </div>
                                         </div>

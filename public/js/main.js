@@ -2854,7 +2854,7 @@ $(document).on("click", ".searchTagsWrapper p" , function() {
     localStorage.removeItem('finalInputsRange');
     apiCallData =  JSON.parse(localStorage.getItem('cards'));
     theCards = formatDataEvents(apiCallData, searchData, removeTag, TimeRange);
-    $('.calendar__input').val('Calendar');
+    $('.calendar__input').val('Date');
     changePage(0, theCards);
 
 })

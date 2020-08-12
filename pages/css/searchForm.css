@@ -33,7 +33,7 @@
     justify-content: space-evenly;
 }
 .center__row{
-    max-width: 900px;
+    max-width: 100%;
     margin: auto;
 }
 .nice-select, #search__form input {
@@ -47,16 +47,13 @@
     display: block;
     float: left;
     font-family: inherit;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 0.5px;
     font-weight: bold;
     height: 42px;
     line-height: 40px;
     outline: none;
-    padding-left: px;
-    padding-right: 30px;
     position: relative;
-    text-align: left !important;
     transition: all 0.2s ease-in-out;
     user-select: none;
     white-space: nowrap;
@@ -80,8 +77,17 @@
     -ms-user-select: none;      
     user-select: none!important;
     text-transform: uppercase;
+    padding: 0!important;
+    margin: 0!important;
+    width: 100%!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center!important;
+    min-width: 315px;
 }
 .calendar-input:after{
+    display: none;
     border-bottom: 2px solid white;
     border-right: 2px solid white;
     content: '';
@@ -90,7 +96,7 @@
     margin-top: -4px;
     pointer-events: none;
     position: absolute;
-    right: 8px;
+    left: 62%;
     top: 50%;
     -webkit-transform-origin: 66% 66%;
         -ms-transform-origin: 66% 66%;
@@ -264,7 +270,10 @@
 /* ============================================================= */
 /* ============================================================= */
 .page__contain__search .input__wrapper{
-    width: auto;
+    width: calc(100% / 5)!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .searchFormButton{
     position: absolute;
@@ -778,6 +787,9 @@
     .card {
         flex-direction: column;
     }
+    .page__contain__search .input__wrapper{
+        width: calc(100% / 3)!important;
+    }
     .card .card__header{
         height: 200px;
         min-height: 200px;
@@ -811,7 +823,17 @@
     .page__contain__search .input__wrapper {
         width: 100%!important;
     }
-
+    .page__contain__search .input__wrapper{
+        width: calc(100% / 1)!important;
+    }
+    .calendar__input{
+        text-align: left!important;
+        padding-left: 30px!important;
+    }
+    .calendar-input:after{
+        left: unset;
+        right: 20px;
+    }
     .nice-select, input{
         width: 100%;
         padding: 0 30px;
