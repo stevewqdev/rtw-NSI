@@ -6,6 +6,9 @@
 .daterangepicker td.active, .daterangepicker td.active:hover {
     background-color: #00a99e;
 }
+.option.disabled{
+    display: none!important;
+}
 .nice-select:focus{
     border: solid 2px blue!important;
 }
@@ -230,10 +233,7 @@
     font-weight: bold;
 }
 
-.nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
-    background-color: #00a99e;
-    color: white;
-}
+
 
 .nice-select .option.selected {
     font-weight: bold; 
@@ -244,10 +244,7 @@
     color: #00a99c!important;
     cursor: default; 
 }
-.nice-select .option.selected{
-    background-color: #2f9d95;
-    color: white;
-}
+
 .no-csspointerevents .nice-select .list {
     display: none;
 }

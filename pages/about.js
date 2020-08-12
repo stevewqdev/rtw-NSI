@@ -121,7 +121,7 @@ export default class WhoWeAre extends Component {
                 cityInternal = cityInternal + 
                 `
                     <div class="city__slider" data-city="${inner_city.title.rendered.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}">
-                        <a href="/volunteer?city=${inner_city.title.rendered.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}#search__form">
+                        <a href="/volunteer?location=${inner_city.title.rendered.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()}#search__form">
                             <div class="city__image">
                                 <img loading="lazy" src="${inner_city.better_featured_image.source_url}" alt="${inner_city.title.rendered} city photo"/>
                             </div>

@@ -1055,10 +1055,13 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         }
     }
     var searchHit = false;
-    
+    console.log($('.location_get'), searchData);
     if($('.location_get').length || $('.issue_get').length || $('.partner_get').length || $('.date_get .start').length || $('.type_get').length ){
         searchHit = true;
         searchData = new Array('', '', '', '', '', '');
+
+        console.log($('.location_get'), searchData);
+
         if($('.location_get').length){
             var city = $('.location_get');
             city = $(city)[0].innerHTML; 
@@ -2316,13 +2319,7 @@ $(document).on("click", " .card" , function() {
         hideVenue = 
         `
             <div class="date  internal__column">   
-                <svg xmlns="http://www.w3.org/2000/svg" width="37.275" height="32.618" viewBox="0 0 37.275 32.618">
-                    <g id="Grupo_2087" data-name="Grupo 2087" transform="translate(-116.489 -639.673)">
-                    <path id="Trazado_2049" data-name="Trazado 2049" d="M116.489,666.412V642.46c.026-.092.057-.184.079-.277a3.109,3.109,0,0,1,3.1-2.505q15.48-.008,30.96,0a3.085,3.085,0,0,1,2.99,2.27c.044.147.1.293.143.44v24.025a.7.7,0,0,0-.058.132,3.136,3.136,0,0,1-3.292,2.635H135.932v1.546H145.7a2.677,2.677,0,0,1,.4.014.772.772,0,0,1,.016,1.531,2.086,2.086,0,0,1-.362.02H124.5a2.1,2.1,0,0,1-.363-.02.773.773,0,0,1,.016-1.531,2.677,2.677,0,0,1,.4-.014h9.759V669.18h-.464q-7.077,0-14.155,0a3.117,3.117,0,0,1-3.082-2.35C116.574,666.689,116.531,666.551,116.489,666.412Zm35.7-5.028c.009-.117.022-.211.022-.306q0-9.027,0-18.055a1.729,1.729,0,0,0-1.815-1.815c-8.857.024-17.714.013-26.571.013-1.384,0-2.766,0-4.15,0a1.569,1.569,0,0,0-1.6,1.351,3.391,3.391,0,0,0-.045.578q0,8.919,0,17.837v.395ZM152.188,663H118.036c0,.922.023,1.818-.007,2.712a1.761,1.761,0,0,0,1.923,1.935c5.228-.035,10.455-.014,15.683-.014q7.407,0,14.813,0a1.547,1.547,0,0,0,1.723-1.454C152.243,665.13,152.188,664.074,152.188,663Z" transform="translate(0)" fill="#015d5d"/>
-                    <path id="Trazado_2050" data-name="Trazado 2050" d="M135.12,663.1a1.546,1.546,0,1,1-1.549-1.544A1.546,1.546,0,0,1,135.12,663.1Z" transform="translate(1.552 2.185)" fill="#015d5d"/>
-                    </g>
-                </svg>
-                Virtual Program
+
             </div>
         `
     }

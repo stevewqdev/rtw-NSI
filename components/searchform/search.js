@@ -18,6 +18,9 @@ export default class Search extends Component {
         var type = "";
         var endDate = "";
 
+
+        console.log(paramsArray)
+
         paramsArray.map((theParam) => {
             if(theParam[0] === "location" && theParam[1].length > 0 ){
                 cityParam = 
