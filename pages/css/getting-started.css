@@ -170,15 +170,17 @@
     font-weight: bold;
 }
 .filter__results img {
-    max-height: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 40px;
 }
 .filter__results .category__icon{
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 40px;
 }
 @media(max-width: 768px){
     #main__hero .container, #resource__filter .container{

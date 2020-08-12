@@ -557,29 +557,55 @@ export default class GettingStarted extends Component {
                                                                 <div className="category__icon">
                                                                     {
                                                                         
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "hungerandfoodaccess"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "foodjustice"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo1991.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "education"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "educationjustice"
                                                                         ?
                                                                         <img loading="lazy" src="/images/Grupo2044.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "employment"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "unemployment"
                                                                         ?
                                                                         <img loading="lazy" src="/images/Grupo2045.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthsocialisolation"
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthjustice"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
+                                                                    
+                                                                    {
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "housingjustice"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "communitybuilding"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2030.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "sustainabilityenvironment"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2048.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "racialjustice"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2049.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    
                                                                 </div>
                                                                 <a href={filtered.acf.external_link} target="_BLANK" aria-label={filtered.title.rendered} >
                                                                     <div className="filtered__resource__item" >
