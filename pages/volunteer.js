@@ -5,7 +5,144 @@ import Search from '../components/searchform/search'
 
 export default class form extends Component {
 
-componentDidMount(){
+openWindow(event){
+    event.preventDefault() 
+    if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
+        document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
+        document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
+        document.getElementById("fsc_open").focus();
+        document.getElementById("fsc_b1").tabIndex = -1;
+        document.getElementById("fsc_b2").tabIndex = -1;
+        document.getElementById("fsc_close").tabIndex = -1;
+
+        
+    }else{
+        document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
+        document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
+        document.querySelectorAll(".close__popup")[0].focus();
+        document.getElementById("fsc_b1").tabIndex = 0;
+        document.getElementById("fsc_b2").tabIndex = 0;
+        document.getElementById("fsc_close").tabIndex = 0;
+
+        var element = document.getElementById("fsc")
+        var focusableEls = document.querySelectorAll('#fsc #fsc_close, #fsc a');
+
+        var firstFocusableEl = focusableEls[0],  
+            lastFocusableEl = focusableEls[focusableEls.length - 1],
+            KEYCODE_TAB = 9;
+            
+        element.addEventListener('keydown', function(e) {
+              var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+              if (!isTabPressed) { 
+                  return; 
+              }
+
+              if ( e.shiftKey ) /* shift + tab */ {
+                  if (document.activeElement === firstFocusableEl) {
+                      lastFocusableEl.focus();
+                      e.preventDefault();
+                  }
+              } else /* tab */ {
+                  if (document.activeElement === lastFocusableEl) {
+                      firstFocusableEl.focus();
+                      e.preventDefault();
+                  }
+              }
+        });
+
+
+    }  
+}
+
+keyOpen(e){
+    e.preventDefault() 
+    if (e.type === 'keypress'){
+        if(e.which === 32 || e.which === 13){
+            if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
+                document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
+                document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
+                document.getElementById("fsc_open").focus();
+                document.getElementById("fsc_b1").tabIndex = -1;
+                document.getElementById("fsc_b2").tabIndex = -1;
+                document.getElementById("fsc_close").tabIndex = -1;
+            }else{
+                document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
+                document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
+                document.querySelectorAll(".close__popup")[0].focus();
+                document.getElementById("fsc_b1").tabIndex = 0;
+                document.getElementById("fsc_b2").tabIndex = 0;
+                document.getElementById("fsc_close").tabIndex = 0;
+
+                var element = document.getElementById("fsc")
+                var focusableEls = document.querySelectorAll('#fsc #fsc_close, #fsc a');
+        
+                var firstFocusableEl = focusableEls[0],  
+                    lastFocusableEl = focusableEls[focusableEls.length - 1],
+                    KEYCODE_TAB = 9;
+                    
+                element.addEventListener('keydown', function(e) {
+                      var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+                      if (!isTabPressed) { 
+                          return; 
+                      }
+        
+                      if ( e.shiftKey ) /* shift + tab */ {
+                          if (document.activeElement === firstFocusableEl) {
+                              lastFocusableEl.focus();
+                              e.preventDefault();
+                          }
+                      } else /* tab */ {
+                          if (document.activeElement === lastFocusableEl) {
+                              firstFocusableEl.focus();
+                              e.preventDefault();
+                          }
+                      }
+                });
+            }  
+        }
+    }else{
+        if(document.querySelectorAll(".floating__screen__selector")[0].classList.contains("fs__opened")){
+            document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
+            document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
+            document.getElementById("fsc_open").focus();
+            document.getElementById("fsc_b1").tabIndex = -1;
+            document.getElementById("fsc_b2").tabIndex = -1;
+            document.getElementById("fsc_close").tabIndex = -1;
+        }else{
+            document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
+            document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
+            document.querySelectorAll(".close__popup")[0].focus();
+            document.getElementById("fsc_b1").tabIndex = 0;
+            document.getElementById("fsc_b2").tabIndex = 0;
+            document.getElementById("fsc_close").tabIndex = 0;
+
+            var element = document.getElementById("fsc")
+            var focusableEls = document.querySelectorAll('#fsc #fsc_close, #fsc a');
+    
+            var firstFocusableEl = focusableEls[0],  
+                lastFocusableEl = focusableEls[focusableEls.length - 1],
+                KEYCODE_TAB = 9;
+                
+            element.addEventListener('keydown', function(e) {
+                  var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+                  if (!isTabPressed) { 
+                      return; 
+                  }
+    
+                  if ( e.shiftKey ) /* shift + tab */ {
+                      if (document.activeElement === firstFocusableEl) {
+                          lastFocusableEl.focus();
+                          e.preventDefault();
+                      }
+                  } else /* tab */ {
+                      if (document.activeElement === lastFocusableEl) {
+                          firstFocusableEl.focus();
+                          e.preventDefault();
+                      }
+                  }
+            });
+        }  
+    }
 }
 
 render() {
@@ -40,7 +177,7 @@ render() {
                             {
                                 this.props.acfData.acf.serve_as_buttons.map((button, index) => (
                                     <div className="hero__content__button" key={index}>
-                                        <a href={button.link} tabindex="0">
+                                        <a href={button.link} tabindex="0"  onKeyPress={index === 2 ? this.keyOpen : ""} onClick={index === 2 ? this.openWindow : ""}>
                                             <button className={`btn main-btn teal`} tabindex="-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="10.393" height="18.188" viewBox="0 0 10.393 18.188">
                                                     <path id="Hover" d="M104.432,32.715,97.446,39.49a1.3,1.3,0,0,0,1.837,1.837l7.795-7.795a1.3,1.3,0,0,0,0-1.835v0L99.291,23.9a1.3,1.3,0,0,0-1.845,1.837l6.986,6.975" transform="translate(-97.066 -23.52)" fill="#00a99e" fillRule="evenodd"/>

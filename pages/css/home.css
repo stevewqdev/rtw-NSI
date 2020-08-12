@@ -225,6 +225,11 @@
 .form__home .email__wrapper{
     width: 100%;
 }
+@media(max-width: 1200px){
+    .home__page #cause .image img {
+        top: 0px;
+    }
+}
 @media(max-width: 1024px){
     .home__page #cause .image img {
         top: 0px;

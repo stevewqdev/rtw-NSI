@@ -144,6 +144,10 @@ export default class FloatingScreen extends Component {
         }
     }
 
+    componentDidMount(){
+        console.log(this.props);
+    }
+
     render() {
  
         return (
@@ -195,7 +199,7 @@ export default class FloatingScreen extends Component {
                                         />
                                     </div>
                                     <div className={`${Styles.campaign__button}`}>
-                                        <a id="fsc_b1" href={`/`+this.props.screenData.acf.prioritized_campaign_cta_link.split("/")[3]} tabIndex="-1">
+                                        <a id="fsc_b1" href={`/`+this.props.screenData.acf.prioritized_campaign_cta_link.split("/")[3]+ `?issue=` + this.props.screenData.acf.window_category.slug.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() + `#search__form`} tabIndex="-1">
                                             <button className={`btn full__btn main-btn teal`} tabIndex="-1" >
                                                 <strong>
                                                     {this.props.screenData.acf.prioritized_campaign_cta_text}
@@ -224,7 +228,7 @@ export default class FloatingScreen extends Component {
                                 </p>
                             </div>
                             <div className={`${Styles.resources__button}`}>
-                                <a id="fsc_b2" href={`/`+this.props.screenData.acf.resource_cta_link.split("/")[3] } tabIndex="-1">
+                                <a id="fsc_b2" href={`/`+this.props.screenData.acf.resource_cta_link.split("/")[3] + `?resource_cat=` + this.props.screenData.acf.window_category.slug.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() } tabIndex="-1">
                                     <button className={`btn main-btn white-btn full__btn`} tabIndex="-1">
                                         <strong>
                                             {this.props.screenData.acf.resource_cta_text}

@@ -435,17 +435,28 @@
 .card__date .col-lg-8{
     padding-left: 0px;
 }
-.card__date .date{
+.card__date .date__separator{
     position: relative;
 }
-.card__date .date:after{
-    content: "";
-    width: 1px;
-    height: 100%;
-    background: #00a99e;
-    right: -14px;
-    position: absolute;
-    top: 0px;
+.card__date .date__separator{
+    color: #00a99e;
+    padding: 0 10px;
+
+}
+.date__holder{
+    margin: 0px;
+    padding: 0px;
+}
+.separator__holder{
+    margin: 0px;
+    padding: 0px;
+}
+.location__holder{
+    margin: 0px;
+    padding: 0px;
+}
+.card__date .row{
+    padding: 0 0px;
 }
 .card____button .learn__more__btn{
     background: #015D5D;
@@ -767,6 +778,14 @@
     right: 0;
     bottom: 0;
 }
+@media(max-width: 1200px){
+    .card__date .date:after {
+       
+    }
+    .card .location{
+  
+    }
+}
 @media(max-width: 1024px){
     .card__title h3 {
         font-size: 18px;
@@ -784,6 +803,11 @@
     .close__popup {
         top: 15px;
         right: 30px;
+    }
+}
+@media(max-width: 900px){
+    .page__contain__search .input__wrapper{
+        width: calc(100% / 3)!important;
     }
 }
 @media(max-width: 768px){

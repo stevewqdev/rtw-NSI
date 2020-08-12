@@ -16,7 +16,6 @@ var currentPage = 0,
     
 // We set the API link to call 
 var apiLink = 'https://raxo.dev/stm/api/'; 
-//var apiLink = 'https://5efa3465bc5f8f0016c677a2.mockapi.io/avi/v1/campaign-one'; 
 
 // We make the API call to pull the data
 var apiCall = $.getJSON(`${apiLink}`, function(data) {
@@ -1529,10 +1528,9 @@ function curatedCards(data, searchData = null, removedTag = null){
                         </div>
                         <div class="card__date">
                             <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" >
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
                                     <span class="date">${cardDate}</span>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-8" >
+                                    <span class="date__separator">|</span>
                                     <span class="location">${data.city}</span>
                                 </div>
                             </div>
@@ -1771,10 +1769,9 @@ function curatedCards(data, searchData = null, removedTag = null){
                         </div>
                         <div class="card__date">
                             <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-4" >
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" >
                                     <span class="date">${cardDate}</span>
-                                </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-8" >
+                                    <span class="date__separator"></span>
                                     <span class="location">${data.city}</span>
                                 </div>
                             </div>
@@ -2330,6 +2327,7 @@ $(document).on("click", " .card" , function() {
     }else{
         if(!serveLink.includes("https")){
             serveLink = serveLink.replace(/\http/g, "https");
+            serveLink = serveLink.replace(/\https/g, "https");
         }
 
         registerButton = 
