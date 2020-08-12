@@ -166,7 +166,7 @@ export default class Search extends Component {
 
                                             <div className=" type__input input__wrapper text-uppercase arrow-down" >
                                                 <select name="types" id="types" >
-                                                    <option value="-1" id="type_first" selected={true} disabled="disabled">Experiences</option>
+                                                    <option value="-1" id="type_first" selected={true} disabled="disabled">Type</option>
                                                     <option data-option-count="1" value="inperson" className="inperson">In Person</option>
                                                     <option data-option-count="2" value="ongoing" className="ongoing">Ongoing</option>
                                                     <option data-option-count="3" value="virtual" className="virtual">Virtual</option>

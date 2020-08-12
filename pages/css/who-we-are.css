@@ -2,6 +2,15 @@
     background: #015D5D;
     padding: 80px 0;
 }
+.email__button svg{
+    width: 23px;
+}
+.email__link.closed{
+    display: none;
+}
+.email__button svg path{
+    fill: #005f5e;
+}
 #jewish__sercive__alliance p{
     max-width: 1090px;
     width: 100%;
