@@ -79,7 +79,7 @@ export default function TheExperience(props) {
                             />
                         </div>
                         <div className="hero__content__button">
-                            <a href={props.acfData.acf.button_link} tabIndex="0">
+                            <a href={props.acfData.acf.button_link} tabIndex="0" target="_BLANK">
                                 <button className={`btn main-btn clear-teal`} tabIndex="-1">
                                     <strong>
                                         {props.acfData.acf.button_text}

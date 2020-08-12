@@ -291,29 +291,32 @@ export default class WhoWeAre extends Component {
                             {
                                 this.props.teamData.map((team_member, index) => (
                                     <div className="team__member col-sm-12 col-md-4 col-lg-3" data-city={team_member.acf.city.value.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase()} key={index}>
-                                        <div className="team__avatar d-flex justify-content-center align-items-center">
-                                            {
-                                                team_member.better_featured_image
-                                                ? <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
-                                                : ""
-                                            }
-                                            
-                                        </div>
-                                        <div className="team__title text-center">
-                                            <h3 class="poppins bold slg teal-text text-uppercase">
-                                                {team_member.title.rendered}
-                                            </h3>
-                                            <p class="poppins bold sm teal-text text-uppercase">{team_member.acf.positioncharge}</p>
-                                        </div>
-                                        <div className="team__description closed" id={`member-1${index}`}>
-                                            <div
-                                                className={`poppins medium sm gray-text text-center`}
-                                                dangerouslySetInnerHTML={{ __html: team_member.content.rendered }}
-                                            />
-                                            <div className={`read__more__button `} data-member={`member-1${index}`} onClick={this.showBio}>
-                                                +
+                                        <a href={`mailto:${team_member.acf.email}`}>
+                                            <div className="team__avatar d-flex justify-content-center align-items-center">
+                                                {
+                                                    team_member.better_featured_image
+                                                    ? <img loading="lazy" src={team_member.better_featured_image.source_url} alt={`${team_member.title.rendered} member avatar`}/>
+                                                    : ""
+                                                }
+                                                
                                             </div>
-                                        </div>
+                                            <div className="team__title text-center">
+                                                <h3 class="poppins bold slg teal-text text-uppercase">
+                                                    {team_member.title.rendered}
+                                                </h3>
+                                                <p class="poppins bold sm teal-text text-uppercase">{team_member.acf.positioncharge}</p>
+                                            </div>
+                                        </a>
+                                            <div className="team__description closed" id={`member-1${index}`}>
+                                                <div
+                                                    className={`poppins medium sm gray-text text-center`}
+                                                    dangerouslySetInnerHTML={{ __html: team_member.content.rendered }}
+                                                />
+                                                <div className={`read__more__button `} data-member={`member-1${index}`} onClick={this.showBio}>
+                                                    +
+                                                </div>
+                                            </div>
+                                       
                                     </div>
                                 ))
                             }
