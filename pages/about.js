@@ -89,7 +89,7 @@ export default class WhoWeAre extends Component {
     }
 
     createCities(){
-        var perChunk = 10 // items per chunk    
+        var perChunk = 100 // items per chunk    
 
         var inputArray = this.props.cityData;
         

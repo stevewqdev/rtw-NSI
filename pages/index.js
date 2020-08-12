@@ -19,6 +19,8 @@ export default function Home(props) {
   const [nameMessage, setNameMessage] = useState("")
   const [lnameStatus, setlNameStatus] = useState("")
   const [lnameMessage, setlNameMessage] = useState("")
+  const [formStatus, setformStatus] = useState(false)
+
 
   function submitForm(e) {
     handleSubmit(e)
@@ -96,6 +98,7 @@ export default function Home(props) {
             setName("");
             setlName("");
             setEmail("");
+            setformStatus(true)
         }).catch(err => {
           setStatus("error")
           setMessage("We could not subscribed you at the moment, please try again later")
@@ -230,7 +233,7 @@ export default function Home(props) {
                 {
                   props.acfData.acf.we_serve_reasons.map((reason, index) => (
                     <div className="col-sm-12 col-md-6 col-lg-4 reason__we__serve" key={index}>
-                      <a href={reason.link} target="_BLANK">
+                      <a href={reason.link}  target={ reason.link.includes("https") ? "_blank" : "_self" }>
                         <img loading="lazy" src={reason.image} alt={reason.reason}/>
                         <p
                           className={`xl poppins text-uppercase teal-text bold text-center`}
@@ -367,8 +370,12 @@ export default function Home(props) {
                     </div>
                   </div>
                   
-
-                  <button onClick={submitForm} class="btn main-btn teal" tabindex="-1"><strong>SEND</strong></button>
+                  {
+                    formStatus
+                    ? ""
+                    : <button onClick={submitForm} class="btn main-btn teal" tabindex="-1"><strong>SUBMIT</strong></button>
+                  }
+                  
                   
                 </form>
               </div>
