@@ -1055,12 +1055,9 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         }
     }
     var searchHit = false;
-    console.log($('.location_get'), searchData);
     if($('.location_get').length || $('.issue_get').length || $('.partner_get').length || $('.date_get .start').length || $('.type_get').length ){
         searchHit = true;
         searchData = new Array('', '', '', '', '', '');
-
-        console.log($('.location_get'), searchData);
 
         if($('.location_get').length){
             var city = $('.location_get');
@@ -1923,8 +1920,9 @@ function curatedCards(data, searchData = null, removedTag = null){
                         
                     }  
                 }else if(index === 3){
-                    if(searchData[3][0] != null ){
-                        if(tag != null ){
+                    if(searchData[3]){
+                        if(searchData[3][0] != null ){
+                            if(tag != null ){
                                 tag = tag[0];
                                 tagEnd = tag.length;
                                 
@@ -2032,6 +2030,7 @@ function curatedCards(data, searchData = null, removedTag = null){
 
                             }
                         }
+                    }
                 }
 
                 if(index === 4 ){
