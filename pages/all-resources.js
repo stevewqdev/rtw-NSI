@@ -345,10 +345,13 @@ export default class GettingStarted extends Component {
 
         // Create Filters
         let categoryFilters = [];
+        console.log(this.props.resourceData)
         this.props.resourceData.map((resource) => {
             let categoryObject = []; 
             
-            categoryFilters.push(resource.acf.resource_category.name)
+            if(resource.acf.resource_category){
+                categoryFilters.push(resource.acf.resource_category.name)
+            }
 
             return true
         })
