@@ -57,6 +57,28 @@ export default class MakeDonation extends Component {
                         </div>
                     </div>
                 </div>
+
+                <div className="footer__donation">
+                    <div className="container">
+                        <div className="col-lg-12">
+                            <div className="first__donation__text text-center">
+                                <div
+                                    className={`md poppins medium gray-text`}
+                                    dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.footer_text }}
+                                />
+                            </div>
+                            <div className="donation__separator">
+
+                            </div>
+                            <div className="second__donation__text text-center">
+                                <div
+                                    className={` md poppins medium gray-text`}
+                                    dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.quote_text }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
            </main>
         )
     }

@@ -647,6 +647,22 @@ label[id^="tfa_44["],
 .wFormContainer .supportInfo {
     display: none;
 }
+.footer__donation{
+    background: #F7F7F7;
+    padding:  70px 15px;
+    margin-top: -130px;
+}
+.donation__separator{
+    height: 1px;
+    background: #6C6C6C;
+    max-width: 910px;
+    width: 100%;
+    margin: 20px auto 20px;
+}
+.container.donate__container h2 {
+        font-size: 53px;
+        line-height: 60px;
+    }
 .wFormTitle {
     font-family: 'ProximaNovaExCn-Bold', Helvetica, sans-serif;
     font-size: 24px;
@@ -927,7 +943,7 @@ span.oneChoice.maskControl {
     .wForm { padding: 5px;  }
 }
 .hero__donation{
-    padding: 50px 0;
+    padding: 50px 0 0;
 }
 .donation__form__wrapper{
     padding-top: 350px;
@@ -2302,7 +2318,7 @@ and (max-width: 355px) {
 }}
 .donation__page .hero__content__title{
     margin-top: 65px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 .donation__page .hero__content__image img{
     height: 100%;
@@ -2824,6 +2840,16 @@ color: #015D5D;
     }
 }
 @media (max-width: 600px){
+    #tfa_2562.label__with__message:after {
+        bottom: 93px;
+        right: 5px;
+    }
+    #tfa_2178 {
+        margin-top: -20px!important;
+    }
+    #tfa_2605 {
+        padding: 0 0px 0 0!important;
+    }
     #tfa_43 .oneField {
         left: 40px;
         flex-direction: column;

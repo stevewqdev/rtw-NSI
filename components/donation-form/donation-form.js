@@ -536,9 +536,12 @@ export default class DonationForm extends Component {
                     }
                     else{
                         if(parseInt(currentIndex) === 0){
-                            document.querySelectorAll(".slick-track")[0].style.height = `auto`;
-                        }else{
-                            document.querySelectorAll(".slick-track")[0].style.height = `600px`;
+                            if(document.getElementById("tfa_30").classList.contains("is_true")){
+                                document.querySelectorAll(".slick-track")[0].style.height = `550px`;
+                            }
+                            if(document.getElementById("tfa_38").classList.contains("is_true")){
+                                document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                            }
                         }
                         if(parseInt(currentIndex) === 1){
                             document.querySelectorAll(".slick-track")[0].style.height = `830px`;
@@ -546,6 +549,9 @@ export default class DonationForm extends Component {
                         if(parseInt(currentIndex) === 2){
                             document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
+
+                        
+                        
                     }
 
                 }, 100)
