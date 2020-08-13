@@ -63,7 +63,6 @@
     align-items: center;
 }
 .city__cluster .city__slider{
-    width: calc(100% / 6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,11 +235,17 @@
     #jewish__sercive__alliance p {
         max-width: 520px;
     }
+    .cities__slider {
+        padding: 50px 60px;
+    }
 }
 @media(max-width: 600px){
     .serve__button__element{
        width: 100%;
        margin: 20px;
+    }
+    .cities__slider {
+        padding: 50px 60px;
     }
     #serve__the__moment h2{
         padding: 20px;

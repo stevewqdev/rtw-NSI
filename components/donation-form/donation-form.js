@@ -284,7 +284,7 @@ export default class DonationForm extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+        document.querySelectorAll(".slick-track")[0].style.height = `350px`;
 
         var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
         if(parseInt(newCurrentIndex) === 0){
@@ -481,7 +481,7 @@ export default class DonationForm extends Component {
             if(event.target.parentElement.classList.contains("is__toggled")){
                 event.target.parentElement.classList.remove("is__toggled");
                 document.getElementById("tfa_34").classList.remove("is_true");
-                document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
 
             }else{
                 event.target.parentElement.classList.add("is__toggled");
@@ -706,10 +706,10 @@ export default class DonationForm extends Component {
                                                                 <label id="tfa_2188-L" className="label preField reqMark" htmlFor="tfa_2188">Direct my donation to</label>
                                                                 <div className="inputWrapper">
                                                                     <select id="tfa_2188" name="tfa_2188" title="Direct my donation to" aria-required="true" className="calc-gau required">
-                                                                        <option value="tfa_2196" id="tfa_2196" className="calcval-a0e6A000002BPwzQAG" selected data-default-value="true">Where it is needed most</option>
+                                                                        <option value="tfa_2196" id="tfa_2196" className="calcval-a0e6A000002BPwzQAG" >Where it is needed most</option>
                                                                         <option value="tfa_2572" id="tfa_2572" data-conditionals="#tfa_2584" className>A Repair the World Community</option>
                                                                         <option value="tfa_2195" id="tfa_2195" className="calcval-a0e6A000002BPx4QAG">One America Movement</option>
-                                                                        <option value="tfa_2719" id="tfa_2719" className="calcval-a0e3s00000HVMl9AAH">Serve the Moment</option>
+                                                                        <option value="tfa_2719" id="tfa_2719" className="calcval-a0e3s00000HVMl9AAH" selected data-default-value="true">Serve the Moment</option>
                                                                     </select>
                                                                 </div>
                                                             </div>

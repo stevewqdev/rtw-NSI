@@ -170,8 +170,20 @@ export default class WhoWeAre extends Component {
             slidesToScroll: 1
         };
 
+        var cityGridSize = ""; 
+        var citySize = this.props.cityData.length / 2;
+
+        cityGridSize = `
+            .city__slider {
+                width: calc(100% / ${citySize});
+            }
+        `
+
         return (
             <main className="who__page">
+                <style>
+                    {cityGridSize}
+                </style>
                 <section className="hero__container">
                     <div className="stm__background">
                         <svg xmlns="http://www.w3.org/2000/svg" width="768" height="561.153" viewBox="0 0 768 561.153">

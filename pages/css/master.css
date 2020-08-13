@@ -246,9 +246,9 @@ a:hover{
 
 }
 #tfa_2605{
+    display: none;
     border-bottom: solid 1px #6C6C6C;
     border-top: solid 1px #6C6C6C;
-    display: flex;
     color: white;
     text-transform: uppercase;
     font-family: poppins;
@@ -408,8 +408,25 @@ label[id^="tfa_2584["] {
 *[id^="tfa_2633["][class~="field-container-D"] {
     width: auto !important;
 }
-.donate__image{
-    max-height: 450px;
+@media(max-width: 4000px){
+    .hero__container.hero__donation .donate__container .donate__image{
+        width: 550px;
+        object-fit: cover;
+        padding: 70px 14px 70px 6px;
+        height: 100%;
+        max-height: 560px;
+    } 
+}
+@media(max-width: 2000px){
+    .hero__container.hero__donation .donate__container .donate__image{
+        width: 800px;
+    }
+}
+@media(max-width: 768px){
+    .hero__container.hero__donation .donate__container .donate__image {
+        width: 100%;
+        max-height: 490px;
+    }
 }
 .donation__page .hero__container .hero__content {
     display: flex;
@@ -1903,6 +1920,9 @@ and (max-width: 355px) {
 .form__step{
     padding: 0px;
     outline: none;
+}
+.card__tags{
+    display: none;
 }
 .oneField .inputWrapper{
     width: 100%;

@@ -155,13 +155,38 @@ export default class Search extends Component {
                                             <div className=" city__input input__wrapper text-uppercase arrow-down" >
                                                 <select  name="cities" id="cities">
                                                     <option value="-1" id="city_first" selected={true} disabled="disabled">Location</option>
+                                                    <option id="atlanta-0" data-option-count="0" value="atlanta" class="atlanta atlanta-0">Atlanta</option>
+
+                                                    <option id="bayarea-1" data-option-count="0" value="bayarea" class="bayarea bayarea-1">Bay Area</option>
+
+                                                    <option id="boston-2" data-option-count="2" value="boston" class="boston boston-2">Boston</option>
+
+                                                    {/* <option id="brooklyn-3" data-option-count="3" value="brooklyn" class="brooklyn brooklyn-3">Brooklyn</option> */}
+
+                                                    <option id="chicago-4" data-option-count="4" value="chicago" class="chicago chicago-4">Chicago</option>
+
+                                                    <option id="cleveland-5" data-option-count="5" value="cleveland" class="cleveland cleveland-5">Cleveland</option>
+
+                                                    <option id="denver-6" data-option-count="6" value="denver" class="denver denver-6">Denver</option>
+
+                                                    <option id="detroit-7" data-option-count="7" value="detroit" class="detroit detroit-7">Atlanta</option>
+
+                                                   
+
+                                                    <option id="losangeles-9" data-option-count="9" value="losangeles" class="losangeles losangeles-9">Los Angeles</option>
+
+                                                    <option id="miami-10" data-option-count="10" value="miami" class="miami miami-10">Miami</option>
+
+                                                    <option id="nyc-8" data-option-count="8" value="nyc" class="nyc nyc-8">New York</option>
+
+                                                    <option id="pittsburgh-11" data-option-count="11" value="pittsburgh" class="pittsburgh pittsburgh-11">Pittsburgh</option>
                                                 </select>
                                             </div>
-                                            <div className=" partner__input input__wrapper text-uppercase arrow-down">
+                                            {/* <div className=" partner__input input__wrapper text-uppercase arrow-down">
                                                 <select  name="partner" id="partner" >
                                                     <option value="-1" id="partner_first" selected={true} disabled="disabled">Partner</option>
                                                 </select>
-                                            </div>
+                                            </div> */}
                                            
 
                                             <div className=" type__input input__wrapper text-uppercase arrow-down" >
@@ -236,4 +261,17 @@ export default class Search extends Component {
             </>
         )
         }
+}
+
+    // This gets called on every request
+export async function getServerSideProps() {
+  
+    const resDataCities = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/cities?per_page=100`)
+    const cityData = await resDataCities.json()
+
+    return {
+        props: {
+          cityData,
+        },
     }
+  }

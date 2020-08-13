@@ -395,32 +395,32 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
 
     // We loop trought Issue options and add them to the DOM
 
-    for (let index = 0; index < cityElements.length; index++) {
-        var option = cityElements[index];
-        // Save the info on a variable
-        let finalOption = option;
-        if( finalOption === 'New York'){
-            // Clean, remove spaces and lowercase the info
-            finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+    // for (let index = 0; index < cityElements.length; index++) {
+    //     var option = cityElements[index];
+    //     // Save the info on a variable
+    //     let finalOption = option;
+    //     if( finalOption === 'New York'){
+    //         // Clean, remove spaces and lowercase the info
+    //         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
-            // Create the option with JS
-            let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="nyc" class="${finalOption} ${finalOption}-${index}">New York</option>`;
-            // Insert the option into the html
-            if(!$(`#${finalOption}-${index}`).length){
-                $( "#cities" ).append(theOption);
-            }
-        }else{
-            // Clean, remove spaces and lowercase the info
-            finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+    //         // Create the option with JS
+    //         let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="nyc" class="${finalOption} ${finalOption}-${index}">New York</option>`;
+    //         // Insert the option into the html
+    //         if(!$(`#${finalOption}-${index}`).length){
+    //             $( "#cities" ).append(theOption);
+    //         }
+    //     }else{
+    //         // Clean, remove spaces and lowercase the info
+    //         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
-            // Create the option with JS
-            let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="${finalOption}" class="${finalOption} ${finalOption}-${index}">${option}</option>`;
-            // Insert the option into the html
-            if(!$(`#${finalOption}-${index}`).length){
-                $( "#cities" ).append(theOption);
-            }
-        }
-    }
+    //         // Create the option with JS
+    //         let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="${finalOption}" class="${finalOption} ${finalOption}-${index}">${option}</option>`;
+    //         // Insert the option into the html
+    //         if(!$(`#${finalOption}-${index}`).length){
+    //             $( "#cities" ).append(theOption);
+    //         }
+    //     }
+    // }
 
     // We loop trought Context options and add them to the DOM
     for (let index = 0; index < contextElemtents.length; index++) {
@@ -2734,7 +2734,7 @@ $(document).on("click", "#searchTags li" , function(e) {
     if(remainTags.length === 0 ){
         $('.searchTagsWrapper').hide();
     }else{
-
+        console.log(remainTags)
         if(remainTags[0].innerText === "Issue x"){
             setTimeout(function(){
                 console.log((`[data-info=".-1"]`));
@@ -2743,7 +2743,15 @@ $(document).on("click", "#searchTags li" , function(e) {
                     $('.searchTagsWrapper').hide();
                 }
             }, 100)
-          
+        }
+        if(remainTags[0].innerText === "Issue x"){
+            setTimeout(function(){
+                console.log((`[data-info=".-1"]`));
+                if($(`[data-info=".-1"]`)[0]){
+                    $(`[data-info=".-1"]`)[0].remove();
+                    $('.searchTagsWrapper').hide();
+                }
+            }, 100)
         }
     }
     var searchData = new Array();
