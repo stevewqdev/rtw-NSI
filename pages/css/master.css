@@ -546,9 +546,7 @@ label[id^="tfa_2532["] {
 *[id^="tfa_2186["] {
     width: auto !important;
 }
-#tfa_2553-D{
-    display: none!important;
-}
+
 #tfa_2186-D,
 *[id^="tfa_2186["][class~="field-container-D"] {
     width: auto !important;
@@ -1998,11 +1996,19 @@ and (max-width: 355px) {
 
 }
 #tfa_2553{
-    border: solid 1px white!important;
+    border: solid 1px #70707000!important;
+    position: relative;
+    left: 20px;
+    font-size: 30px;
+    padding: 0;
 }
 #tfa_2553-L{
     margin: 0;
     padding: 0px;
+    font-size: 30px;
+}
+#tfa_2553-L:after{
+    display: none;
 }
 #tfa_2553-D{
         display: flex;
@@ -2010,7 +2016,6 @@ and (max-width: 355px) {
         align-items: center;
         margin: 0;
         padding: 20px 0;
-        border-bottom: solid 1px white;
 }
 #tfa_2636-D{
     padding-bottom: 10px;
