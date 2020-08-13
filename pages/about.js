@@ -171,12 +171,16 @@ export default class WhoWeAre extends Component {
         };
 
         var cityGridSize = ""; 
-        var citySize = Math.ceil(this.props.cityData.length / 2);
+        var citySize = Math.ceil(this.props.cityData.length);
 
         if(citySize % 2 === 0){
-            citySize = 4;
+
+                citySize = 4;
+            
         }else{
-            citySize = 5;
+   
+                citySize = 5;
+            
         }
 
         cityGridSize = `
