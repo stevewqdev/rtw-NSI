@@ -167,7 +167,7 @@ export default class Search extends Component {
 
                                                     <option id="denver-6" data-option-count="6" value="denver" class="denver denver-6">Denver</option>
 
-                                                    <option id="detroit-7" data-option-count="7" value="detroit" class="detroit detroit-7">Atlanta</option>
+                                                    <option id="detroit-7" data-option-count="7" value="detroit" class="detroit detroit-7">Detroit</option>
 
                                                    
                                                     <option id="losangeles-9" data-option-count="9" value="losangeles" class="losangeles losangeles-9">Los Angeles</option>
