@@ -145,7 +145,70 @@ export default class FloatingScreen extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props);
+
+        // Values from url Params
+        var queryStringCampaign = window.location.search;
+        var paramsArrayCampaign = []; 
+
+        if(queryStringCampaign.length > 0){           
+            
+            queryStringCampaign = queryStringCampaign.replace(/\?/g, '').split("&");
+
+            queryStringCampaign.map((param) => {
+                paramsArrayCampaign.push(param.split("="));
+
+                return true; 
+            })
+        }
+
+        console.log(paramsArrayCampaign);
+
+        paramsArrayCampaign.map((theParam) => {
+            if(theParam[0] === "campaign" && theParam[1].length > 0  && theParam[1] === "active"){
+                setTimeout(function(){
+                    document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
+                    document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
+                    document.querySelectorAll(".close__popup")[0].focus();
+                    document.getElementById("fsc_b1").tabIndex = 0;
+                    document.getElementById("fsc_b2").tabIndex = 0;
+                    document.getElementById("fsc_close").tabIndex = 0;
+            
+                    var element = document.getElementById("fsc")
+                    var focusableEls = document.querySelectorAll('#fsc #fsc_close, #fsc a');
+            
+                    var firstFocusableEl = focusableEls[0],  
+                        lastFocusableEl = focusableEls[focusableEls.length - 1],
+                        KEYCODE_TAB = 9;
+                        
+                    element.addEventListener('keydown', function(e) {
+                            var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+                            if (!isTabPressed) { 
+                                return; 
+                            }
+            
+                            if ( e.shiftKey ) /* shift + tab */ {
+                                if (document.activeElement === firstFocusableEl) {
+                                    lastFocusableEl.focus();
+                                    e.preventDefault();
+                                }
+                            } else /* tab */ {
+                                if (document.activeElement === lastFocusableEl) {
+                                    firstFocusableEl.focus();
+                                    e.preventDefault();
+                                }
+                            }
+                    });
+
+                }, 300)
+            }else{
+                document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__opened");
+                document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__closed");
+                document.getElementById("fsc_open").focus();
+                document.getElementById("fsc_b1").tabIndex = -1;
+                document.getElementById("fsc_b2").tabIndex = -1;
+                document.getElementById("fsc_close").tabIndex = -1;
+            }
+        });
     }
 
     render() {
