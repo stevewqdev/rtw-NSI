@@ -284,7 +284,7 @@ export default class DonationForm extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+        document.querySelectorAll(".slick-track")[0].style.height = `450px`;
 
         var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
         if(parseInt(newCurrentIndex) === 0){
@@ -340,6 +340,8 @@ export default class DonationForm extends Component {
             }
 
         }, 100)
+
+        
     }
     
     toggleSelectPrice(event){
@@ -479,7 +481,7 @@ export default class DonationForm extends Component {
             if(event.target.parentElement.classList.contains("is__toggled")){
                 event.target.parentElement.classList.remove("is__toggled");
                 document.getElementById("tfa_34").classList.remove("is_true");
-                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `450px`;
 
             }else{
                 event.target.parentElement.classList.add("is__toggled");

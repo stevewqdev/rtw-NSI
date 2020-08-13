@@ -2733,6 +2733,18 @@ $(document).on("click", "#searchTags li" , function(e) {
     var remainTags = $('#searchTags li');
     if(remainTags.length === 0 ){
         $('.searchTagsWrapper').hide();
+    }else{
+
+        if(remainTags[0].innerText === "Issue x"){
+            setTimeout(function(){
+                console.log((`[data-info=".-1"]`));
+                if($(`[data-info=".-1"]`)[0]){
+                    $(`[data-info=".-1"]`)[0].remove();
+                    $('.searchTagsWrapper').hide();
+                }
+            }, 100)
+          
+        }
     }
     var searchData = new Array();
     //var datesArray = new Array('06/30/2019', '05/17/2019', '01/22/2019');

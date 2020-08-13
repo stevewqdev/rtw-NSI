@@ -1902,6 +1902,7 @@ and (max-width: 355px) {
 }
 .form__step{
     padding: 0px;
+    outline: none;
 }
 .oneField .inputWrapper{
     width: 100%;
@@ -2191,6 +2192,20 @@ and (max-width: 355px) {
 }
 #tfa_2532-D .label__with__message:after{
     content: "Add card's owner lastname";
+}
+.maskControl.is__toggled{
+    position: relative;
+}
+.maskControl.is__toggled:after{
+    content: "";
+    width: 96%;
+    height: 86%;
+    border: solid 5px #0aa79d;
+    position: absolute;
+    top: 4px;
+    left: -1px;
+    right: 0;
+    bottom: 0;
 }
 #tfa_2198-D .label__with__message:after{
     content: "Add card's owner name";
