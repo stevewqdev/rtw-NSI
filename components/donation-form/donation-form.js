@@ -445,7 +445,6 @@ export default class DonationForm extends Component {
         }else{
             event.target.parentElement.classList.add("is__toggled");
         }
-        
  
         if(event.target.classList.contains("is_true")){
             event.target.classList.remove("is_true");
@@ -457,6 +456,14 @@ export default class DonationForm extends Component {
 
         setTimeout(function(){
             target.checked = true; 
+
+            if(document.getElementById("tfa_38").classList.contains("is_true")){
+                document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+            }
+    
+            if(document.getElementById("tfa_39").classList.contains("is_true")){
+                document.querySelectorAll(".slick-track")[0].style.height = `550px`;
+            }
         }, 200)
 
     }
