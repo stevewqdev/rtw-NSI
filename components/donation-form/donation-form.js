@@ -255,7 +255,7 @@ export default class DonationForm extends Component {
     }
     previous() {
         this.slider.slickPrev();
-
+        
         setTimeout(function(){
             var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
 
@@ -266,6 +266,22 @@ export default class DonationForm extends Component {
                 document.querySelectorAll(".slider__controller .next")[0].classList.remove("hidden-element");
                 document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
                 
+            }
+
+     
+
+            if(document.getElementById("tfa_30").classList.contains("is_true")){
+                document.querySelectorAll(".slick-track")[0].style.height = `550px`;
+            }else{
+                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+            }
+
+            if(document.getElementById("tfa_38").classList.contains("is_true")){
+                document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+            }
+    
+            if(document.getElementById("tfa_39").classList.contains("is_true")){
+                document.querySelectorAll(".slick-track")[0].style.height = `550px`;
             }
 
             if(parseInt(newCurrentIndex) === 0){

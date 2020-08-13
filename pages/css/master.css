@@ -2166,13 +2166,13 @@ and (max-width: 355px) {
     bottom: -30px;
 }
 #tfa_2562.label__with__message:after {
-    position: absolute;
+    position: relative;
     content: "Select a donation amount";
     font-size: 10px;
     color: red;
     left: unset;
-    bottom: 60px;
-    right: 15px;
+    bottom: 0px;
+    right: 0;
 }
 #tfa_41-D .label__with__message:after{
     content: "Please add  name ";
@@ -2613,7 +2613,7 @@ color: #015D5D;
 }
 #tfa_44{
     background: transparent!important;
-    color: white!important;
+    color: #015D5D!important;
     font-family: poppins!important;
     font-weight: bold!important;
     text-transform: uppercase!important;
