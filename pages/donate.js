@@ -19,11 +19,6 @@ export default class MakeDonation extends Component {
     render() {
         return (
            <main className="donation__page">
-    
-
-                <section className="donation__form__wrapper">
-                    <DonationForm />
-                </section>
 
                 <div className="hero__container hero__donation">
                     <div className="stm__background">
@@ -56,7 +51,8 @@ export default class MakeDonation extends Component {
                                 </div> */}
                             </div>
                             <div className="col-sm-12 col-md-6 col-lg-6 hero__content__image">
-                                <img loading="lazy" src={this.props.pageData.better_featured_image.source_url} alt="The Experience Image"/>
+                                <img className={'donate__image'} loading="lazy" src={this.props.pageData.better_featured_image.source_url} alt="The Experience Image"/>
+                                <DonationForm />
                             </div>
                         </div>
                     </div>

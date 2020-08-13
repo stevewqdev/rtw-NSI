@@ -397,7 +397,7 @@ export default function Home(props) {
               {
                 props.postData.map((post, index) => (
                   <div className="press__post col-sm-12 col-md-6 col-lg-6" key={index}>
-                    <a href={post.acf.press_external_link} aria-label={post.title.rendered}>
+                    <a href={post.acf.press_external_link} aria-label={post.title.rendered} target="_BLANK">
                       <p className="press__title title poppins teal-text bold xxl">
                         {post.title.rendered}
                       </p>

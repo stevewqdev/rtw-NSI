@@ -92,7 +92,7 @@
         margin: 0px 10px;
     }
 }
-@media(max-width: 812px){
+@media(max-width: 1000px){
     .header .container{
         max-width: 100%!important;
     }
@@ -126,12 +126,12 @@
     }
     .toggle__menu__button{
         position: absolute;
-        right: 40px;
+        right: 30px;
         display: flex;
         flex-direction: column;
         height: 20px;
         cursor: pointer;
-        top: 0px;
+        top: 15px;
     }
     .menu__burguer{
         pointer-events: none;
@@ -149,7 +149,10 @@
     }
 }
 @media(max-width: 600px){
+    .toggle__menu__button{
 
+        top: 0;
+    }
 }
 @media(max-width: 600px){
     .nav__brand .top__logo {

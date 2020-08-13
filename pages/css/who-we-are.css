@@ -63,7 +63,7 @@
     align-items: center;
 }
 .city__cluster .city__slider{
-    width: calc(100% / 5);
+    width: calc(100% / 6);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,7 +76,7 @@
     letter-spacing: 1px;
 }
 .city__image img{
-    padding: 0 36px;
+    padding: 0 25px;
     width: 100%;
 }
 #cities .slick-arrow.slick-next, #cities .slick-arrow.slick-prev {

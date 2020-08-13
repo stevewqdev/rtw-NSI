@@ -189,7 +189,10 @@ export default function TheExperience(props) {
                                     <div className={`the__faq ${index > 2 ? "more__faqs hidden__faq": ""}
                                     `} key={index} onClick={openFaq}>
                                         <div className="title">
-                                            <h4 className={` bold teal-text`}>{faq.title.rendered}</h4>
+                                            <h4
+                                                className={`bold teal-text`}
+                                                dangerouslySetInnerHTML={{ __html: faq.title.rendered }}
+                                            />
 
                                             <div className="arrow">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="18.188" height="10.393" viewBox="0 0 18.188 10.393">

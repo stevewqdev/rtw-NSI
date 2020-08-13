@@ -405,7 +405,14 @@ label[id^="tfa_2584["] {
 *[id^="tfa_2633["][class~="field-container-D"] {
     width: auto !important;
 }
-
+.donate__image{
+    max-height: 450px;
+}
+.donation__page .hero__container .hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 #tfa_2526,
 *[id^="tfa_2526["] {
     width: auto !important;
@@ -907,9 +914,16 @@ span.oneChoice.maskControl {
 .donation__form__wrapper{
     padding-top: 350px;
 }
+
+.form__step__one label{
+    display: none!important; 
+}
+.form__step__one .postField{
+    display: block!important;
+}
 .wFormContainer 		{ max-width: 1140px;;     /* default, overriden using an inline style */
                           margin: auto;
-                          background: #015D5D;
+                          background: transparent;
                           position: relative;
                           margin-top: -150px;
                          /* make sure we show a scroll bar if form height is defined in theme and is too small. */
@@ -922,7 +936,7 @@ span.oneChoice.maskControl {
  */
 .wFormContainer .wFormTitle { border: 2px solid transparent; padding: 2px 6px; }
 .wForm .pageSection > h4 { border: 2px solid transparent; padding: 2px 6px; }
-.wForm .oneField		{ border: 2px solid transparent; padding: 2px 6px; box-sizing: border-box; }
+.wForm .oneField		{ border: 0px solid transparent; padding: 2px 6px; box-sizing: border-box; }
 .wForm .oneFieldWrapper	{ display: inline-block; max-width: 100%; }
 .wForm .section			{      padding: 0!important;
     margin: 0px!important; }
@@ -1004,11 +1018,13 @@ span.oneChoice.maskControl {
 
 /* Allow radio/checkbox label to wrap if needed (see ticket #242) */
 .wForm form .oneChoice label, .wForm form .oneChoice .label { white-space: normal; display: inline-block; vertical-align: text-top; }
-
+.wForm form .oneChoice img{
+    border: solid 1px #6C6C6C;
+}
 /* Image replacement for checkbox/radio  */
 .wForm form .oneChoice.maskControl input[type=checkbox] { display: none;}
 .wForm form .oneChoice.maskControl input[type=radio] { display: none;}
-.wForm form .oneChoice.maskControl label, .wForm form .oneChoice.maskControl .label  { opacity: .4; margin-left: 0;}
+.wForm form .oneChoice.maskControl label, .wForm form .oneChoice.maskControl .label  { opacity: 1; margin-left: 0; padding-left: 0;}
 .wForm form .oneChoice.maskControl input[type=radio]:checked + .label    { opacity:1; }
 .wForm form .oneChoice.maskControl input[type=radio]:checked + label     { opacity:1; }
 .wForm form .oneChoice.maskControl input[type=checkbox]:checked + .label { opacity:1; }
@@ -1819,10 +1835,13 @@ and (max-width: 355px) {
     padding-bottom: 15px;
 }
 .form__step{
-    padding: 25px 200px;
+    padding: 0px;
 }
 .oneField .inputWrapper{
     width: 100%;
+}
+#donation__form__inner .container{
+    padding-left: 0px;
 }
 .oneField .inputWrapper{
     width: 100%;
@@ -1995,12 +2014,16 @@ and (max-width: 355px) {
     width: 100%!important;
 }
 .wForm form .oneChoice img{
-    width: 100%!important;
-    padding: 0px 5px 0 0;
+    width: 95%!important;
+    padding: 0px 0px 0 0;
     cursor: pointer;
+    margin: 5px 5px 5px 0;
 }
 #tfa_2 label{
     cursor: pointer;
+}
+#tfa_2562-L{
+    display: none;
 }
 #tfa_14-D{
     padding-bottom: 25px;
@@ -2160,8 +2183,14 @@ and (max-width: 355px) {
 #tfa_2-D{
     padding: 0px;
 }
+@media (max-width: 1700px)
+{.donation__page .hero__container .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 5.5%;
+}}
 .donation__page .hero__content__title{
-    margin-top: 145px;
+    margin-top: 65px;
     margin-bottom: 30px;
 }
 .donation__page .hero__content__image img{
