@@ -105,7 +105,6 @@ export default class DonationForm extends Component {
                 }
 
                 if(document.getElementById("input__heart").classList.contains("input__heart") && !document.getElementById("input__heart").classList.contains("is__toggled")){
-                    console.log(document.querySelectorAll("#tfa_31 .error"));
 
                     [...document.querySelectorAll("#tfa_31 .error")].map((element) => {
                         element.classList.remove("error");
@@ -114,8 +113,8 @@ export default class DonationForm extends Component {
 
                 var checkErrors = [...document.querySelectorAll(".form__step__one .error")];
 
+                this.slider.slickNext();
                 if(checkErrors.length <= 0){
-                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
                 }else{
@@ -206,7 +205,6 @@ export default class DonationForm extends Component {
                 }
                 
                 if(document.getElementById("tfa_2201").value === "tfa_2425" || document.getElementById("tfa_2201").value === "tfa_2426") {    
-                    console.log(document.getElementById("tfa_2201").value);
                     document.getElementById("tfa_2511-D").classList.add("offstate");
                     document.getElementById("tfa_2512-D").classList.remove("offstate");
                     document.getElementById("tfa_2439-D").classList.remove("offstate");
@@ -223,8 +221,8 @@ export default class DonationForm extends Component {
 
                 var checkErrors = [...document.querySelectorAll(".form__step__two .error")];
 
+                this.slider.slickNext();
                 if(checkErrors.length <= 0){
-                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                 }else{
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
@@ -239,6 +237,15 @@ export default class DonationForm extends Component {
                     document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
                 }else{
                     document.querySelectorAll(".slider__controller .next")[0].classList.remove("hidden-element");
+                    document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
+                    
+                }
+
+                if(parseInt(newCurrentIndex) === 0){
+                    document.querySelectorAll(".slider__controller .prev")[0].classList.add("hidden-element");
+                    document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
+                }else{
+                    document.querySelectorAll(".slider__controller .prev")[0].classList.remove("hidden-element");
                     document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
                     
                 }
@@ -260,6 +267,15 @@ export default class DonationForm extends Component {
                 document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
                 
             }
+
+            if(parseInt(newCurrentIndex) === 0){
+                document.querySelectorAll(".slider__controller .prev")[0].classList.add("hidden-element");
+                document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
+            }else{
+                document.querySelectorAll(".slider__controller .prev")[0].classList.remove("hidden-element");
+                document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
+                
+            }
         }, 100)
     }
     componentDidMount(){
@@ -267,6 +283,17 @@ export default class DonationForm extends Component {
         script.src = "/js/donationForm.js";
         script.async = true;
         document.body.appendChild(script);
+
+        document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+
+        var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
+        if(parseInt(newCurrentIndex) === 0){
+            document.querySelectorAll(".slider__controller .prev")[0].classList.add("hidden-element");
+            document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
+        }else{
+            document.querySelectorAll(".slider__controller .prev")[0].classList.remove("hidden-element");
+            document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
+        }
     }
     checkCountry(e){
         console.log(e.target.value);
@@ -409,6 +436,7 @@ export default class DonationForm extends Component {
 
         [...document.querySelectorAll("#tfa_37 input")].map((element) => {
             element.classList.remove("is_true");
+            
         });
 
       
@@ -444,9 +472,13 @@ export default class DonationForm extends Component {
             if(event.target.parentElement.classList.contains("is__toggled")){
                 event.target.parentElement.classList.remove("is__toggled");
                 document.getElementById("tfa_34").classList.remove("is_true");
+                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+
             }else{
                 event.target.parentElement.classList.add("is__toggled");
                 document.getElementById("tfa_34").classList.add("is_true");
+                document.querySelectorAll(".slick-track")[0].style.height = `550px`;
+
             }
         }
 
@@ -477,7 +509,7 @@ export default class DonationForm extends Component {
                             document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
                         }
                         if(parseInt(currentIndex) === 1){
-                            document.querySelectorAll(".slick-track")[0].style.height = `1450px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `900px`;
                         }
                         if(parseInt(currentIndex) === 2){
                             document.querySelectorAll(".slick-track")[0].style.height = `500px`;
@@ -492,7 +524,7 @@ export default class DonationForm extends Component {
                             document.querySelectorAll(".slick-track")[0].style.height = `1500px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `500px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `300px`;
                         }
                     }
                     else{
@@ -502,7 +534,7 @@ export default class DonationForm extends Component {
                             document.querySelectorAll(".slick-track")[0].style.height = `600px`;
                         }
                         if(parseInt(currentIndex) === 1){
-                            document.querySelectorAll(".slick-track")[0].style.height = `790px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `830px`;
                         }
                         if(parseInt(currentIndex) === 2){
                             document.querySelectorAll(".slick-track")[0].style.height = `450px`;
@@ -542,6 +574,25 @@ export default class DonationForm extends Component {
                                                 <div className="form__step form__step__one">
                                                     <fieldset id="tfa_2562" className="section">
                                                         <legend id="tfa_2562-L"><b>Your Gift</b></legend>
+                                                        <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_16-D" role="radiogroup" aria-labelledby="tfa_16-L" data-tfa-labelledby="-L tfa_16-L">
+                                                                <label id="tfa_16-L" className="label preField reqMark">Frequency</label>
+                                                                <div className="inputWrapper">
+                                                                    <span id="tfa_16" className="choices horizontal required">
+                                                                        <span className="oneChoice is__toggled">
+                                                                            <input onClick={this.toggleFrequency}  type="radio" defaultValue="tfa_17" className="calc-payments calcval-1"  id="tfa_17" name="tfa_16" aria-required="true" data-conditionals="#tfa_2720" aria-labelledby="tfa_17-L" data-tfa-labelledby="tfa_16-L tfa_17-L" checked  />
+                                                                            <label className="label postField" id="tfa_17-L" htmlFor="tfa_17">
+                                                                                <span className="input-radio-faux" />One time
+                                                                            </label>
+                                                                        </span>
+                                                                        <span className="oneChoice">
+                                                                            <input  type="radio" defaultValue="tfa_18" className="calc-payments calcval-9999" id="tfa_18" name="tfa_16" aria-required="true" data-conditionals="#tfa_2555" aria-labelledby="tfa_18-L" data-tfa-labelledby="tfa_16-L tfa_18-L" onClick={this.toggleFrequency} />
+                                                                            <label className="label postField" id="tfa_18-L" htmlFor="tfa_18">
+                                                                                <span className="input-radio-faux" />Monthly
+                                                                            </label>
+                                                                        </span>
+                                                                    </span>
+                                                                </div>
+                                                            </div>
                                                         <div className="oneField field-container-D  labelsRemoved  " id="tfa_2-D" role="radiogroup" aria-labelledby="tfa_2-L" data-tfa-labelledby="-L tfa_2-L">
                                                             <div className="inputWrapper">
                                                                 <table id="tfa_2" className="choices columns3 required">
@@ -635,25 +686,7 @@ export default class DonationForm extends Component {
                                                         </div>
 
                                                         <div id="tfa_2605" className="section inline group">
-                                                            <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_16-D" role="radiogroup" aria-labelledby="tfa_16-L" data-tfa-labelledby="-L tfa_16-L">
-                                                                <label id="tfa_16-L" className="label preField reqMark">Frequency</label>
-                                                                <div className="inputWrapper">
-                                                                    <span id="tfa_16" className="choices horizontal required">
-                                                                        <span className="oneChoice is__toggled">
-                                                                            <input onClick={this.toggleFrequency}  type="radio" defaultValue="tfa_17" className="calc-payments calcval-1"  id="tfa_17" name="tfa_16" aria-required="true" data-conditionals="#tfa_2720" aria-labelledby="tfa_17-L" data-tfa-labelledby="tfa_16-L tfa_17-L" checked  />
-                                                                            <label className="label postField" id="tfa_17-L" htmlFor="tfa_17">
-                                                                                <span className="input-radio-faux" />One time
-                                                                            </label>
-                                                                        </span>
-                                                                        <span className="oneChoice">
-                                                                            <input  type="radio" defaultValue="tfa_18" className="calc-payments calcval-9999" id="tfa_18" name="tfa_16" aria-required="true" data-conditionals="#tfa_2555" aria-labelledby="tfa_18-L" data-tfa-labelledby="tfa_16-L tfa_18-L" onClick={this.toggleFrequency} />
-                                                                            <label className="label postField" id="tfa_18-L" htmlFor="tfa_18">
-                                                                                <span className="input-radio-faux" />Monthly
-                                                                            </label>
-                                                                        </span>
-                                                                    </span>
-                                                                </div>
-                                                            </div>
+                                                            
                                                             <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_2188-D">
                                                                 <label id="tfa_2188-L" className="label preField reqMark" htmlFor="tfa_2188">Direct my donation to</label>
                                                                 <div className="inputWrapper">
@@ -797,7 +830,7 @@ export default class DonationForm extends Component {
                                                             <div className="oneField field-container-D    " id="tfa_44-D">
                                                             <label id="tfa_44-L" className="label preField " htmlFor="tfa_44">Personal message:</label><br /><div className="inputWrapper"><textarea id="tfa_44" name="tfa_44" title="Personal message:" placeholder="MESSAGE" className defaultValue={""} /></div>
                                                             </div>
-                                                            <div className="htmlSection" id="tfa_45"><div className="htmlContent" id="tfa_45-HTML"><i style={{"color" : "white!important"}}>This is the contact information for the person(s) being acknowledged for this tribute gift; this should not be the donor's information.</i><br /></div></div>
+                                                            <div className="htmlSection" id="tfa_45"><div className="htmlContent" id="tfa_45-HTML"><i >This is the contact information for the person(s) being acknowledged for this tribute gift; this should not be the donor's information.</i><br /></div></div>
                                                             <div className="oneField field-container-D    " id="tfa_2633-D">
                                                             <label id="tfa_2633-L" className="label preField reqMark" htmlFor="tfa_2633">Recipient's Email Address</label><br /><div className="inputWrapper"><input  placeholder="Email" type="text" id="tfa_2633" name="tfa_2633" defaultValue aria-required="true" title="Recipient's Email Address" className="validate-email required" /></div>
                                                             </div>

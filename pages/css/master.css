@@ -240,14 +240,14 @@ a:hover{
     background: transparent;
     border-radius: 0px;
     padding: 10px;
-    max-width: 93px;
-    color: white;
-    border: solid 1px white;
+    max-width: 98%;
+    color: #015D5D;
+    border: solid 1px #6C6C6C;
 
 }
 #tfa_2605{
-    padding-bottom: 13px;
-    border-bottom: solid 1px white;
+    border-bottom: solid 1px #6C6C6C;
+    border-top: solid 1px #6C6C6C;
     display: flex;
     color: white;
     text-transform: uppercase;
@@ -257,6 +257,7 @@ a:hover{
     padding-left: 0px;
     padding-right: 0px;
     flex-wrap: wrap;
+    padding: 0 9px 0 0!important;
 }
 
 #tfa_16-D{
@@ -301,16 +302,19 @@ a:hover{
 }
 #tfa_16-D{
     margin-top: 0px;
-    border-bottom: solid 1px white;
-    padding-bottom: 20px;
+    border-bottom: none;
+}
+#tfa_16{
+    display: flex;
+    justify-content: space-around;
 }
 #tfa_16 label{
-    width: 100% !important;
-    height: 40px;
+    width: 97% !important;
+    height: 55px;
     background: transparent;
     border-radius: 0px;
     padding: 10px;
-    max-width: 133px;
+    max-width: 100%;
     color: white;
     border: solid 1px;
     text-align: center;
@@ -335,14 +339,13 @@ a:hover{
     align-items: center;
 }
 #tfa_2188-D select{
-    width: 100% !important;
+    width: 98% !important;
     height: 45px;
     background: transparent;
     border-radius: 0px;
     padding: 10px;
-    max-width: 250px;
-    color: white;
-    border: solid 1px white;
+    color: #015D5D;
+    border: solid 1px #6C6C6C;
 }
 #tfa_14-D,
 *[id^="tfa_14["][class~="field-container-D"] {
@@ -373,7 +376,7 @@ label[id^="tfa_16["] {
 }
 #tfa_2188-D,
 *[id^="tfa_2188["][class~="field-container-D"] {
-    width: auto !important;
+    width: 50% !important;
 }
 
 #tfa_2188-L,
@@ -475,20 +478,24 @@ label[id^="tfa_2530["] {
 
 #tfa_2525,
 *[id^="tfa_2525["] {
-    width: auto !important;
+    width: 97% !important;
 }
 #tfa_2525-D,
 *[id^="tfa_2525["][class~="field-container-D"] {
-    width: auto !important;
+    width: 50% !important;
 }
 
+#tfa_2717{
+    width: 100%;
+    margin: 34px 0 22px!important;
+}
 #tfa_2532,
 *[id^="tfa_2532["] {
-    width: 199px !important;
+    width: 95% !important;
 }
 #tfa_2532-D,
 *[id^="tfa_2532["][class~="field-container-D"] {
-    width: auto !important;
+    width: 50% !important;
 }
 
 #tfa_2532-L,
@@ -499,20 +506,23 @@ label[id^="tfa_2532["] {
 
 #tfa_2198,
 *[id^="tfa_2198["] {
-    width: auto !important;
+    width: 97% !important;
 }
 #tfa_2198-D,
 *[id^="tfa_2198["][class~="field-container-D"] {
-    width: auto !important;
+    width: 60% !important;
 }
-
+#tfa_2513{
+    width: 100%;
+    display: flex;
+}
 #tfa_2200,
 *[id^="tfa_2200["] {
-    width: auto !important;
+    width: 93% !important;
 }
 #tfa_2200-D,
 *[id^="tfa_2200["][class~="field-container-D"] {
-    width: auto !important;
+    width: 40% !important;
 }
 
 #tfa_2186,
@@ -728,18 +738,22 @@ span i img {
     border-radius: 0px!important;
     padding: 10px;
     max-width: 250px;
-    color: white;
-    border: solid 1px white;
+    color: #015D5D;
+    border: solid 1px #707070;
+    font-weight: bold;
 
 }
 #tfa_2524-L{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    color: white;
-    font-size: 45px;
+    color: #286867;
+    font-size: 19px;
     padding-top: 25px;
     padding-bottom: 15px;
+    padding-left: 0;
+    text-transform: uppercase;
+
 }
 #tfa_2612-L {
     border-style: solid;
@@ -846,6 +860,10 @@ span.oneChoice.maskControl {
     /* top & bottom margin based on font size */
     margin:1em 0;
 }
+#tfa_41{
+    position: relative;
+    left: 40px;
+}
 .wForm h1, .wForm h2, .wForm h3, .wForm h4, .wForm h5, .wForm h6, .wForm strong {
     /*bringing boldness back to headers and the strong element*/
     font-weight:bold;
@@ -909,7 +927,7 @@ span.oneChoice.maskControl {
     .wForm { padding: 5px;  }
 }
 .hero__donation{
-    padding: 100px 0;
+    padding: 50px 0;
 }
 .donation__form__wrapper{
     padding-top: 350px;
@@ -918,6 +936,16 @@ span.oneChoice.maskControl {
 .form__step__one label{
     display: none!important; 
 }
+#tfa_16 span{
+    width: 50%;
+}
+#tfa_16 .oneChoice{
+    width: 100%;
+}
+.slick-initialized .slick-slide {
+    padding: 0px 5px;
+    overflow: hidden;
+}
 .form__step__one .postField{
     display: block!important;
 }
@@ -925,7 +953,7 @@ span.oneChoice.maskControl {
                           margin: auto;
                           background: transparent;
                           position: relative;
-                          margin-top: -150px;
+                          margin-top: -35px;
                          /* make sure we show a scroll bar if form height is defined in theme and is too small. */
                          /* overflow: auto; */  /* prevents drop-down typeahead menu from fully displaying. */
                           }
@@ -1092,7 +1120,7 @@ span.oneChoice.maskControl {
 .wForm .labelsRightAligned .gridLayout .headerCol	{ text-align: right; }
 
 /* Fields of inline sections are displayed on the same line. */
-.wForm .inline div.oneField { display: inline-block; vertical-align: top; max-width: 100%; }
+.wForm .inline div.oneField { display: inline-block; vertical-align: top; max-width: 100%; padding: 0;}
 .wForm .inline div.wfContent { display: inline-block; vertical-align: top; max-width: 100%; }
 
 
@@ -1146,7 +1174,8 @@ span.oneChoice.maskControl {
 
 /* BUTTONS --------------------------------------------------------------- */
 
-.wForm .actions { border: 2px solid transparent; padding: 10px 2px; }
+.wForm .actions {     border: 0px solid transparent;
+    padding: 10px 0px; }
 
 /* Make submit/cancel buttons fairly large, set mouse pointer appropriately */
 .wForm .primaryAction, .wForm .secondaryAction { padding: 4px 15px; cursor: pointer; color: inherit; }
@@ -1561,12 +1590,20 @@ span.oneChoice.maskControl {
 }
 #donation__form .slider__controller{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     color: #00a99e;
     font-weight: bold;
     letter-spacing: 1px;
     position: relative;
     top: -20px;
+    width: 200px;
+    position: relative;
+    right: 0;
+    margin: 0 0 0 auto;
+    right: 10px;
+}
+#tfa_2603 .oneChoice{
+    display: flex;
 }
 #tfa_2-D.error{
     border: solid 1px red;
@@ -1619,7 +1656,7 @@ span.oneChoice.maskControl {
 }
 #donation__form .slider__message{
     font-family: poppins;
-    color: white;
+    color: #015D5D;
     text-transform: uppercase;
     font-weight: 600;
     letter-spacing: 1px;
@@ -1634,6 +1671,10 @@ span.oneChoice.maskControl {
 }
 #donation__form .slider__message p{
     margin-bottom: 5px;
+}
+#tfa_2514{
+    display: flex;
+    margin: 20px 0 10px!important;
 }
 #donation__form textarea.error{
     border: solid 1px red;
@@ -1776,13 +1817,22 @@ and (max-width: 355px) {
 .sensitive-value-omitted { padding: 5px 0 0 0!important; }
 
 /* response caching dialog */
-.input__heart.is__toggled svg path{
-    fill: white;
+.input__heart svg path{
+    stroke: #00A89D;
 }
-#tfa_16 .oneChoice.is__toggled label{
+.input__heart.is__toggled svg path{
+    fill: #00A89D;
+}
+#tfa_16 .oneChoice label{
     background: white;
     color: #015D5D!important;
-    border: solid 1px white;
+    border: solid 1px #6C6C6C;
+    font-size: 24px;
+}
+#tfa_16 .oneChoice.is__toggled label{
+    background: #00A89D;
+    color: #ffffff!important;
+    border: solid 1px #00A89D;
 }
 /* for modals */
 .wFormOverlay {
@@ -1852,7 +1902,6 @@ and (max-width: 355px) {
 }
 .wForm input[type="text"], .wForm input[type="email"],  .wForm input[type="number"] {
     background: transparent;
-    color: white!important;
     font-family: poppins;
     font-weight: bold;
     text-transform: uppercase;
@@ -1860,7 +1909,9 @@ and (max-width: 355px) {
     padding: 0 20px;
     min-height: 45px;
     border-radius: 0px;
-    border: solid 1px white;
+    color: #015D5D!important;
+    border: solid 1px #707070;
+    font-weight: bold;
 }
 .wForm form .oneChoice.maskControl input[type=radio]:checked + .label{
     width: 100%;
@@ -1875,10 +1926,11 @@ and (max-width: 355px) {
     flex-wrap: wrap;
 }
 #tfa_2627-D{
-    width: 30%!important;
+    width: 48%!important;
 }
 #tfa_2526-D{
-    width: 30%!important;
+    width: 48%!important;
+    margin-left: 10px;
 }
 #tfa_2528-D, #tfa_2529-D, #tfa_2530-D {
     width: 13.3%!important;
@@ -1890,6 +1942,7 @@ and (max-width: 355px) {
 }
 #tfa_2186-D{
     width: 50%!important;
+    padding-right: 10px;
 }
 #tfa_2116-D{
     width: 50%!important;
@@ -1924,19 +1977,42 @@ and (max-width: 355px) {
 }
 #tfa_2636-D{
     padding-bottom: 10px;
-    border-bottom: solid 1px white;
+    border-top: solid 1px #6C6C6C;
+    border-bottom: solid 1px #6C6C6C;
     padding-left: 0px;
     padding-right: 0px;
-    margin-top: 0px!important;
+    padding-top: 10px!important;
 }
 #tfa_2636 .checkmark{
     left: -5px;
-    top: 6px;
+    top: 15px;
 }
+#tfa_2201-D{
+    padding-right: 11px;
+}
+#tfa_2515{
+    width: 100%;
+}
+#tfa_2497-D{
+    width: 50%;
+    padding-right: 10px;
+}
+#tfa_2512-D{
+    width: 50%;
+    padding-right: 20px;
+}
+#tfa_2512-D input{
+    width: 100%;
+}
+#tfa_2439-D{
+    padding-right: 18px;
+}
+#tfa_2515
 #tfa_2637-L {
-    margin-left: 0px;
+    margin-left: 20px;
     text-align: left;
     font-size: 12px;
+    position: relative;
 }
 #tfa_2636 .oneChoice {
     margin: 0px;
@@ -1971,7 +2047,7 @@ and (max-width: 355px) {
     font-size: 13px;
     min-width: 176px;
     padding: 15px;
-    margin-top: 30px;
+    margin: 0 auto 0 0;
 }
 #tfa_2555{
     text-transform: uppercase;
@@ -1988,12 +2064,14 @@ and (max-width: 355px) {
 }
 #tfa_2552-L{
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    color: white;
-    font-size: 45px;
+    color: #286867;
+    font-size: 19px;
     padding-top: 25px;
     padding-bottom: 15px;
+    padding-left: 0;
+    text-transform: uppercase;
 }
 #tfa_2186-H{
     left: 0px;
@@ -2009,6 +2087,11 @@ and (max-width: 355px) {
 }
 #tfa_2718{
     width: 100%;
+    margin: 20px 0 10px!important;
+}
+#tfa_2528-D, #tfa_2529-D, #tfa_2530-D{
+    margin-right: 10px;
+
 }
 #tfa_2528-D input, #tfa_2529-D input, #tfa_2530-D input {
     width: 100%!important;
@@ -2026,14 +2109,14 @@ and (max-width: 355px) {
     display: none;
 }
 #tfa_14-D{
-    padding-bottom: 25px;
-    border-bottom: solid 1px white;
+    padding-bottom: 0px;
+    /* border-bottom: solid 1px white; */
     display: flex;
     color: white;
     text-transform: uppercase;
     font-family: poppins;
     font-weight: bold;
-    margin: 0 0 20px 0px;
+    margin: 0 0 15px 0px;
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -2051,8 +2134,8 @@ and (max-width: 355px) {
     font-size: 10px;
     color: red;
     left: unset;
-    bottom: 160px;
-    right: 0;
+    bottom: 60px;
+    right: 15px;
 }
 #tfa_41-D .label__with__message:after{
     content: "Please add  name ";
@@ -2134,7 +2217,10 @@ and (max-width: 355px) {
     font-family: poppins;
     font-weight: bold;
     text-transform: uppercase;
-    color: white;
+    color: #015D5D!important;
+    text-align: left;
+    position: relative;
+    top: -5px;
 }
 #tfa_31-L{
     padding: 0px 0 0 2px;
@@ -2145,15 +2231,40 @@ and (max-width: 355px) {
     letter-spacing: 1px;
 }
 #tfa_29-D{
-    border-bottom: solid 1px white;
+    border-bottom: solid 1px #6C6C6C;
     padding-bottom: 20px;
 }
 #tfa_32{
     display: flex;
 }
 #tfa_32 .oneChoice{
-    margin-right: 20px;
+    margin-right: 9px;
     position: relative;
+    display: flex;
+}
+#tfa_43 label{
+    display: block!important;
+    top: 6px;
+}
+#tfa_41-L:after {
+    right: -27px;
+}
+#tfa_42-L:after {
+    right: -50px;
+}
+#tfa_43 .oneField{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23.5%;
+}
+#tfa_2635-D .inputWrapper{
+    position: relative;
+    left: -20px;
+}
+#tfa_42-L{
+    position: relative;
+    left: -65px;
 }
 #tfa_32 .oneChoice input{
     margin-right: 10px;
@@ -2165,7 +2276,7 @@ and (max-width: 355px) {
 }
 #tfa_31{
     margin-top: 15px!important;
-    color: white;
+    color: #015D5D;
 }
 .line__one, .line__two{
     position: relative;
@@ -2184,10 +2295,10 @@ and (max-width: 355px) {
     padding: 0px;
 }
 @media (max-width: 1700px)
-{.donation__page .hero__container .container {
+{.donation__page .hero__container .container.donate__container {
     width: 100%;
     max-width: 100%;
-    padding-left: 5.5%;
+    padding: 0 9.5%;
 }}
 .donation__page .hero__content__title{
     margin-top: 65px;
@@ -2196,14 +2307,19 @@ and (max-width: 355px) {
 .donation__page .hero__content__image img{
     height: 100%;
     object-fit: cover;
-    padding: 70px 0;
+    padding: 70px 14px 70px 6px;
 }
 /* Accessiblity Related Rules */
 /* These are the rules that should *not* apply if javascript is disabled. */
 #tfa_2-D{
-    margin-bottom: 40px;
+    margin-bottom: 0px;
+    margin-top: 5px;
 }
-
+#tfa_2637-L{
+    font-size: 12px;
+    text-align: left;
+    margin-left: 15px;
+}
 .offstate {
     display: none !important;
 }
@@ -2241,7 +2357,7 @@ html .wForm form .wfCurrentPage {
     opacity: 1;
     position: absolute;
     top: 11px;
-    border:  solid 1px white;
+    border:  solid 1px #015D5D;
     transform: rotate(45deg);
 }
 div.wForm{
@@ -2251,7 +2367,7 @@ div.wForm{
     opacity: 1;
     position: absolute;
     top: 11px;
-    border: solid 1px white;
+    border: solid 1px #015D5D;
     transform: rotate(140deg);
 }
   /* Hide the browser's default radio button */
@@ -2265,12 +2381,13 @@ div.wForm{
     width: 25px;
     background-color: transparent;
     border-radius: 0;
-    border: solid 1px white;
+    border: solid 1px #6C6C6C;
     pointer-events: none;
     transform: scale(0.8);
   }
   #tfa_32-D{
-      padding: 0px;
+    margin-top: 50px;
+    padding: 0px;
   }
   #tfa_36{
     display: flex;
@@ -2279,8 +2396,8 @@ div.wForm{
     position: relative;
   }
   #tfa_37-D{
-      border-top: solid 1px white;
-      padding: 20px 0;
+      border-top: solid 1px #6C6C6C;
+      padding: 5px 0 30px;
       margin: 0;
   }
   #tfa_37-L{
@@ -2291,25 +2408,23 @@ div.wForm{
     font-family: poppins;
   }
   #tfa_2584{
-    width: 100% !important;
+    width: 99% !important;
     height: 45px;
     background: transparent;
     border-radius: 0px;
     padding: 10px;
-    max-width: 250px;
-    color: white;
-    border: solid 1px white;
+    color: #015D5D;
+    border: solid 1px #6C6C6C;
     position: relative;
-    left: 12px;
-    top: -6.5px;
+    left: 0px;
+    top: -7.5px;
   }
 
   #tfa_2584-D{
       padding: 15px 0 0px 0;
-      width: 100%;
+      width: 50%;
       margin: 0px;
       display: flex;
-      border-top: 1px white solid;
       align-items: center;
   }
   #tfa_35 {
@@ -2320,16 +2435,18 @@ div.wForm{
     padding: 10px;
     max-width: 250px;
     color: white;
-    border: solid 1px white;
+    border: solid 1px #6C6C6C;
   }
   #tfa_37 .oneChoice {
     margin-right: 20px;
     position: relative;
     width: 150px;
+    display: flex;
 }
 #tfa_2604-L{
     position: relative;
-    left: 25px;
+    left: 15px;
+    top: 3px;
 }
 #tfa_2604{
     width: 21px;
@@ -2347,12 +2464,17 @@ div.wForm{
 }
   #tfa_32 label, #tfa_37 label{
     position: relative;
-    top: -5px;
+    top: 3px;
     text-transform: uppercase;
     font-weight: bold;
     font-family: Poppins;
     letter-spacing: 1px;
     font-size: 13px;
+    width: 110px;
+    text-align: left;
+  }
+  #tfa_35-D{
+      margin-top: 40px;
   }
   #tfa_37 {
     display: flex;
@@ -2398,12 +2520,19 @@ div.wForm{
   }
 
 #tfa_43{
+    border-top: solid 1px #6C6C6C;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 #tfa_2635-D{
-    margin-top: 45px;
+    margin-top: 14px;
+}
+#tfa_42-D{
+    margin-top: 10px;
+    position: relative;
+    left: -20px;
 }
 .wForm label{
     text-transform: uppercase;
@@ -2411,19 +2540,19 @@ div.wForm{
     font-family: Poppins;
     letter-spacing: 1px;
     font-size: 13px;
-    color: white!important;
+    color: #015D5D!important;
 }
 .wForm ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
+    color: #015D5D;
     opacity: 1; /* Firefox */
   }
   
 .wForm :-ms-input-placeholder { /* Internet Explorer 10-11 */
-color: white;
+color: #015D5D;
 }
 
 .wForm ::-ms-input-placeholder { /* Microsoft Edge */
-color: white;
+color: #015D5D;
 }
 
 #tfa_2178{
@@ -2440,7 +2569,7 @@ color: white;
     font-size: 15px!important;
     padding: 10px 20px!important;
     border-radius: 0px!important;
-    border: solid 1px white!important;
+    border: solid 1px #6C6C6C!important;
 }
 #tfa_45{
     font-family: poppins!important;
@@ -2454,8 +2583,10 @@ color: white;
     font-size: 14px!important;
     font-weight: 600!important;
     font-style: inherit!important;
-    color: white!important;
+    color: #005d5c!important;
     line-height: 23px;
+    position: relative;
+    top: 5px;
 }
 #tfa_2633-D{
     width: 350px;
@@ -2489,13 +2620,50 @@ color: white;
 /* ============ Donation page css ============ */
 @media(max-width: 1024px){
     .wFormContainer{
-        width: 90%;
+        width: 100%;
     }
     .form__step {
-        padding: 10px 100px;
+        padding: 0px;
+    }
+    .donation__form__inner .col-lg-12{
+        padding: 0px;
+    }
+    #tfa_2178 {
+
+        flex-direction: column;
+    }
+    #tfa_44-D, #tfa_45 {
+        width: 100%!important;
+    }
+    #tfa_43 .oneField {
+        width: 100%;
+    }
+    #tfa_2635-D .inputWrapper {
+        position: relative;
+        left: 45px;
+    }
+    #tfa_41-D{
+        position: relative;
+        left: 47px!important;
+    }
+    #tfa_43 .oneField {
+        width: 100%;
+        position: relative;
+        left: 70px;
     }
 }
 @media(max-width: 768px){
+    #tfa_42-L {
+        position: relative;
+        left: -40px;
+    }
+    #tfa_42-L:after {
+        right: -20px;
+    }
+    #tfa_43 .oneField {
+
+        left: 40px;
+    }
     #tfa_43 {
         display: flex;
         justify-content: flex-start;
@@ -2573,7 +2741,17 @@ color: white;
         height: 100%;
         -o-object-fit: cover;
         object-fit: cover;
-        padding: 90px 0 30px 0;
+        padding: 70px 0!important;
+    }
+    #tfa_2526-D{
+        margin-left: 0px;
+        margin-bottom: 20px;
+    }
+    .wForm form .oneChoice img {
+        padding: 0px!important;
+    }
+    #tfa_2530-D{
+        margin-top: 50px;
     }
     #tfa_2188-D label {
         margin-right: 5px;
@@ -2592,9 +2770,35 @@ color: white;
         width: 100%!important;
         max-width: 100%!important;
     }
-    #tfa_41, #tfa_2635, #tfa_42, #tfa_44, #tfa_2188-D select{
+    #tfa_41, #tfa_2635, #tfa_42, #tfa_44, #tfa_2188-D select {
         width: 100%!important;
-        max-width: 100%!important;
+        max-width: 300px!important;
+        margin: 20px 0;
+    }
+    #tfa_2635-D .inputWrapper {
+        position: relative;
+        left: 48px;
+    }
+    #tfa_41-D .label__with__message:after {
+        content: "Please add name ";
+        left: 40px;
+        bottom: 0px;
+    }
+    #tfa_44-D .label__with__message:after {
+        content: "Please add message";
+        bottom: 0;
+    }
+    #tfa_45{
+        padding: 0px!important;
+    }
+    #tfa_41-D {
+        position: relative;
+        left: 20px!important;
+    }
+    #tfa_32 .label__with__message:after {
+        content: "Please add tribute details";
+        left: 170px;
+        bottom: -110px;
     }
     #tfa_2636 input {
         position: relative;
@@ -2620,6 +2824,35 @@ color: white;
     }
 }
 @media (max-width: 600px){
+    #tfa_43 .oneField {
+        left: 40px;
+        flex-direction: column;
+        left: 0!important;
+    }
+    #tfa_41, #tfa_2635, #tfa_42, #tfa_44, #tfa_2188-D select {
+        width: 100%!important;
+        max-width: 100%!important;
+        margin: 20px 0;
+        left: 0!important;
+    }
+    #tfa_2635-D .inputWrapper {
+        position: relative;
+        left: 0;
+    }
+    #tfa_2635-D .label__with__message:after {
+        content: "Please add lastname ";
+        bottom: 0px;
+    }
+    #tfa_41-D .label__with__message:after {
+        content: "Please add name ";
+        left: 0px;
+        bottom: 0px;
+    }
+    #tfa_43 label {
+        display: block!important;
+        top: 6px;
+        left: 0px!important;
+    }
     .slick-slide{
         height: 300px!important;
     }
