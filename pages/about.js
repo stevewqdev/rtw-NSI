@@ -28,7 +28,6 @@ export default class WhoWeAre extends Component {
             this.displayCityContent(queryString);
         }
 
-        console.log(this.props.teamData)
     }
 
     displayCityContent(city){

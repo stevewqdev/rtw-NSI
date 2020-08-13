@@ -161,7 +161,6 @@ export default class FloatingScreen extends Component {
             })
         }
 
-        console.log(paramsArrayCampaign);
 
         paramsArrayCampaign.map((theParam) => {
             if(theParam[0] === "campaign" && theParam[1].length > 0  && theParam[1] === "active"){

@@ -19,8 +19,6 @@ export default class Search extends Component {
         var endDate = "";
 
 
-        console.log(paramsArray)
-
         paramsArray.map((theParam) => {
             if(theParam[0] === "location" && theParam[1].length > 0 ){
                 cityParam = 
@@ -172,7 +170,6 @@ export default class Search extends Component {
                                                     <option id="detroit-7" data-option-count="7" value="detroit" class="detroit detroit-7">Atlanta</option>
 
                                                    
-
                                                     <option id="losangeles-9" data-option-count="9" value="losangeles" class="losangeles losangeles-9">Los Angeles</option>
 
                                                     <option id="miami-10" data-option-count="10" value="miami" class="miami miami-10">Miami</option>

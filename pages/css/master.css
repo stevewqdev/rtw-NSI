@@ -2101,7 +2101,7 @@ and (max-width: 355px) {
 }
 #tfa_2552-L{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     color: #286867;
     font-size: 19px;
@@ -2109,7 +2109,7 @@ and (max-width: 355px) {
     padding-bottom: 15px;
     padding-left: 0;
     text-transform: uppercase;
-}
+} 
 #tfa_2186-H{
     left: 0px;
     top:   60px!important;
@@ -2205,7 +2205,7 @@ and (max-width: 355px) {
 }
 #tfa_2530-D .label__with__message:after{
     content: "Add code ";
-    bottom: -35px;
+    bottom: -20px;
 }
 #tfa_2525-D .label__with__message:after{
     content: "Add card's owner name";
@@ -2875,6 +2875,16 @@ color: #015D5D;
     }
 }
 @media (max-width: 600px){
+    .donate__container > .row{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .donate__image{
+        display: none;
+    }
+    #donation__form {
+        padding-bottom: 40px;
+    }
     #tfa_2562.label__with__message:after {
         bottom: 93px;
         right: 5px;

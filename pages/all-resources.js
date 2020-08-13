@@ -345,7 +345,7 @@ export default class GettingStarted extends Component {
 
         // Create Filters
         let categoryFilters = [];
-        console.log(this.props.resourceData)
+
         this.props.resourceData.map((resource) => {
             let categoryObject = []; 
             

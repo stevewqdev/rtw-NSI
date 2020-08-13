@@ -113,8 +113,8 @@ export default class DonationForm extends Component {
 
                 var checkErrors = [...document.querySelectorAll(".form__step__one .error")];
 
-                this.slider.slickNext();
                 if(checkErrors.length <= 0){
+                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
                 }else{
@@ -221,8 +221,8 @@ export default class DonationForm extends Component {
 
                 var checkErrors = [...document.querySelectorAll(".form__step__two .error")];
 
-                this.slider.slickNext();
                 if(checkErrors.length <= 0){
+                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                 }else{
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
@@ -258,7 +258,7 @@ export default class DonationForm extends Component {
 
         setTimeout(function(){
             var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
-            console.log(newCurrentIndex);
+
             if(parseInt(newCurrentIndex) === 2){
                 document.querySelectorAll(".slider__controller .next")[0].classList.add("hidden-element");
                 document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
@@ -296,7 +296,7 @@ export default class DonationForm extends Component {
         }
     }
     checkCountry(e){
-        console.log(e.target.value);
+
         if(e.target.value === "tfa_2425" || e.target.value === "tfa_2426"){    
             document.getElementById("tfa_2511-D").classList.add("offstate");
             document.getElementById("tfa_2512-D").classList.remove("offstate");

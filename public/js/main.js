@@ -57,6 +57,9 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
         if(element.Repair_City__c === 'NYC' ){
             element.Repair_City__c = 'ny';
         }
+        if(element.Repair_City__c === 'New York City' ){
+            element.Repair_City__c = 'ny';
+        }
         if(element.date === '' || element.date === null || element.date === undefined){
             element.date = new Date();
         }
@@ -1066,6 +1069,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
 
             var currentValue = $(`.city__input .nice-select .list [data-value="${city}"]`);
 
+
             if(currentValue.length){
 
                 $(`.city__input .nice-select .list li`).removeClass('selected');
@@ -1165,7 +1169,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
                 
             }
             if(searchData[0]){
-                if(searchData[0].includes('harlem') && searchData[0].includes('brooklyn') && searchData[0].includes('ny')){
+                if(searchData[0].includes('harlem') || searchData[0].includes('brooklyn') || searchData[0].includes('ny')){
                     var newCurrentCards = new Array();
                     filter.filterCity = new Array();
                     for (let index = 0; index < searchData[0].length; index++) {
@@ -1307,15 +1311,15 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             $('.page__section.opportunities').append(emptyUrlSearch);
         }
     }
-    
-    if(searchData && searchData.length === 0 && searchWasTrue || theCardsArray.length === 0 && searchWasTrue){
+
+
+    if(searchData && searchData.length === 0 && searchWasTrue && theCardsArray.length === 0 && searchWasTrue){
         const emptyUrlSearch = `<div id="emptyUrlSearch" style="display: none;">true</div>`;
         $('.page__section.opportunities').append(emptyUrlSearch);
         theCardsArray = [];
         searchData = [];
     }
 
-    
     theCardsArray  = [...new Set(theCardsArray)];
     var theCards = curatedCards(theCardsArray, searchData, removedTag);
     
@@ -1364,6 +1368,7 @@ function curatedCards(data, searchData = null, removedTag = null){
         searchData.push(partnerSearch);
     }
     var info = data;
+
 
     if( searchData[0] === null &&  searchData[1] === undefined   && searchData[2] === null && searchData[3][0] === null  && searchData[4] === "-1" && searchData[5] === null){
         theCards = new Array();
@@ -1574,21 +1579,21 @@ function curatedCards(data, searchData = null, removedTag = null){
                 // if(comparedDate >= today && !data.isOngoing && theCity !== "global"){
                 //     theCards.push(theCard);
                 // }
-                if(comparedDate >= today ){
+                // if(comparedDate >= today ){
+                //     theCards.push(theCard);
+                // }
+                if(data.isOngoing && comparedDate >= today /*&& theCity !== "global"*/){
+                    onGoingCards.push(theCard);
+                }
+    
+                if(comparedDate >= today && !data.isOngoing /*&& theCity === "global"*/){
                     theCards.push(theCard);
                 }
+                // if(data.isOngoing && theCity === "global"){
+                //     globalOngoing.push(theCard);
+                // }
             }
 
-            // if(data.isOngoing && theCity !== "global"){
-            //     onGoingCards.push(theCard);
-            // }
-
-            // if(comparedDate >= today && !data.isOngoing && theCity === "global"){
-            //     theCards.push(theCard);
-            // }
-            // if(data.isOngoing && theCity === "global"){
-            //     globalOngoing.push(theCard);
-            // }
 
         }
 
@@ -1609,6 +1614,9 @@ function curatedCards(data, searchData = null, removedTag = null){
         // globalOngoing.forEach(element => {
         //     onGoingCards.unshift(element);
         // })
+        
+        var theCards = theCards.concat(onGoingCards);
+        
         localStorage.setItem('onGoingCards', JSON.stringify(onGoingCards));
         localStorage.setItem('allCards', JSON.stringify(theCards));
 
@@ -1817,22 +1825,17 @@ function curatedCards(data, searchData = null, removedTag = null){
                     // if(comparedDate >= today && !data.isOngoing && theCity !== "global"){
                     //     theCards.push(theCard);
                     // }
-                    if(comparedDate >= today ){
+                    // if(comparedDate >= today ){
+                    //     theCards.push(theCard);
+                    // }
+                    if(data.isOngoing && comparedDate >= today /*&& theCity !== "global"*/){
+                        onGoingCards.push(theCard);
+                    }
+        
+                    if(comparedDate >= today && !data.isOngoing /*&& theCity === "global"*/){
                         theCards.push(theCard);
                     }
                 }
-
-                // if(data.isOngoing && theCity !== "global"){
-                //     onGoingCards.push(theCard);
-                // }
-
-                // if(comparedDate >= today && !data.isOngoing && theCity === "global"){
-                //     theCards.push(theCard);
-                // }
-                // if(data.isOngoing && theCity === "global"){
-                //     globalOngoing.push(theCard);
-                // }
-
 
             }
             
@@ -1855,10 +1858,14 @@ function curatedCards(data, searchData = null, removedTag = null){
             //     onGoingCards.unshift(element);
             // })
             
+            var theCards = theCards.concat(onGoingCards);
+            
             localStorage.setItem('onGoingCards', JSON.stringify(onGoingCards));
             localStorage.setItem('allCards', JSON.stringify(theCards));
 
             var tags = new Array();
+            
+
             for (let index = 0; index < searchData.length; index++) {
                 var tag = searchData[index];
                 if(index < 3){
@@ -1868,8 +1875,9 @@ function curatedCards(data, searchData = null, removedTag = null){
                         }else{
                             var tag = `.${tag}`;
                         }
-                        
+
                         if(index === 0 ){
+
                             if(tag.includes('harlem') || tag.includes('brooklyn') || tag.includes('ny')){
                                 tag = '.nyc'
                                 var theClass = 'New York';
@@ -2734,10 +2742,8 @@ $(document).on("click", "#searchTags li" , function(e) {
     if(remainTags.length === 0 ){
         $('.searchTagsWrapper').hide();
     }else{
-        console.log(remainTags)
         if(remainTags[0].innerText === "Issue x"){
             setTimeout(function(){
-                console.log((`[data-info=".-1"]`));
                 if($(`[data-info=".-1"]`)[0]){
                     $(`[data-info=".-1"]`)[0].remove();
                     $('.searchTagsWrapper').hide();
