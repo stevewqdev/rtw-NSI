@@ -576,10 +576,18 @@ export default class DonationForm extends Component {
             }
         };
 
+        var styles =
+        `
+            .floating__screen__selector{
+                display:none!important;
+            }
+        `
         return (
             <>
                 <Head>
-          
+                    <style>
+                        {styles}
+                    </style>
                     <script type="text/javascript" src="https://www.tfaforms.com/wForms/3.11/js/wforms.js?v=6815167f43cb13d1c4221d1d55861ccaa68f614e"></script>
                     <script type="text/javascript">
                         wFORMS.behaviors.prefill.skip = false;
@@ -589,6 +597,7 @@ export default class DonationForm extends Component {
                         defer></script>
                 </Head>
                 <main id="donation__form">
+                    
                     <div id="donation__form__inner" className="wFormContainer">
                         <div className="container">
                             <div className="row">

@@ -408,30 +408,24 @@ label[id^="tfa_2584["] {
 *[id^="tfa_2633["][class~="field-container-D"] {
     width: auto !important;
 }
-@media(max-width: 4000px){
-    .hero__container.hero__donation .donate__container .donate__image{
-        width: 550px;
-        object-fit: cover;
-        padding: 70px 14px 70px 6px;
-        height: 100%;
-        max-height: 560px;
-    } 
-}
-@media(max-width: 2000px){
-    .hero__container.hero__donation .donate__container .donate__image{
-        width: 800px;
-    }
-}
-@media(max-width: 768px){
-    .hero__container.hero__donation .donate__container .donate__image {
-        width: 100%;
-        max-height: 490px;
-    }
+.hero__container.hero__donation .donate__container .donate__image{
+    width: 100%;
+    object-fit: cover;
+    padding: 0;
+    height: 100%;
+    max-height: 100%;
+    position: absolute;
+} 
+
+.donate__container .hero__content__image {
+    overflow: hidden;
+    padding: 0!important;
 }
 .donation__page .hero__container .hero__content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding: 60px 50px;
 }
 #tfa_2526,
 *[id^="tfa_2526["] {
@@ -665,7 +659,7 @@ label[id^="tfa_44["],
 .footer__donation{
     background: #F7F7F7;
     padding:  70px 15px;
-    margin-top: -130px;
+    margin-top: 0px;
 }
 .donation__separator{
     height: 1px;
@@ -958,7 +952,7 @@ span.oneChoice.maskControl {
     .wForm { padding: 5px;  }
 }
 .hero__donation{
-    padding: 50px 0 0;
+    padding: 0px 0 0;
 }
 .donation__form__wrapper{
     padding-top: 350px;
@@ -980,11 +974,13 @@ span.oneChoice.maskControl {
 .form__step__one .postField{
     display: block!important;
 }
-.wFormContainer 		{ max-width: 1140px;;     /* default, overriden using an inline style */
-                          margin: auto;
-                          background: transparent;
-                          position: relative;
-                          margin-top: -35px;
+.wFormContainer 		{ max-width: 1140px;
+    margin: auto;
+    background: transparent;
+    margin-top: 15px;
+    overflow: hidden;
+    position: relative;
+    left: -7px;
                          /* make sure we show a scroll bar if form height is defined in theme and is too small. */
                          /* overflow: auto; */  /* prevents drop-down typeahead menu from fully displaying. */
                           }
@@ -2002,6 +1998,9 @@ and (max-width: 355px) {
     font-size: 30px;
     padding: 0;
 }
+.donate__container .hero__content__image{
+    position: relative;
+}
 #tfa_2553-L{
     margin: 0;
     padding: 0px;
@@ -2709,6 +2708,12 @@ color: #015D5D;
     }
 }
 @media(max-width: 768px){
+    .donation__page .hero__container .hero__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 150px 25px 0;
+    }
     #tfa_42-L {
         position: relative;
         left: -40px;
@@ -2880,6 +2885,16 @@ color: #015D5D;
     }
 }
 @media (max-width: 600px){
+
+    .donation__page .hero__container .hero__content {
+        padding: 0px 25px 0;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .footer__donation {
+
+        margin-top: 50px;
+    }
     .donate__container > .row{
         display: flex;
         flex-direction: column-reverse;
@@ -2936,7 +2951,10 @@ color: #015D5D;
         height: auto!important;
     }
     .form__step {
-        padding: 10px 24px;
+        padding: 10px 0px;
+    }
+    .slick-slide.slick-current{
+        padding: 0px!important;
     }
     #tfa_2636 .oneChoice{
         flex-direction: column;

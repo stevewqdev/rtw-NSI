@@ -31,28 +31,24 @@ export default class MakeDonation extends Component {
                             </g>
                         </svg>
                     </div>
-                    <div className="container donate__container">
+                    <div className="container-fluid donate__container">
                         <div className="row">
+
+                            <div className="col-sm-12 col-md-12 col-lg-6 hero__content__image">
+                                <img className={'donate__image'} loading="lazy" src={this.props.pageData.better_featured_image.source_url} alt="The Experience Image"/>
+                            </div>
+
                             <div className="col-sm-12 col-md-12 col-lg-6 hero__content">
-                                <div className="hero__content__title">
-                                    <h2
-                                        className={`poppins bold xxmd teal-text`}
-                                        dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.title }}
-                                    />
-                                </div>
                                 <div className="hero__content__description">
                                     <div
                                         className={`md poppins medium teal-text`}
                                         dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.description }}
                                     />
                                 </div>
+                                <DonationForm />
                                 {/* <div className="donation__form">
                                     <img loading="lazy" src={this.props.acfData.acf.donation_image} alt="GIVE IN HONOUR OF SOMEONE"/>
                                 </div> */}
-                            </div>
-                            <div className="col-sm-12 col-md-12 col-lg-6 hero__content__image">
-                                <img className={'donate__image'} loading="lazy" src={this.props.pageData.better_featured_image.source_url} alt="The Experience Image"/>
-                                <DonationForm />
                             </div>
                         </div>
                     </div>
