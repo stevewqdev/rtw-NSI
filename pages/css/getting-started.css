@@ -102,6 +102,11 @@
     margin-right: 20px;
     margin-top: 10px;
 }
+.filter__result__item a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .resource__filter__tag.active{
     background: #00a99e;
     color: white;
@@ -196,7 +201,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 40px;
+    height: 100%;
+}
+.clear__search p{
+    margin: 0!important;
 }
 @media(max-width: 768px){
     #main__hero .container, #resource__filter .container{
