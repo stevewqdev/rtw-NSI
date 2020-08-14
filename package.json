@@ -22,6 +22,7 @@
     "react-bootstrap": "^1.0.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
+    "react-google-recaptcha": "^2.1.0",
     "react-script-tag": "^1.1.2",
     "react-slick": "^0.27.0",
     "reactstrap": "^8.4.1",

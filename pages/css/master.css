@@ -351,7 +351,9 @@ a:hover{
 *[id^="tfa_14["][class~="field-container-D"] {
     width: auto !important;
 }
-
+#tfa_14-L{
+    display: block!important;
+}
 #tfa_14-L, label[id^="tfa_14["] {
     width: 86px !important;
     min-width: 0px;
@@ -362,6 +364,11 @@ a:hover{
     justify-content: center;
     align-items: center;
     position: relative;
+    text-transform: uppercase;
+    font-size: 19px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #tfa_16-L,
@@ -425,7 +432,7 @@ label[id^="tfa_2584["] {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 60px 50px;
+    padding: 120px 50px 0;
 }
 #tfa_2526,
 *[id^="tfa_2526["] {
@@ -1201,9 +1208,13 @@ span.oneChoice.maskControl {
 
 /* BUTTONS --------------------------------------------------------------- */
 
-.wForm .actions {     border: 0px solid transparent;
+.wForm .actions {     border: 0px solid transparent;display: flex;
+    flex-direction: column;
     padding: 10px 0px; }
-
+#google-captcha{
+    margin-bottom: 30px;
+    display: block!important;
+}
 /* Make submit/cancel buttons fairly large, set mouse pointer appropriately */
 .wForm .primaryAction, .wForm .secondaryAction { padding: 4px 15px; cursor: pointer; color: inherit; }
 
@@ -1318,7 +1329,7 @@ span.oneChoice.maskControl {
     top: 0px;
     right: -9px;}
 
-.wFormContainer .errMsg { color: #D46161; font-weight: 700; }
+.wFormContainer .errMsg { color: #D46161; font-weight: 700; display: none;}
 .wFormContainer .linkedErrMsg {  border: 2px solid transparent; color: blue; }
 .wFormContainer .errLink { text-decoration: underline; color: blue; }
 .wFormContainer .errFld { }
@@ -1673,6 +1684,21 @@ span.oneChoice.maskControl {
 #donation__form input.error{
     border: solid 1px red;
     position: relative;
+}
+#donation__form select.error{
+    border: solid 1px red;
+    position: relative;
+    
+}
+#donation__form select.error:after{
+    content: "Please fill all the input fields";
+    position: absolute;
+    font-size: 10px;
+    color: red;
+    left: 0px;
+    bottom: -20px;
+    font-weight: bold;
+    text-transform: capitalize;
 }
 #donation__form textarea.error{
     border: solid 1px red!important;
@@ -2048,12 +2074,13 @@ and (max-width: 355px) {
 #tfa_2439-D{
     padding-right: 18px;
 }
-#tfa_2515
+
 #tfa_2637-L {
-    margin-left: 20px;
-    text-align: left;
     font-size: 12px;
+    text-align: left;
+    padding-left: 35px;
     position: relative;
+    left: -35px;
 }
 #tfa_2636 .oneChoice {
     margin: 0px;
@@ -2088,7 +2115,7 @@ and (max-width: 355px) {
     font-size: 13px;
     min-width: 176px;
     padding: 15px;
-    margin: 0 auto 0 0;
+    margin: 30px auto 0 0;
 }
 #tfa_2555{
     text-transform: uppercase;
@@ -2149,6 +2176,14 @@ and (max-width: 355px) {
 #tfa_2562-L{
     display: none;
 }
+#tfa_37-L{
+    display: block!important;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+#tfa_14-L:after{
+    right: -20px;
+}
 #tfa_14-D{
     padding-bottom: 0px;
     /* border-bottom: solid 1px white; */
@@ -2160,6 +2195,8 @@ and (max-width: 355px) {
     margin: 0 0 15px 0px;
     padding-left: 0px;
     padding-right: 0px;
+    display: flex;
+    flex-direction: column;
 }
 #tfa_14-D .label__with__message:after{
     content: "we can only accept donations over $1";
@@ -2202,7 +2239,7 @@ and (max-width: 355px) {
 }
 #tfa_2529-D .label__with__message:after{
     content: "Add valid year";
-    bottom: -35px;
+    bottom: -20px;
 }
 #tfa_2530, #tfa_2529, #tfa_2528{
     padding: 0 0 0 10px!important;
@@ -2275,7 +2312,7 @@ and (max-width: 355px) {
     color: #015D5D!important;
     text-align: left;
     position: relative;
-    top: -5px;
+    top: 3px;
 }
 #tfa_31-L{
     padding: 0px 0 0 2px;
@@ -3037,6 +3074,7 @@ color: #015D5D;
     #tfa_14-L{
         position: relative;
         left: -10px;
+        
     }
     #tfa_14{
         max-width: 100%!important;
