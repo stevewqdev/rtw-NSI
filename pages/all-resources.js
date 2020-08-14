@@ -507,9 +507,61 @@ export default class GettingStarted extends Component {
                                                 key={index}
                                                 onClick={this.toggleTag} onKeyDown={this.toggleTag} key={index}
                                                 >
-                                                <p className={`poppins bold md text-uppercase`}>
-                                                    {resource}
-                                                </p>
+                                                    {
+                                                                        
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "foodjustice"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo1991.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "educationjustice"
+                                                                        ?
+                                                                        <img loading="lazy" src="/images/Grupo2044.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "unemployment"
+                                                                        ?
+                                                                        <img loading="lazy" src="/images/Grupo2045.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthjustice"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "housingjustice"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2050.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "communitybuilding"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2051.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "sustainabilityenvironment"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2048.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "racialjustice"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2049.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
+                                                    <p
+                                                        className={`poppins bold md text-uppercase`}
+                                                        dangerouslySetInnerHTML={{ __html: resource }}
+                                                    />
+                                                    
                                             </div>
                                         ))
                                     }
