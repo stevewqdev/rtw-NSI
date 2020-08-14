@@ -584,13 +584,13 @@ export default class GettingStarted extends Component {
                                                                     {
                                                                         filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "housingjustice"
                                                                         ?
-                                                                        <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        <img  loading="lazy" src="/images/Grupo2050.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
                                                                         filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "communitybuilding"
                                                                         ?
-                                                                        <img  loading="lazy" src="/images/Grupo2030.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        <img  loading="lazy" src="/images/Grupo2051.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {

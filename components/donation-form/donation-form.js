@@ -121,8 +121,23 @@ export default class DonationForm extends Component {
 
                 var checkErrors = [...document.querySelectorAll(".form__step__one .error")];
 
+                this.slider.slickNext();
                 if(checkErrors.length <= 0){
-                    this.slider.slickNext();
+                    var selectedValue = 0;
+
+                    if(document.getElementById("tfa_13").classList.contains("is_true")){
+                        var selectedValue = parseInt(document.getElementById("tfa_14").value); 
+                    }else{
+                        var selectedValue = parseInt(document.getElementById("tfa_2553").value);
+                    }
+    
+                    this.setState({
+                        oldValue : selectedValue,
+                    });
+                    
+                    console.log(this.state.oldValue);
+
+                    
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
                 }else{
@@ -134,6 +149,7 @@ export default class DonationForm extends Component {
 
             if(parseInt(currentIndex) === 1){
 
+        
                 if(!this.state.firstSwipe){
                     this.setState({
                         firstSwipe: true,
@@ -147,8 +163,8 @@ export default class DonationForm extends Component {
                     var mainValue = (this.state.oldValue * 2.5 / 100); 
                     var mainValue = mainValue + this.state.oldValue; 
 
-                    document.getElementById("tfa_2553").value = mainValue;
-
+                    document.getElementById("tfa_2553").value = mainValue.toFixed(2);
+                    
                 }
 
 
@@ -263,8 +279,8 @@ export default class DonationForm extends Component {
 
                 var checkErrors = [...document.querySelectorAll(".form__step__two .error")];
 
+                this.slider.slickNext();
                 if(checkErrors.length <= 0){
-                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                 }else{
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
@@ -390,11 +406,6 @@ export default class DonationForm extends Component {
 
         // }
         // event.target.classList.add("selected");
-        var selectedValue = parseInt(document.getElementById("tfa_2553").value); 
-
-        this.setState({
-            oldValue : selectedValue,
-        });
 
         setTimeout(function(){
             
@@ -768,7 +779,7 @@ export default class DonationForm extends Component {
                                                                                                 $0
                                                                                             </span>
                                                                                             <span className="input-radio-faux" />
-                                                                                            <img loading="lazy" style={{maxWidth: '100%'}} alt="Other" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-06.jpg" />
+                                                                                            <img loading="lazy" style={{maxWidth: '100%'}} alt="Other" src="https://stm.raxo.dev/wp-content/uploads/2020/08/STMbotones-06.png" />
                                                                                         </label>
                                                                                     </span>
                                                                                 </td>
@@ -779,7 +790,7 @@ export default class DonationForm extends Component {
                                                             </div>
                                                         
                                                             <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_14-D">
-                                                                <label id="tfa_14-L" className="label preField reqMark" htmlFor="tfa_14">Amount</label>
+                                                                <label id="tfa_14-L" className="label preField reqMark" htmlFor="tfa_14">$</label>
                                                                 <div className="inputWrapper">
                                                                     <input  type="number" id="tfa_14" name="tfa_14" defaultValue aria-required="true" data-condition="`#tfa_13`" title="Amount:" className="validate-float calc-otheramt required" />
                                                                 </div>
