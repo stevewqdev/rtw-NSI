@@ -366,6 +366,13 @@ export default class GettingStarted extends Component {
             });  
         }
 
+        var checkActiveElements = [...document.querySelectorAll(".resource__filter__tag.active")]; 
+        
+        if(checkActiveElements.length === 0){
+            this.setState({
+                search: false,
+            });  
+        }
 
     }
 
