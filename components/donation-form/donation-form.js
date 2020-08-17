@@ -355,6 +355,14 @@ export default class DonationForm extends Component {
         }, 100)
     }
     componentDidMount(){
+
+        document.getElementById("donation__form__inner").addEventListener("keydown", function(e){
+            if(event.which === 9){
+                e.preventDefault();
+            }
+        })
+        
+
         const script = document.createElement("script");
         script.src = "/js/donationForm.js";
         script.async = true;
