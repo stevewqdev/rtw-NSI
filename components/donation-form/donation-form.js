@@ -333,7 +333,7 @@ export default class DonationForm extends Component {
             if(document.getElementById("tfa_30").classList.contains("is_true")){
                 document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }else{
-                document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
             }
 
             if(document.getElementById("tfa_38").classList.contains("is_true")){
@@ -360,7 +360,7 @@ export default class DonationForm extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+        document.querySelectorAll(".slick-track")[0].style.height = `350px`;
 
         var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
         if(parseInt(newCurrentIndex) === 0){
@@ -568,7 +568,7 @@ export default class DonationForm extends Component {
             if(event.target.parentElement.classList.contains("is__toggled")){
                 event.target.parentElement.classList.remove("is__toggled");
                 document.getElementById("tfa_34").classList.remove("is_true");
-                document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
 
             }else{
                 event.target.parentElement.classList.add("is__toggled");
@@ -636,7 +636,7 @@ export default class DonationForm extends Component {
                             document.querySelectorAll(".slick-track")[0].style.height = `830px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `350px`;
                         }
 
                         
@@ -936,7 +936,7 @@ export default class DonationForm extends Component {
                                                             </div>
                                                             <div className="oneField field-container-D  labelsRemoved  " id="tfa_2635-D"><div className="inputWrapper"><input type="text" id="tfa_2635" name="tfa_2635" defaultValue placeholder="Last Name" aria-required="true" title="To:" className="required" /></div></div>
                                                             <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_42-D">
-                                                                <label id="tfa_42-L" className="label preField reqMark" htmlFor="tfa_42">From:</label><div className="inputWrapper"><input  type="text" id="tfa_42" name="tfa_42" defaultValue aria-required="true" placeholder="TYPE" title="From:" className="required" /></div>
+                                                                <label id="tfa_42-L" className="label preField reqMark" htmlFor="tfa_42">From:</label><div className="inputWrapper"><input  type="text" id="tfa_42" name="tfa_42" defaultValue aria-required="true" placeholder="Your Name" title="From:" className="required" /></div>
                                                             </div>
                                                             </div>
                                                             <div id="tfa_2181" className="section group" data-condition="`#tfa_38`"><div id="tfa_2178" className="section inline group">

@@ -5,6 +5,9 @@
     align-items: center;
     padding: 180px 0 70px 0;
 }
+.resource__filter__tag.uncategorized{
+    display: none;
+}
 .filter__tags .row{
     position: relative;
 }

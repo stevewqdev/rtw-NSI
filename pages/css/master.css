@@ -355,9 +355,9 @@ a:hover{
     display: block!important;
 }
 #tfa_14-L, label[id^="tfa_14["] {
-    width: 86px !important;
+    width: auto !important;
     min-width: 0px;
-    margin-right: 67px;
+    margin-right: 20px;
     margin-bottom: 0;
     padding: 0;
     display: flex;
@@ -2222,7 +2222,7 @@ and (max-width: 355px) {
     margin-bottom: 0;
 }
 #tfa_14-L:after{
-    right: 60px;
+    right: -12px;
 }
 #tfa_14-D{
     padding-bottom: 0px;
@@ -2236,7 +2236,6 @@ and (max-width: 355px) {
     padding-left: 0px;
     padding-right: 0px;
     display: flex;
-    flex-direction: column;
 }
 #tfa_14-D .label__with__message:after{
     content: "we can only accept donations over $1";

@@ -31,7 +31,9 @@ export default class GettingStarted extends Component {
             currentPage: parseInt(nextPageNumber),
             prevPage: parseInt(nextPageNumber) - 1, 
             nextPage: parseInt(nextPageNumber) + 1, 
+            
         });
+
     }
 
     prevPage(event){
@@ -103,6 +105,9 @@ export default class GettingStarted extends Component {
             selectedFilters: [],
         });
 
+        // We create the new array of resources based on the selected filters
+        let newResources = []; 
+
         if(event.type === "keydown"){
             if(event.which === 32 || event.which === 13){
 
@@ -135,20 +140,25 @@ export default class GettingStarted extends Component {
                     selectedFilters: selectedFiltersHolder,
                 });
         
-                // We create the new array of resources based on the selected filters
-                let newResources = []; 
+
         
                 if(selectedFiltersHolder.length > 0){
                     selectedFiltersHolder.map((selected_filter) => {
                         this.state.resources.map((resource) => {
-                            let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                            if(resource._embedded["wp:term"][0]){
+                                resource._embedded["wp:term"][0].map((element) => {
+                                    let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
         
-                            if(prevalue === "all"){
-                                newResources.push(resource);
-                            }else{
-                                if(categoryName === selected_filter){
-                                    newResources.push(resource);
-                                }
+                                    if(prevalue === "all"){
+                                        newResources.push(resource);
+                                    }else{
+    
+                                        if(categoryName === selected_filter){
+                                            newResources.push(resource);
+                                        }
+                                    }
+    
+                                })
                             }
                         })
                     })
@@ -182,6 +192,9 @@ export default class GettingStarted extends Component {
                 this.setState({
                     filteredResources: result,
                     totalPages: theTotalPages,
+                    currentPage: 0,
+                    prevPage: -1, 
+                    nextPage: 1, 
                 });  
             }
         }else if(event.type === "click"){
@@ -214,23 +227,28 @@ export default class GettingStarted extends Component {
                 selectedFilters: selectedFiltersHolder,
             });
     
-            // We create the new array of resources based on the selected filters
-            let newResources = []; 
+
     
             if(selectedFiltersHolder.length > 0){
                 selectedFiltersHolder.map((selected_filter) => {
                     this.state.resources.map((resource) => {
-                        let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                        if(resource._embedded["wp:term"][0]){
+                            resource._embedded["wp:term"][0].map((element) => {
+                                let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
     
-                        if(prevalue === "all"){
-                            newResources.push(resource);
-                        }else{
-                            if(categoryName === selected_filter){
-                                newResources.push(resource);
-                            }
+                                
+
+                                if(categoryName === selected_filter){
+                                    console.log(categoryName, selected_filter);
+                                    newResources.push(resource);
+                                }
+
+                            })
                         }
+                        
                     })
                 })
+                console.log(newResources);
             }else{
                 newResources = this.props.resourceData;
             }
@@ -257,9 +275,13 @@ export default class GettingStarted extends Component {
             if(theTotalPages  === 0){
                 theTotalPages = 1;
             }
+            console.log(result, newResources);
             this.setState({
                 filteredResources: result,
                 totalPages: theTotalPages,
+                currentPage: 0,
+                prevPage: -1, 
+                nextPage: 1, 
             });  
         }else{
             if(prevalue.length > 0){
@@ -292,17 +314,22 @@ export default class GettingStarted extends Component {
                 selectedFilters: selectedFiltersHolder,
             });
     
-            // We create the new array of resources based on the selected filters
-            let newResources = []; 
+          
     
             if(selectedFiltersHolder.length > 0){
                 selectedFiltersHolder.map((selected_filter) => {
                     this.state.resources.map((resource) => {
-                        let categoryName = resource.acf.resource_category.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                        if(resource._embedded["wp:term"][0]){
+                            resource._embedded["wp:term"][0].map((element) => {
+                                let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
     
-                        if(categoryName === selected_filter){
-                            newResources.push(resource);
+                                if(categoryName === selected_filter){
+                                    newResources.push(resource);
+                                }
+
+                            })
                         }
+
                     })
                 })
             }else{
@@ -334,8 +361,12 @@ export default class GettingStarted extends Component {
             this.setState({
                 filteredResources: result,
                 totalPages: theTotalPages,
+                currentPage: 0,
+                prevPage: -1, 
+                nextPage: 1, 
             });  
         }
+
 
     }
 
@@ -347,11 +378,18 @@ export default class GettingStarted extends Component {
         let categoryFilters = [];
 
         this.props.resourceData.map((resource) => {
+
             let categoryObject = []; 
             
-            if(resource.acf.resource_category){
-                categoryFilters.push(resource.acf.resource_category.name)
+            if(resource._embedded["wp:term"][0]){
+                resource._embedded["wp:term"][0].map((element) => {
+                    categoryFilters.push(element.name)
+                })
             }
+
+            // if(resource.acf.resource_category){
+            //     categoryFilters.push(resource.acf.resource_category.name)
+            // }
 
             return true
         })
@@ -595,7 +633,7 @@ export default class GettingStarted extends Component {
                                                     {
                                                         this.state.filteredResources[this.state.currentPage].map((filtered, index) => (
                                                             <div 
-                                                              className={`filter__result__item ${filtered.acf.resource_category.name.replace(/ /g, '')
+                                                              className={`filter__result__item ${filtered._embedded["wp:term"][0][0].name.replace(/ /g, '')
                                                               .replace(/,/g, '') 
                                                               .replace(/-/g, '') 
                                                               .replace(/!/g, '')
@@ -609,50 +647,50 @@ export default class GettingStarted extends Component {
                                                                 <div className="category__icon">
                                                                     {
                                                                         
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "foodjustice"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "foodjustice"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo1991.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "educationjustice"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "educationjustice"
                                                                         ?
                                                                         <img loading="lazy" src="/images/Grupo2044.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "unemployment"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\./g, '').replace(/\./g, '').toLowerCase() === "unemployment"
                                                                         ?
                                                                         <img loading="lazy" src="/images/Grupo2045.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthjustice"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "mentalhealthjustice"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo2046.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "housingjustice"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "housingjustice"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo2050.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "communitybuilding"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "communitybuilding"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo2051.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "sustainabilityenvironment"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "sustainabilityenvironment"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo2048.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
                                                                     {
-                                                                        filtered.acf.resource_category.name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "racialjustice"
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "racialjustice"
                                                                         ?
                                                                         <img  loading="lazy" src="/images/Grupo2049.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
@@ -739,7 +777,7 @@ export async function getServerSideProps() {
     const resData = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/pages/194`)
     const pageData = await resData.json()
 
-    const resDataResource = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/resource?per_page=100`)
+    const resDataResource = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/resource?per_page=100&_embed`)
     const resourceData = await resDataResource.json()
 
     return {

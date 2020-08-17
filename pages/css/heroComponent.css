@@ -5,6 +5,9 @@
     justify-content: center;
     align-items: center;
 }
+.hero__container a{
+    text-decoration: underline;
+}
 @media(max-width: 1700px){
     .hero__container .container{
         width: 100%;
