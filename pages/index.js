@@ -370,7 +370,7 @@ export default function Home(props) {
                     </div>
                   </div>
                   
-                  <p className="poppins md teal-text text-center">Thank you for joining us. Serve the Moment is powered by Repair the World. <br></br> By submitting your email, you'll be opted in to Repair the World's marketing emails.</p> <br/>
+                  <p className="poppins sm teal-text text-center">Thank you for joining us. Serve the Moment is powered by Repair the World. <br></br> By submitting your email, you'll be opted in to Repair the World's marketing emails.</p> <br/>
 
                   {
                     formStatus

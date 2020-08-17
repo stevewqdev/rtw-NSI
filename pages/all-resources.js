@@ -226,7 +226,8 @@ export default class GettingStarted extends Component {
             this.setState({
                 selectedFilters: selectedFiltersHolder,
             });
-    
+            email__wrapper
+            
 
     
             if(selectedFiltersHolder.length > 0){
