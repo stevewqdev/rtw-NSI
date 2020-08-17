@@ -62,7 +62,7 @@ export default class GettingStarted extends Component {
         });
 
         // Create first batch of resources
-        var perChunk = 6 // items per chunk    
+        var perChunk = 20 // items per chunk    
 
         var inputArray = this.props.resourceData;
         
@@ -80,7 +80,7 @@ export default class GettingStarted extends Component {
             return resultArray
         }, [])
         
-        var theTotalPages = Math.round(this.props.resourceData.length / 6); 
+        var theTotalPages = Math.round(this.props.resourceData.length / 20); 
 
         if(theTotalPages  === 0){
             theTotalPages = 1;
@@ -169,7 +169,7 @@ export default class GettingStarted extends Component {
                 newResources = [...new Set(newResources)];
         
                 // Create first batch of resources
-                var perChunk = 6 // items per chunk    
+                var perChunk = 20 // items per chunk    
         
                 var inputArray = newResources;
                 
@@ -255,7 +255,7 @@ export default class GettingStarted extends Component {
             newResources = [...new Set(newResources)];
     
             // Create first batch of resources
-            var perChunk = 6 // items per chunk    
+            var perChunk = 20 // items per chunk    
     
             var inputArray = newResources;
             
@@ -338,7 +338,7 @@ export default class GettingStarted extends Component {
             newResources = [...new Set(newResources)];
     
             // Create first batch of resources
-            var perChunk = 6 // items per chunk    
+            var perChunk = 20 // items per chunk    
     
             var inputArray = newResources;
             
@@ -411,7 +411,7 @@ export default class GettingStarted extends Component {
     componentDidMount(){
         
         // Create first batch of resources
-        var perChunk = 6 // items per chunk    
+        var perChunk = 20 // items per chunk    
 
         var inputArray = this.props.resourceData;
         
@@ -429,7 +429,7 @@ export default class GettingStarted extends Component {
             
         }, [])
         
-        var theTotalPages = Math.round(this.props.resourceData.length / 6); 
+        var theTotalPages = Math.round(this.props.resourceData.length / 20); 
 
         if(theTotalPages  === 0){
             theTotalPages = 1;
