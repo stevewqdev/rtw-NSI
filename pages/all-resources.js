@@ -184,7 +184,7 @@ export default class GettingStarted extends Component {
                 
                   return resultArray
                 }, [])
-                var theTotalPages = Math.round(newResources.length / 6); 
+                var theTotalPages = Math.round(newResources.length / 20); 
                 if(theTotalPages  === 0){
                     theTotalPages = 1;
                 }
@@ -270,7 +270,7 @@ export default class GettingStarted extends Component {
             
               return resultArray
             }, [])
-            var theTotalPages = Math.round(newResources.length / 6); 
+            var theTotalPages = Math.round(newResources.length / 20); 
             if(theTotalPages  === 0){
                 theTotalPages = 1;
             }
@@ -353,7 +353,7 @@ export default class GettingStarted extends Component {
             
               return resultArray
             }, [])
-            var theTotalPages = Math.round(newResources.length / 6); 
+            var theTotalPages = Math.round(newResources.length / 20); 
             if(theTotalPages  === 0){
                 theTotalPages = 1;
             }
