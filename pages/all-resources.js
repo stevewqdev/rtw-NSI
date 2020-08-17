@@ -225,9 +225,7 @@ export default class GettingStarted extends Component {
             
             this.setState({
                 selectedFilters: selectedFiltersHolder,
-            });
-            email__wrapper
-            
+            });   
 
     
             if(selectedFiltersHolder.length > 0){
@@ -485,7 +483,7 @@ export default class GettingStarted extends Component {
                             {
                                 this.props.acfData.acf.featured_resources.map((resource, index) => (
                                     <div className="resource" key={index}>
-                                        <a href={resource.acf.external_link} target="_BLANKK">
+                                        <a href={resource.acf.external_link} target="_BLANK" id={`id-${index}`}>
                                             <div className="resource__title">
                                                 <h2
                                                     className={`poppins bold lg white-text`}
@@ -596,6 +594,12 @@ export default class GettingStarted extends Component {
                                                                         <img  loading="lazy" src="/images/Grupo2049.svg" alt={`${resource} icon`}/>
                                                                         : ""
                                                                     }
+                                                                    {
+                                                                        resource.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "volunteering"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2052.svg" alt={`${resource} icon`}/>
+                                                                        : ""
+                                                                    }
                                                     <p
                                                         className={`poppins bold md text-uppercase`}
                                                         dangerouslySetInnerHTML={{ __html: resource }}
@@ -696,7 +700,12 @@ export default class GettingStarted extends Component {
                                                                         <img  loading="lazy" src="/images/Grupo2049.svg" alt={`${filtered.title.rendered} icon`}/>
                                                                         : ""
                                                                     }
-                                                                    
+                                                                    {
+                                                                        filtered._embedded["wp:term"][0][0].name.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() === "volunteering"
+                                                                        ?
+                                                                        <img  loading="lazy" src="/images/Grupo2052.svg" alt={`${filtered.title.rendered} icon`}/>
+                                                                        : ""
+                                                                    }
                                                                 </div>
                                                                 <a href={filtered.acf.external_link} target="_BLANK" aria-label={filtered.title.rendered} >
                                                                     <div className="filtered__resource__item" >

@@ -123,6 +123,10 @@ export default function Home(props) {
   function handleNameChange(e) {
     setName(e.currentTarget.value)
   }
+  
+  function loadMoreArticles(){
+
+  }
 
   return (
     <>
@@ -418,8 +422,8 @@ export default function Home(props) {
                   </div>
                 ))
               }
-              <div className="col-lg-12">
-                
+              <div className="col-lg-12 text-center">
+                <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE MORE ARTICLES</p>
               </div>
             </div>
           </div>
