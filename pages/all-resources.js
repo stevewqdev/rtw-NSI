@@ -96,21 +96,116 @@ export default class GettingStarted extends Component {
 
     toggleTag(event, prevalue = 0){
 
-
-        this.setState({
-            search: true, 
-        });
-
-        this.setState({
-            selectedFilters: [],
-        });
-
-        // We create the new array of resources based on the selected filters
-        let newResources = []; 
-
-        if(event.type === "keydown"){
-            if(event.which === 32 || event.which === 13){
-
+        if(!event.target.classList.contains("active")){
+            var activeTags = [...document.querySelectorAll(".filter__tags .active")];
+            var selectedFiltersHolder = [];
+    
+            activeTags.map((activeTag) => {
+                activeTag.classList.remove("active");
+                return true; 
+            })
+    
+            this.setState({
+                search: true, 
+            });
+    
+            this.setState({
+                selectedFilters: [],
+            });
+    
+            // We create the new array of resources based on the selected filters
+            let newResources = []; 
+    
+            if(event.type === "keydown"){
+                if(event.which === 32 || event.which === 13){
+    
+                    if(prevalue.length > 0){
+                        var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
+                        
+                        if(selectedElement[0].classList.contains("active")){
+                            selectedElement[0].classList.remove("active");
+                        }else{
+                            selectedElement[0].classList.add("active");
+                        }
+                        
+                    }else{
+                        if(event.target.classList.contains("active")){
+                            event.target.classList.remove("active");
+                        }else{
+                            event.target.classList.add("active");
+                        }
+                    }
+            
+                    var activeTags = [...document.querySelectorAll(".filter__tags .active")];
+                    var selectedFiltersHolder = [];
+            
+                    activeTags.map((activeTag) => {
+                        selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
+                        return true; 
+                    })
+                    
+                    this.setState({
+                        selectedFilters: selectedFiltersHolder,
+                    });
+            
+    
+            
+                    if(selectedFiltersHolder.length > 0){
+                        selectedFiltersHolder.map((selected_filter) => {
+                            this.state.resources.map((resource) => {
+                                if(resource._embedded["wp:term"][0]){
+                                    resource._embedded["wp:term"][0].map((element) => {
+                                        let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+            
+                                        if(prevalue === "all"){
+                                            newResources.push(resource);
+                                        }else{
+        
+                                            if(categoryName === selected_filter){
+                                                newResources.push(resource);
+                                            }
+                                        }
+        
+                                    })
+                                }
+                            })
+                        })
+                    }else{
+                        newResources = this.props.resourceData;
+                    }
+            
+                    newResources = [...new Set(newResources)];
+            
+                    // Create first batch of resources
+                    var perChunk = 20 // items per chunk    
+            
+                    var inputArray = newResources;
+                    
+                    var result = inputArray.reduce((resultArray, item, index) => { 
+                      const chunkIndex = Math.floor(index/perChunk)
+                    
+                      if(!resultArray[chunkIndex]) {
+                        resultArray[chunkIndex] = [] // start a new chunk
+                      }
+                    
+                      resultArray[chunkIndex].push(item)
+                    
+                      return resultArray
+                    }, [])
+                    var theTotalPages = Math.round(newResources.length / 20); 
+                    if(theTotalPages  === 0){
+                        theTotalPages = 1;
+                    }
+            
+                    this.setState({
+                        filteredResources: result,
+                        totalPages: theTotalPages,
+                        currentPage: 0,
+                        prevPage: -1, 
+                        nextPage: 1, 
+                    });  
+                }
+            }else if(event.type === "click"){
                 if(prevalue.length > 0){
                     var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
                     
@@ -138,9 +233,8 @@ export default class GettingStarted extends Component {
                 
                 this.setState({
                     selectedFilters: selectedFiltersHolder,
-                });
-        
-
+                });   
+    
         
                 if(selectedFiltersHolder.length > 0){
                     selectedFiltersHolder.map((selected_filter) => {
@@ -149,17 +243,100 @@ export default class GettingStarted extends Component {
                                 resource._embedded["wp:term"][0].map((element) => {
                                     let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
         
-                                    if(prevalue === "all"){
-                                        newResources.push(resource);
-                                    }else{
+                                    
     
-                                        if(categoryName === selected_filter){
-                                            newResources.push(resource);
-                                        }
+                                    if(categoryName === selected_filter){
+                                        console.log(categoryName, selected_filter);
+                                        newResources.push(resource);
                                     }
     
                                 })
                             }
+                            
+                        })
+                    })
+                    console.log(newResources);
+                }else{
+                    newResources = this.props.resourceData;
+                }
+        
+                newResources = [...new Set(newResources)];
+        
+                // Create first batch of resources
+                var perChunk = 20 // items per chunk    
+        
+                var inputArray = newResources;
+                
+                var result = inputArray.reduce((resultArray, item, index) => { 
+                  const chunkIndex = Math.floor(index/perChunk)
+                
+                  if(!resultArray[chunkIndex]) {
+                    resultArray[chunkIndex] = [] // start a new chunk
+                  }
+                
+                  resultArray[chunkIndex].push(item)
+                
+                  return resultArray
+                }, [])
+                var theTotalPages = Math.round(newResources.length / 20); 
+                if(theTotalPages  === 0){
+                    theTotalPages = 1;
+                }
+                console.log(result, newResources);
+                this.setState({
+                    filteredResources: result,
+                    totalPages: theTotalPages,
+                    currentPage: 0,
+                    prevPage: -1, 
+                    nextPage: 1, 
+                });  
+            }else{
+                if(prevalue.length > 0){
+                    var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
+                    if(selectedElement.length > 0){
+                        if(selectedElement[0].classList.contains("active")){
+                            selectedElement[0].classList.remove("active");
+                        }else{
+                            selectedElement[0].classList.add("active");
+                        }
+                    }
+                    
+                }else{
+                    if(event.target.classList.contains("active")){
+                        event.target.classList.remove("active");
+                    }else{
+                        event.target.classList.add("active");
+                    }
+                }
+        
+                var activeTags = [...document.querySelectorAll(".filter__tags .active")];
+                var selectedFiltersHolder = [];
+        
+                activeTags.map((activeTag) => {
+                    selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
+                    return true; 
+                })
+                
+                this.setState({
+                    selectedFilters: selectedFiltersHolder,
+                });
+        
+              
+        
+                if(selectedFiltersHolder.length > 0){
+                    selectedFiltersHolder.map((selected_filter) => {
+                        this.state.resources.map((resource) => {
+                            if(resource._embedded["wp:term"][0]){
+                                resource._embedded["wp:term"][0].map((element) => {
+                                    let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+        
+                                    if(categoryName === selected_filter){
+                                        newResources.push(resource);
+                                    }
+    
+                                })
+                            }
+    
                         })
                     })
                 }else{
@@ -188,7 +365,6 @@ export default class GettingStarted extends Component {
                 if(theTotalPages  === 0){
                     theTotalPages = 1;
                 }
-        
                 this.setState({
                     filteredResources: result,
                     totalPages: theTotalPages,
@@ -197,186 +373,17 @@ export default class GettingStarted extends Component {
                     nextPage: 1, 
                 });  
             }
-        }else if(event.type === "click"){
-            if(prevalue.length > 0){
-                var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
-                
-                if(selectedElement[0].classList.contains("active")){
-                    selectedElement[0].classList.remove("active");
-                }else{
-                    selectedElement[0].classList.add("active");
-                }
-                
-            }else{
-                if(event.target.classList.contains("active")){
-                    event.target.classList.remove("active");
-                }else{
-                    event.target.classList.add("active");
-                }
-            }
-    
-            var activeTags = [...document.querySelectorAll(".filter__tags .active")];
-            var selectedFiltersHolder = [];
-    
-            activeTags.map((activeTag) => {
-                selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
-                return true; 
-            })
-            
-            this.setState({
-                selectedFilters: selectedFiltersHolder,
-            });   
-
-    
-            if(selectedFiltersHolder.length > 0){
-                selectedFiltersHolder.map((selected_filter) => {
-                    this.state.resources.map((resource) => {
-                        if(resource._embedded["wp:term"][0]){
-                            resource._embedded["wp:term"][0].map((element) => {
-                                let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-    
-                                
-
-                                if(categoryName === selected_filter){
-                                    console.log(categoryName, selected_filter);
-                                    newResources.push(resource);
-                                }
-
-                            })
-                        }
-                        
-                    })
-                })
-                console.log(newResources);
-            }else{
-                newResources = this.props.resourceData;
-            }
-    
-            newResources = [...new Set(newResources)];
-    
-            // Create first batch of resources
-            var perChunk = 20 // items per chunk    
-    
-            var inputArray = newResources;
-            
-            var result = inputArray.reduce((resultArray, item, index) => { 
-              const chunkIndex = Math.floor(index/perChunk)
-            
-              if(!resultArray[chunkIndex]) {
-                resultArray[chunkIndex] = [] // start a new chunk
-              }
-            
-              resultArray[chunkIndex].push(item)
-            
-              return resultArray
-            }, [])
-            var theTotalPages = Math.round(newResources.length / 20); 
-            if(theTotalPages  === 0){
-                theTotalPages = 1;
-            }
-            console.log(result, newResources);
-            this.setState({
-                filteredResources: result,
-                totalPages: theTotalPages,
-                currentPage: 0,
-                prevPage: -1, 
-                nextPage: 1, 
-            });  
         }else{
-            if(prevalue.length > 0){
-                var selectedElement = document.querySelectorAll(`[data-category="${prevalue}"]`);
-                if(selectedElement.length > 0){
-                    if(selectedElement[0].classList.contains("active")){
-                        selectedElement[0].classList.remove("active");
-                    }else{
-                        selectedElement[0].classList.add("active");
-                    }
-                }
-                
-            }else{
-                if(event.target.classList.contains("active")){
-                    event.target.classList.remove("active");
-                }else{
-                    event.target.classList.add("active");
-                }
-            }
-    
-            var activeTags = [...document.querySelectorAll(".filter__tags .active")];
-            var selectedFiltersHolder = [];
-    
-            activeTags.map((activeTag) => {
-                selectedFiltersHolder.push(activeTag.getAttribute("data-category"));
-                return true; 
-            })
-            
-            this.setState({
-                selectedFilters: selectedFiltersHolder,
-            });
-    
-          
-    
-            if(selectedFiltersHolder.length > 0){
-                selectedFiltersHolder.map((selected_filter) => {
-                    this.state.resources.map((resource) => {
-                        if(resource._embedded["wp:term"][0]){
-                            resource._embedded["wp:term"][0].map((element) => {
-                                let categoryName = element.name.replace(/ /g, '').replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/ /g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
-    
-                                if(categoryName === selected_filter){
-                                    newResources.push(resource);
-                                }
+            event.target.classList.remove("active");
 
-                            })
-                        }
-
-                    })
-                })
-            }else{
-                newResources = this.props.resourceData;
-            }
-    
-            newResources = [...new Set(newResources)];
-    
-            // Create first batch of resources
-            var perChunk = 20 // items per chunk    
-    
-            var inputArray = newResources;
-            
-            var result = inputArray.reduce((resultArray, item, index) => { 
-              const chunkIndex = Math.floor(index/perChunk)
-            
-              if(!resultArray[chunkIndex]) {
-                resultArray[chunkIndex] = [] // start a new chunk
-              }
-            
-              resultArray[chunkIndex].push(item)
-            
-              return resultArray
-            }, [])
-            var theTotalPages = Math.round(newResources.length / 20); 
-            if(theTotalPages  === 0){
-                theTotalPages = 1;
-            }
-            this.setState({
-                filteredResources: result,
-                totalPages: theTotalPages,
-                currentPage: 0,
-                prevPage: -1, 
-                nextPage: 1, 
-            });  
-        }
-
-        var checkActiveElements = [...document.querySelectorAll(".resource__filter__tag.active")]; 
-        
-        if(checkActiveElements.length === 0){
             this.setState({
                 search: false,
             });  
+
+            this.cleanSearch(event);
         }
 
     }
-
-
 
     componentWillMount(){
 
