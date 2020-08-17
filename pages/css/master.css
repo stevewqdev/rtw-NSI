@@ -4,6 +4,9 @@
 .container{
     padding: 0;
 }
+.floating__screen__selector .row, #fsc{
+    outline: none!important;
+}
 .navbar a:focus img{
     border: solid 2px #1343ce;
 }
@@ -1367,7 +1370,7 @@ span.oneChoice.maskControl {
     font-size: 90%;
     position: absolute;
     top: 0px;
-    right: -9px;}
+    right: 80px;}
 
 .wFormContainer .errMsg { color: #D46161; font-weight: 700; display: none;}
 .wFormContainer .linkedErrMsg {  border: 2px solid transparent; color: blue; }
@@ -2155,7 +2158,7 @@ and (max-width: 355px) {
     font-size: 13px;
     min-width: 176px;
     padding: 15px;
-    margin: 30px auto 0 0;
+    margin: 30px auto;
 }
 #tfa_2555{
     text-transform: uppercase;
@@ -3108,11 +3111,9 @@ color: #015D5D;
     }
     #tfa_14-D {
         display: flex;
-        flex-direction: column;
     }
     #tfa_14-L{
         position: relative;
-        left: -10px;
         
     }
     #tfa_14{

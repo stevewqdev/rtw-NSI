@@ -418,6 +418,9 @@ export default function Home(props) {
                   </div>
                 ))
               }
+              <div className="col-lg-12">
+                
+              </div>
             </div>
           </div>
         </section>

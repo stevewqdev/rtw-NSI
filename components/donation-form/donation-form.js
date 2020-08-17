@@ -122,8 +122,8 @@ export default class DonationForm extends Component {
                 var checkErrors = [...document.querySelectorAll(".form__step__one .error")];
 
                 
+                this.slider.slickNext();
                 if(checkErrors.length <= 0){
-                    this.slider.slickNext();
                     var selectedValue = 0;
 
                     if(document.getElementById("tfa_13").classList.contains("is_true")){
@@ -281,8 +281,8 @@ export default class DonationForm extends Component {
                 var checkErrors = [...document.querySelectorAll(".form__step__two .error")];
 
                 
+                this.slider.slickNext();
                 if(checkErrors.length <= 0){
-                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                 }else{
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
@@ -331,7 +331,7 @@ export default class DonationForm extends Component {
      
 
             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `560px`;
             }else{
                 document.querySelectorAll(".slick-track")[0].style.height = `350px`;
             }
@@ -341,7 +341,7 @@ export default class DonationForm extends Component {
             }
     
             if(document.getElementById("tfa_39").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `560px`;
             }
 
             if(parseInt(newCurrentIndex) === 0){
@@ -368,7 +368,7 @@ export default class DonationForm extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+        document.querySelectorAll(".slick-track")[0].style.height = `280px`;
 
         var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
         if(parseInt(newCurrentIndex) === 0){
@@ -377,9 +377,7 @@ export default class DonationForm extends Component {
         }else{
             document.querySelectorAll(".slider__controller .prev")[0].classList.remove("hidden-element");
             document.querySelectorAll(".slider__controller .separator")[0].classList.remove("hidden-element");
-        }
-
-        
+        }      
 
         
     }
@@ -416,9 +414,16 @@ export default class DonationForm extends Component {
 
         // }
         // event.target.classList.add("selected");
-
+        
         setTimeout(function(){
+            var prevHeight = document.querySelectorAll(".slick-track")[0].style.height.replace(/px/g, '').toLowerCase();
+            prevHeight = parseInt(prevHeight); 
             
+            if(document.getElementById("tfa_13").classList.contains("is_true")){
+                document.querySelectorAll(".slick-track")[0].style.height = `345px`;
+            }else{
+                document.querySelectorAll(".slick-track")[0].style.height = `300px`;
+            }
 
             if([...document.querySelectorAll("#tfa_2-D .is_true")].length > 0){
                 document.querySelector("#tfa_2-D").classList.remove("error");
@@ -559,7 +564,7 @@ export default class DonationForm extends Component {
             }
     
             if(document.getElementById("tfa_39").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `560px`;
             }
         }, 200)
 
@@ -581,7 +586,7 @@ export default class DonationForm extends Component {
             }else{
                 event.target.parentElement.classList.add("is__toggled");
                 document.getElementById("tfa_34").classList.add("is_true");
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `560px`;
 
             }
         }
@@ -616,7 +621,7 @@ export default class DonationForm extends Component {
                             document.querySelectorAll(".slick-track")[0].style.height = `900px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `500px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
                     }else if (window.innerWidth < 600) {
                         if(parseInt(currentIndex) === 0){
@@ -628,13 +633,13 @@ export default class DonationForm extends Component {
                             document.querySelectorAll(".slick-track")[0].style.height = `1500px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `300px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
                     }
                     else{
                         if(parseInt(currentIndex) === 0){
                             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                                document.querySelectorAll(".slick-track")[0].style.height = `560px`;
                             }
                             if(document.getElementById("tfa_38").classList.contains("is_true")){
                                 document.querySelectorAll(".slick-track")[0].style.height = `auto`;
@@ -644,7 +649,7 @@ export default class DonationForm extends Component {
                             document.querySelectorAll(".slick-track")[0].style.height = `830px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
 
                         
