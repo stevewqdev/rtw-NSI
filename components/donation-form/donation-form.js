@@ -122,8 +122,8 @@ export default class DonationForm extends Component {
                 var checkErrors = [...document.querySelectorAll(".form__step__one .error")];
 
                 
-                this.slider.slickNext();
                 if(checkErrors.length <= 0){
+                    this.slider.slickNext();
                     var selectedValue = 0;
 
                     if(document.getElementById("tfa_13").classList.contains("is_true")){
@@ -281,8 +281,8 @@ export default class DonationForm extends Component {
                 var checkErrors = [...document.querySelectorAll(".form__step__two .error")];
 
                 
-                this.slider.slickNext();
                 if(checkErrors.length <= 0){
+                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                 }else{
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
