@@ -5,6 +5,13 @@
 .home__page #main{
     margin-top: 0px;
 }
+.more__press{
+    margin-top: 55px!important;
+    cursor: pointer;
+}
+.hidden__press{
+    display: none!important;
+}
 .home__page #main p{
     text-transform: capitalize;
 }

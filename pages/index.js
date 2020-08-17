@@ -20,6 +20,9 @@ export default function Home(props) {
   const [lnameStatus, setlNameStatus] = useState("")
   const [lnameMessage, setlNameMessage] = useState("")
   const [formStatus, setformStatus] = useState(false)
+  const [press, setPressArticles] = useState([]); 
+  const [offset, setOffset] = useState(0); 
+  const [postMessage, setpostMessage] = useState(""); 
 
 
   function submitForm(e) {
@@ -123,9 +126,23 @@ export default function Home(props) {
   function handleNameChange(e) {
     setName(e.currentTarget.value)
   }
-  
-  function loadMoreArticles(){
 
+  useEffect(() => {
+    setPressArticles(props.postData);
+  });
+
+  function loadMoreArticles(){
+    setOffset(offset + 6);
+
+    var hiddenPress = [...document.querySelectorAll(".hidden__press")]
+    
+    if(hiddenPress.length > 0){
+      hiddenPress.map((element)=>{
+        element.classList.remove("hidden__press");
+      })
+
+      document.querySelectorAll(".more__press")[0].classList.add("hidden-element");
+    }
   }
 
   return (
@@ -399,8 +416,8 @@ export default function Home(props) {
                 />
               </div>
               {
-                props.postData.map((post, index) => (
-                  <div className="press__post col-sm-12 col-md-6 col-lg-6" key={index}>
+                press.map((post, index) => (
+                  <div className={`press__post col-sm-12 col-md-6 col-lg-6 ${index < 6 ? "" : "hidden__press"}`} key={index}>
                     <a href={post.acf.press_external_link} aria-label={post.title.rendered} target="_BLANK">
                       <p className="press__title title poppins teal-text bold xxl">
                         {post.title.rendered}
@@ -423,7 +440,7 @@ export default function Home(props) {
                 ))
               }
               <div className="col-lg-12 text-center">
-                <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE MORE ARTICLES</p>
+                <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE ALL ARTICLES</p>
               </div>
             </div>
           </div>
@@ -442,7 +459,7 @@ export async function getServerSideProps() {
   const resData = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/pages/184`)
   const pageData = await resData.json()
 
-  const resDataPost = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/posts?per_page=6`)
+  const resDataPost = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/posts?per_page=50`)
   const postData = await resDataPost.json()
 
   return {
