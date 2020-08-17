@@ -417,7 +417,7 @@ export default function Home(props) {
               </div>
               {
                 press.map((post, index) => (
-                  <div className={`press__post col-sm-12 col-md-6 col-lg-6 ${index < 6 ? "" : "hidden__press"}`} key={index}>
+                  <div className={`press__post col-sm-12 col-md-6 col-lg-6 ${index < 20 ? "" : "hidden__press"}`} key={index}>
                     <a href={post.acf.press_external_link} aria-label={post.title.rendered} target="_BLANK">
                       <p className="press__title title poppins teal-text bold xxl">
                         {post.title.rendered}
@@ -440,7 +440,12 @@ export default function Home(props) {
                 ))
               }
               <div className="col-lg-12 text-center">
-                <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE ALL PRESS</p>
+                {
+                  press.length > 20
+                  ? <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE ALL PRESS</p>
+
+                  : ""
+                }
               </div>
             </div>
           </div>
