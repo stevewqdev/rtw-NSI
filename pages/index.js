@@ -440,7 +440,7 @@ export default function Home(props) {
                 ))
               }
               <div className="col-lg-12 text-center">
-                <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE ALL ARTICLES</p>
+                <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE ALL PRESS</p>
               </div>
             </div>
           </div>
