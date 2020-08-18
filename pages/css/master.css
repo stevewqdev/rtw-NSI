@@ -671,7 +671,6 @@ label[id^="tfa_2564["] {
     width: auto !important;
 }
 #tfa_2633-L:after {
-
     right: 7px;
 }
 #tfa_2188-L:after {
@@ -702,6 +701,7 @@ label[id^="tfa_2636["] {
 label[id^="tfa_44["],
 *[id^="tfa_44["][id$="-L"] {
     height: auto !important;
+    display: block!important;
 }
 .wFormContainer .supportInfo {
     display: none;
@@ -1086,8 +1086,10 @@ span.oneChoice.maskControl {
 /* Label positionning, using the labelsAbove|labelsBelow|labelsLeftAligned|labelsRightAligned classes */
 .wForm .labelsLeftAligned  .preField	{ text-align: left; }
 .wForm .labelsRightAligned .preField	{ text-align: right; }
-.wForm .labelsAbove .preField			{ padding-bottom: 4px; } /* add 4px to match spacing of inline section's label with below field (which has a 2px border+2px padding) */
-.wForm .labelsBelow .preField			{ padding-bottom: 4px; } /* add 4px to match spacing of inline section's label with below field (which has a 2px border+2px padding) */
+.wForm .labelsAbove .preField			{ padding-bottom: 0px;
+    margin-bottom: 3px; } /* add 4px to match spacing of inline section's label with below field (which has a 2px border+2px padding) */
+.wForm .labelsBelow .preField			{ padding-bottom: 0px;
+    margin-bottom: 3px; } /* add 4px to match spacing of inline section's label with below field (which has a 2px border+2px padding) */
 .wForm .labelsHidden >  .label,
 .wForm .labelsHidden > .oneFieldWrapper > .label { visibility: hidden;}  /* div.oneFieldWrapper is only present in the form-builder for now */
 .wForm .labelsRemoved  > .label,
@@ -1364,6 +1366,34 @@ span.oneChoice.maskControl {
 /* MISC.   ------------------------------------------------------------------ */
 
 /* Asterisk on required fields - provide sensible default color and size */
+.select__field{
+    position: relative;
+}
+.select__field:after{
+    content: "";
+    position: absolute;
+    right: 15px;
+    background: white;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #005d5c;
+    pointer-events: none;
+
+}
+select {
+    /* for Firefox */
+    -moz-appearance: none;
+    /* for Chrome */
+    -webkit-appearance: none;
+  }
+  
+  /* For IE10 */
+  select::-ms-expand {
+    display: none;
+  }
 .wForm .reqMark:after { 
     content: " *";
     color: #00a99e;
@@ -2737,6 +2767,8 @@ color: #015D5D;
     width: 350px;
     margin: 0!important;
     padding: 0!important;
+    display: block!important;
+
 }
 #tfa_44-D{
     width: 50%!important;

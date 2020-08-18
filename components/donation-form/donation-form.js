@@ -816,7 +816,7 @@ export default class DonationForm extends Component {
                                                                 <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_2188-D">
                                                                     <label id="tfa_2188-L" className="label preField reqMark" htmlFor="tfa_2188">Direct my donation to</label>
                                                                     <div className="inputWrapper">
-                                                                        <select id="tfa_2188" name="tfa_2188" title="Direct my donation to" aria-required="true" className="calc-gau required">
+                                                                        <select id="tfa_2188" name="tfa_2188" title="Direct my donation to" aria-required="true" className="calc-gau required select__field">
                                                                             <option value="tfa_2196" id="tfa_2196" className="calcval-a0e6A000002BPwzQAG" >Where it is needed most</option>
                                                                             <option value="tfa_2572" id="tfa_2572" data-conditionals="#tfa_2584" className>A Repair the World Community</option>
                                                                             <option value="tfa_2195" id="tfa_2195" className="calcval-a0e6A000002BPx4QAG">One America Movement</option>
@@ -831,7 +831,7 @@ export default class DonationForm extends Component {
                                                                     </div>
                                                                 </div>
                                                                 <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_2584-D">
-                                                                        <label id="tfa_2584-L" className="label preField reqMark" htmlFor="tfa_2584">Which community?</label><div className="inputWrapper">
+                                                                        <label id="tfa_2584-L" className="label preField reqMark" htmlFor="tfa_2584">Which community?</label><div className="inputWrapper select__field">
                                                                         <select id="tfa_2584" name="tfa_2584" data-condition="`#tfa_2572`" title="Which community?" aria-required="true" className="calc-gau required">
                                                                             <option value="tfa_2595" id="tfa_2595" className="calcval-a0e6A000002Q14zQAC" selected>Atlanta</option>
                                                                             <option value="tfa_2596" id="tfa_2596" className="calcval-a0e6A000002BPxZQAW">Baltimore</option>
@@ -944,21 +944,21 @@ export default class DonationForm extends Component {
                                                                 <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_41-D">
                                                                     <label id="tfa_41-L" className="label preField reqMark" htmlFor="tfa_41">To:</label>
                                                                 <div className="inputWrapper">
-                                                                <input  type="text" id="tfa_41" name="tfa_41" defaultValue placeholder="First Name"  aria-required="true" title="To:" className="required" />
+                                                                <input  type="text" id="tfa_41" name="tfa_41" defaultValue   aria-required="true" title="To:" className="required" />
                                                                 </div>
                                                             </div>
-                                                            <div className="oneField field-container-D  labelsRemoved  " id="tfa_2635-D"><div className="inputWrapper"><input type="text" id="tfa_2635" name="tfa_2635" defaultValue placeholder="Last Name" aria-required="true" title="To:" className="required" /></div></div>
+                                                            <div className="oneField field-container-D  labelsRemoved  " id="tfa_2635-D"><div className="inputWrapper"><input type="text" id="tfa_2635" name="tfa_2635" defaultValue  aria-required="true" title="To:" className="required" /></div></div>
                                                             <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_42-D">
-                                                                <label id="tfa_42-L" className="label preField reqMark" htmlFor="tfa_42">From:</label><div className="inputWrapper"><input  type="text" id="tfa_42" name="tfa_42" defaultValue aria-required="true" placeholder="Your Name" title="From:" className="required" /></div>
+                                                                <label id="tfa_42-L" className="label preField reqMark" htmlFor="tfa_42">From:</label><div className="inputWrapper"><input  type="text" id="tfa_42" name="tfa_42" defaultValue aria-required="true"  title="From:" className="required" /></div>
                                                             </div>
                                                             </div>
                                                             <div id="tfa_2181" className="section group" data-condition="`#tfa_38`"><div id="tfa_2178" className="section inline group">
                                                                 <div className="oneField field-container-D    " id="tfa_44-D">
-                                                                <label id="tfa_44-L" className="label preField " htmlFor="tfa_44">Personal message:</label><br /><div className="inputWrapper"><textarea id="tfa_44" name="tfa_44" title="Personal message:" placeholder="MESSAGE" className defaultValue={""} /></div>
+                                                                <label id="tfa_44-L" className="label preField " htmlFor="tfa_44">Personal message:</label><br /><div className="inputWrapper"><textarea id="tfa_44" name="tfa_44" title="Personal message:"  className defaultValue={""} /></div>
                                                                 </div>
                                                                 <div className="htmlSection" id="tfa_45"><div className="htmlContent" id="tfa_45-HTML"><i >This is the contact information for the person(s) being acknowledged for this tribute gift; this should not be the donor's information.</i><br /></div></div>
                                                                 <div className="oneField field-container-D    " id="tfa_2633-D">
-                                                                <label id="tfa_2633-L" className="label preField reqMark" htmlFor="tfa_2633">Recipient's Email Address</label><br /><div className="inputWrapper"><input  placeholder="Email" type="text" id="tfa_2633" name="tfa_2633" defaultValue aria-required="true" title="Recipient's Email Address" className="validate-email required" /></div>
+                                                                <label id="tfa_2633-L" className="label preField reqMark" htmlFor="tfa_2633">Recipient's Email Address</label><br /><div className="inputWrapper"><input   type="text" id="tfa_2633" name="tfa_2633" defaultValue aria-required="true" title="Recipient's Email Address" className="validate-email required" /></div>
                                                                 </div>
                                                             </div></div>
                                                         </fieldset>
@@ -971,7 +971,7 @@ export default class DonationForm extends Component {
                                                         </div>
                                                         <div id="tfa_2716" className="section inline group">
                                                             <div className="oneField field-container-D    " id="tfa_2627-D">
-                                                            <label id="tfa_2627-L" className="label preField reqMark" htmlFor="tfa_2627">Credit Card Type</label><br /><div className="inputWrapper"><select id="tfa_2627" name="tfa_2627" title="Credit Card Type" aria-required="true" className="required">
+                                                            <label id="tfa_2627-L" className="label preField reqMark" htmlFor="tfa_2627">Credit Card Type</label><br /><div className="inputWrapper select__field"><select id="tfa_2627" name="tfa_2627" title="Credit Card Type" aria-required="true" className="required">
                                                                 <option value="-1" selected>Please Select...</option>
                                                                 <option value="tfa_2628" id="tfa_2628" className >Visa</option>
                                                                 <option value="tfa_2629" id="tfa_2629" className>Mastercard</option>
@@ -980,7 +980,7 @@ export default class DonationForm extends Component {
                                                                 <option value="tfa_2632" id="tfa_2632" className>Other</option></select></div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2526-D">
-                                                            <label id="tfa_2526-L" className="label preField reqMark" htmlFor="tfa_2526">Card Number</label><br /><div className="inputWrapper"><input  type="number" placeholder="Number" id="tfa_2526" name="tfa_2526" defaultValue aria-required="true" title="Card Number" className="validate-custom /^\d+$/g required" /></div>
+                                                            <label id="tfa_2526-L" className="label preField reqMark" htmlFor="tfa_2526">Card Number</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2526" name="tfa_2526" defaultValue aria-required="true" title="Card Number" className="validate-custom /^\d+$/g required" /></div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2528-D">
                                                             <label id="tfa_2528-L" className="label preField reqMark" htmlFor="tfa_2528">MM</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2528" name="tfa_2528" defaultValue  aria-required="true" min={1} max={12} maxLength="2" onInput={this.maxLengthCheck} title="MM" className="validate-integer required" /></div>
@@ -993,23 +993,23 @@ export default class DonationForm extends Component {
                                                             </div>
                                                             <div id="tfa_2717" className="section inline group">
                                                             <div className="oneField field-container-D    " id="tfa_2525-D">
-                                                                <label id="tfa_2525-L" className="label preField reqMark" htmlFor="tfa_2525">First Name</label><br /><div className="inputWrapper"><input placeholder="First name"  type="text" id="tfa_2525" name="tfa_2525" defaultValue aria-required="true" title="First Name" className="calc-cardfirstname required" /></div>
+                                                                <label id="tfa_2525-L" className="label preField reqMark" htmlFor="tfa_2525">First Name</label><br /><div className="inputWrapper"><input type="text" id="tfa_2525" name="tfa_2525" defaultValue aria-required="true" title="First Name" className="calc-cardfirstname required" /></div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2532-D">
-                                                                <label id="tfa_2532-L" className="label preField reqMark" htmlFor="tfa_2532">Last Name</label><br /><div className="inputWrapper"><input  type="text" placeholder="Last name" id="tfa_2532" name="tfa_2532" defaultValue aria-required="true" title="Last Name" className="calc-cardlastname required" /></div>
+                                                                <label id="tfa_2532-L" className="label preField reqMark" htmlFor="tfa_2532">Last Name</label><br /><div className="inputWrapper"><input  type="text"  id="tfa_2532" name="tfa_2532" defaultValue aria-required="true" title="Last Name" className="calc-cardlastname required" /></div>
                                                             </div>
                                                             </div>
                                                             <div id="tfa_2513" className="section inline group">
                                                             <div className="oneField field-container-D    " id="tfa_2198-D">
-                                                                <label id="tfa_2198-L" className="label preField reqMark" htmlFor="tfa_2198">Street Address</label><br /><div className="inputWrapper"><input  placeholder="Address" type="text" id="tfa_2198" name="tfa_2198" defaultValue aria-required="true" title="Street Address" className="required" /></div>
+                                                                <label id="tfa_2198-L" className="label preField reqMark" htmlFor="tfa_2198">Street Address</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2198" name="tfa_2198" defaultValue aria-required="true" title="Street Address" className="required" /></div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2200-D">
-                                                                <label id="tfa_2200-L" className="label preField reqMark" htmlFor="tfa_2200">City</label><br /><div className="inputWrapper"><input  placeholder="City" type="text" id="tfa_2200" name="tfa_2200" defaultValue aria-required="true" title="City" className="required" /></div>
+                                                                <label id="tfa_2200-L" className="label preField reqMark" htmlFor="tfa_2200">City</label><br /><div className="inputWrapper"><input   type="text" id="tfa_2200" name="tfa_2200" defaultValue aria-required="true" title="City" className="required" /></div>
                                                             </div>
                                                             </div>
                                                             <div id="tfa_2514" className="section inline group">
                                                             <div className="oneField field-container-D    " id="tfa_2201-D">
-                                                                <label id="tfa_2201-L" className="label preField reqMark" htmlFor="tfa_2201">Country</label><br /><div className="inputWrapper"><select id="tfa_2201" name="tfa_2201" onChange={this.checkCountry} title="Country" aria-required="true" className="required"><option value="-1" selected>Please select...</option>
+                                                                <label id="tfa_2201-L" className="label preField reqMark" htmlFor="tfa_2201">Country</label><br /><div className="inputWrapper select__field"><select id="tfa_2201" name="tfa_2201" onChange={this.checkCountry} title="Country" aria-required="true" className="required"><option value="-1" selected>Please select...</option>
                                                                     <option value="tfa_2202" id="tfa_2202" className>Afghanistan</option>
                                                                     <option value="tfa_2203" id="tfa_2203" className>Albania</option>
                                                                     <option value="tfa_2204" id="tfa_2204" className>Algeria</option>
@@ -1249,7 +1249,7 @@ export default class DonationForm extends Component {
                                                                     <option value="tfa_2438" id="tfa_2438" className>Zimbabwe</option></select></div>
                                                             </div> 
                                                             <div className="oneField field-container-D    " id="tfa_2439-D">
-                                                                <label id="tfa_2439-L" className="label preField reqMark" htmlFor="tfa_2439">State</label><br /><div className="inputWrapper"><select id="tfa_2439" name="tfa_2439" data-condition="`#tfa_2425` OR `#tfa_2426`" title="State" aria-required="true" className="required">
+                                                                <label id="tfa_2439-L" className="label preField reqMark" htmlFor="tfa_2439">State</label><br /><div className="inputWrapper select__field"><select id="tfa_2439" name="tfa_2439" data-condition="`#tfa_2425` OR `#tfa_2426`" title="State" aria-required="true" className="required">
                                                                     <option value="-1" selected>Please Select...</option>
                                                                     <option value="tfa_2440" id="tfa_2440" className >Alabama</option>
                                                                     <option value="tfa_2441" id="tfa_2441" className>Alaska</option>
@@ -1312,7 +1312,7 @@ export default class DonationForm extends Component {
                                                             </div>
                                                             <div id="tfa_2515" className="section inline group">
                                                             <div className="oneField field-container-D    " id="tfa_2497-D">
-                                                                <label id="tfa_2497-L" className="label preField reqMark" htmlFor="tfa_2497">Provinces</label><br /><div className="inputWrapper"><select id="tfa_2497" name="tfa_2497" data-condition="`#tfa_2239`" title="Provinces" aria-required="true" className="calc-province required">
+                                                                <label id="tfa_2497-L" className="label preField reqMark" htmlFor="tfa_2497">Provinces</label><br /><div className="inputWrapper select__field"><select id="tfa_2497" name="tfa_2497" data-condition="`#tfa_2239`" title="Provinces" aria-required="true" className="calc-province required">
                                                                     <option value="tfa_2498" id="tfa_2498" className="calcval-AB" selected>Alberta</option>
                                                                     <option value="tfa_2499" id="tfa_2499" className="calcval-BC">British Columbia</option>
                                                                     <option value="tfa_2500" id="tfa_2500" className="calcval-MB">Manitoba</option>
@@ -1331,17 +1331,17 @@ export default class DonationForm extends Component {
                                                                 <label id="tfa_2511-L" className="label preField reqMark" htmlFor="tfa_2511">State/Province</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2511" name="tfa_2511" defaultValue aria-required="true" data-condition="NOT (`#tfa_2425`) AND NOT (`#tfa_2426`) AND NOT (`#tfa_2239`)" title="State/Province" className="required" /></div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2512-D">
-                                                                <label id="tfa_2512-L" className="label preField reqMark" htmlFor="tfa_2512">Postal Code</label><br /><div className="inputWrapper"><input  placeholder="Postal code" type="text" id="tfa_2512" name="tfa_2512" defaultValue aria-required="true" title="Postal Code" className="validate-alphanum required" /></div>
+                                                                <label id="tfa_2512-L" className="label preField reqMark" htmlFor="tfa_2512">Postal Code</label><br /><div className="inputWrapper"><input   type="text" id="tfa_2512" name="tfa_2512" defaultValue aria-required="true" title="Postal Code" className="validate-alphanum required" /></div>
                                                             </div>
                                                             </div>
                                                             <div id="tfa_2718" className="section inline group">
                                                             <div className="oneField field-container-D    " id="tfa_2186-D">
                                                                 <label id="tfa_2186-L" className="label preField reqMark" htmlFor="tfa_2186">Email</label><br /><div className="inputWrapper">
-                                                                <input  placeholder="Email" type="text" id="tfa_2186" name="tfa_2186" defaultValue aria-required="true" aria-describedby="tfa_2186-HH" title="Email" className="validate-email calc-cardemail required" /><span className="field-hint-inactive" id="tfa_2186-H"><span id="tfa_2186-HH" className="hint">You'll receive emails from Repair the World. You may unsubscribe at any time.</span></span>
+                                                                <input   type="text" id="tfa_2186" name="tfa_2186" defaultValue aria-required="true" aria-describedby="tfa_2186-HH" title="Email" className="validate-email calc-cardemail required" /><span className="field-hint-inactive" id="tfa_2186-H"><span id="tfa_2186-HH" className="hint">You'll receive emails from Repair the World. You may unsubscribe at any time.</span></span>
                                                                 </div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2516-D">
-                                                                <label id="tfa_2516-L" className="label preField " htmlFor="tfa_2516">Phone Number</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2516" placeholder="Number" name="tfa_2516" defaultValue title="Phone Number" className /></div>
+                                                                <label id="tfa_2516-L" className="label preField reqMark" htmlFor="tfa_2516">Phone Number</label><br /><div className="inputWrapper"><input  type="text" id="tfa_2516"  name="tfa_2516" defaultValue title="Phone Number" className /></div>
                                                             </div>
                                                             </div>
                                                         </div>
