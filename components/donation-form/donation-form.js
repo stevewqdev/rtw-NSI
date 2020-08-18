@@ -24,6 +24,8 @@ export default class DonationForm extends Component {
     }
 
     next() {
+        location.href = "#hero__donation";
+
         setTimeout(function(){
 
             var currentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
@@ -314,6 +316,8 @@ export default class DonationForm extends Component {
         }.bind(this), 100)
     }
     previous() {
+        location.href = "#hero__donation";
+
         this.slider.slickPrev();
         
         setTimeout(function(){

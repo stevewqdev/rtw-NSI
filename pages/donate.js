@@ -38,7 +38,7 @@ export default class MakeDonation extends Component {
         return (
            <main className="donation__page">
 
-                <div className="hero__container hero__donation">
+                <div className="hero__container hero__donation" >
                     <div className="stm__background">
                         <svg xmlns="http://www.w3.org/2000/svg" width="768" height="561.153" viewBox="0 0 768 561.153">
                             <g id="Grupo_1933" data-name="Grupo 1933" transform="translate(-1034.838 -263.064)">
@@ -55,7 +55,7 @@ export default class MakeDonation extends Component {
                       
 
                             <div className="col-sm-12 col-md-12 col-lg-6 hero__content">
-                                <div className="hero__content__description">
+                                <div className="hero__content__description" id="hero__donation">
                                     <div
                                         className={`md poppins medium teal-text`}
                                         dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.description }}
