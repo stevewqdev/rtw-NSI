@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React, { useState, useEffect } from 'react';
 import axios from "axios"
-
+import PressComponent from "../components/press/pressComponent"
 export default function Home(props) {
   const customStyles = 
   `
@@ -131,19 +131,8 @@ export default function Home(props) {
     setPressArticles(props.postData);
   });
 
-  function loadMoreArticles(){
-    setOffset(offset + 6);
 
-    var hiddenPress = [...document.querySelectorAll(".hidden__press")]
-    
-    if(hiddenPress.length > 0){
-      hiddenPress.map((element)=>{
-        element.classList.remove("hidden__press");
-      })
-
-      document.querySelectorAll(".more__press")[0].classList.add("hidden-element");
-    }
-  }
+  
 
   return (
     <>
@@ -405,46 +394,8 @@ export default function Home(props) {
             </div>
           </div>
         </section>
-
-        <section id="in__the__press">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <h2
-                  className={`poppins bold white-text text-center`}
-                  dangerouslySetInnerHTML={{ __html: props.acfData.acf.title_six }}
-                />
-              </div>
-              {
-                press.map((post, index) => (
-                  <div className={`press__post col-sm-12 col-md-6 col-lg-6 ${index < 6 ? "" : "hidden__press"}`} key={index}>
-                    <a href={post.acf.press_external_link} aria-label={post.title.rendered} target="_BLANK">
-                      <p className="press__title title poppins teal-text bold xxl">
-                        {post.title.rendered}
-                      </p>
-                      <p className="title poppins gray-text bold text-uppercase sm">
-                        {
-                          post.acf.subtitle.length > 50 
-                          ? post.acf.subtitle.substr(0,50) + `...`
-                          : post.acf.subtitle
-                        }
-                      </p>
-                      <div className="press__post__arrow">
-                          <span className="absolute__name">{post.title.rendered}</span>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="29.889" height="11.96" viewBox="0 0 29.889 11.96">
-                            <path title={post.title.rendered} id="Hover" d="M34.513.25A.854.854,0,1,0,33.3,1.458l3.667,3.667H10V6.835H36.972L33.3,10.5a.854.854,0,1,0,1.208,1.208l5.126-5.126a.854.854,0,0,0,0-1.208Z" transform="translate(-10)" fill="#015d5d" fillRule="evenodd"/>
-                          </svg>
-                      </div>
-                    </a>
-                  </div>
-                ))
-              }
-              <div className="col-lg-12 text-center">
-                <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={loadMoreArticles}>SEE ALL PRESS</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PressComponent pressData={props.postData}></PressComponent>
+        
 
       </main>
     </>
@@ -459,14 +410,14 @@ export async function getServerSideProps() {
   const resData = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/pages/184`)
   const pageData = await resData.json()
 
-  const resDataPost = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/posts?per_page=50`)
+  const resDataPost = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/posts?per_page=6`)
   const postData = await resDataPost.json()
 
   return {
       props: {
         acfData,
         pageData,
-        postData
+        postData,
       },
   }
 }
