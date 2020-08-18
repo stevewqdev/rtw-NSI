@@ -20,6 +20,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function MyApp({ Component, pageProps }) {
+    console.log(pageProps);
     return (
         <>
             <Head>
@@ -31,7 +32,11 @@ function MyApp({ Component, pageProps }) {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
             </Head>
             <Header landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
-            {/* <FloatingScreen screenData={pageProps.masterElements} /> */}
+            {
+                pageProps.masterElements.acf.show_window
+                ? <FloatingScreen screenData={pageProps.masterElements} />
+                : ""
+            }
             <Component {...pageProps} />
             <Footer customClass={'bottom'} landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
             {/* <script type="text/javascript">

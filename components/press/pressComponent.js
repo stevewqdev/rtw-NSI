@@ -8,7 +8,7 @@ export default class PressComponent extends Component {
             press: this.props.pressData,
             offset: 6, 
             moreposts: true,
-            morepostsMessage: "", 
+            morepostsMessage: "SEE MORE PRESS", 
         };
 
         this.loadMoreArticles = this.loadMoreArticles.bind(this);
@@ -27,6 +27,10 @@ export default class PressComponent extends Component {
 
     loadMoreArticles(){
         this.setState({
+            morepostsMessage: "Loading press..."
+        });
+
+        this.setState({
             offset: this.state.offset + 6,
         });
 
@@ -40,8 +44,12 @@ export default class PressComponent extends Component {
         getNewPress(this.state.offset).then(result => {
             if(result.length <= 0){
                 this.setState({
-                    moreposts: false,
+                    moreposts: true,
                     morepostsMessage: "There is no more press to load"
+                });
+            }else{
+                this.setState({
+                    morepostsMessage: "SEE MORE PRESS"
                 });
             }
             var newResult = this.state.press.concat(result)
@@ -93,11 +101,9 @@ export default class PressComponent extends Component {
               {
                   this.state.moreposts
                   ?<div className="col-lg-12 text-center">
-                    <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={this.loadMoreArticles}>SEE ALL PRESS</p>
+                    <p className={`poppins bold white-text lg text-uppercase more__press`} onClick={this.loadMoreArticles}>{this.state.morepostsMessage}</p>
                     </div>
-                  :<div className="col-lg-12 text-center">
-                    <p className={`poppins bold white-text sm text-uppercase more__press`} >{this.state.morepostsMessage}</p>
-                    </div>
+                  :""
 
                   
               }
