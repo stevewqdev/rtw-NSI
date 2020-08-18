@@ -2,8 +2,22 @@ import React, { Component } from 'react'
 import DonationForm from '../components/donation-form/donation-form'
 
 export default class MakeDonation extends Component {
+    constructor(props) {
+        super(props);
+  
+        this.state = {
+            pageStatus: false,
+        };
+
+    }
 
     componentDidMount(){
+        document.addEventListener("DOMContentLoaded", function(){
+            this.state = {
+                pageStatus: true,
+            };
+        });
+
         var allInputs = [...document.querySelectorAll("input")];
         
         allInputs.map((input) => {
@@ -47,6 +61,7 @@ export default class MakeDonation extends Component {
                                         dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.description }}
                                     />
                                 </div>
+                                
                                 <DonationForm />
                                 {/* <div className="donation__form">
                                     <img loading="lazy" src={this.props.acfData.acf.donation_image} alt="GIVE IN HONOUR OF SOMEONE"/>

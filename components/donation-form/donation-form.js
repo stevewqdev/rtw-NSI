@@ -333,7 +333,7 @@ export default class DonationForm extends Component {
             if(document.getElementById("tfa_30").classList.contains("is_true")){
                 document.querySelectorAll(".slick-track")[0].style.height = `560px`;
             }else{
-                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `300px`;
             }
 
             if(document.getElementById("tfa_38").classList.contains("is_true")){
@@ -355,6 +355,7 @@ export default class DonationForm extends Component {
         }, 100)
     }
     componentDidMount(){
+        document.querySelectorAll(".form__element")[0].reset();
 
         document.getElementById("donation__form__inner").addEventListener("keydown", function(e){
             if(event.which === 9){
@@ -368,7 +369,7 @@ export default class DonationForm extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        document.querySelectorAll(".slick-track")[0].style.height = `280px`;
+        document.querySelectorAll(".slick-track")[0].style.height = `300px`;
 
         var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
         if(parseInt(newCurrentIndex) === 0){
@@ -427,7 +428,9 @@ export default class DonationForm extends Component {
             if(document.getElementById("tfa_13").classList.contains("is_true")){
                 document.querySelectorAll(".slick-track")[0].style.height = `345px`;
             }else{
-                document.querySelectorAll(".slick-track")[0].style.height = `300px`;
+                if(!document.getElementById("tfa_13").classList.contains("is_true")){
+                    document.querySelectorAll(".slick-track")[0].style.height = `300px`;
+                }
             }
 
             if([...document.querySelectorAll("#tfa_2-D .is_true")].length > 0){
@@ -700,7 +703,7 @@ export default class DonationForm extends Component {
 
                                         <div className="wForm" id="4696781-WRPR" dir="ltr">
                                         <div class="codesection" id="code-4696781">
-                                            <form method="post" action="https://www.tfaforms.com/responses/processor" className="hintsBelow labelsAbove" id={4696781} role="form">
+                                            <form method="post" action="https://www.tfaforms.com/responses/processor" className="hintsBelow labelsAbove form__element" id={4696781} role="form">
                                                 <Slider {...settings} ref={c => (this.slider = c)}>
                                                     <div className="form__step form__step__one">
                                                         <fieldset id="tfa_2562" className="section">
