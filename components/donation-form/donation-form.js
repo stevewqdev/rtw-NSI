@@ -283,8 +283,8 @@ export default class DonationForm extends Component {
 
                 
                 if(checkErrors.length <= 0){
-                    document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                     this.slider.slickNext();
+                    document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                 }else{
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "Please complete all the fields in red";
@@ -1006,10 +1006,49 @@ export default class DonationForm extends Component {
                                                             <label id="tfa_2526-L" className="label preField reqMark" htmlFor="tfa_2526">Card Number</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2526" name="tfa_2526" defaultValue aria-required="true" title="Card Number" className="validate-custom /^\d+$/g required" /></div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2528-D">
-                                                            <label id="tfa_2528-L" className="label preField reqMark" htmlFor="tfa_2528">MM</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2528" name="tfa_2528" defaultValue  aria-required="true" min={1} max={12} maxLength="2" onInput={this.maxLengthCheck} title="MM" className="validate-integer required" /></div>
+                                                            <label id="tfa_2528-L" className="label preField reqMark" htmlFor="tfa_2528">MM</label><br /><div className="inputWrapper select__field">
+                                                                
+                                                                <select type="number" id="tfa_2528" name="tfa_2528" defaultValue  aria-required="true" min={1} max={12} maxLength="2" onInput={this.maxLengthCheck} title="MM" className="validate-integer required reqMark " >
+                                                                    <option value="01" selected >Jan</option>
+                                                                    <option value="02" >Feb</option>
+                                                                    <option value="03" >Mar</option>
+                                                                    <option value="04" >Apr</option>
+                                                                    <option value="05" >May</option>
+                                                                    <option value="06" >Jun</option>
+                                                                    <option value="07" >Jul</option>
+                                                                    <option value="08" >Aug</option>
+                                                                    <option value="09" >Sep</option>
+                                                                    <option value="10" >Oct</option>
+                                                                    <option value="11" >Nov</option>
+                                                                    <option value="12" >Dec</option>
+                                                                    
+                                                                </select>
+
+                                                                {/* <input  type="number" id="tfa_2528" name="tfa_2528" defaultValue  aria-required="true" min={1} max={12} maxLength="2" onInput={this.maxLengthCheck} title="MM" className="validate-integer required" /> */}
+                                                                
+                                                                </div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2529-D">
-                                                            <label id="tfa_2529-L" className="label preField reqMark" htmlFor="tfa_2529">YY</label><br /><div className="inputWrapper"><input  type="number" id="tfa_2529" name="tfa_2529" defaultValue maxLength="2" onInput={this.maxLengthCheck}  aria-required="true" max={99} title="YY" className="validate-integer required" /></div>
+                                                            <label id="tfa_2529-L" className="label preField reqMark" htmlFor="tfa_2529">YY</label><br /><div className="inputWrapper select__field">
+                                                                
+                                                                <select type="number" id="tfa_2529" name="tfa_2529" defaultValue maxLength="2" onInput={this.maxLengthCheck}  aria-required="true" max={99} title="YY" className="validate-integer required reqMark"  >
+                                                                    <option value="20" selected >2020</option>
+                                                                    <option value="21" >2021</option>
+                                                                    <option value="22" >2022</option>
+                                                                    <option value="23" >2023</option>
+                                                                    <option value="24" >2024</option>
+                                                                    <option value="25" >2025</option>
+                                                                    <option value="26" >2026</option>
+                                                                    <option value="27" >2027</option>
+                                                                    <option value="28" >2028</option>
+                                                                    <option value="29" >2029</option>
+                                                                    <option value="30" >2030</option>
+                                                                    <option value="31" >2031</option>
+                                                                </select>
+
+                                                                {/* <input  type="number" id="tfa_2529" name="tfa_2529" defaultValue maxLength="2" onInput={this.maxLengthCheck}  aria-required="true" max={99} title="YY" className="validate-integer required" /> */}
+                                                            
+                                                            </div>
                                                             </div>
                                                             <div className="oneField field-container-D    " id="tfa_2530-D">
                                                             <label id="tfa_2530-L" className="label preField reqMark" htmlFor="tfa_2530">Code</label><br /><div className="inputWrapper"><input maxLength="10" onInput={this.maxLengthCheck}   type="number" id="tfa_2530" name="tfa_2530" defaultValue aria-required="true" title="Code" className="required" /></div>

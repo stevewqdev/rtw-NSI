@@ -2313,7 +2313,8 @@ and (max-width: 355px) {
     bottom: -20px;
 }
 #tfa_2530, #tfa_2529, #tfa_2528{
-    padding: 0 0 0 10px!important;
+    padding: 0 10px 0 10px!important;
+    width: 100%!important;
 }
 #tfa_2530-D .label__with__message:after{
     content: "Add code ";
