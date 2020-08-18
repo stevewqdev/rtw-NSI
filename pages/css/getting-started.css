@@ -160,6 +160,7 @@
 .filter__results .filter__result__item h2{
     margin: 0px;
     line-height: 30px;
+    max-width: 82%;
 }
 .filter__results .filter__result__item p{
     margin: 0px;
@@ -279,16 +280,22 @@
         line-height: 22px;
         font-size: 18px;
         margin-bottom: 8px;
+        max-width: 100%;
+        width: 100%;
     }
     .category__icon {
         width: 10%;
     }
     .filter__results .filter__result__item {
-        flex-wrap: wrap;
-        flex-direction: row;
+        padding: 25px 10px;
+        flex-direction: column;
     }
     .filter__results .filter__result__item .filtered__resource__item{
-        width: 80%;
+        width: 100%;
+        margin-left: 0px;
+    }
+    .filter__results img {
+        margin-bottom: 20px;
     }
 }
 @media(max-width: 900px) and (orientation: landscape ){
