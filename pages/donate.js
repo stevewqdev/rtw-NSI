@@ -21,7 +21,7 @@ export default class MakeDonation extends Component {
         var allInputs = [...document.querySelectorAll("input")];
         
         allInputs.map((input) => {
-            console.log(input.value);
+
             if(input.value === "true" || input.value === "TRUE" || input.value === true){
                 input.value = "";
             }
@@ -61,7 +61,7 @@ export default class MakeDonation extends Component {
                                         dangerouslySetInnerHTML={{ __html: this.props.acfData.acf.description }}
                                     />
                                 </div>
-                                
+                                <div id="hero__donation__two"></div>
                                 <DonationForm />
                                 {/* <div className="donation__form">
                                     <img loading="lazy" src={this.props.acfData.acf.donation_image} alt="GIVE IN HONOUR OF SOMEONE"/>

@@ -2093,8 +2093,6 @@ function curatedCards(data, searchData = null, removedTag = null){
 
             tags = NewTags; 
 
-            console.log(tags);
-
             if(tags.length){
                     var fullWrapper = `<ul id="searchTags" ></ul><p>Clear search</p>`;
                     $('.search__sub__wrapper').empty();
@@ -2783,7 +2781,7 @@ $(document).on("click", "#searchTags li" , function(e) {
         }
         if(remainTags[0].innerText === "Issue x"){
             setTimeout(function(){
-                console.log((`[data-info=".-1"]`));
+
                 if($(`[data-info=".-1"]`)[0]){
                     $(`[data-info=".-1"]`)[0].remove();
                     $('.searchTagsWrapper').hide();

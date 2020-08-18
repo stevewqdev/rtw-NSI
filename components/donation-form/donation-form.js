@@ -11,7 +11,6 @@ export default class DonationForm extends Component {
             firstSwipe: false,
             oldValue: 0,
         };
-
         
         this.next = this.next.bind(this);
         this.togglePrice = this.togglePrice.bind(this);
@@ -24,13 +23,15 @@ export default class DonationForm extends Component {
     }
 
     next() {
-        location.href = "#hero__donation";
+        
 
         setTimeout(function(){
 
             var currentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
 
             if(parseInt(currentIndex) === 0){
+                location.href = "#hero__donation";
+
                 if(document.getElementById("tfa_13").classList.contains("is_true") ){
                     if(document.getElementById("tfa_14").value > 1){
                         if(document.getElementById("tfa_14").classList.contains("error")){
@@ -138,8 +139,6 @@ export default class DonationForm extends Component {
                         oldValue : selectedValue,
                     });
                     
-                    console.log(this.state.oldValue);
-
                     
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
@@ -151,7 +150,7 @@ export default class DonationForm extends Component {
             }
 
             if(parseInt(currentIndex) === 1){
-
+                location.href = "#hero__donation";
         
                 if(!this.state.firstSwipe){
                     this.setState({
@@ -295,6 +294,8 @@ export default class DonationForm extends Component {
             setTimeout(function(){
                 var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
                 if(parseInt(newCurrentIndex) === 2){
+                    location.href = "#hero__donation__two";
+
                     document.querySelectorAll(".slider__controller .next")[0].classList.add("hidden-element");
                     document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
                 }else{
@@ -324,6 +325,7 @@ export default class DonationForm extends Component {
             var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
 
             if(parseInt(newCurrentIndex) === 2){
+                location.href = "#hero__donation__two";
                 document.querySelectorAll(".slider__controller .next")[0].classList.add("hidden-element");
                 document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
             }else{
@@ -332,7 +334,14 @@ export default class DonationForm extends Component {
                 
             }
 
-     
+            if(parseInt(newCurrentIndex) === 1){
+                location.href = "#hero__donation";
+
+            }
+            if(parseInt(newCurrentIndex) === 0){
+                location.href = "#hero__donation";
+
+            }
 
             if(document.getElementById("tfa_30").classList.contains("is_true")){
                 document.querySelectorAll(".slick-track")[0].style.height = `560px`;
@@ -359,7 +368,9 @@ export default class DonationForm extends Component {
         }, 100)
     }
     componentDidMount(){
-        document.querySelectorAll(".form__element")[0].reset();
+        if(performance.navigation.type == 2){
+            location.reload(true);
+        }
 
         document.getElementById("donation__form__inner").addEventListener("keydown", function(e){
             if(event.which === 9){

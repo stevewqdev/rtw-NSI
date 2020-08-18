@@ -701,11 +701,17 @@ export default class GettingStarted extends Component {
     }
 
     componentDidMount(){
-        
+        var orderedResults = this.props.resourceData.sort(function(a, b){
+            if(a.acf.subtitle < b.acf.subtitle) { return -1; }
+            if(a.acf.subtitle > b.acf.subtitle) { return 1; }
+            return 0;
+        })
+
+        var inputArray = orderedResults;
         // Create first batch of resources
         var perChunk = 20 // items per chunk    
 
-        var inputArray = this.props.resourceData;
+        var inputArray = orderedResults;
         
         var result = inputArray.reduce((resultArray, item, index) => { 
             
@@ -1090,5 +1096,6 @@ export async function getServerSideProps() {
         },
     }
   }
+  
   
   
