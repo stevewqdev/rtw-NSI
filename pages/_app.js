@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
             </Head>
             <Header landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
-            <FloatingScreen screenData={pageProps.masterElements} />
+            {/* <FloatingScreen screenData={pageProps.masterElements} /> */}
             <Component {...pageProps} />
             <Footer customClass={'bottom'} landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
             {/* <script type="text/javascript">

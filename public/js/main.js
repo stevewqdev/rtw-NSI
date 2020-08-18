@@ -625,6 +625,20 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
             makeList();
             loadList();
             createButtons(); 
+
+            var remainTags = $('#searchTags li');
+            if(remainTags.length === 0 ){
+                $('.searchTagsWrapper').hide();
+            }else{
+                if(remainTags[0].innerText === "Issue x"){
+                    setTimeout(function(){
+                        if($(`[data-info=".-1"]`)[0]){
+                            $(`[data-info=".-1"]`)[0].remove();
+                            $('.searchTagsWrapper').hide();
+                        }
+                    }, 100)
+                }
+            }
         }
         
         load();
@@ -855,15 +869,15 @@ function changePage(number, cards){
     
     load(number, list, numberPerPage);
 
-    // if($(window).width() > 500) {
-    //     $('html, body').animate({
-    //         scrollTop: $("#opportunities").offset().top
-    //     }, 1000);
-    // }else{
-    //     $('html, body').animate({
-    //         scrollTop: $("#search-events").offset().top
-    //     }, 1000);
-    // }
+    if($(window).width() > 500) {
+        $('html, body').animate({
+            scrollTop: $("#opportunities__title").offset().top
+        }, 400);
+    }else{
+        $('html, body').animate({
+            scrollTop: $("#opportunities__title").offset().top
+        }, 400);
+    }
 
 }
 function makeList(list, numberPerPage,  number) {
@@ -2954,15 +2968,15 @@ $(document).on("click", ".pagination-btn" , function() {
 
     page = parseInt($(this).attr('data-page'));
 
-    // if($(window).width() > 500) {
-    //     $('html, body').animate({
-    //         scrollTop: $("#opportunities").offset().top
-    //     }, 1000);
-    // }else{
-    //     $('html, body').animate({
-    //         scrollTop: $("#search-events").offset().top
-    //     }, 1000);
-    // }
+    if($(window).width() > 500) {
+        $('html, body').animate({
+            scrollTop: $("#opportunities__title").offset().top
+        }, 400);
+    }else{
+        $('html, body').animate({
+            scrollTop: $("#opportunities__title").offset().top
+        }, 400);
+    }
 
     apiCallData =  JSON.parse(localStorage.getItem('cards'));
     theCards = formatDataEvents(apiCallData, searchData, null, TimeRange);
@@ -3020,15 +3034,15 @@ $(document).on("keydown", ".pagination-btn" , function(e) {
         
             page = parseInt($(this).attr('data-page'));
         
-            // if($(window).width() > 500) {
-            //     $('html, body').animate({
-            //         scrollTop: $("#opportunities").offset().top
-            //     }, 1000);
-            // }else{
-            //     $('html, body').animate({
-            //         scrollTop: $("#search-events").offset().top
-            //     }, 1000);
-            // }
+            if($(window).width() > 500) {
+                $('html, body').animate({
+                    scrollTop: $("#opportunities__title").offset().top
+                }, 400);
+            }else{
+                $('html, body').animate({
+                    scrollTop: $("#opportunities__title").offset().top
+                }, 400);
+            }
         
             apiCallData =  JSON.parse(localStorage.getItem('cards'));
             theCards = formatDataEvents(apiCallData, searchData, null, TimeRange);
