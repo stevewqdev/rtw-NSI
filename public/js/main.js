@@ -1019,6 +1019,8 @@ function load(number, list, numberPerPage) {
 
 // ====== formatDataEvents() - Here we format the cards to show them in the correct way ====== //
 function formatDataEvents(data, searchData = null, removedTag = null, TimeRange = false){
+
+
     var apiCallData = JSON.parse(localStorage.getItem('cards'));
 
     // loop to get events to create each element and print them on screen
@@ -1347,6 +1349,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
 
 // ====== curatedCards() - Curates cards function ====== // 
 function curatedCards(data, searchData = null, removedTag = null){
+
     // We clean old data from the DOM
     document.getElementById("hidden_list").innerHTML = '';
     document.getElementById("list").innerHTML = "";
@@ -2078,6 +2081,20 @@ function curatedCards(data, searchData = null, removedTag = null){
             }
             // We clean old data for the tags
             $("#searchTags li").remove();
+            var NewTags = [];
+
+            tags.map((element) =>{
+                if(element.includes("Issue")){
+
+                }else{
+                    NewTags.push(element);
+                }
+            })
+
+            tags = NewTags; 
+
+            console.log(tags);
+
             if(tags.length){
                     var fullWrapper = `<ul id="searchTags" ></ul><p>Clear search</p>`;
                     $('.search__sub__wrapper').empty();
