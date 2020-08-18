@@ -105,9 +105,9 @@ export default class DonationForm extends Component {
                     var selectedPrice = document.querySelectorAll("#tfa_2-D .is_true")[0].getAttribute("id"); 
                     var priceElement = parseInt(document.querySelectorAll(`.${selectedPrice}`)[0].innerHTML.replace(/\$/g, ''));
 
-                    if(priceElement !== 0){
-                        document.getElementById("tfa_2553").value = priceElement
-                    }
+                    // if(priceElement !== 0){
+                    //     document.getElementById("tfa_2553").value = priceElement
+                    // }
 
                     document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
                 }
@@ -124,19 +124,19 @@ export default class DonationForm extends Component {
                 
                 if(checkErrors.length <= 0){
                     this.slider.slickNext();
-                    var selectedValue = 0;
+                    // var selectedValue = 0;
 
-                    if(document.getElementById("tfa_13").classList.contains("is_true")){
-                        var selectedValue = parseInt(document.getElementById("tfa_14").value); 
-                    }else{
-                        var selectedValue = parseInt(document.getElementById("tfa_2553").value);
-                    }
+                    // if(document.getElementById("tfa_13").classList.contains("is_true")){
+                    //     var selectedValue = parseInt(document.getElementById("tfa_14").value); 
+                    // }else{
+                    //     var selectedValue = parseInt(document.getElementById("tfa_2553").value);
+                    // }
     
-                    this.setState({
-                        oldValue : selectedValue,
-                    });
+                    // this.setState({
+                    //     oldValue : selectedValue,
+                    // });
                     
-                    console.log(this.state.oldValue);
+                    // console.log(this.state.oldValue);
 
                     
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
@@ -151,22 +151,22 @@ export default class DonationForm extends Component {
             if(parseInt(currentIndex) === 1){
 
         
-                if(!this.state.firstSwipe){
-                    this.setState({
-                        firstSwipe: true,
-                    });
+                // if(!this.state.firstSwipe){
+                //     this.setState({
+                //         firstSwipe: true,
+                //     });
 
-                    document.getElementById("tfa_2637").checked = true; 
+                //     document.getElementById("tfa_2637").checked = true; 
                
-                }
-                if(document.getElementById("tfa_2637").checked === true){
+                // }
+                // if(document.getElementById("tfa_2637").checked === true){
 
-                    var mainValue = (this.state.oldValue * 2.5 / 100); 
-                    var mainValue = mainValue + this.state.oldValue; 
+                //     var mainValue = (this.state.oldValue * 2.5 / 100); 
+                //     var mainValue = mainValue + this.state.oldValue; 
 
-                    document.getElementById("tfa_2553").value = mainValue.toFixed(2);
+                //     document.getElementById("tfa_2553").value = mainValue.toFixed(2);
                     
-                }
+                // }
 
 
                 var textInputs = [ 
@@ -282,8 +282,8 @@ export default class DonationForm extends Component {
 
                 
                 if(checkErrors.length <= 0){
-                    this.slider.slickNext();
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
+                    this.slider.slickNext();
                 }else{
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "";
                     document.querySelectorAll(".slider__message__text")[0].innerHTML = "Please complete all the fields in red";
@@ -431,9 +431,9 @@ export default class DonationForm extends Component {
                 var selectedPrice = document.querySelectorAll("#tfa_2-D .is_true")[0].getAttribute("id"); 
                 var priceElement = parseInt(document.querySelectorAll(`.${selectedPrice}`)[0].innerHTML.replace(/\$/g, ''));
     
-                if(priceElement !== 0){
-                    document.getElementById("tfa_2553").value = priceElement
-                }
+                // if(priceElement !== 0){
+                //     document.getElementById("tfa_2553").value = priceElement
+                // }
     
                 document.querySelectorAll(".slider__message__text__amount")[0].innerHTML = "";
             }
