@@ -4,16 +4,16 @@ import DonationForm from '../components/donation-form/donation-form'
 export default class MakeDonation extends Component {
 
     componentDidMount(){
-        // var allInputs = [...document.querySelectorAll("input")];
+        var allInputs = [...document.querySelectorAll("input")];
         
-        // allInputs.map((input) => {
-        //     console.log(input.value);
-        //     if(input.value === "true" || input.value === "TRUE" || input.value === true){
-        //         input.value = "";
-        //     }
+        allInputs.map((input) => {
+            console.log(input.value);
+            if(input.value === "true" || input.value === "TRUE" || input.value === true){
+                input.value = "";
+            }
             
-        //     return true; 
-        // })
+            return true; 
+        })
 
         setTimeout(function(){
             document.getElementById("submit_button").value = "DONATE";
