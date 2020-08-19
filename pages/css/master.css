@@ -548,7 +548,7 @@ label[id^="tfa_2530["] {
 
 #tfa_2717{
     width: 100%;
-    margin: 34px 0 22px!important;
+    margin: 5px 0 22px!important;
 }
 #tfa_2532,
 *[id^="tfa_2532["] {
@@ -2062,7 +2062,7 @@ and (max-width: 355px) {
     margin-left: 10px;
 }
 #tfa_2528-D, #tfa_2529-D, #tfa_2530-D {
-    width: 13.3%!important;
+    width: 20.3%!important;
 }
 #tfa_2718{
     display: flex;
@@ -2555,9 +2555,10 @@ div.wForm{
   }
   #tfa_36{
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     top: -25px;
     position: relative;
+    flex-direction: column;
   }
   #tfa_37-D{
       border-top: solid 1px #6C6C6C;
@@ -2639,6 +2640,15 @@ div.wForm{
   }
   #tfa_35-D{
       margin-top: 40px;
+      width: 100%;
+  }
+  #tfa_35-D input{
+      width: 100%;
+      max-width: 100%!important;
+  }
+  #tfa_37-L:after{
+      right: 80px;
+      display: none;
   }
   #tfa_37 {
     display: flex;
@@ -2788,6 +2798,9 @@ color: #015D5D;
 }
 /* ============ Donation page css ============ */
 @media(max-width: 1024px){
+    #tfa_37-L:after {
+        right: 60px;
+    }
     .wFormContainer{
         width: 100%;
     }
@@ -2861,7 +2874,7 @@ color: #015D5D;
         width: 100%!important;
     }
     #tfa_2528-D, #tfa_2529-D, #tfa_2530-D {
-        width: 33.3%!important;
+        width: 29.3%!important;
     }
     #tfa_2717{
         width: 100%;
@@ -2881,6 +2894,7 @@ color: #015D5D;
     }
     #tfa_2513{
         width: 100%;
+        flex-wrap: wrap;
     }
     #tfa_2198-D{
         width: 100%!important;
@@ -2894,14 +2908,15 @@ color: #015D5D;
     #tfa_2200-D input{
         width: 100%!important;
     }
-    #tfa_2525-D{
-        width: 50%!important;
+    #tfa_2525-D {
+        width: 100%!important;
+        margin-right: 0;
     }
     #tfa_2525-D input{
         width: 100%!important;
     }
     #tfa_2532-D{
-        width: 50%!important;
+        width: 100%!important;
     }
     #tfa_2532-D input{
         width:100%!important;
@@ -2926,7 +2941,7 @@ color: #015D5D;
         padding: 0px!important;
     }
     #tfa_2530-D{
-        margin-top: 50px;
+        margin-top: 15px;
     }
     #tfa_2188-D label {
         margin-right: 5px;
@@ -2999,7 +3014,9 @@ color: #015D5D;
     }
 }
 @media (max-width: 600px){
-
+    #tfa_37-L:after {
+        right: 0px;
+    }
     .donation__page .hero__container .hero__content {
         padding: 0px 25px 0;
         display: flex;
