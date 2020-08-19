@@ -2802,6 +2802,28 @@ color: #015D5D;
 }
 /* ============ Donation page css ============ */
 @media(max-width: 1024px){
+    #tfa_30-L {
+        top: -5px;
+        left: 15px;
+    }
+    #tfa_2512-D {
+        width: 100%;
+    }
+    #tfa_2186-D {
+        width: 100%!important;
+    }
+    #tfa_2516-D, *[id^="tfa_2516["][class~="field-container-D"]{
+        width: 100%!important;
+    }
+    #tfa_2516, *[id^="tfa_2516["] {
+        width: 100%!important;
+    }
+    #tfa_2512-D {
+        padding-right: 0px;
+    }
+    #tfa_2186-D {
+        padding-right: 0px;
+    }
     #tfa_37-L:after {
         right: 60px;
     }
@@ -2839,6 +2861,9 @@ color: #015D5D;
     }
 }
 @media(max-width: 768px){
+    #tfa_30-L {
+        top: 0px;
+    }
     .donation__page .hero__container .hero__content {
         display: flex;
         flex-direction: column;
@@ -3018,6 +3043,14 @@ color: #015D5D;
     }
 }
 @media (max-width: 600px){
+    #tfa_44-L {
+        margin-bottom: -33px;
+        margin-top: 20px;
+    }
+    #tfa_43 .oneField {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
     #tfa_37-L:after {
         right: 0px;
     }
