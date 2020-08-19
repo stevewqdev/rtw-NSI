@@ -647,7 +647,9 @@ label[id^="tfa_2549["] {
     width: auto !important;
     min-width: 0px;
 }
-
+#tfa_44-L{
+    margin-bottom: -13px;
+}
 #tfa_2564,
 *[id^="tfa_2564["] {
     width: auto !important;
@@ -2072,7 +2074,7 @@ and (max-width: 355px) {
     overflow: hidden;
 }
 #tfa_2186-D{
-    width: 50%!important;
+    width: 61%!important;
     padding-right: 10px;
 }
 #tfa_2116-D{
@@ -2275,7 +2277,7 @@ and (max-width: 355px) {
     content: "we can only accept donations over $1";
 }
 #tfa_32 .label__with__message:after{
-    content: "Please add person name";
+    content: "Please add person's name";
     left: 300px;
     bottom: -30px;
 }

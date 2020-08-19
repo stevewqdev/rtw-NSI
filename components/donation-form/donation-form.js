@@ -726,7 +726,7 @@ export default class DonationForm extends Component {
 
                                         <div className="wForm" id="4696781-WRPR" dir="ltr">
                                         <div class="codesection" id="code-4696781">
-                                            <form method="post" target="_BLANK" action="https://www.tfaforms.com/responses/processor" className="hintsBelow labelsAbove form__element" id={4696781} role="form">
+                                            <form method="post" action="https://www.tfaforms.com/responses/processor" className="hintsBelow labelsAbove form__element" id={4696781} role="form">
                                                 <Slider {...settings} ref={c => (this.slider = c)}>
                                                     <div className="form__step form__step__one">
                                                         <fieldset id="tfa_2562" className="section">
@@ -942,7 +942,7 @@ export default class DonationForm extends Component {
 
                                                                 <div className="oneField field-container-D  labelsRemoved  " id="tfa_35-D">
                                                                     <div className="inputWrapper">
-                                                                        <input type="text" id="tfa_35" name="tfa_35" defaultValue aria-required="true" title="Honoree Name" className="required" />
+                                                                        <input type="text" id="tfa_35" name="tfa_35" defaultValue aria-required="true" title="Honoree Name" className="required" placeholder="First and Last Name"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -975,12 +975,12 @@ export default class DonationForm extends Component {
                                                                 <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_41-D">
                                                                     <label id="tfa_41-L" className="label preField reqMark" htmlFor="tfa_41">To:</label>
                                                                 <div className="inputWrapper">
-                                                                <input  type="text" id="tfa_41" name="tfa_41" defaultValue   aria-required="true" title="To:" className="required" />
+                                                                <input  type="text" id="tfa_41" name="tfa_41" defaultValue   aria-required="true" placeholder="first Name" title="To:" className="required" />
                                                                 </div>
                                                             </div>
-                                                            <div className="oneField field-container-D  labelsRemoved  " id="tfa_2635-D"><div className="inputWrapper"><input type="text" id="tfa_2635" name="tfa_2635" defaultValue  aria-required="true" title="To:" className="required" /></div></div>
+                                                            <div className="oneField field-container-D  labelsRemoved  " id="tfa_2635-D"><div className="inputWrapper"><input type="text" id="tfa_2635" name="tfa_2635" defaultValue  aria-required="true" title="To:" placeholder="last Name"  className="required" /></div></div>
                                                             <div className="oneField field-container-D  labelsLeftAligned  " id="tfa_42-D">
-                                                                <label id="tfa_42-L" className="label preField reqMark" htmlFor="tfa_42">From:</label><div className="inputWrapper"><input  type="text" id="tfa_42" name="tfa_42" defaultValue aria-required="true"  title="From:" className="required" /></div>
+                                                                <label id="tfa_42-L" className="label preField reqMark" htmlFor="tfa_42">From:</label><div className="inputWrapper"><input  type="text" id="tfa_42" placeholder="Your Name"  name="tfa_42" defaultValue aria-required="true"  title="From:" className="required" /></div>
                                                             </div>
                                                             </div>
                                                             <div id="tfa_2181" className="section group" data-condition="`#tfa_38`"><div id="tfa_2178" className="section inline group">
