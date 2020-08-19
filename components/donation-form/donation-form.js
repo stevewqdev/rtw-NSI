@@ -726,7 +726,7 @@ export default class DonationForm extends Component {
 
                                         <div className="wForm" id="4696781-WRPR" dir="ltr">
                                         <div class="codesection" id="code-4696781">
-                                            <form method="post" action="https://www.tfaforms.com/responses/processor" className="hintsBelow labelsAbove form__element" id={4696781} role="form">
+                                            <form method="post" target="_BLANK" action="https://www.tfaforms.com/responses/processor" className="hintsBelow labelsAbove form__element" id={4696781} role="form">
                                                 <Slider {...settings} ref={c => (this.slider = c)}>
                                                     <div className="form__step form__step__one">
                                                         <fieldset id="tfa_2562" className="section">
