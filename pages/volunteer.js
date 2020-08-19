@@ -177,16 +177,35 @@ render() {
                             {
                                 this.props.acfData.acf.serve_as_buttons.map((button, index) => (
                                     <div className="hero__content__button" key={index}>
-                                        <a href={button.link} tabindex="0"  onKeyPress={index === 2 ? this.keyOpen : ""} onClick={index === 2 ? this.openWindow : ""}>
-                                            <button className={`btn main-btn teal`} tabindex="-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="10.393" height="18.188" viewBox="0 0 10.393 18.188">
-                                                    <path id="Hover" d="M104.432,32.715,97.446,39.49a1.3,1.3,0,0,0,1.837,1.837l7.795-7.795a1.3,1.3,0,0,0,0-1.835v0L99.291,23.9a1.3,1.3,0,0,0-1.845,1.837l6.986,6.975" transform="translate(-97.066 -23.52)" fill="#00a99e" fillRule="evenodd"/>
-                                                </svg>
-                                                <strong>
-                                                    {button.button_text}
-                                                </strong>
-                                            </button>
-                                        </a>
+                                        {
+                                            index < 2
+                                            ?  <a href={button.link} tabindex="0"  >
+                                                    <button className={`btn main-btn teal`} tabindex="-1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="10.393" height="18.188" viewBox="0 0 10.393 18.188">
+                                                            <path id="Hover" d="M104.432,32.715,97.446,39.49a1.3,1.3,0,0,0,1.837,1.837l7.795-7.795a1.3,1.3,0,0,0,0-1.835v0L99.291,23.9a1.3,1.3,0,0,0-1.845,1.837l6.986,6.975" transform="translate(-97.066 -23.52)" fill="#00a99e" fillRule="evenodd"/>
+                                                        </svg>
+                                                        <strong>
+                                                            {button.button_text}
+                                                        </strong>
+                                                    </button>
+                                                </a>
+                                            :""
+                                        }
+                                        {
+                                            index === 2 && this.props.masterElements.acf.show_window
+                                            ?<a href={button.link} tabindex="0"  onKeyPress={index === 2 ? this.keyOpen : ""} onClick={index === 2 ? this.openWindow : ""}>
+                                                <button className={`btn main-btn teal`} tabindex="-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="10.393" height="18.188" viewBox="0 0 10.393 18.188">
+                                                        <path id="Hover" d="M104.432,32.715,97.446,39.49a1.3,1.3,0,0,0,1.837,1.837l7.795-7.795a1.3,1.3,0,0,0,0-1.835v0L99.291,23.9a1.3,1.3,0,0,0-1.845,1.837l6.986,6.975" transform="translate(-97.066 -23.52)" fill="#00a99e" fillRule="evenodd"/>
+                                                    </svg>
+                                                    <strong>
+                                                        {button.button_text}
+                                                    </strong>
+                                                </button>
+                                            </a>
+                                            : ""
+                                        }
+                                        
                                     </div>
                                 ))
                             }
