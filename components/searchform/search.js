@@ -177,6 +177,8 @@ export default class Search extends Component {
                                                     <option id="nyc-8" data-option-count="8" value="nyc" class="nyc nyc-8">New York</option>
 
                                                     <option id="pittsburgh-11" data-option-count="11" value="pittsburgh" class="pittsburgh pittsburgh-11">Pittsburgh</option>
+
+                                                    <option id="other-12" data-option-count="12" value="other" class="other other-12">Other</option>
                                                 </select>
                                             </div>
                                             {/* <div className=" partner__input input__wrapper text-uppercase arrow-down">
