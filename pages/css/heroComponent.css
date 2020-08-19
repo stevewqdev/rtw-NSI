@@ -7,6 +7,7 @@
 }
 .hero__container a{
     text-decoration: underline;
+    color: #06a89e;
 }
 @media(max-width: 1700px){
     .hero__container .container{

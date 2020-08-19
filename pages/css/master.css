@@ -820,7 +820,7 @@ span i img {
 }
 #tfa_2524-L{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     color: #286867;
     font-size: 19px;
@@ -2273,8 +2273,8 @@ and (max-width: 355px) {
     content: "we can only accept donations over $1";
 }
 #tfa_32 .label__with__message:after{
-    content: "Please add tribute details";
-    left: 180px;
+    content: "Please add person name";
+    left: 300px;
     bottom: -30px;
 }
 #tfa_2562.label__with__message:after {
