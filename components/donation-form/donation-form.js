@@ -30,7 +30,10 @@ export default class DonationForm extends Component {
             var currentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
 
             if(parseInt(currentIndex) === 0){
-                location.href = "#hero__donation";
+              
+                if (window.innerWidth > 900) {
+                    document.getElementById("hero__donation").scrollIntoView();
+                }
 
                 if(document.getElementById("tfa_13").classList.contains("is_true") ){
                     if(document.getElementById("tfa_14").value > 1){
@@ -150,8 +153,9 @@ export default class DonationForm extends Component {
             }
 
             if(parseInt(currentIndex) === 1){
-                location.href = "#hero__donation";
-        
+                if (window.innerWidth > 900) {
+                    document.getElementById("hero__donation").scrollIntoView();
+                }
                 if(!this.state.firstSwipe){
                     this.setState({
                         firstSwipe: true,
@@ -294,7 +298,9 @@ export default class DonationForm extends Component {
             setTimeout(function(){
                 var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
                 if(parseInt(newCurrentIndex) === 2){
-                    location.href = "#hero__donation__two";
+                    if (window.innerWidth > 900) {
+                    document.getElementById("hero__donation__two").scrollIntoView();
+                    }
 
                     document.querySelectorAll(".slider__controller .next")[0].classList.add("hidden-element");
                     document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
@@ -317,15 +323,18 @@ export default class DonationForm extends Component {
         }.bind(this), 100)
     }
     previous() {
-        location.href = "#hero__donation";
-
+        if (window.innerWidth > 900) {
+        document.getElementById("hero__donation").scrollIntoView();
+        }
         this.slider.slickPrev();
         
         setTimeout(function(){
             var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
 
             if(parseInt(newCurrentIndex) === 2){
-                location.href = "#hero__donation__two";
+                if (window.innerWidth > 900) {
+                document.getElementById("hero__donation__two").scrollIntoView();
+                }
                 document.querySelectorAll(".slider__controller .next")[0].classList.add("hidden-element");
                 document.querySelectorAll(".slider__controller .separator")[0].classList.add("hidden-element");
             }else{
@@ -335,11 +344,16 @@ export default class DonationForm extends Component {
             }
 
             if(parseInt(newCurrentIndex) === 1){
-                location.href = "#hero__donation";
+                if (window.innerWidth > 900) {
+                document.getElementById("hero__donation").scrollIntoView();
+                }
+
 
             }
             if(parseInt(newCurrentIndex) === 0){
-                location.href = "#hero__donation";
+                if (window.innerWidth > 900) {
+                document.getElementById("hero__donation").scrollIntoView();
+                }
 
             }
 
