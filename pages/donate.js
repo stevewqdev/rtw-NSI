@@ -35,7 +35,6 @@ export default class MakeDonation extends Component {
                     donation: true,
                 }); 
 
-                location.href = "#donation__message";
             }
         })
        
