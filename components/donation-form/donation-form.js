@@ -344,7 +344,7 @@ export default class DonationForm extends Component {
             }
 
             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `660px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }else{
                 document.querySelectorAll(".slick-track")[0].style.height = `300px`;
             }
@@ -354,7 +354,7 @@ export default class DonationForm extends Component {
             }
     
             if(document.getElementById("tfa_39").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `660px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }
 
             if(parseInt(newCurrentIndex) === 0){
@@ -449,7 +449,7 @@ export default class DonationForm extends Component {
             }
 
             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `660px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }
 
             if(document.getElementById("tfa_38").classList.contains("is_true")){
@@ -595,7 +595,7 @@ export default class DonationForm extends Component {
             }
     
             if(document.getElementById("tfa_39").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `660px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }
         }, 200)
 
@@ -617,7 +617,7 @@ export default class DonationForm extends Component {
             }else{
                 event.target.parentElement.classList.add("is__toggled");
                 document.getElementById("tfa_34").classList.add("is_true");
-                document.querySelectorAll(".slick-track")[0].style.height = `660px`;
+                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
 
             }
         }
@@ -670,7 +670,7 @@ export default class DonationForm extends Component {
                     else{
                         if(parseInt(currentIndex) === 0){
                             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                                document.querySelectorAll(".slick-track")[0].style.height = `660px`;
+                                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
                             }
                             if(document.getElementById("tfa_38").classList.contains("is_true")){
                                 document.querySelectorAll(".slick-track")[0].style.height = `auto`;
