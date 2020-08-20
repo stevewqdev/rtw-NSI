@@ -6,18 +6,39 @@ export default class MakeDonation extends Component {
         super(props);
   
         this.state = {
-            pageStatus: false,
+            donation: false,
         };
 
     }
 
+    
     componentDidMount(){
-        document.addEventListener("DOMContentLoaded", function(){
-            this.state = {
-                pageStatus: true,
-            };
-        });
+        // Values from url Params
+        var queryStringCampaign = window.location.search;
+        var paramsArrayCampaign = []; 
 
+        if(queryStringCampaign.length > 0){           
+            
+            queryStringCampaign = queryStringCampaign.replace(/\?/g, '').split("&");
+
+            queryStringCampaign.map((param) => {
+                paramsArrayCampaign.push(param.split("="));
+
+                return true; 
+            })
+        }
+
+
+        paramsArrayCampaign.map((theParam) => {
+            if(theParam[0] === "donation" && theParam[1].length > 0  && theParam[1] === "true"){
+                this.setState({
+                    donation: true,
+                }); 
+
+                location.href = "#donation__message";
+            }
+        })
+       
         var allInputs = [...document.querySelectorAll("input")];
         
         allInputs.map((input) => {
@@ -30,7 +51,9 @@ export default class MakeDonation extends Component {
         })
 
         setTimeout(function(){
-            document.getElementById("submit_button").value = "DONATE";
+            if(document.getElementById("submit_button")){
+                document.getElementById("submit_button").value = "DONATE";
+            }
         }, 1000)
     }
 
@@ -51,9 +74,6 @@ export default class MakeDonation extends Component {
                     </div>
                     <div className="container-fluid donate__container">
                         <div className="row">
-
-                      
-
                             <div className="col-sm-12 col-md-12 col-lg-6 hero__content">
                                 <div className="hero__content__description" id="hero__donation">
                                     <div
@@ -62,7 +82,24 @@ export default class MakeDonation extends Component {
                                     />
                                 </div>
                                 <div id="hero__donation__two"></div>
-                                <DonationForm />
+                                <div id="donation__message"></div>
+                                {
+                                    this.state.donation 
+                                    ? 
+                                    <div className="donation__message">
+                                        <p className={`poppins md white-text bold`}>
+                                            Thank you so much for your generous investment in our work. 
+                                        </p>
+                                        <p className={`poppins sm white-text`}>
+                                            Your donation helps our volunteers and partners meet the vital needs of the communities they serve. With your support, we will continue to build a network of partnerships and programs that mobilize people of all backgrounds to help repair the world.
+
+                                        </p>
+                                        <p className={`poppins sm white-text`}>
+                                            If you're also interested in donating your time, please click <br/> <a className={`bold`}href="https://servethemoment.org/volunteer" ><button className="btn main-btn clear-teal" tabindex="-1"><strong>Here</strong></button></a>
+                                        </p>
+                                    </div>
+                                    : <DonationForm />
+                                }
                                 {/* <div className="donation__form">
                                     <img loading="lazy" src={this.props.acfData.acf.donation_image} alt="GIVE IN HONOUR OF SOMEONE"/>
                                 </div> */}

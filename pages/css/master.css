@@ -1684,6 +1684,23 @@ select {
     letter-spacing: 1px;
     display: none;
 }
+.donation__message{
+    margin: 40px 0 70px;
+    text-align: center;
+    background: #015D5D;
+    padding: 40px!important;
+}
+.donation__message a{
+    color: #00a99e!important;
+}
+.donation__message button{
+    margin-top: 25px;
+    min-width: 150px;
+}
+.donation__message p {
+    margin: 20px 0!important;
+    padding: 0px!important;
+}
 /* Autosuggest feature styles: */
 .wForm div .typeahead,
 .wForm div .tt-query,
