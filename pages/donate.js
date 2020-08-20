@@ -94,7 +94,7 @@ export default class MakeDonation extends Component {
 
                                         </p>
                                         <p className={`poppins sm white-text`}>
-                                            If you're also interested in donating your time, please click <br/> <a className={`bold`}href="https://servethemoment.org/volunteer" ><button className="btn main-btn clear-teal" tabindex="-1"><strong>Here</strong></button></a>
+                                            If you're also interested in donating your time, please click <a className={`bold`}href="https://servethemoment.org/volunteer" >here</a>
                                         </p>
                                     </div>
                                     : <DonationForm />
