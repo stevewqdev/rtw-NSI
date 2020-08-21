@@ -65,6 +65,7 @@
 }
 #resources__categories .resource__category__internal__meta img {
     max-height: 30px;
+    width: 30px;
 }
 #resources__categories .resource__category__internal__meta p{
     margin: 0px;
