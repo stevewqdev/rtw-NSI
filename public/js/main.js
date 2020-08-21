@@ -15,7 +15,7 @@ var currentPage = 0,
     apiCallData;
     
 // We set the API link to call 
-var apiLink = 'https://raxo.dev/stm/api/'; 
+var apiLink = 'https://raxo.dev/stm/api/prod.php'; 
 
 // We make the API call to pull the data
 var apiCall = $.getJSON(`${apiLink}`, function(data) {
