@@ -1568,7 +1568,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                     data-issue="${theIssue}"
                     data-servelink="${data.serveLink}"
                 >
-                    <div class="card__header col-sm-12 col-md-12 col-lg-4" style="background: gray;background-size: cover;background-repeat: no-repeat;background-position: center;" data-background-city="${theCity}">
+                    <div class="card__header col-sm-12 col-md-12 col-lg-4" style="background: url(https://stm.raxo.dev/wp-content/uploads/2020/08/STM_LOGO_Repair-055.svg);background-color: #f7f7f7;background-size: contain;background-repeat: no-repeat;background-position: center;border: solid 1px lightgray!important;" data-background-city="${theCity}">
                         ${theImage}
                     </div>
                     <div class="card__content__wrapper col-sm-12 col-md-12 col-lg-8">
@@ -1812,7 +1812,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                         data-servelink="${data.serveLink}"
                     >
            
-                    <div class="card__header col-sm-12 col-md-12 col-lg-4" style="background: gray;background-size: cover;background-repeat: no-repeat;background-position: center;" data-background-city="${theCity}">
+                    <div class="card__header col-sm-12 col-md-12 col-lg-4" style="background: url(https://stm.raxo.dev/wp-content/uploads/2020/08/STM_LOGO_Repair-055.svg);background-color: #f7f7f7;background-size: contain;background-repeat: no-repeat;background-position: center;border: solid 1px lightgray!important;" data-background-city="${theCity}">
                         ${theImage}
                     </div>
                     <div class="card__content__wrapper col-sm-12 col-md-12 col-lg-8">
