@@ -60,6 +60,39 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
         if(element.Repair_City__c === 'New York City' ){
             element.Repair_City__c = 'ny';
         }
+        if(element.Repair_City__c === 'Serve the Moment Miami' ){
+            element.Repair_City__c = 'miami';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Pittsburgh' ){
+            element.Repair_City__c = 'pittsburgh';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Baltimore' ){
+            element.Repair_City__c = 'baltimore';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Chicago' ){
+            element.Repair_City__c = 'chicago';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Atlanta' ){
+            element.Repair_City__c = 'atlanta';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Denver' ){
+            element.Repair_City__c = 'denver';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Boston' ){
+            element.Repair_City__c = 'boston';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Bay Area' ){
+            element.Repair_City__c = 'bay area';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Cleveland' ){
+            element.Repair_City__c = 'cleveland';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Detroit' ){
+            element.Repair_City__c = 'detroit';
+        }
+        if(element.Repair_City__c === 'Serve the Moment Los Angeles' ){
+            element.Repair_City__c = 'los angeles';
+        }
         if(element.date === '' || element.date === null || element.date === undefined){
             element.date = new Date();
         }
