@@ -1632,7 +1632,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                 // if(comparedDate >= today ){
                 //     theCards.push(theCard);
                 // }
-                if(data.isOngoing && comparedDate >= today /*&& theCity !== "global"*/){
+                if(data.isOngoing /*&& comparedDate >= today*/ /*&& theCity !== "global"*/){
                     onGoingCards.push(theCard);
                 }
     
@@ -1878,7 +1878,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                     // if(comparedDate >= today ){
                     //     theCards.push(theCard);
                     // }
-                    if(data.isOngoing && comparedDate >= today /*&& theCity !== "global"*/){
+                    if(data.isOngoing /*&& comparedDate >= today*/ /*&& theCity !== "global"*/){
                         onGoingCards.push(theCard);
                     }
         
