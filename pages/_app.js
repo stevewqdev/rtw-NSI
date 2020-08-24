@@ -37,7 +37,7 @@ function MyApp({ Component, pageProps }) {
                 : ""
             }
             <Component {...pageProps} />
-            <Footer customClass={'bottom'} landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
+            <Footer partners={pageProps.partnerData} customClass={'bottom'} landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
             {/* <script type="text/javascript">
                 {`var __ss_noform = __ss_noform || [];
                 __ss_noform.push(['baseURI', 'https://app-3QNMWRHCZE.marketingautomation.services/webforms/receivePostback/MzawMLEwMjM1BQA/']);
@@ -60,11 +60,15 @@ MyApp.getInitialProps = async (ctx) => {
     const optionRes = await fetch(`${process.env.ProjectUrl}/wp-json/acf/v3/options/options-page`)
     const masterElements = await optionRes.json()
 
+    const resDataPartners = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/partners?per_page=100`)
+    const partnerData = await resDataPartners.json()
+
     return {
         pageProps: {
           mainMenu,
           masterElements,
-        //   landingMenu,
+          partnerData,
+          //   landingMenu,
         },
     }
 }

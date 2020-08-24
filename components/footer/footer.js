@@ -75,6 +75,36 @@ const Footer = (props) => {
                         }}
                       />
                     </div>
+
+                    {/* <div className="footer__partners">
+                      <h4 className={"fake-hfour"}>Our Partners</h4>
+                      <div className="footer__partners__wrapper" >
+                        {
+                          
+                          props.partners.map((partner, index) => (
+                            <>
+                            {
+                              partner.acf.partner_website.length > 0
+                              ?
+                                <a href={partner.acf.partner_website} key={index} style={{"fontWeight" : "Bold"}}>
+                                  <p
+                                  className={`poppins bold white-text text-center`}
+                                  dangerouslySetInnerHTML={{ __html: partner.title.rendered + "<span> | </span>"}}
+                                  /> 
+                                </a>
+                              :<p style={{"pointerEvents" : "none"}}
+                                className={`poppins bold white-text text-center`}
+                                dangerouslySetInnerHTML={{ __html: partner.title.rendered + "<span> | </span>"}}
+                                /> 
+                            }
+                            </>
+                          
+                          ))
+                        }
+                      </div>
+                      
+                    </div> */}
+
                   </div>
               </div>
         {

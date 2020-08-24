@@ -4,9 +4,10 @@
 }
 .fake-hfour{
     text-align: left!important;
-    padding-left: 15px!important;
+    padding-left: 20px!important;
     font-weight: 700!important;
     font-size: 24px!important;
+    margin-bottom: 15px!important;
 }
 .footer{
     background: #015D5D;
@@ -30,6 +31,11 @@
     color: #015D5D;
     text-transform: unset;
 }
+.footer__partners__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+}
 .bottom__menu{
     display: none;
 }
@@ -45,14 +51,21 @@
 }
 .footer__partners h4{
     text-align: left!important;
-    padding-left: 15px;
+    padding-left: 0px;
     font-weight: bold;
+    color: white;
+    margin-bottom: 15px;
 }
 .footer__partners p{
     text-align: left!important;
-    padding-left: 15px;
+    padding-left: 20px;
+    margin: 0px;
     font-size: 12px;
     line-height: 18px;
+    padding-right: 5px;
+}
+.footer__partners p span{
+    padding-left: 5px;
 }
 .footer__menu .navbar{
     padding: 0px!important;
