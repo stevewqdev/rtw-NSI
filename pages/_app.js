@@ -38,13 +38,37 @@ function MyApp({ Component, pageProps }) {
             }
             <Component {...pageProps} />
             <Footer partners={pageProps.partnerData} customClass={'bottom'} landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
-            <script type="text/javascript">
-                {`var __ss_noform = __ss_noform || [];
-                __ss_noform.push(['baseURI', 'https://app-3QNMWRHCZE.marketingautomation.services/webforms/receivePostback/MzawMLEwMjM1BQA/']);
-                __ss_noform.push(['endpoint', '2634af05-920a-4055-9b6a-e4592ec85d29']);`
-                }
-            </script>
-            <script type="text/javascript" src="https://koi-3QNMWRHCZE.marketingautomation.services/client/noform.js?ver=1.24" ></script>
+                {/* <!-- Global site tag (gtag.js) - Google Analytics --> */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169919029-1"></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                      
+                        gtag('config', 'UA-169919029-1');
+                        `,
+                    }}
+                />
+
+                <script>
+                    {`
+                        var _ss = _ss || [];
+                        _ss.push(['_setDomain', 'https://koi-3QNMWRHCZE.marketingautomation.services/net']);
+                        _ss.push(['_setAccount', 'KOI-4A7OKQL26G']);
+                        _ss.push(['_trackPageView']);
+                    (function() {
+                        var ss = document.createElement('script');
+                        ss.type = 'text/javascript'; ss.async = true;
+                        ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-3QNMWRHCZE.marketingautomation.services/client/ss.js?ver=2.4.0';
+                        var scr = document.getElementsByTagName('script')[0];
+                        scr.parentNode.insertBefore(ss, scr);
+                    })();
+                    `
+                    }
+                </script>
+
 
         </>
     )
