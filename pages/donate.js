@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import DonationForm from '../components/donation-form/donation-form'
+import Head from 'next/head'
 
 export default class MakeDonation extends Component {
     constructor(props) {
@@ -58,6 +59,19 @@ export default class MakeDonation extends Component {
 
     render() {
         return (
+           <>
+           <Head>
+                <title>{this.props.pageData.yoast_title}</title>
+                {
+                this.props.pageData.yoast_meta.map((meta) => (
+                    Object.keys(meta)[0] === "name"
+                    ?<meta name={meta.name}  content={meta.content}  />
+                    : Object.keys(meta)[0] === "property" 
+                    ? <meta property={meta.property} content={meta.content} />
+                    : ""
+                ))
+                }
+           </Head>
            <main className="donation__page">
 
                 <div className="hero__container hero__donation" >
@@ -132,7 +146,9 @@ export default class MakeDonation extends Component {
                     </div>
                 </div>
            </main>
-        )
+           </>
+            
+    )
     }
 }
 

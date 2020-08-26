@@ -147,6 +147,19 @@ keyOpen(e){
 
 render() {
     return (
+        <>
+        <Head>
+            <title>{this.props.pageData.yoast_title}</title>
+            {
+            this.props.pageData.yoast_meta.map((meta) => (
+                Object.keys(meta)[0] === "name"
+                ?<meta name={meta.name}  content={meta.content}  />
+                : Object.keys(meta)[0] === "property" 
+                ? <meta property={meta.property} content={meta.content} />
+                : ""
+            ))
+            }
+        </Head>
         <main className="page__contain__search impact__page">
             <div className="hero__container">
                 <div className="stm__background">
@@ -280,6 +293,7 @@ render() {
                 </div>
             </section>
         </main>
+        </>
     )
     }
 }

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
+
 
 export default class GettingStarted extends Component {
     constructor(props) {
@@ -760,7 +762,19 @@ export default class GettingStarted extends Component {
 
     render() {
         return (
-
+            <>
+            <Head>
+                <title>{this.props.pageData.yoast_title}</title>
+                {
+                this.props.pageData.yoast_meta.map((meta) => (
+                    Object.keys(meta)[0] === "name"
+                    ?<meta name={meta.name}  content={meta.content}  />
+                    : Object.keys(meta)[0] === "property" 
+                    ? <meta property={meta.property} content={meta.content} />
+                    : ""
+                ))
+                }
+            </Head>
             <main className={'getting__started'}>
                 <section id="main__hero">
                     <div className="main__hero__background">
@@ -1073,6 +1087,7 @@ export default class GettingStarted extends Component {
                     </div>
                 </section>
             </main>
+            </>
         )
     }
 }

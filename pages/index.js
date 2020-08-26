@@ -129,6 +129,8 @@ export default function Home(props) {
 
   useEffect(() => {
     setPressArticles(props.postData);
+
+    console.log(props.pageData)
   });
 
 
@@ -137,6 +139,17 @@ export default function Home(props) {
   return (
     <>
       <Head>
+        
+        <title>{props.pageData.yoast_title}</title>
+        {
+          props.pageData.yoast_meta.map((meta) => (
+            Object.keys(meta)[0] === "name"
+            ?<meta name={meta.name}  content={meta.content}  />
+            : Object.keys(meta)[0] === "property" 
+              ? <meta property={meta.property} content={meta.content} />
+              : ""
+          ))
+        }
         <style>{customStyles}</style>
       </Head>
       <main className="home__page">

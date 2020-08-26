@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Slider from "react-slick";
+import Head from 'next/head'
 
 export default class WhoWeAre extends Component {
 
@@ -189,6 +190,20 @@ export default class WhoWeAre extends Component {
         `
 
         return (
+            
+            <>
+            <Head>
+                <title>{this.props.pageData.yoast_title}</title>
+                {
+                this.props.pageData.yoast_meta.map((meta) => (
+                    Object.keys(meta)[0] === "name"
+                    ?<meta name={meta.name}  content={meta.content}  />
+                    : Object.keys(meta)[0] === "property" 
+                    ? <meta property={meta.property} content={meta.content} />
+                    : ""
+                ))
+                }
+            </Head>
             <main className="who__page">
                 <style>
                     {cityGridSize}
@@ -494,6 +509,7 @@ export default class WhoWeAre extends Component {
 
 
             </main>
+            </>
         )
     }
 }

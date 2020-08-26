@@ -6,6 +6,19 @@ import Link from 'next/link'
 export default function TheExperience(props) {
 
   return (
+    <>
+    <Head>
+        <title>{props.pageData.yoast_title}</title>
+        {
+        props.pageData.yoast_meta.map((meta) => (
+            Object.keys(meta)[0] === "name"
+            ?<meta name={meta.name}  content={meta.content}  />
+            : Object.keys(meta)[0] === "property" 
+            ? <meta property={meta.property} content={meta.content} />
+            : ""
+        ))
+        }
+    </Head>
     <main className="resources__page">
         <div className="hero__container">
             <div className="container">
@@ -58,6 +71,7 @@ export default function TheExperience(props) {
         </section>
 
     </main>
+    </>
   )
 }
 

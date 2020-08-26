@@ -23,11 +23,9 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
-                
+
                 <link rel="icon" href="/touch.png" />
-                <meta name="Description" content="The pandemic has disproportionately impacted our cities' most vulnerable residents and we all have a part to play in supporting our neighbors. The time is now to engage in critical racial justice work, tackle food insecurity, strengthen our education system, and combat social isolation. " />
                 <meta httpEquiv="Content-Language" content="en"/>
-                <title>Serve the Moment</title>
                 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
             </Head>
             <Header landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
