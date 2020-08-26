@@ -38,13 +38,13 @@ function MyApp({ Component, pageProps }) {
             }
             <Component {...pageProps} />
             <Footer partners={pageProps.partnerData} customClass={'bottom'} landingMenu={pageProps.landingMenu} menuItems={pageProps.mainMenu} masterElements={pageProps.masterElements} />
-            {/* <script type="text/javascript">
+            <script type="text/javascript">
                 {`var __ss_noform = __ss_noform || [];
                 __ss_noform.push(['baseURI', 'https://app-3QNMWRHCZE.marketingautomation.services/webforms/receivePostback/MzawMLEwMjM1BQA/']);
                 __ss_noform.push(['endpoint', '2634af05-920a-4055-9b6a-e4592ec85d29']);`
                 }
             </script>
-            <script type="text/javascript" src="https://koi-3QNMWRHCZE.marketingautomation.services/client/noform.js?ver=1.24" ></script> */}
+            <script type="text/javascript" src="https://koi-3QNMWRHCZE.marketingautomation.services/client/noform.js?ver=1.24" ></script>
 
         </>
     )
