@@ -2511,9 +2511,7 @@ $(document).on("click", " .card" , function() {
                         <div class="event__title">
                             <h2>${name}</h2>
                         </div>
-                        <div class="event__issue">
-                            <h2>${partner}</h2>
-                        </div>
+                        
                         <div class="event__description">
                             <p>${description[0].promo}</p>
                         </div>
