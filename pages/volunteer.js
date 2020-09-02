@@ -159,6 +159,9 @@ render() {
                 : ""
             ))
             }
+            <meta property="og:image" content="https://cms.servethemoment.org/wp-content/uploads/2020/08/DSC_1859.jpg"></meta>
+            <meta property="og:image:width" content="828"></meta>
+            <meta property="og:image:height" content="679"></meta>
         </Head>
         <main className="page__contain__search impact__page">
             <div className="hero__container">
