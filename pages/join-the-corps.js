@@ -265,7 +265,7 @@ export async function getServerSideProps() {
     const resData = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/pages/190`)
     const pageData = await resData.json()
   
-    const resDataFaqs = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/faqs`)
+    const resDataFaqs = await fetch(`${process.env.ProjectUrl}/wp-json/wp/v2/faqs?per_page=100`)
     const faqsData = await resDataFaqs.json()
 
     return {
