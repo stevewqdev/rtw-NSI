@@ -21,7 +21,6 @@ export default class DonationForm extends Component {
             object.target.value = object.target.value.slice(0, object.target.maxLength)
         }
     }
-
     next() {
         
 
@@ -486,8 +485,7 @@ export default class DonationForm extends Component {
         }, 100)
 
         
-    }
-    
+    }  
     toggleSelectPrice(event){
         
         [...document.querySelectorAll("#tfa_2-D .oneChoice")].map((element) => {
@@ -512,7 +510,6 @@ export default class DonationForm extends Component {
             event.target.classList.add("is_true");
         }
     }
-
     toggleFrequency(event){
         
         [...document.querySelectorAll("#tfa_16 .oneChoice")].map((element) => {
@@ -537,8 +534,6 @@ export default class DonationForm extends Component {
             event.target.classList.add("is_true");
         }
     }
-
-
     toggleTribute(event){
         document.getElementById("tfa_34").checked = false; 
         document.getElementById("tfa_33").checked = false; 
@@ -572,7 +567,6 @@ export default class DonationForm extends Component {
             target.checked = true; 
         }, 200)
     }
-
     toggleNotify(event){
         document.getElementById("tfa_38").checked = false; 
         document.getElementById("tfa_39").checked = false; 
@@ -614,7 +608,6 @@ export default class DonationForm extends Component {
         }, 200)
 
     }
-
     toggleSelectTrue(event){
         if(event.target.classList.contains("is_true")){
             event.target.classList.remove("is_true");
@@ -1531,10 +1524,10 @@ export default class DonationForm extends Component {
                                             <p className="supportInfo">
                                             </p>
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </main>
             </>
         )
