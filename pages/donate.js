@@ -37,7 +37,7 @@ export default class MakeDonation extends Component {
                 }); 
 
             }
-            
+
             setTimeout(() => {
                 // Prefill amount selected
                if(theParam[0] === "tfa_16" && theParam[1].length > 0  && theParam[1].length > 0 ){
@@ -49,7 +49,6 @@ export default class MakeDonation extends Component {
                if(theParam[0] === "tfa_2" && theParam[1].length > 0  && theParam[1].length > 0 ){
                    if(document.getElementById(`${theParam[1]}`)){
                        var selectedElement = document.getElementById(`${theParam[1]}`);
-                       selectedElement = selectedElement.parentNode;
                        selectedElement.click();
                    }
                }
