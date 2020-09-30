@@ -37,6 +37,58 @@ export default class MakeDonation extends Component {
                 }); 
 
             }
+            
+            setTimeout(() => {
+                // Prefill amount selected
+               if(theParam[0] === "tfa_16" && theParam[1].length > 0  && theParam[1].length > 0 ){
+                   if(document.getElementById(`${theParam[1]}`)){
+                       document.getElementById(`${theParam[1]}`).click();
+                   }
+               }
+       
+               if(theParam[0] === "tfa_2" && theParam[1].length > 0  && theParam[1].length > 0 ){
+                   if(document.getElementById(`${theParam[1]}`)){
+                       var selectedElement = document.getElementById(`${theParam[1]}`);
+                       selectedElement = selectedElement.parentNode;
+                       selectedElement.click();
+                   }
+               }
+       
+               if(theParam[0] === "tfa_14" && theParam[1].length > 0  && Number.isInteger(theParam[1]) ){
+                   document.getElementById("tfa_14").value = theParam[1]; 
+               }
+       
+               if(theParam[0] === "tfa_2188" && theParam[1].length > 0  && theParam[1].length > 0 ){
+                   var selectedElement = document.getElementById(`${theParam[0]}`);
+                   var selectedOption = document.getElementById(`${theParam[1]}`);
+       
+                   selectedElement.value = selectedOption.value;
+       
+                   var event = new Event('change');
+                   selectedElement.dispatchEvent(event);
+               }
+       
+               if(theParam[0] === "tfa_2584" && theParam[1].length > 0  && theParam[1].length > 0 ){
+                   var selectedElement = document.getElementById(`${theParam[0]}`);
+                   var selectedOption = document.getElementById(`${theParam[1]}`);
+       
+                   selectedElement.value = selectedOption.value;
+       
+                   var event = new Event('change');
+                   selectedElement.dispatchEvent(event);
+               }
+       
+               if(theParam[0] === "tfa_30" && theParam[1].length > 0  && theParam[1] === "true" ){
+                   document.getElementById("tfa_30").click();
+               }
+               if(theParam[0] === "tfa_38" && theParam[1].length > 0  && theParam[1] === "true" ){
+                   document.getElementById("tfa_38").click();
+               }
+               if(theParam[0] === "app" && theParam[1].length > 0  && theParam[1].length > 0 ){
+                   document.getElementById("tfa_2626").value = theParam[1];
+               }
+               
+            }, 100);
         })
        
         var allInputs = [...document.querySelectorAll("input")];
