@@ -357,17 +357,17 @@ export default class DonationForm extends Component {
             }
 
             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }else{
-                document.querySelectorAll(".slick-track")[0].style.height = `300px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `300px`;
             }
 
             if(document.getElementById("tfa_38").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `auto`;
             }
     
             if(document.getElementById("tfa_39").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }
 
             if(parseInt(newCurrentIndex) === 0){
@@ -397,7 +397,7 @@ export default class DonationForm extends Component {
         script.async = true;
         document.body.appendChild(script);
 
-        document.querySelectorAll(".slick-track")[0].style.height = `300px`;
+        //document.querySelectorAll(".slick-track")[0].style.height = `300px`;
 
         var newCurrentIndex = document.querySelectorAll(".slick-current")[0].getAttribute("data-index"); 
         if(parseInt(newCurrentIndex) === 0){
@@ -450,23 +450,23 @@ export default class DonationForm extends Component {
         // event.target.classList.add("selected");
         
         setTimeout(function(){
-            var prevHeight = document.querySelectorAll(".slick-track")[0].style.height.replace(/px/g, '').toLowerCase();
+            var prevHeight = //document.querySelectorAll(".slick-track")[0].style.height.replace(/px/g, '').toLowerCase();
             prevHeight = parseInt(prevHeight); 
             
             if(document.getElementById("tfa_13").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `345px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `345px`;
             }else{
                 if(!document.getElementById("tfa_13").classList.contains("is_true")){
-                    document.querySelectorAll(".slick-track")[0].style.height = `300px`;
+                    //document.querySelectorAll(".slick-track")[0].style.height = `300px`;
                 }
             }
 
             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }
 
             if(document.getElementById("tfa_38").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `auto`;
             }
 
             if([...document.querySelectorAll("#tfa_2-D .is_true")].length > 0){
@@ -599,11 +599,11 @@ export default class DonationForm extends Component {
             target.checked = true; 
 
             if(document.getElementById("tfa_38").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `auto`;
             }
     
             if(document.getElementById("tfa_39").classList.contains("is_true")){
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `700px`;
             }
         }, 200)
 
@@ -619,12 +619,12 @@ export default class DonationForm extends Component {
             if(event.target.parentElement.classList.contains("is__toggled")){
                 event.target.parentElement.classList.remove("is__toggled");
                 document.getElementById("tfa_34").classList.remove("is_true");
-                document.querySelectorAll(".slick-track")[0].style.height = `350px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `350px`;
 
             }else{
                 event.target.parentElement.classList.add("is__toggled");
                 document.getElementById("tfa_34").classList.add("is_true");
-                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                //document.querySelectorAll(".slick-track")[0].style.height = `700px`;
 
             }
         }
@@ -651,43 +651,43 @@ export default class DonationForm extends Component {
 
                     if (window.innerWidth < 800) {
                         if(parseInt(currentIndex) === 0){
-                            document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `auto`;
                         }else{
-                            document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
                         }
                         if(parseInt(currentIndex) === 1){
-                            document.querySelectorAll(".slick-track")[0].style.height = `900px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `900px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
                     }else if (window.innerWidth < 600) {
                         if(parseInt(currentIndex) === 0){
-                            document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `auto`;
                         }else{
-                            document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `${currentSlideHeight+50}px`;
                         }
                         if(parseInt(currentIndex) === 1){
-                            document.querySelectorAll(".slick-track")[0].style.height = `1500px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `1500px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
                     }
                     else{
                         if(parseInt(currentIndex) === 0){
                             if(document.getElementById("tfa_30").classList.contains("is_true")){
-                                document.querySelectorAll(".slick-track")[0].style.height = `700px`;
+                                //document.querySelectorAll(".slick-track")[0].style.height = `700px`;
                             }
                             if(document.getElementById("tfa_38").classList.contains("is_true")){
-                                document.querySelectorAll(".slick-track")[0].style.height = `auto`;
+                                //document.querySelectorAll(".slick-track")[0].style.height = `auto`;
                             }
                         }
                         if(parseInt(currentIndex) === 1){
-                            document.querySelectorAll(".slick-track")[0].style.height = `830px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `830px`;
                         }
                         if(parseInt(currentIndex) === 2){
-                            document.querySelectorAll(".slick-track")[0].style.height = `450px`;
+                            //document.querySelectorAll(".slick-track")[0].style.height = `450px`;
                         }
 
                         
@@ -1457,7 +1457,7 @@ export default class DonationForm extends Component {
                                                         
                                                        <input type="hidden" id="STRIPE_CHARGE_274127" name="STRIPE_CHARGE_274127" value="" class="" />
                                                         
-                                                       <input type="hidden" id="tfa_2626" name="tfa_2626" value="" class="" />
+                                                       <input type="hidden" id="tfa_2626" name="tfa_2626" class="" />
                                                         
                                                         <div id="Paypal_Hidden_Fields" className="section column group wf-acl-hidden">
                                                         <label className="label preField" id="Paypal_Hidden_Fields-L">Paypal_Hidden_Fields</label><br /><table className="columnLayout">

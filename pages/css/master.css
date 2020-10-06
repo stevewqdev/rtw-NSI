@@ -14,6 +14,12 @@
     max-width: 1550px;
     margin: auto;
 }
+.slick-slide{
+    height: 300px!important;
+}
+.slick-slide.slick-current{
+    height: auto!important;
+}
 h1{
     font-size: 100px;
     line-height: 90px;
