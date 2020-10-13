@@ -383,7 +383,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
         // Save the info on a variable
         let finalOption = option;
         // Clean, remove spaces and lowercase the info
-        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
         // Create the option with JS
         let theOption = `<option id="${finalOption}-${index}" value="${finalOption}" class="${finalOption}">${option}</option>`;
         // Insert the option into the html
@@ -398,7 +398,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
         // Save the info on a variable
         let finalOption = option;
         // Clean, remove spaces and lowercase the info
-        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
         // Create the option with JS
         let theOption = `<option value="${finalOption}" id="${finalOption}-${index}" class="${finalOption}">${option}</option>`;
         // Insert the option into the html
@@ -437,7 +437,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
     //     let finalOption = option;
     //     if( finalOption === 'New York'){
     //         // Clean, remove spaces and lowercase the info
-    //         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+    //         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
     //         // Create the option with JS
     //         let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="nyc" class="${finalOption} ${finalOption}-${index}">New York</option>`;
@@ -447,7 +447,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
     //         }
     //     }else{
     //         // Clean, remove spaces and lowercase the info
-    //         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+    //         finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
     //         // Create the option with JS
     //         let theOption = `<option id="${finalOption}-${index}" data-option-count="${index}" value="${finalOption}" class="${finalOption} ${finalOption}-${index}">${option}</option>`;
@@ -464,7 +464,7 @@ var apiCall = $.getJSON(`${apiLink}`, function(data) {
         // Save the info on a variable
         let finalOption = option;
         // Clean, remove spaces and lowercase the info
-        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
+        finalOption = finalOption.replace(/ /g, '').replace(/,/g, '').replace(/-/g, '').replace(/!/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase(); 
 
         // Create the option with JS
         let theOption = `<label class="tag-checkbox ${finalOption}" for=""><input type="checkbox" id="${finalOption}-${index}" class="${finalOption}" value="${finalOption}" data-info="${option}"> <span> ${option}</span></label>`;
@@ -1114,7 +1114,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             var city = $('.location_get');
             city = $(city)[0].innerHTML; 
             
-            city = city.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+            city = city.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
 
             var currentValue = $(`.city__input .nice-select .list [data-value="${city}"]`);
 
@@ -1143,7 +1143,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         if($('.issue_get').length){
             var interest = $('.issue_get');
             interest = $(interest)[0].innerHTML; 
-            interest = interest.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+            interest = interest.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
             var currentValue = $(`.interest__input .nice-select .list [data-value="${interest}"]`);
             if(currentValue.length){
                 searchData[2] = interest;
@@ -1158,7 +1158,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         if($('.partner_get').length){
             var partner = $('.partner_get');
             partner = $(partner)[0].innerHTML; 
-            partner = partner.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+            partner = partner.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
             var currentValue = $(`.partner__input .nice-select .list [data-value="${partner}"]`);
             if(currentValue.length){
                 searchData[5] = partner;
@@ -1178,7 +1178,7 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
         if($('.type_get').length){
             
             type = $('.type_get')[0].innerHTML; 
-            type = type.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
+            type = type.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').toLowerCase();
 
             if(type.length){
                 searchData[4] = type;
@@ -1461,20 +1461,20 @@ function curatedCards(data, searchData = null, removedTag = null){
                 data.issue = 'display:none';
             }
             // Clean, remove spaces and lowercase the info
-            theIssue = theIssue.replace(/ /g, '').replace(/,/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/\//g, '').replace(/\./g, '').replace(/-/g, ''.replace(/&/g, '').replace(/#/g, '')).replace(/'/g, '').replace(/!/g, '').toLowerCase();
+            theIssue = theIssue.replace(/ /g, '').replace(/,/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/\//g, '').replace(/\./g, '').replace(/-/g, ''.replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '')).replace(/'/g, '').replace(/!/g, '').toLowerCase();
             
             let theCity = data.city;
             // Clean, remove spaces and lowercase the info
-            theCity = theCity.replace(/ /g, '');theCity = theCity.replace(/,/g, ''.replace(/&/g, '').replace(/#/g, '')).replace(/'/g, '').replace(/-/g, '');theCity = theCity.replace(/\//g, '').replace(/-/g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '');theCity = theCity.replace(/\./g, '').toLowerCase();               
+            theCity = theCity.replace(/ /g, '');theCity = theCity.replace(/,/g, ''.replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '')).replace(/'/g, '').replace(/-/g, '');theCity = theCity.replace(/\//g, '').replace(/-/g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '');theCity = theCity.replace(/\./g, '').toLowerCase();               
     
             let theContext = data.context;
             // Clean, remove spaces and lowercase the info
-            theContext = theContext.replace(/ /g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '');theContext = theContext.replace(/,/g, '').replace(/-/g, ''.replace(/&/g, '').replace(/#/g, '')).replace(/'/g, '').replace(/!/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
+            theContext = theContext.replace(/ /g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '');theContext = theContext.replace(/,/g, '').replace(/-/g, ''.replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '')).replace(/'/g, '').replace(/!/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
             
 
             let thePartner = data.partner;
             // Clean, remove spaces and lowercase the info
-            thePartner = thePartner.replace(/ /g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '');thePartner = thePartner.replace(/,/g, '').replace(/-/g, ''.replace(/&/g, '').replace(/#/g, '')).replace(/'/g, '').replace(/!/g, '');thePartner = thePartner.replace(/\//g, '');thePartner = thePartner.replace(/\./g, '').toLowerCase();
+            thePartner = thePartner.replace(/ /g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '');thePartner = thePartner.replace(/,/g, '').replace(/-/g, ''.replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '')).replace(/'/g, '').replace(/!/g, '');thePartner = thePartner.replace(/\//g, '');thePartner = thePartner.replace(/\./g, '').toLowerCase();
 
             let theDate = new Date(data.date);
             theDate = new Date( theDate.getTime() + Math.abs(theDate.getTimezoneOffset()*60000) ) ;
@@ -1512,7 +1512,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                                  .replace(/\//g, '')
                                  .replace(/\./g, '')
                                  .replace(/-/g, '')
-                                 .replace(/&/g, '').replace(/#/g, '').replace(/'/g, '')
+                                 .replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '')
                                  .replace(/!/g, '')
                                  .toLowerCase();
                                  
@@ -1712,20 +1712,20 @@ function curatedCards(data, searchData = null, removedTag = null){
                     data.issue = 'display:none';
                 }
                 // Clean, remove spaces and lowercase the info
-                theIssue = theIssue.replace(/ /g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
+                theIssue = theIssue.replace(/ /g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase();
                 
                 let theCity = data.city;
                 
                 // Clean, remove spaces and lowercase the info
-                theCity = theCity.replace(/ /g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');theCity = theCity.replace(/,/g, '');theCity = theCity.replace(/\//g, '');theCity = theCity.replace(/\./g, '').toLowerCase();    
+                theCity = theCity.replace(/ /g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');theCity = theCity.replace(/,/g, '');theCity = theCity.replace(/\//g, '');theCity = theCity.replace(/\./g, '').toLowerCase();    
 
                 let theContext = data.context;
                 // Clean, remove spaces and lowercase the info
-                theContext = theContext.replace(/ /g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');theContext = theContext.replace(/,/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
+                theContext = theContext.replace(/ /g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');theContext = theContext.replace(/,/g, '');theContext = theContext.replace(/\//g, '');theContext = theContext.replace(/\./g, '').toLowerCase();
                 
                 let thePartner = data.partner;
                 // Clean, remove spaces and lowercase the info
-                thePartner = thePartner.replace(/ /g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');thePartner = thePartner.replace(/,/g, '');thePartner = thePartner.replace(/\//g, '');thePartner = thePartner.replace(/\./g, '').toLowerCase();
+                thePartner = thePartner.replace(/ /g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '');thePartner = thePartner.replace(/,/g, '');thePartner = thePartner.replace(/\//g, '');thePartner = thePartner.replace(/\./g, '').toLowerCase();
 
                 let theDate = new Date(data.date);
                 theDate = new Date( theDate.getTime() + Math.abs(theDate.getTimezoneOffset()*60000) ) ;
@@ -1758,7 +1758,7 @@ function curatedCards(data, searchData = null, removedTag = null){
                 // Create the context array for the classes of the event
                 var formatedContext = new Array();
                 cardContext.forEach(element => {
-                    element = element.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/&/g, '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '').toLowerCase();
+                    element = element.replace(/ /g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace(/&/g, '').replace("(", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/-/g, '').replace(/!/g, '').toLowerCase();
                     formatedContext.push(element);
                 });
 
