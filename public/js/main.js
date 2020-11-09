@@ -2978,7 +2978,10 @@ $(document).on("click", ".pagination-btn" , function() {
         var inputChecked = null;
     }
 
-    var searchData = new Array();
+    var searchData = JSON.parse(localStorage.getItem('searchData'));
+    if(searchData === null){
+       searchData = [];
+    }
     var datesArray = new Array('06/30/2019', '05/17/2019', '01/22/2019');
 
     var citySearch = $('.city__input .option.selected').attr('data-value');
