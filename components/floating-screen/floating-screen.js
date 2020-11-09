@@ -163,7 +163,7 @@ export default class FloatingScreen extends Component {
 
 
         paramsArrayCampaign.map((theParam) => {
-            if(theParam[0] === "campaign" && theParam[1].length > 0  && theParam[1] === "active"){
+            if(theParam[0] === "campaign" && theParam[1].length > 0  && theParam[1] === "active" || theParam[0] === "serve-now" && theParam[1].length > 0  && theParam[1] === "active"){
                 setTimeout(function(){
                     document.querySelectorAll(".floating__screen__selector")[0].classList.remove("fs__closed");
                     document.querySelectorAll(".floating__screen__selector")[0].classList.add("fs__opened");
@@ -220,7 +220,7 @@ export default class FloatingScreen extends Component {
                         <g id="Componente_2_1" data-name="Componente 2 – 1">
                             <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#00a99e"/>
                         </g>
-                        <text id="Active_Campaigns" data-name="Active Campaigns" transform="translate(28.761 188.951) rotate(90)" fill="#fff" fontSize="20" fontFamily="Poppins-Medium, Poppins" fontWeight="500"><tspan x="-93.12" y="0">Active Campaigns</tspan></text>
+                        <text id="Active_Campaigns" data-name="Active Campaigns" transform="translate(28.761 188.951) rotate(90)" fill="#fff" fontSize="20" fontFamily="Poppins-Medium, Poppins" fontWeight="500"><tspan x="-93.12" y="0">Active Campaign</tspan></text>
                         <g id="Grupo_1820" data-name="Grupo 1820" transform="translate(12.145 43.916)">
                             <path id="Trazado_2192" data-name="Trazado 2192" d="M49.817,85.148l-7.595-7.595L36.472,83.3l-.117.117-.117-.117L32.32,79.386l-.117-.117.117-.117L38.071,73.4,30.85,66.181A7.445,7.445,0,0,0,20.321,76.71L39.288,95.677l1.722-1.722L35.254,88.2l-.117-.117.117-.117.983-.983.117-.117.117.117,5.756,5.756,1.722-1.722L38.193,85.26l-.117-.117.117-.117,1.1-1.1L45.162,89.8l1.722-1.722-5.756-5.756-.117-.117.117-.117.978-.978L42.223,81l.117.117L48.1,86.869Z" transform="translate(-18.145 -64)" fill="#fff"/>
                             <path id="Trazado_2193" data-name="Trazado 2193" d="M43.895,81l5.756-5.756.117-.117.117.117,8.691,8.691L65.8,76.71A7.445,7.445,0,1,0,55.267,66.181L42.173,79.275Z" transform="translate(-25.685 -64)" fill="#fff"/>
@@ -290,7 +290,7 @@ export default class FloatingScreen extends Component {
                                 </p>
                             </div>
                             <div className={`${Styles.resources__button}`}>
-                                <a id="fsc_b2" href={`/`+this.props.screenData.acf.resource_cta_link.split("/")[3] + `?resource_cat=` + this.props.screenData.acf.window_category.slug.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() } tabIndex="-1">
+                                <a id="fsc_b2" href={`/all-resources?resource_cat=` + this.props.screenData.acf.window_category.slug.replace(/,/g, '') .replace(/-/g, '') .replace(/!/g, '').replace(/'/g, '').replace(/ /g, '').replace(/\//g, '').replace(/\./g, '').toLowerCase() } tabIndex="-1">
                                     <button className={`btn main-btn white-btn full__btn`} tabIndex="-1">
                                         <strong>
                                             {this.props.screenData.acf.resource_cta_text}
