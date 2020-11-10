@@ -84,10 +84,25 @@
 .resources{
     padding: 50px!important;
 }
+
+
+#Componente_3_1  .st0{fill:#00A99E;}
+#Componente_3_1  .st1{fill:#FFFFFF;}
+#Componente_3_1  .st2{font-family:'Poppins', sans-serif; font-weight: bold;}
+#Componente_3_1  .st3{font-size:12px;}
 .resources__button{
     width: 100%;
     position: relative;
     top: 25px;
+}
+#fsc_open svg {
+    enable-background:new 0 0 69 328;
+}
+#fsc_open svg{
+    height: 330px;
+}
+#Componente_2_1 {
+    fill: #00a99e;
 }
 .close_fs{
     right: -30px!important;
@@ -150,11 +165,17 @@
         margin-bottom: 20px;
     }
     .title h2{
-        font-size: 50px;
+        font-size: 33px;
         padding-left: 0px;
+        line-height: 30px;
+    }
+    .floating-screen .campaign{
+        background: white;
+        padding: 21px 10px;
     }
     .close_fs{
-        right: -10px!important;
+        right: -40px!important;
+    top: -40px;
     }
     .floating__screen__opener{
         left: -30px;

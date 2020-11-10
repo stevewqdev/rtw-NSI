@@ -213,19 +213,44 @@ export default class FloatingScreen extends Component {
     render() {
  
         return (
-            
+            <>
+            <style>
+                {
+                    `
+                    #fsc_open svg{
+                        height: 330px;
+                    }
+                    #Componente_2_1 {
+                        fill: #00a99e;
+                    }
+                    #fsc_open path {
+                        fill: white;
+                    }
+                    #fsc_open text{
+                        color: white;
+                        fill: white;
+                        font-size: 20px
+                    }
+                    `
+                }
+            </style>
             <div className={`${Styles.floating__screen} floating__screen__selector fs__closed`}>
                 <div id="fsc_open" className={`${Styles.floating__screen__opener}`} onClick={this.toggleMenu} aria-label="Show Active Campaign" tabIndex="0" role="button" onKeyPress={this.keyOpen} >
-                    <svg id="Componente_3_1" data-name="Componente 3 – 1" xmlns="http://www.w3.org/2000/svg" width="69" height="328" viewBox="0 0 69 328">
-                        <g id="Componente_2_1" data-name="Componente 2 – 1">
-                            <rect id="Rectángulo_362" data-name="Rectángulo 362" width="69" height="328" fill="#00a99e"/>
-                        </g>
-                        <text id="Active_Campaigns" data-name="Active Campaigns" transform="translate(28.761 188.951) rotate(90)" fill="#fff" fontSize="20" fontFamily="Poppins-Medium, Poppins" fontWeight="500"><tspan x="-93.12" y="0">Active Campaign</tspan></text>
-                        <g id="Grupo_1820" data-name="Grupo 1820" transform="translate(12.145 43.916)">
-                            <path id="Trazado_2192" data-name="Trazado 2192" d="M49.817,85.148l-7.595-7.595L36.472,83.3l-.117.117-.117-.117L32.32,79.386l-.117-.117.117-.117L38.071,73.4,30.85,66.181A7.445,7.445,0,0,0,20.321,76.71L39.288,95.677l1.722-1.722L35.254,88.2l-.117-.117.117-.117.983-.983.117-.117.117.117,5.756,5.756,1.722-1.722L38.193,85.26l-.117-.117.117-.117,1.1-1.1L45.162,89.8l1.722-1.722-5.756-5.756-.117-.117.117-.117.978-.978L42.223,81l.117.117L48.1,86.869Z" transform="translate(-18.145 -64)" fill="#fff"/>
-                            <path id="Trazado_2193" data-name="Trazado 2193" d="M43.895,81l5.756-5.756.117-.117.117.117,8.691,8.691L65.8,76.71A7.445,7.445,0,1,0,55.267,66.181L42.173,79.275Z" transform="translate(-25.685 -64)" fill="#fff"/>
-                        </g>
-                    </svg>
+                <svg version="1.1" id="Componente_3_1" xmlns="http://www.w3.org/2000/svg"  x="0px"
+                    y="0px" viewBox="0 0 69 328"  >
+                    
+                    <g id="Componente_2_1">
+                        <rect id="Rectángulo_362" class="st0" width="69" height="328"/>
+                    </g>
+                    <text transform="matrix(6.123234e-17 1 -1 6.123234e-17 28.6172 155.989)" class="st1 st2 st3">Serve Now</text>
+                    <g id="Grupo_1820" transform="translate(12.145 43.916)">
+                        <path id="Trazado_2192" class="st1" d="M32.9,86.8l-7.6-7.6L19.5,85l-0.1,0.1L19.3,85L15.4,81l-0.1-0.1l0.1-0.1l5.8-5.8l-7.2-7.2
+                            c-2.9-2.9-7.6-2.9-10.5,0s-2.9,7.6,0,10.5l19,19l1.7-1.7l-5.8-5.8l-0.1-0.1l0.1-0.1l1-1l0.1-0.1l0.1,0.1l5.8,5.8l1.7-1.7l-5.8-5.8
+                            l-0.1-0.1l0.1-0.1l1.1-1.1l5.9,5.9l1.7-1.7L24.2,84l-0.1-0.1l0.1-0.1l1-1l0.1-0.1l0.1,0.1l5.8,5.8L32.9,86.8z"/>
+                        <path id="Trazado_2193" class="st1" d="M19.4,82.7l5.8-5.8l0.1-0.1l0.1,0.1l8.7,8.7l7.2-7.2c2.9-2.9,2.9-7.6,0-10.5
+                            c-2.9-2.9-7.6-2.9-10.5,0L17.7,80.9L19.4,82.7z"/>
+                    </g>
+                </svg>
                 </div>
                 <div className={`container ${Styles.floating__screen__container}`} id="fsc" tabIndex="-1">
                     <div  id="fsc_close" className={`${Styles.close_fs} close__popup`} onKeyPress={this.keyOpen}  onClick={this.toggleMenu} tabIndex="-1" role="button" aria-label="close popup">
@@ -302,6 +327,7 @@ export default class FloatingScreen extends Component {
                     </div>
                 </div>
             </div>
+            </>
         )
     }
 }
