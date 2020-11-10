@@ -229,7 +229,7 @@ export default class FloatingScreen extends Component {
                     #fsc_open text{
                         color: white;
                         fill: white;
-                        font-size: 20px
+                        font-size: 16px
                     }
                     `
                 }
@@ -242,7 +242,7 @@ export default class FloatingScreen extends Component {
                     <g id="Componente_2_1">
                         <rect id="Rectángulo_362" class="st0" width="69" height="328"/>
                     </g>
-                    <text transform="matrix(6.123234e-17 1 -1 6.123234e-17 28.6172 155.989)" class="st1 st2 st3">Serve Now</text>
+                    <text transform="matrix(6.123234e-17 1 -1 6.123234e-17 28.6172 155.989)" class="st1 st2 st3">SERVE NOW</text>
                     <g id="Grupo_1820" transform="translate(12.145 43.916)">
                         <path id="Trazado_2192" class="st1" d="M32.9,86.8l-7.6-7.6L19.5,85l-0.1,0.1L19.3,85L15.4,81l-0.1-0.1l0.1-0.1l5.8-5.8l-7.2-7.2
                             c-2.9-2.9-7.6-2.9-10.5,0s-2.9,7.6,0,10.5l19,19l1.7-1.7l-5.8-5.8l-0.1-0.1l0.1-0.1l1-1l0.1-0.1l0.1,0.1l5.8,5.8l1.7-1.7l-5.8-5.8
