@@ -847,10 +847,7 @@ function changePage(number, cards){
     }else{
         var numberPerPage = 2;
     }
-    // Array for the dates
-    var searchData = new Array();
-    //var datesArray = new Array('06/30/2019', '05/17/2019', '01/22/2019');
-    var searchData = new Array();
+
     var inputOptions = Array.from($( ".issues__wrapper .select_options input:checked" ));
     
     if(inputOptions.length){
@@ -877,14 +874,26 @@ function changePage(number, cards){
     datesArray.push(dateSearch);
     datesArray.sort();
     
-    searchData.push(citySearch);
-    searchData.push(inputChecked);
-    searchData.push(interestSearch);
-    searchData.push(datesArray);
-    searchData.push(typeEvent);
-    searchData.push(partnerSearch);
+    searchData =  JSON.parse(localStorage.getItem('searchData'));
 
-    localStorage.setItem('searchData', JSON.stringify(searchData));
+    if(searchData === null){
+        searchData = [];
+        searchData.push(citySearch);
+        searchData.push(inputChecked);
+        searchData.push(interestSearch);
+        searchData.push(datesArray);
+        searchData.push(typeEvent);
+ 
+ 
+         if(searchData[3][0] === null || searchData[3][0] === undefined ){
+             TimeRange = false;
+         }else{
+             TimeRange = true;
+         }
+     }else{
+ 
+    }
+
     apiCallData =  JSON.parse(localStorage.getItem('cards'));
 
     if(searchData[3][0] === null || searchData[3][0] === undefined ){
@@ -1147,6 +1156,9 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             var currentValue = $(`.interest__input .nice-select .list [data-value="${interest}"]`);
             if(currentValue.length){
                 searchData[2] = interest;
+
+                $(`.${interest}`).prop('selected', true);
+
                 $(`.interest__input .nice-select .list li`).removeClass('selected');
                 $(`.interest__input .nice-select .list [data-value="${interest}"]`).addClass('selected');
                 currentValue = currentValue[0].innerHTML;
@@ -1186,6 +1198,8 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
                 searchData[4] = type;
             }
         }
+
+        localStorage.setItem('searchData', JSON.stringify(searchData));
     }   
 
     setTimeout(function(){
@@ -2727,17 +2741,17 @@ $('#search-events').click(function(event){
     searchData.push(typeEvent);
     searchData.push(partnerSearch);
 
-    
-    localStorage.setItem('searchData', JSON.stringify(searchData));
-    
-
-    apiCallData =  JSON.parse(localStorage.getItem('cards'));
+    console.log(searchData);
 
     if(searchData[3][0] === null || searchData[3][0] === undefined ){
         TimeRange = false;
     }else{
         TimeRange = true;
     }
+    
+    localStorage.setItem('searchData', JSON.stringify(searchData));
+    
+    apiCallData =  JSON.parse(localStorage.getItem('cards'));
     
     theCards = formatDataEvents(apiCallData, searchData, null,  TimeRange);
 
