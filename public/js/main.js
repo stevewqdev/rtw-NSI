@@ -1135,6 +1135,9 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
                 currentValue = currentValue[0].innerHTML;
                 $(`.city__input .nice-select .current`)[0].innerHTML = currentValue;
 
+                
+                $(`.${city}`).prop('selected', true);
+
                 if(city === 'nyc'){
                     searchData[0] = ['harlem', 'brooklyn', 'ny'];
                 }else{
@@ -1173,6 +1176,9 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             partner = partner.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace("@", '').replace("#", '').replace("$", '').replace("%", '').replace("^", '').replace("*", '').replace("_", '').replace("+", '').replace("<", '').replace(">", '').replace("§", '').replace("±", '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace("(", '').replace("[", '').replace("]", '').replace("'", '').replace("`", '').replace("!", '').replace("?", '').replace(";", '').replace(";", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').replace("¡", '').replace("™", '').replace("£", '').replace("¢", '').replace("∞", '').replace("¶", '').replace("•", '').replace("ª", '').replace("º", '').replace("≠", '').replace("“", '').replace("‘", '').replace("æ", '').replace("«", '').replace("…", '').replace("≤", '').replace("≥", '').replace("÷", '').replace("œ", '').replace("∑", '').replace("´", '').replace("®", '').replace("†", '').replace("¥", '').replace("¨", '').replace("ˆ", '').replace("ø", '').replace("π", '').replace("å", '').replace("ß", '').replace("∂", '').replace("ƒ", '').replace("©", '').replace("˙", '').replace("∆", '').replace("˚", '').replace("¬", '').replace("≈", '').replace("ç", '').replace("√", '').replace("∫", '').replace("˜", '').replace("µ", '').toLowerCase();
             var currentValue = $(`.partner__input .nice-select .list [data-value="${partner}"]`);
             if(currentValue.length){
+
+                $(`.${partner}`).prop('selected', true);
+                
                 searchData[5] = partner;
                 $(`.partner__input .nice-select .list li`).removeClass('selected');
                 $(`.partner__input .nice-select .list [data-value="${partner}"]`).addClass('selected');
@@ -1191,6 +1197,8 @@ function formatDataEvents(data, searchData = null, removedTag = null, TimeRange 
             
             type = $('.type_get')[0].innerHTML; 
             type = type.replace(/ /g, '').replace(/↵/g, '').replace(/,/g, '').replace(/\//g, '').replace(/\./g, '').replace("@", '').replace("#", '').replace("$", '').replace("%", '').replace("^", '').replace("*", '').replace("_", '').replace("+", '').replace("<", '').replace(">", '').replace("§", '').replace("±", '').replace(/\\n/g, '').replace(/\n/g, '').replace(/-/g, '').replace(/&/g, '').replace("(", '').replace("[", '').replace("]", '').replace("'", '').replace("`", '').replace("!", '').replace("?", '').replace(";", '').replace(";", '').replace(")", '').replace(/#/g, '').replace(/'/g, '').replace(/!/g, '').replace("¡", '').replace("™", '').replace("£", '').replace("¢", '').replace("∞", '').replace("¶", '').replace("•", '').replace("ª", '').replace("º", '').replace("≠", '').replace("“", '').replace("‘", '').replace("æ", '').replace("«", '').replace("…", '').replace("≤", '').replace("≥", '').replace("÷", '').replace("œ", '').replace("∑", '').replace("´", '').replace("®", '').replace("†", '').replace("¥", '').replace("¨", '').replace("ˆ", '').replace("ø", '').replace("π", '').replace("å", '').replace("ß", '').replace("∂", '').replace("ƒ", '').replace("©", '').replace("˙", '').replace("∆", '').replace("˚", '').replace("¬", '').replace("≈", '').replace("ç", '').replace("√", '').replace("∫", '').replace("˜", '').replace("µ", '').toLowerCase();
+
+            $(`.${type}`).prop('selected', true);
 
             if(type.length){
                 searchData[4] = type;
