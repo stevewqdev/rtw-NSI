@@ -5,9 +5,7 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "export": "next export",
-    "deploy": "npm run build && npm run export",
-    "start": "next start"
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "axios": "^0.19.2",
