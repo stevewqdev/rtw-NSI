@@ -216,6 +216,9 @@
     }
 }
 @media(max-width: 768px){
+    .experience__page .the__faq.open .description {
+        height: auto;
+    }
     .hero__container .hero__content__image img {
         padding-left: 30px;
         object-fit: cover;
