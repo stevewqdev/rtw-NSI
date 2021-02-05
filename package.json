@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next",
-    "build": "next build"
+    "build": "next build",
+    "postbuild": "next-on-netlify"
   },
   "dependencies": {
     "axios": "^0.19.2",
